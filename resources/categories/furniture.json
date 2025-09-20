@@ -1,0 +1,11 @@
+{
+    "key": "furniture",
+    "locales": {
+        "en_US": {
+            "name": "Furniture"
+        },
+        "de_DE": {
+            "name": "Möbel"
+        }
+    }
+}

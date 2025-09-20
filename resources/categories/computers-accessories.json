@@ -1,0 +1,11 @@
+{
+    "key": "computers-accessories",
+    "locales": {
+        "en_US": {
+            "name": "Computers & Accessories"
+        },
+        "de_DE": {
+            "name": "Computer & Zubehör"
+        }
+    }
+}

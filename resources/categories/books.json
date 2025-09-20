@@ -1,0 +1,11 @@
+{
+    "key": "books",
+    "locales": {
+        "en_US": {
+            "name": "Books"
+        },
+        "de_DE": {
+            "name": "Bücher"
+        }
+    }
+}

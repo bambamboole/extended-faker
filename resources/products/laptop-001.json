@@ -1,0 +1,16 @@
+{
+    "sku": "LAPTOP-001",
+    "category_group": "electronics",
+    "locales": {
+        "en_US": {
+            "name": "MacBook Air M2 13-inch",
+            "description": "Revolutionary laptop powered by Apple's M2 chip, delivering exceptional performance with incredible battery life. Ideal for creative professionals and students alike.",
+            "category": "computers-accessories"
+        },
+        "de_DE": {
+            "name": "MacBook Air M2",
+            "description": "Revolutionärer Laptop mit Apple M2 Chip, der außergewöhnliche Leistung bei unglaublicher Energieeffizienz bietet. Ideal für kreative Profis.",
+            "category": "computers-accessories"
+        }
+    }
+}

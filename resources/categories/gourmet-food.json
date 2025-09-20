@@ -1,0 +1,11 @@
+{
+    "key": "gourmet-food",
+    "locales": {
+        "en_US": {
+            "name": "Gourmet Food"
+        },
+        "de_DE": {
+            "name": "Süßwaren"
+        }
+    }
+}

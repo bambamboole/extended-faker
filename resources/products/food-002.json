@@ -1,0 +1,16 @@
+{
+    "sku": "FOOD-002",
+    "category_group": "food",
+    "locales": {
+        "en_US": {
+            "name": "Ghirardelli Dark Chocolate",
+            "description": "Rich dark chocolate made with ethically sourced cocoa beans. Indulge in the perfect balance of sweetness and intensity.",
+            "category": "gourmet-food"
+        },
+        "de_DE": {
+            "name": "Ritter Sport Schokolade",
+            "description": "Zarte Vollmilchschokolade mit gerösteten Haselnüssen aus nachhaltiger Produktion. Ein Genuss für alle Sinne.",
+            "category": "gourmet-food"
+        }
+    }
+}

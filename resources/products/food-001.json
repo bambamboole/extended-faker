@@ -1,0 +1,16 @@
+{
+    "sku": "FOOD-001",
+    "category_group": "food",
+    "locales": {
+        "en_US": {
+            "name": "Starbucks Pike Place Coffee",
+            "description": "Medium roast coffee blend with notes of cocoa and toasted nuts. Enjoy the signature Starbucks taste at home.",
+            "category": "coffee-tea"
+        },
+        "de_DE": {
+            "name": "Starbucks Pike Place Kaffee",
+            "description": "Mittlere Röstung mit Noten von Kakao und gerösteten Nüssen. Genießen Sie den charakteristischen Starbucks-Geschmack zu Hause.",
+            "category": "coffee-tea"
+        }
+    }
+}

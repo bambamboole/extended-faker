@@ -1,0 +1,11 @@
+{
+    "key": "snacks-candy",
+    "locales": {
+        "en_US": {
+            "name": "Snacks & Candy"
+        },
+        "de_DE": {
+            "name": "Süßwaren"
+        }
+    }
+}

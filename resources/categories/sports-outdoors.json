@@ -1,0 +1,11 @@
+{
+    "key": "sports-outdoors",
+    "locales": {
+        "en_US": {
+            "name": "Sports & Outdoors"
+        },
+        "de_DE": {
+            "name": "Sport & Freizeit"
+        }
+    }
+}

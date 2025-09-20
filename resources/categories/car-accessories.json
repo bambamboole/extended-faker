@@ -1,0 +1,11 @@
+{
+    "key": "car-accessories",
+    "locales": {
+        "en_US": {
+            "name": "Car Accessories"
+        },
+        "de_DE": {
+            "name": "Autozubehör"
+        }
+    }
+}

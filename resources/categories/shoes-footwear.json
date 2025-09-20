@@ -1,0 +1,11 @@
+{
+    "key": "shoes-footwear",
+    "locales": {
+        "en_US": {
+            "name": "Shoes & Footwear"
+        },
+        "de_DE": {
+            "name": "Schuhe"
+        }
+    }
+}

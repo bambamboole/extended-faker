@@ -1,0 +1,16 @@
+{
+    "sku": "HOME-001",
+    "category_group": "home",
+    "locales": {
+        "en_US": {
+            "name": "Dyson V15 Detect Cordless Vacuum",
+            "description": "Powerful cordless vacuum with laser dust detection and advanced filtration. Clean your home more efficiently than ever before.",
+            "category": "home-garden"
+        },
+        "de_DE": {
+            "name": "Dyson V15 Detect Staubsauger",
+            "description": "Kabelloser Staubsauger mit Laser-Stauberkennung und fortschrittlicher Filtration. Reinigen Sie Ihr Zuhause effizienter denn je.",
+            "category": "home-garden"
+        }
+    }
+}

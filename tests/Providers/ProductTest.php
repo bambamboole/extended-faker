@@ -32,10 +32,12 @@ test('product returns complete array', function () {
 
     expect($product)
         ->toBeArray()
-        ->toHaveKeys(['name', 'description', 'category'])
+        ->toHaveKeys(['name', 'description', 'category', 'sku', 'category_group'])
         ->and($product['name'])->toBeString()->not->toBeEmpty()
         ->and($product['description'])->toBeString()->not->toBeEmpty()
-        ->and($product['category'])->toBeString()->not->toBeEmpty();
+        ->and($product['category'])->toBeString()->not->toBeEmpty()
+        ->and($product['sku'])->toBeString()->not->toBeEmpty()
+        ->and($product['category_group'])->toBeString()->not->toBeEmpty();
 });
 
 test('product name varies between calls', function () {
@@ -64,29 +66,16 @@ test('product description varies between calls', function () {
     expect(count($uniqueDescriptions))->toBeGreaterThan(1, 'Product descriptions should vary between calls');
 });
 
-test('product uses default data', function () {
+test('product uses repository data', function () {
     $productName = $this->faker->productName();
     $category = $this->faker->productCategory();
 
-    // Test that we get data from the base provider's default arrays
-    expect($productName)->toBeIn([
-        'Generic Product',
-        'Standard Item',
-        'Basic Product',
-        'Essential Item',
-        'Universal Product',
-    ]);
+    // Test that we get data from the repository (actual product names)
+    $availableNames = $this->faker->getAvailableProductNames();
+    expect($availableNames)->toContain($productName);
 
-    expect($category)->toBeIn([
-        'Electronics',
-        'Clothing',
-        'Home & Garden',
-        'Books',
-        'Food',
-        'Sports',
-        'Automotive',
-        'Health',
-    ]);
+    // Test actual categories exist in the system
+    expect($category)->toBeString()->not->toBeEmpty();
 });
 
 test('methods are callable', function () {
@@ -103,43 +92,44 @@ test('methods are callable', function () {
         ->and(fn() => $this->faker->product())
         ->not->toThrow(Exception::class)
         ->and($this->faker->product())->toBeArray();
-
 });
 
-// Product Lookup Functionality Tests
+// SKU-Based Functionality Tests
 
 test('product name with specific name returns same name', function () {
-    $productName = $this->faker->productName('Standard Item');
+    $productName = $this->faker->productName('Samsung Galaxy S24 Ultra 5G');
 
-    expect($productName)->toBe('Standard Item');
+    expect($productName)->toBe('Samsung Galaxy S24 Ultra 5G');
 });
 
 test('product description with specific name returns consistent description', function () {
-    $description = $this->faker->productDescription('Standard Item');
+    $description = $this->faker->productDescription('Samsung Galaxy S24 Ultra 5G');
 
-    expect($description)->toBe('Professional-grade item with excellent durability.');
+    expect($description)->toBe('Cutting-edge smartphone featuring a 6.8-inch Dynamic AMOLED display, 200MP camera system, and up to 1TB storage. Perfect for photography enthusiasts and power users.');
 });
 
 test('product category with specific name returns consistent category', function () {
-    $category = $this->faker->productCategory('Standard Item');
+    $category = $this->faker->productCategory('Samsung Galaxy S24 Ultra 5G');
 
-    expect($category)->toBe('Clothing');
+    expect($category)->toBe('Cell Phones & Smartphones');
 });
 
 test('product with specific name returns complete consistent data', function () {
-    $product = $this->faker->product('Standard Item');
+    $product = $this->faker->product('Samsung Galaxy S24 Ultra 5G');
 
     expect($product)
         ->toBeArray()
-        ->toHaveKeys(['name', 'description', 'category'])
-        ->and($product['name'])->toBe('Standard Item')
-        ->and($product['description'])->toBe('Professional-grade item with excellent durability.')
-        ->and($product['category'])->toBe('Clothing');
+        ->toHaveKeys(['name', 'description', 'category', 'sku', 'category_group'])
+        ->and($product['name'])->toBe('Samsung Galaxy S24 Ultra 5G')
+        ->and($product['description'])->toBe('Cutting-edge smartphone featuring a 6.8-inch Dynamic AMOLED display, 200MP camera system, and up to 1TB storage. Perfect for photography enthusiasts and power users.')
+        ->and($product['category'])->toBe('Cell Phones & Smartphones')
+        ->and($product['sku'])->toBe('PHONE-001')
+        ->and($product['category_group'])->toBe('electronics');
 });
 
 test('product lookup maintains data consistency', function () {
     // Test that all methods return consistent data for same product name
-    $name = 'Generic Product';
+    $name = 'Samsung Galaxy S24 Ultra 5G';
 
     $productName = $this->faker->productName($name);
     $description = $this->faker->productDescription($name);
@@ -181,9 +171,9 @@ test('get available product names returns array of strings', function () {
 test('get available product names contains expected products', function () {
     $availableNames = $this->faker->getAvailableProductNames();
 
-    expect($availableNames)->toContain('Generic Product');
-    expect($availableNames)->toContain('Standard Item');
-    expect($availableNames)->toContain('Basic Product');
+    expect($availableNames)->toContain('Samsung Galaxy S24 Ultra 5G');
+    expect($availableNames)->toContain('MacBook Air M2 13-inch');
+    expect($availableNames)->toContain('Instant Pot Duo 7-in-1');
 });
 
 test('all available product names can be looked up', function () {
@@ -197,4 +187,80 @@ test('all available product names can be looked up', function () {
         $product = $this->faker->product($name);
         expect($product['name'])->toBe($name);
     }
+});
+
+// SKU-Based Methods Tests
+
+test('product by sku returns correct product', function () {
+    $product = $this->faker->productBySku('PHONE-001');
+
+    expect($product)
+        ->toBeArray()
+        ->toHaveKeys(['name', 'description', 'category', 'sku', 'category_group'])
+        ->and($product['sku'])->toBe('PHONE-001')
+        ->and($product['name'])->toBe('Samsung Galaxy S24 Ultra 5G');
+});
+
+test('get product sku returns correct sku', function () {
+    $sku = $this->faker->getProductSku('Samsung Galaxy S24 Ultra 5G');
+
+    expect($sku)->toBe('PHONE-001');
+});
+
+test('get product in locale works correctly', function () {
+    $englishProduct = $this->faker->getProductInLocale('PHONE-001', 'en_US');
+    $germanProduct = $this->faker->getProductInLocale('PHONE-001', 'de_DE');
+
+    expect($englishProduct['name'])->toBe('Samsung Galaxy S24 Ultra 5G');
+    expect($germanProduct['name'])->toBe('Samsung Galaxy S24 Ultra');
+    expect($englishProduct['sku'])->toBe($germanProduct['sku'])->toBe('PHONE-001');
+});
+
+test('get available skus returns array of skus', function () {
+    $skus = $this->faker->getAvailableSkus();
+
+    expect($skus)
+        ->toBeArray()
+        ->not->toBeEmpty()
+        ->toContain('PHONE-001')
+        ->toContain('LAPTOP-001')
+        ->toContain('KITCHEN-001');
+});
+
+test('get supported locales returns correct locales', function () {
+    $locales = $this->faker->getSupportedLocales();
+
+    expect($locales)
+        ->toBeArray()
+        ->toContain('en_US')
+        ->toContain('de_DE');
+});
+
+test('has product in locale works correctly', function () {
+    expect($this->faker->hasProductInLocale('PHONE-001', 'en_US'))->toBeTrue();
+    expect($this->faker->hasProductInLocale('PHONE-001', 'de_DE'))->toBeTrue();
+    expect($this->faker->hasProductInLocale('NONEXISTENT-001', 'en_US'))->toBeFalse();
+});
+
+test('get products by category group works correctly', function () {
+    $electronicsProducts = $this->faker->getProductsByCategoryGroup('electronics');
+
+    expect($electronicsProducts)
+        ->toBeArray()
+        ->not->toBeEmpty();
+
+    foreach ($electronicsProducts as $product) {
+        expect($product['category_group'])->toBe('electronics');
+    }
+});
+
+test('get all category groups returns array', function () {
+    $categoryGroups = $this->faker->getAllCategoryGroups();
+
+    expect($categoryGroups)
+        ->toBeArray()
+        ->not->toBeEmpty()
+        ->toContain('electronics')
+        ->toContain('fashion')
+        ->toContain('home');
 });

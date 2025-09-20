@@ -1,0 +1,11 @@
+{
+    "key": "music",
+    "locales": {
+        "en_US": {
+            "name": "Music"
+        },
+        "de_DE": {
+            "name": "Musik"
+        }
+    }
+}

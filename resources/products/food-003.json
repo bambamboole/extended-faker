@@ -1,0 +1,16 @@
+{
+    "sku": "FOOD-003",
+    "category_group": "food",
+    "locales": {
+        "en_US": {
+            "name": "KIND Protein Bars Variety Pack",
+            "description": "Protein-packed energy bars made with real ingredients. Fuel your active lifestyle with delicious, nutritious snacks.",
+            "category": "snacks-candy"
+        },
+        "de_DE": {
+            "name": "Haribo Goldbären 200g",
+            "description": "Fruchtig-süße Gummibärchen in den klassischen fünf Geschmacksrichtungen. Der beliebte Snack für Groß und Klein.",
+            "category": "snacks-candy"
+        }
+    }
+}

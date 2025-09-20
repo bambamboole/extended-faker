@@ -1,0 +1,11 @@
+{
+    "key": "electronics",
+    "locales": {
+        "en_US": {
+            "name": "Electronics"
+        },
+        "de_DE": {
+            "name": "Computer & Zubehör"
+        }
+    }
+}

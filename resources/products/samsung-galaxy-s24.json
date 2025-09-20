@@ -1,0 +1,16 @@
+{
+    "sku": "PHONE-001",
+    "category_group": "electronics",
+    "locales": {
+        "en_US": {
+            "name": "Samsung Galaxy S24 Ultra 5G",
+            "description": "Cutting-edge smartphone featuring a 6.8-inch Dynamic AMOLED display, 200MP camera system, and up to 1TB storage. Perfect for photography enthusiasts and power users.",
+            "category": "cell-phones-smartphones"
+        },
+        "de_DE": {
+            "name": "Samsung Galaxy S24 Ultra",
+            "description": "Hochmodernes Smartphone mit 6,8 Zoll Dynamic AMOLED Display, 200MP Kamera und bis zu 1TB Speicher. Perfekt für Fotografen und Tech-Enthusiasten.",
+            "category": "cell-phones-smartphones"
+        }
+    }
+}

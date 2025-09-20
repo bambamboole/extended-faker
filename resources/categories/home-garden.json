@@ -1,0 +1,11 @@
+{
+    "key": "home-garden",
+    "locales": {
+        "en_US": {
+            "name": "Home & Garden"
+        },
+        "de_DE": {
+            "name": "Küche & Haushalt"
+        }
+    }
+}

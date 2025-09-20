@@ -1,0 +1,11 @@
+{
+    "key": "skin-care",
+    "locales": {
+        "en_US": {
+            "name": "Skin Care"
+        },
+        "de_DE": {
+            "name": "Körperpflege"
+        }
+    }
+}

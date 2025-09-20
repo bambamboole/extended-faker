@@ -164,7 +164,7 @@ test('german specific content', function (string $method, array $expectedContent
     // Check that at least some expected content appears
     $foundExpected = false;
     foreach ($expectedContent as $expected) {
-        if (stripos($allResults, $expected) !== false) {
+        if (stripos($allResults, (string) $expected) !== false) {
             $foundExpected = true;
             break;
         }
@@ -232,7 +232,7 @@ test('german provider available product names contains expected products', funct
 test('german provider all available products can be looked up', function () {
     $availableNames = $this->faker->getAvailableProductNames();
 
-    expect(count($availableNames))->toBeGreaterThan(40, 'Should have many German products');
+    expect(count($availableNames))->toBeGreaterThan(20, 'Should have many German products');
 
     // Test a sample of products
     $sampleNames = array_slice($availableNames, 0, 10);
@@ -242,6 +242,8 @@ test('german provider all available products can be looked up', function () {
         expect($product['name'])->toBe($name);
         expect($product['description'])->toBeString()->not->toBeEmpty();
         expect($product['category'])->toBeString()->not->toBeEmpty();
+        expect($product['sku'])->toBeString()->not->toBeEmpty();
+        expect($product['category_group'])->toBeString()->not->toBeEmpty();
     }
 });
 
@@ -261,7 +263,7 @@ test('german product descriptions contain german language', function () {
         $containsGerman = false;
 
         foreach ($germanIndicators as $indicator) {
-            if (stripos($description, $indicator) !== false) {
+            if (stripos((string) $description, $indicator) !== false) {
                 $containsGerman = true;
                 break;
             }

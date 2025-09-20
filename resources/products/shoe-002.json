@@ -1,0 +1,16 @@
+{
+    "sku": "SHOE-002",
+    "category_group": "fashion",
+    "locales": {
+        "en_US": {
+            "name": "Nike Air Force 1 Low",
+            "description": "Legendary basketball shoes with premium leather construction and Air-Sole cushioning. A streetwear icon for over four decades.",
+            "category": "shoes-footwear"
+        },
+        "de_DE": {
+            "name": "Nike Air Max 90 Sneaker",
+            "description": "Ikonische Laufschuhe mit sichtbarer Air-Dämpfung und zeitlosem Design. Ein Streetwear-Klassiker seit Jahrzehnten.",
+            "category": "shoes-footwear"
+        }
+    }
+}

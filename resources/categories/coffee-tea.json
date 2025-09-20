@@ -1,0 +1,11 @@
+{
+    "key": "coffee-tea",
+    "locales": {
+        "en_US": {
+            "name": "Coffee & Tea"
+        },
+        "de_DE": {
+            "name": "Getränke"
+        }
+    }
+}

@@ -199,7 +199,7 @@ test('english specific content', function (string $method, array $expectedConten
     // Check that at least some expected content appears
     $foundExpected = false;
     foreach ($expectedContent as $expected) {
-        if (stripos($allResults, $expected) !== false) {
+        if (stripos($allResults, (string) $expected) !== false) {
             $foundExpected = true;
             break;
         }
@@ -285,7 +285,7 @@ test('english provider available product names contains expected products', func
 test('english provider all available products can be looked up', function () {
     $availableNames = $this->faker->getAvailableProductNames();
 
-    expect(count($availableNames))->toBeGreaterThan(50, 'Should have many English products');
+    expect(count($availableNames))->toBeGreaterThan(20, 'Should have many English products');
 
     // Test a sample of products
     $sampleNames = array_slice($availableNames, 0, 10);
@@ -295,6 +295,8 @@ test('english provider all available products can be looked up', function () {
         expect($product['name'])->toBe($name);
         expect($product['description'])->toBeString()->not->toBeEmpty();
         expect($product['category'])->toBeString()->not->toBeEmpty();
+        expect($product['sku'])->toBeString()->not->toBeEmpty();
+        expect($product['category_group'])->toBeString()->not->toBeEmpty();
     }
 });
 

@@ -1,0 +1,11 @@
+{
+    "key": "kitchen-dining",
+    "locales": {
+        "en_US": {
+            "name": "Kitchen & Dining"
+        },
+        "de_DE": {
+            "name": "Küche & Haushalt"
+        }
+    }
+}

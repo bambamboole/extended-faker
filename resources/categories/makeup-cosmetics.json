@@ -1,0 +1,11 @@
+{
+    "key": "makeup-cosmetics",
+    "locales": {
+        "en_US": {
+            "name": "Makeup & Cosmetics"
+        },
+        "de_DE": {
+            "name": "Parfüm & Kosmetik"
+        }
+    }
+}

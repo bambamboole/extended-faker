@@ -1,0 +1,16 @@
+{
+    "sku": "LAPTOP-002",
+    "category_group": "electronics",
+    "locales": {
+        "en_US": {
+            "name": "Dell XPS 13 Plus Laptop",
+            "description": "Premium ultrabook with stunning InfinityEdge display and latest Intel processors. Engineered for productivity and designed for portability.",
+            "category": "computers-accessories"
+        },
+        "de_DE": {
+            "name": "Dell XPS 13 Laptop",
+            "description": "Premium Ultrabook mit randlosem InfinityEdge Display und modernsten Intel Prozessoren. Für Produktivität und Mobilität konzipiert.",
+            "category": "computers-accessories"
+        }
+    }
+}

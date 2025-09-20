@@ -1,0 +1,16 @@
+{
+    "sku": "BEAUTY-002",
+    "category_group": "beauty",
+    "locales": {
+        "en_US": {
+            "name": "Fenty Beauty Foundation",
+            "description": "Long-wearing foundation with extensive shade range and buildable coverage. Inclusive beauty for all skin tones.",
+            "category": "makeup-cosmetics"
+        },
+        "de_DE": {
+            "name": "Fenty Beauty Foundation",
+            "description": "Langanhaltende Foundation mit großer Farbauswahl und aufbaubarer Deckkraft. Inklusive Schönheit für alle Hauttöne.",
+            "category": "makeup-cosmetics"
+        }
+    }
+}

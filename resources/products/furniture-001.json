@@ -1,0 +1,16 @@
+{
+    "sku": "FURNITURE-001",
+    "category_group": "home",
+    "locales": {
+        "en_US": {
+            "name": "IKEA Billy Bookcase",
+            "description": "Classic bookcase with adjustable shelves and sustainable wood construction. Simple assembly and timeless design for any room.",
+            "category": "furniture"
+        },
+        "de_DE": {
+            "name": "IKEA Billy Bücherregal",
+            "description": "Praktisches Bücherregal aus nachhaltiger Forstwirtschaft mit verstellbaren Einlegeböden. Einfache Montage dank IKEA-System.",
+            "category": "furniture"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "key": "mens-clothing",
+    "locales": {
+        "en_US": {
+            "name": "Men's Clothing"
+        },
+        "de_DE": {
+            "name": "Herrenmode"
+        }
+    }
+}

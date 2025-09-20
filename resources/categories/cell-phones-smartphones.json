@@ -1,0 +1,11 @@
+{
+    "key": "cell-phones-smartphones",
+    "locales": {
+        "en_US": {
+            "name": "Cell Phones & Smartphones"
+        },
+        "de_DE": {
+            "name": "Smartphones & Handys"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "key": "athletic-apparel",
+    "locales": {
+        "en_US": {
+            "name": "Athletic Apparel"
+        },
+        "de_DE": {
+            "name": "Sportbekleidung"
+        }
+    }
+}

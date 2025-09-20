@@ -1,0 +1,16 @@
+{
+    "sku": "AUTO-001",
+    "category_group": "automotive",
+    "locales": {
+        "en_US": {
+            "name": "WeatherTech Floor Mats",
+            "description": "Custom-fit floor mats with superior protection against dirt, water, and wear. Premium automotive accessories made in USA.",
+            "category": "car-accessories"
+        },
+        "de_DE": {
+            "name": "WeatherTech Fußmatten",
+            "description": "Maßgeschneiderte Fußmatten mit überlegenem Schutz vor Schmutz, Wasser und Abnutzung. Premium Autozubehör made in USA.",
+            "category": "car-accessories"
+        }
+    }
+}

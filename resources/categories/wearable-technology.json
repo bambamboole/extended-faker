@@ -1,0 +1,11 @@
+{
+    "key": "wearable-technology",
+    "locales": {
+        "en_US": {
+            "name": "Wearable Technology"
+        },
+        "de_DE": {
+            "name": "TV & Audio"
+        }
+    }
+}
