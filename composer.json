@@ -1,0 +1,27 @@
+{
+  "name": "bambamboole/extended-faker",
+  "type": "library",
+  "require": {
+    "php": ">=8.2.0",
+    "fakerphp/faker": "^1.24"
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.8"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Bambamboole\\ExtendedFaker\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
