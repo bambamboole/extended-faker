@@ -12,6 +12,8 @@ print-width = 120
 tab-width = 4
 use-tabs = false
 null-type-hint = 'question'
+empty-line-after-declare = false
+empty-line-after-opening-tag = false
 
 [linter]
 integrations = []

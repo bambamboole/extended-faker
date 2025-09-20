@@ -24,6 +24,9 @@
     }
   },
   "scripts": {
+    "@post-autoload-dump": [
+      "@mago:install-binary"
+    ],
     "test": "vendor/bin/pest",
     "test:coverage": "vendor/bin/pest --coverage-html coverage",
     "test:ci": "vendor/bin/pest --coverage-clover coverage.xml",
@@ -31,6 +34,7 @@
     "phpstan:baseline": "vendor/bin/phpstan analyse --generate-baseline --memory-limit=4G",
     "rector": "vendor/bin/rector",
     "lint": [
+      "vendor/bin/mago fmt",
       "@rector",
       "@phpstan:analyse"
     ],
