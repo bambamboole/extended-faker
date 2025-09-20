@@ -2,14 +2,18 @@
 namespace Bambamboole\ExtendedFaker;
 
 use Bambamboole\ExtendedFaker\Providers as Providers;
+use Faker\Generator;
 
 class ExtendedFaker
 {
-    public static function extend(\Faker\Generator $faker): void
+    public static function extend(Generator $faker, string $locale = 'en_US'): void
     {
-        $faker->addProvider(new Providers\en_US\Product($faker));
-        $faker->addProvider(new Providers\en_US\Category($faker));
-        $faker->addProvider(new Providers\de_DE\Product($faker));
-        $faker->addProvider(new Providers\de_DE\Category($faker));
+        if (str_starts_with($locale, 'de')) {
+            $faker->addProvider(new Providers\de_DE\Product($faker));
+            $faker->addProvider(new Providers\de_DE\Category($faker));
+        } else {
+            $faker->addProvider(new Providers\en_US\Product($faker));
+            $faker->addProvider(new Providers\en_US\Category($faker));
+        }
     }
 }
