@@ -1,0 +1,20 @@
+{
+    "sku": "DUNKIN-001",
+    "category": "coffee-tea",
+    "variants": {
+        "blend": ["Original", "French Vanilla", "Hazelnut", "Decaf"],
+        "roast": ["Medium", "Dark"],
+        "size": ["12oz", "20oz", "40oz"],
+        "format": ["Ground", "K-Cups", "Whole Bean"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Dunkin' {blend} {roast} Roast {format} {size}",
+            "description": "{roast} roast {blend} coffee in {format} format, {size} size. America's favorite coffee for over 70 years with smooth, classic taste perfect for everyday brewing."
+        },
+        "de_DE": {
+            "name": "Dunkin' {blend} {roast} Röstung {format} {size}",
+            "description": "{roast} Röstung {blend} Kaffee als {format}, {size} Größe. Amerikas Lieblingskaffee seit über 70 Jahren mit weichem, klassischem Geschmack."
+        }
+    }
+}

@@ -3,7 +3,7 @@ namespace Bambamboole\ExtendedFaker\Repository;
 
 abstract class JsonFileRepository
 {
-    private static array $caches = [];
+    protected static array $caches = [];
 
     public function __construct(
         protected string $resourceSubPath,
@@ -60,6 +60,10 @@ abstract class JsonFileRepository
     {
         if (isset(self::$caches[static::class])) {
             unset(self::$caches[static::class]);
+        }
+        $expandedKey = static::class . '_expanded';
+        if (isset(self::$caches[$expandedKey])) {
+            unset(self::$caches[$expandedKey]);
         }
     }
 }

@@ -1,0 +1,19 @@
+{
+    "sku": "COLDBREW-001",
+    "category": "coffee-tea",
+    "variants": {
+        "strength": ["Original", "Strong", "Extra Strong"],
+        "size": ["12oz", "32oz", "64oz"],
+        "format": ["Concentrate", "Ready-to-Drink", "Powder"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Blue Bottle New Orleans {strength} Cold Brew {format} {size}",
+            "description": "Cold-brew coffee {format} in {strength} strength, {size} size. Features a hint of chicory and vanilla with bold, smooth taste inspired by classic New Orleans style."
+        },
+        "de_DE": {
+            "name": "Blue Bottle New Orleans {strength} Cold Brew {format} {size}",
+            "description": "Cold-Brew-Kaffee {format} in {strength} Stärke, {size} Größe. Mit einem Hauch von Chicorée und Vanille nach New Orleans Art."
+        }
+    }
+}

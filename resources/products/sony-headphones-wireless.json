@@ -1,0 +1,19 @@
+{
+    "sku": "SONY-HEADPHONES-001",
+    "category": "electronics",
+    "variants": {
+        "model": ["WH-1000XM5", "WH-1000XM4", "WH-CH720N"],
+        "color": ["Black", "Silver", "Blue", "Beige"],
+        "feature": ["Standard", "Touch Controls", "Voice Assistant", "Hi-Res Audio"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Sony {model} Wireless Headphones {color} {feature}",
+            "description": "Industry-leading noise canceling {model} headphones in {color} with {feature} capability. Features exceptional sound quality and 30-hour battery life."
+        },
+        "de_DE": {
+            "name": "Sony {model} Drahtlose Kopfhörer {color} {feature}",
+            "description": "Branchenführende Noise-Cancelling {model} Kopfhörer in {color} mit {feature} Funktion. Außergewöhnliche Klangqualität und 30 Stunden Akkulaufzeit."
+        }
+    }
+}

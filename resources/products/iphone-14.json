@@ -1,0 +1,18 @@
+{
+    "sku": "PHONE-004",
+    "category": "cell-phones-smartphones",
+    "variants": {
+        "storage": ["128GB", "256GB", "512GB"],
+        "color": ["Midnight", "Starlight", "Product Red", "Purple"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "iPhone 14 {storage} {color}",
+            "description": "Advanced smartphone with {storage} storage in {color}. Features A16 Bionic chip, dual-camera system, and all-day battery life."
+        },
+        "de_DE": {
+            "name": "iPhone 14 {storage} {color}",
+            "description": "Fortschrittliches Smartphone mit {storage} Speicher in {color}. Mit A16 Bionic Chip, Dual-Kamera-System und ganztägiger Akkulaufzeit."
+        }
+    }
+}

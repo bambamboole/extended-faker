@@ -1,14 +1,18 @@
 {
     "sku": "PHONE-003",
     "category": "cell-phones-smartphones",
+    "variants": {
+        "storage": ["128GB", "256GB", "512GB"],
+        "color": ["Obsidian", "Porcelain", "Bay", "Mint"]
+    },
     "locales": {
         "en_US": {
-            "name": "Google Pixel 8 Pro",
-            "description": "AI-powered smartphone with advanced camera system and pure Android experience. Capture stunning photos with computational photography."
+            "name": "Google Pixel 8 Pro {storage} {color}",
+            "description": "AI-powered smartphone with {storage} storage in {color}. Features advanced camera system, pure Android experience, and computational photography."
         },
         "de_DE": {
-            "name": "Google Pixel 8 Pro",
-            "description": "KI-gestütztes Smartphone mit fortschrittlichem Kamera-System und purem Android-Erlebnis. Beeindruckende Fotos durch Computer-Fotografie."
+            "name": "Google Pixel 8 Pro {storage} {color}",
+            "description": "KI-gestütztes Smartphone mit {storage} Speicher in {color}. Mit fortschrittlichem Kamera-System und purem Android-Erlebnis."
         }
     }
 }

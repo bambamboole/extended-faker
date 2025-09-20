@@ -1,0 +1,19 @@
+{
+    "sku": "JACKET-002",
+    "category": "clothing-apparel",
+    "variants": {
+        "size": ["S", "M", "L", "XL", "XXL", "XXXL"],
+        "color": ["Carhartt Brown", "Black", "Navy", "Moss", "Dark Coffee"],
+        "lining": ["Blanket Lined", "Quilt Lined", "Arctic Lined", "Unlined"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Carhartt Duck Detroit {color} {lining} Jacket Size {size}",
+            "description": "Durable {color} work jacket with {lining} interior, size {size}. Made from 12-ounce cotton duck fabric with triple-stitched main seams for maximum durability."
+        },
+        "de_DE": {
+            "name": "Carhartt Duck Detroit {color} {lining} Arbeitsjacke Größe {size}",
+            "description": "Strapazierfähige {color} Arbeitsjacke mit {lining} Futter, Größe {size}. Aus 12-Unzen Baumwoll-Duck-Gewebe mit dreifach genähten Hauptnähten."
+        }
+    }
+}

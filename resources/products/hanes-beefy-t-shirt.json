@@ -1,0 +1,19 @@
+{
+    "sku": "TSHIRT-001",
+    "category": "clothing-apparel",
+    "variants": {
+        "size": ["XS", "S", "M", "L", "XL", "XXL"],
+        "color": ["White", "Black", "Navy", "Gray", "Red", "Royal Blue"],
+        "fit": ["Regular", "Relaxed"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Hanes Beefy-T {color} {fit} Fit T-Shirt Size {size}",
+            "description": "Classic heavyweight {color} t-shirt in {fit} fit, size {size}. Made from 100% cotton with reinforced seams for durability and comfort."
+        },
+        "de_DE": {
+            "name": "Hanes Beefy-T {color} {fit} Passform T-Shirt Größe {size}",
+            "description": "Klassisches robustes {color} T-Shirt in {fit} Passform, Größe {size}. Aus 100% Baumwolle mit verstärkten Nähten."
+        }
+    }
+}

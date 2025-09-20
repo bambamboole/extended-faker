@@ -1,0 +1,19 @@
+{
+    "sku": "PULLOVER-001",
+    "category": "clothing-apparel",
+    "variants": {
+        "size": ["XS", "S", "M", "L", "XL", "XXL"],
+        "color": ["Black", "Gray", "Navy", "Maroon", "Forest Green", "White"],
+        "material": ["Cotton Blend", "Fleece", "French Terry"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Champion Powerblend {color} {material} Hoodie Size {size}",
+            "description": "Comfortable {color} hoodie in {material} fabric, size {size}. Features ribbed cuffs and hem with kangaroo pocket for warmth and style."
+        },
+        "de_DE": {
+            "name": "Champion Powerblend {color} {material} Kapuzenpullover Größe {size}",
+            "description": "Bequemer {color} Kapuzenpullover aus {material} Stoff, Größe {size}. Mit gerippten Bündchen und Känguru-Tasche."
+        }
+    }
+}

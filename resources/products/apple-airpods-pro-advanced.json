@@ -1,0 +1,19 @@
+{
+    "sku": "AIRPODS-PRO-001",
+    "category": "wearable-technology",
+    "variants": {
+        "generation": ["2nd Gen", "3rd Gen", "Max"],
+        "color": ["White", "Space Gray", "Midnight", "Starlight"],
+        "feature": ["Standard", "Transparency Mode", "Conversation Awareness", "Adaptive Audio"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Apple AirPods Pro {generation} {color} {feature}",
+            "description": "Premium wireless earbuds {generation} in {color} with {feature} technology. Features active noise cancellation, spatial audio, and MagSafe charging case."
+        },
+        "de_DE": {
+            "name": "Apple AirPods Pro {generation} {color} {feature}",
+            "description": "Premium kabellose Earbuds {generation} in {color} mit {feature} Technologie. Mit aktiver Geräuschunterdrückung, räumlichem Audio und MagSafe-Ladehülle."
+        }
+    }
+}

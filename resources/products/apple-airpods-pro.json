@@ -1,0 +1,19 @@
+{
+    "sku": "AIRPODS-001",
+    "category": "wearable-technology",
+    "variants": {
+        "case": ["MagSafe", "Lightning", "Wireless Charging"],
+        "color": ["White", "Space Gray", "Pink", "Midnight"],
+        "capacity": ["Standard", "USB-C", "Premium"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Apple AirPods Pro 2nd Gen {color} {capacity} {case} Case",
+            "description": "Advanced wireless earbuds in {color} with {capacity} features and {case} charging case. Includes active noise cancellation and spatial audio in a compact design."
+        },
+        "de_DE": {
+            "name": "Apple AirPods Pro 2. Gen {color} {capacity} {case} Hülle",
+            "description": "Fortschrittliche kabellose Earbuds in {color} mit {capacity} Funktionen und {case} Ladehülle. Mit aktiver Geräuschunterdrückung und 3D-Audio."
+        }
+    }
+}

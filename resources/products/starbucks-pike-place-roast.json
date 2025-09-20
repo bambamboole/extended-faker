@@ -1,0 +1,19 @@
+{
+    "sku": "FOOD-001",
+    "category": "coffee-tea",
+    "variants": {
+        "roast": ["Light", "Medium", "Dark"],
+        "size": ["12oz", "1lb", "2lb"],
+        "grind": ["Whole Bean", "Ground"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Starbucks Pike Place {roast} Roast {size} {grind}",
+            "description": "{roast} roast coffee blend in {size} {grind} format. Enjoy the signature Starbucks taste with notes of cocoa and toasted nuts."
+        },
+        "de_DE": {
+            "name": "Starbucks Pike Place {roast} Röstung {size} {grind}",
+            "description": "{roast} Röstung in {size} {grind} Format. Genießen Sie den charakteristischen Starbucks-Geschmack mit Noten von Kakao."
+        }
+    }
+}

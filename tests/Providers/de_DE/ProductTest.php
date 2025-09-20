@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Providers\de_DE\Product;
 use Faker\Factory as FakerFactory;
 
@@ -10,8 +11,8 @@ beforeEach(function () {
 
 test('german provider returns german content', function () {
     $product = $this->faker->product();
-    expect($product)->toHaveKeys(['name', 'description', 'category', 'sku']);
-    expect($product['name'])->toBeString()->not->toBeEmpty();
+    expect($product)->toBeInstanceOf(ProductDto::class);
+    expect($product->name)->toBeString()->not->toBeEmpty();
 });
 
 test('german provider inherits from base', function () {

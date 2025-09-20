@@ -1,0 +1,18 @@
+{
+    "sku": "SHOE-001",
+    "category": "shoes-footwear",
+    "variants": {
+        "size": ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12", "US 13"],
+        "color": ["White/Green", "White/Black", "Navy/White", "Black/White"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Adidas Stan Smith {color} Size {size}",
+            "description": "Iconic leather sneakers in {color} colorway, size {size}. A true classic that combines comfort, style, and versatility for any occasion."
+        },
+        "de_DE": {
+            "name": "Adidas Originals Stan Smith {color} Größe {size}",
+            "description": "Legendäre Sneaker in {color}, Größe {size}. Ein echter Klassiker, der Komfort und Style perfekt vereint."
+        }
+    }
+}

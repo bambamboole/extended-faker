@@ -1,0 +1,18 @@
+{
+    "sku": "PHONE-005",
+    "category": "cell-phones-smartphones",
+    "variants": {
+        "storage": ["256GB", "512GB", "1TB"],
+        "color": ["Flowy Emerald", "Silky Black", "Rock Grey"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "OnePlus 12 {storage} {color}",
+            "description": "Flagship smartphone with {storage} storage in {color}. Features Snapdragon 8 Gen 3, 120Hz OLED display, and ultra-fast charging."
+        },
+        "de_DE": {
+            "name": "OnePlus 12 {storage} {color}",
+            "description": "Flaggschiff-Smartphone mit {storage} Speicher in {color}. Mit Snapdragon 8 Gen 3, 120Hz OLED-Display und ultraschnellem Laden."
+        }
+    }
+}

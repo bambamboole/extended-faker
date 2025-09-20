@@ -1,0 +1,19 @@
+{
+    "sku": "PROTEIN-001",
+    "category": "snacks-candy",
+    "variants": {
+        "flavor": ["Dark Chocolate Nuts", "Peanut Butter", "Caramel Almond", "Double Dark Chocolate"],
+        "protein": ["12g", "15g", "20g"],
+        "pack": ["Single Bar", "6-Pack", "12-Pack"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "KIND {flavor} Protein Bar {protein} {pack}",
+            "description": "Protein-packed {flavor} energy bar with {protein} protein per bar. Made with real ingredients to fuel your active lifestyle. Available in {pack} size."
+        },
+        "de_DE": {
+            "name": "KIND {flavor} Proteinriegel {protein} {pack}",
+            "description": "Proteinreicher {flavor} Energieriegel mit {protein} Protein pro Riegel. Aus echten Zutaten für Ihren aktiven Lebensstil. Erhältlich als {pack}."
+        }
+    }
+}

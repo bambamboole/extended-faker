@@ -1,0 +1,19 @@
+{
+    "sku": "SKINCARE-001",
+    "category": "skin-care",
+    "variants": {
+        "skin_type": ["Normal", "Dry", "Oily", "Sensitive"],
+        "size": ["50ml", "150ml", "340ml"],
+        "formula": ["Original", "SPF 30", "Night Renewal"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "CeraVe {formula} Moisturizing Cream {skin_type} Skin {size}",
+            "description": "Daily {formula} moisturizing cream for {skin_type} skin in {size} size. Features essential ceramides and hyaluronic acid, dermatologist-recommended for healthy skin."
+        },
+        "de_DE": {
+            "name": "CeraVe {formula} Feuchtigkeitscreme {skin_type} Haut {size}",
+            "description": "Tägliche {formula} Feuchtigkeitscreme für {skin_type} Haut in {size} Größe. Mit essentiellen Ceramiden und Hyaluronsäure."
+        }
+    }
+}

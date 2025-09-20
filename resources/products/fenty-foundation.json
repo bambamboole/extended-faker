@@ -1,0 +1,19 @@
+{
+    "sku": "FOUNDATION-001",
+    "category": "makeup-cosmetics",
+    "variants": {
+        "shade": ["110 Fair", "150 Light", "200 Medium", "300 Dark", "400 Deep", "450 Rich"],
+        "finish": ["Matte", "Natural", "Dewy"],
+        "size": ["32ml", "50ml"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Fenty Beauty Pro Filt'r Foundation {shade} {finish} {size}",
+            "description": "Long-wearing {finish} foundation in shade {shade}, {size} size. Features buildable coverage and extensive shade range for inclusive beauty across all skin tones."
+        },
+        "de_DE": {
+            "name": "Fenty Beauty Pro Filt'r Foundation {shade} {finish} {size}",
+            "description": "Langanhaltende {finish} Foundation in Farbe {shade}, {size} Größe. Mit aufbaubarer Deckkraft und großer Farbauswahl für alle Hauttöne."
+        }
+    }
+}

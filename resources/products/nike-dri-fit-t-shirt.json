@@ -1,0 +1,19 @@
+{
+    "sku": "TSHIRT-002",
+    "category": "clothing-apparel",
+    "variants": {
+        "size": ["XS", "S", "M", "L", "XL", "XXL"],
+        "color": ["Black", "White", "Navy", "Gray", "Red", "Green", "Blue"],
+        "style": ["Standard", "Legend", "Academy", "Park VII"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Nike Dri-FIT {style} {color} T-Shirt Size {size}",
+            "description": "Performance {color} t-shirt in {style} design, size {size}. Nike Dri-FIT technology moves sweat away from your skin for quicker evaporation."
+        },
+        "de_DE": {
+            "name": "Nike Dri-FIT {style} {color} T-Shirt Größe {size}",
+            "description": "Performance {color} T-Shirt im {style} Design, Größe {size}. Nike Dri-FIT Technologie leitet Schweiß für schnelleres Verdunsten ab."
+        }
+    }
+}

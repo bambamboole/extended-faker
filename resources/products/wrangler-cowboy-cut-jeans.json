@@ -1,0 +1,19 @@
+{
+    "sku": "JEANS-002",
+    "category": "clothing-apparel",
+    "variants": {
+        "waist": ["28", "30", "32", "34", "36", "38", "40", "42"],
+        "length": ["30", "32", "34", "36"],
+        "fit": ["Original", "Slim", "Bootcut", "Regular"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Wrangler Cowboy Cut {fit} Jeans {waist}x{length}",
+            "description": "Authentic western {fit} jeans in size {waist}x{length}. Built tough for the working cowboy with reinforced stress points and classic styling."
+        },
+        "de_DE": {
+            "name": "Wrangler Cowboy Cut {fit} Jeans {waist}x{length}",
+            "description": "Authentische Western {fit} Jeans in Größe {waist}x{length}. Robust gebaut für harte Arbeit mit verstärkten Belastungspunkten."
+        }
+    }
+}

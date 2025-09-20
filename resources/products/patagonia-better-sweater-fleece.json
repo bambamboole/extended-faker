@@ -1,0 +1,19 @@
+{
+    "sku": "PULLOVER-002",
+    "category": "clothing-apparel",
+    "variants": {
+        "size": ["XS", "S", "M", "L", "XL", "XXL"],
+        "color": ["Black", "Navy", "Stonewash", "Industrial Green", "Classic Red", "Oatmeal Heather"],
+        "style": ["Quarter-Zip", "Full-Zip", "Crew Neck"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Patagonia Better Sweater {color} {style} Fleece Size {size}",
+            "description": "Sustainable {color} fleece pullover in {style} design, size {size}. Made from recycled polyester with classic sweater-knit aesthetic."
+        },
+        "de_DE": {
+            "name": "Patagonia Better Sweater {color} {style} Fleece Größe {size}",
+            "description": "Nachhaltiger {color} Fleece-Pullover im {style} Design, Größe {size}. Aus recyceltem Polyester mit klassischer Pullover-Optik."
+        }
+    }
+}

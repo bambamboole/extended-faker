@@ -1,0 +1,19 @@
+{
+    "sku": "LAPTOP-001",
+    "category": "computers-accessories",
+    "variants": {
+        "memory": ["8GB", "16GB", "24GB"],
+        "storage": ["256GB", "512GB", "1TB", "2TB"],
+        "color": ["Space Gray", "Silver", "Starlight", "Midnight"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "MacBook Air M2 {memory}/{storage} {color}",
+            "description": "Revolutionary laptop with {memory} memory and {storage} storage in {color}. Powered by Apple's M2 chip with exceptional performance and incredible battery life."
+        },
+        "de_DE": {
+            "name": "MacBook Air M2 {memory}/{storage} {color}",
+            "description": "Revolutionärer Laptop mit {memory} Arbeitsspeicher und {storage} Speicher in {color}. Mit Apple M2 Chip für außergewöhnliche Leistung."
+        }
+    }
+}

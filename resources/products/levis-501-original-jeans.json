@@ -1,0 +1,19 @@
+{
+    "sku": "JEANS-001",
+    "category": "clothing-apparel",
+    "variants": {
+        "waist": ["28", "30", "32", "34", "36", "38", "40", "42"],
+        "length": ["30", "32", "34", "36"],
+        "wash": ["Dark Stonewash", "Light Stonewash", "Black", "Raw Denim", "Vintage Blue"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Levi's 501 Original {wash} Jeans {waist}x{length}",
+            "description": "Classic straight-leg {wash} jeans in size {waist}x{length}. The original button-fly jean with authentic fit and timeless style since 1873."
+        },
+        "de_DE": {
+            "name": "Levi's 501 Original {wash} Jeans {waist}x{length}",
+            "description": "Klassische gerade {wash} Jeans in Größe {waist}x{length}. Die originale Knopfleisten-Jeans mit authentischer Passform seit 1873."
+        }
+    }
+}

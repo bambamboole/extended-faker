@@ -1,0 +1,19 @@
+{
+    "sku": "HEADPHONES-001",
+    "category": "wearable-technology",
+    "variants": {
+        "color": ["Black", "Silver", "Midnight Blue", "Platinum Silver"],
+        "connectivity": ["Bluetooth", "Wired", "Bluetooth + Wired"],
+        "edition": ["Standard", "Limited Edition", "Travel Edition"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Sony WH-1000XM5 {edition} Headphones {color} {connectivity}",
+            "description": "Industry-leading noise-canceling {edition} headphones in {color} with {connectivity} connectivity. Features 30-hour battery life and premium sound quality."
+        },
+        "de_DE": {
+            "name": "Sony WH-1000XM5 {edition} Kopfhörer {color} {connectivity}",
+            "description": "Branchenführende Noise-Cancelling {edition} Kopfhörer in {color} mit {connectivity} Konnektivität. 30 Stunden Akkulaufzeit und Premium-Sound."
+        }
+    }
+}

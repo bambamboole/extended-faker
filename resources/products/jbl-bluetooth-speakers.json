@@ -1,0 +1,19 @@
+{
+    "sku": "SPEAKER-001",
+    "category": "electronics",
+    "variants": {
+        "model": ["Charge 5", "Flip 6", "Xtreme 3", "Clip 4"],
+        "color": ["Black", "Blue", "Red", "Green", "Gray", "Teal"],
+        "feature": ["Standard", "Waterproof", "Extra Bass", "PartyBoost"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "JBL {model} Portable Bluetooth Speaker {color} {feature}",
+            "description": "Waterproof portable {model} speaker in {color} with {feature} technology. Features 20+ hours of playtime and built-in powerbank for bold sound wherever you go."
+        },
+        "de_DE": {
+            "name": "JBL {model} Tragbarer Bluetooth-Lautsprecher {color} {feature}",
+            "description": "Wasserdichter tragbarer {model} Lautsprecher in {color} mit {feature} Technologie. 20+ Stunden Wiedergabezeit und integrierte Powerbank."
+        }
+    }
+}

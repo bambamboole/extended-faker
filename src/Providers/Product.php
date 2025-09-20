@@ -2,6 +2,7 @@
 
 namespace Bambamboole\ExtendedFaker\Providers;
 
+use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Repository\ProductRepository;
 use Faker\Provider\Base;
 
@@ -15,7 +16,7 @@ abstract class Product extends Base
         $this->repository = new ProductRepository();
     }
 
-    private function findProduct(?string $identifier): ?array
+    private function findProduct(?string $identifier): ?ProductDto
     {
         if ($identifier === null) {
             return $this->repository->getRandomProduct($this->getLocale());
@@ -36,7 +37,7 @@ abstract class Product extends Base
                 return 'Generic Product';
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
-        return $product['name'];
+        return $product->name;
     }
 
     public function productDescription(?string $identifier = null): string
@@ -47,7 +48,7 @@ abstract class Product extends Base
                 return 'A high-quality product designed for everyday use.';
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
-        return $product['description'];
+        return $product->description;
     }
 
     public function productCategory(?string $identifier = null): string
@@ -58,27 +59,27 @@ abstract class Product extends Base
                 return 'Electronics';
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
-        return $product['category'];
+        return $product->category;
     }
 
-    public function product(?string $identifier = null): array
+    public function product(?string $identifier = null): ProductDto
     {
         $product = $this->findProduct($identifier);
         if (!$product) {
             if ($identifier === null) {
-                return [
-                    'name' => 'Generic Product',
-                    'description' => 'A high-quality product designed for everyday use.',
-                    'category' => 'Electronics',
-                    'sku' => 'GENERIC-001',
-                ];
+                return new ProductDto(
+                    'GENERIC-001',
+                    'Generic Product',
+                    'A high-quality product designed for everyday use.',
+                    'Electronics',
+                );
             }
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
         return $product;
     }
 
-    public function productBySku(string $sku, ?string $locale = null): array
+    public function productBySku(string $sku, ?string $locale = null): ProductDto
     {
         $targetLocale = $locale ?? $this->getLocale();
         $product = $this->repository->getProductBySku($sku, $targetLocale);
@@ -93,10 +94,10 @@ abstract class Product extends Base
         if (!$product) {
             throw new \InvalidArgumentException("Product '{$name}' not found in locale '{$this->getLocale()}'.");
         }
-        return $product['sku'];
+        return $product->sku;
     }
 
-    public function getProductInLocale(string $sku, string $locale): array
+    public function getProductInLocale(string $sku, string $locale): ProductDto
     {
         $product = $this->repository->getProductBySku($sku, $locale);
         if (!$product) {

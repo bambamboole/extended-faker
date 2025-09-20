@@ -1,14 +1,18 @@
 {
     "sku": "PHONE-002",
     "category": "cell-phones-smartphones",
+    "variants": {
+        "storage": ["256GB", "512GB", "1TB"],
+        "color": ["Natural Titanium", "Blue Titanium", "White Titanium", "Black Titanium"]
+    },
     "locales": {
         "en_US": {
-            "name": "iPhone 15 Pro Max 256GB",
-            "description": "Revolutionary smartphone with titanium design and advanced A17 Pro chip. Features Pro camera system with incredible detail and next-generation performance."
+            "name": "iPhone 15 Pro Max {storage} {color}",
+            "description": "Revolutionary smartphone with {storage} storage in stunning {color}. Features titanium design, A17 Pro chip, and Pro camera system with incredible detail."
         },
         "de_DE": {
-            "name": "iPhone 15 Pro Max",
-            "description": "Premium iPhone mit Titan-Design und A17 Pro Chip. Revolutionäre Kamera mit 5x Zoom und professioneller Videoqualität."
+            "name": "iPhone 15 Pro Max {storage} {color}",
+            "description": "Premium iPhone mit {storage} Speicher in {color}. Mit Titan-Design, A17 Pro Chip und revolutionärer Kamera mit 5x Zoom."
         }
     }
 }

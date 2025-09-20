@@ -1,0 +1,19 @@
+{
+    "sku": "CHOCO-001",
+    "category": "gourmet-food",
+    "variants": {
+        "cocoa": ["70%", "85%", "90%"],
+        "size": ["100g", "200g", "500g"],
+        "format": ["Bar", "Chips", "Squares"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Ghirardelli Dark Chocolate {cocoa} {format} {size}",
+            "description": "Rich dark chocolate {format} with {cocoa} cocoa in {size} size. Made with ethically sourced cocoa beans for the perfect balance of sweetness and intensity."
+        },
+        "de_DE": {
+            "name": "Ghirardelli Dunkle Schokolade {cocoa} {format} {size}",
+            "description": "Reichhaltige dunkle Schokolade {format} mit {cocoa} Kakao in {size} Größe. Aus ethisch bezogenen Kakaobohnen für perfekte Balance."
+        }
+    }
+}

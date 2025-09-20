@@ -1,0 +1,19 @@
+{
+    "sku": "ESPRESSO-001",
+    "category": "coffee-tea",
+    "variants": {
+        "roast": ["Medium", "Dark", "Extra Dark"],
+        "size": ["250g", "500g", "1kg"],
+        "grind": ["Whole Bean", "Fine Grind", "Medium Grind"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Lavazza Super Crema {roast} Roast {grind} {size}",
+            "description": "Italian espresso {grind} in {roast} roast, {size} package. Rich, full-bodied flavor with creamy texture, perfect for espresso machines and moka pots."
+        },
+        "de_DE": {
+            "name": "Lavazza Super Crema {roast} Röstung {grind} {size}",
+            "description": "Italienische Espresso {grind} in {roast} Röstung, {size} Packung. Reichhaltiger, vollmundiger Geschmack mit cremiger Textur."
+        }
+    }
+}

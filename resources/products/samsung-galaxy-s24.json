@@ -1,14 +1,18 @@
 {
     "sku": "PHONE-001",
     "category": "cell-phones-smartphones",
+    "variants": {
+        "storage": ["256GB", "512GB", "1TB"],
+        "color": ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow"]
+    },
     "locales": {
         "en_US": {
-            "name": "Samsung Galaxy S24 Ultra 5G",
-            "description": "Cutting-edge smartphone featuring a 6.8-inch Dynamic AMOLED display, 200MP camera system, and up to 1TB storage. Perfect for photography enthusiasts and power users."
+            "name": "Samsung Galaxy S24 Ultra {storage} {color}",
+            "description": "Cutting-edge smartphone with {storage} storage in stunning {color}. Features 6.8-inch Dynamic AMOLED display, 200MP camera system, and S Pen. Perfect for photography enthusiasts and power users."
         },
         "de_DE": {
-            "name": "Samsung Galaxy S24 Ultra",
-            "description": "Hochmodernes Smartphone mit 6,8 Zoll Dynamic AMOLED Display, 200MP Kamera und bis zu 1TB Speicher. Perfekt für Fotografen und Tech-Enthusiasten."
+            "name": "Samsung Galaxy S24 Ultra {storage} in {color}",
+            "description": "Hochmodernes Smartphone mit {storage} Speicher in der Farbe {color}. Mit 6,8 Zoll Dynamic AMOLED Display, 200MP Kamera und S Pen. Perfekt für Fotografen und Tech-Enthusiasten."
         }
     }
 }

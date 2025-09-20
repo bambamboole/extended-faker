@@ -1,0 +1,20 @@
+{
+    "sku": "LAPTOP-003",
+    "category": "computers-accessories",
+    "variants": {
+        "processor": ["Intel i5", "Intel i7", "Intel i9"],
+        "memory": ["16GB", "32GB", "64GB"],
+        "storage": ["512GB SSD", "1TB SSD", "2TB SSD"],
+        "color": ["Platinum Silver", "Graphite", "Sky Blue"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "Dell XPS 13 Plus {processor} {memory}/{storage} {color}",
+            "description": "Ultra-thin laptop with {processor} processor, {memory} memory, and {storage} in {color}. Features stunning InfinityEdge display, perfect for professionals and students."
+        },
+        "de_DE": {
+            "name": "Dell XPS 13 Plus {processor} {memory}/{storage} {color}",
+            "description": "Ultraschlankes Notebook mit {processor} Prozessor, {memory} Arbeitsspeicher und {storage} in {color}. Mit beeindruckendem InfinityEdge-Display."
+        }
+    }
+}

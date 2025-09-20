@@ -1,0 +1,19 @@
+{
+    "sku": "JACKET-001",
+    "category": "clothing-apparel",
+    "variants": {
+        "size": ["XS", "S", "M", "L", "XL", "XXL"],
+        "color": ["Black", "Navy", "TNF Red", "New Taupe Green", "TNF Blue", "Asphalt Gray"],
+        "type": ["Waterproof", "Windproof", "3-in-1", "Insulated"]
+    },
+    "locales": {
+        "en_US": {
+            "name": "The North Face Venture 2 {color} {type} Jacket Size {size}",
+            "description": "Versatile {color} outdoor jacket in {type} design, size {size}. DryVent technology provides waterproof protection with excellent breathability."
+        },
+        "de_DE": {
+            "name": "The North Face Venture 2 {color} {type} Jacke Größe {size}",
+            "description": "Vielseitige {color} Outdoor-Jacke im {type} Design, Größe {size}. DryVent Technologie bietet wasserdichten Schutz mit Atmungsaktivität."
+        }
+    }
+}
