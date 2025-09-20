@@ -4,9 +4,12 @@ namespace Bambamboole\ExtendedFaker\Dto;
 
 class ProductDto
 {
-    public function __construct(public string $sku, public string $name, public string $description, public string $category)
-    {
-    }
+    public function __construct(
+        public string $sku,
+        public string $name,
+        public string $description,
+        public string $category,
+    ) {}
 
     public function toArray(): array
     {
