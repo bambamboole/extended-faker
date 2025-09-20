@@ -15,11 +15,9 @@ class ProductRepository extends JsonFileRepository
     private function resolveProduct(string $sku, array $product, string $locale): array
     {
         $productData = $product['locales'][$locale];
-        $categoryName = null;
-        if (isset($productData['category'])) {
-            $categoryName = $this->categoryRepository->getCategoryName($productData['category'], $locale) ?? $productData['category'];
-        }
-        return array_merge(['sku' => $sku, 'category_group' => $product['category_group']], $productData, $categoryName ? ['category' => $categoryName] : []);
+        $categoryName =
+            $this->categoryRepository->getCategoryName($product['category'], $locale) ?? $product['category'];
+        return array_merge(['sku' => $sku], $productData, ['category' => $categoryName]);
     }
 
     public function getProductBySku(string $sku, string $locale = 'en_US'): ?array
@@ -79,29 +77,24 @@ class ProductRepository extends JsonFileRepository
         return empty($products) ? null : $products[array_rand($products)];
     }
 
-    public function getProductsByCategoryGroup(string $categoryGroup, string $locale = 'en_US'): array
+    public function getProductsByCategory(string $category, string $locale = 'en_US'): array
     {
         $result = [];
         foreach ($this->getItems() as $sku => $product) {
-            if ($product['category_group'] === $categoryGroup && isset($product['locales'][$locale])) {
+            if ($product['category'] === $category && isset($product['locales'][$locale])) {
                 $result[] = $this->resolveProduct($sku, $product, $locale);
             }
         }
         return $result;
     }
 
-    public function getAllCategoryGroups(): array
+    public function getUsedCategories(): array
     {
-        $groups = [];
+        $categories = [];
         foreach ($this->getItems() as $product) {
-            $groups[] = $product['category_group'];
+            $categories[] = $product['category'];
         }
-        return array_unique($groups);
-    }
-
-    public function getProductLocales(string $sku): array
-    {
-        return $this->getItemLocales($sku);
+        return array_unique($categories);
     }
 
     public function getCategoryRepository(): CategoryRepository

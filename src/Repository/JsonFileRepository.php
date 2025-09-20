@@ -6,7 +6,10 @@ abstract class JsonFileRepository
 {
     private static array $caches = [];
 
-    public function __construct(protected string $resourceSubPath, protected string $keyField) {}
+    public function __construct(
+        protected string $resourceSubPath,
+        protected string $keyField,
+    ) {}
 
     protected function getItems(): array
     {

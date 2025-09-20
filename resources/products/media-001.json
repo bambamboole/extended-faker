@@ -1,16 +1,14 @@
 {
     "sku": "MEDIA-001",
-    "category_group": "media",
+    "category": "music",
     "locales": {
         "en_US": {
             "name": "Spotify Premium Annual Plan",
-            "description": "Premium music streaming service with ad-free listening and offline downloads. Access to over 100 million songs and podcasts.",
-            "category": "music"
+            "description": "Premium music streaming service with ad-free listening and offline downloads. Access to over 100 million songs and podcasts."
         },
         "de_DE": {
             "name": "Spotify Premium Jahresabo",
-            "description": "Premium-Musik-Streaming ohne Werbung mit Offline-Downloads. Zugang zu über 100 Millionen Songs und Podcasts.",
-            "category": "music"
+            "description": "Premium-Musik-Streaming ohne Werbung mit Offline-Downloads. Zugang zu über 100 Millionen Songs und Podcasts."
         }
     }
 }

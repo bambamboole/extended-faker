@@ -1,16 +1,14 @@
 {
     "sku": "KITCHEN-001",
-    "category_group": "home",
+    "category": "kitchen-dining",
     "locales": {
         "en_US": {
             "name": "Instant Pot Duo 7-in-1",
-            "description": "7-in-1 multi-functional pressure cooker that replaces multiple kitchen appliances. Cook meals up to 70% faster while retaining nutrients and flavor.",
-            "category": "kitchen-dining"
+            "description": "7-in-1 multi-functional pressure cooker that replaces multiple kitchen appliances. Cook meals up to 70% faster while retaining nutrients and flavor."
         },
         "de_DE": {
             "name": "Instant Pot Duo 7-in-1",
-            "description": "Multifunktionaler 7-in-1 Schnellkochtopf, der mehrere Küchengeräte ersetzt. Kochen Sie Mahlzeiten bis zu 70% schneller bei optimaler Nährstofferhaltung.",
-            "category": "kitchen-dining"
+            "description": "Multifunktionaler 7-in-1 Schnellkochtopf, der mehrere Küchengeräte ersetzt. Kochen Sie Mahlzeiten bis zu 70% schneller bei optimaler Nährstofferhaltung."
         }
     }
 }

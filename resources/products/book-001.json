@@ -1,16 +1,14 @@
 {
     "sku": "BOOK-001",
-    "category_group": "media",
+    "category": "books",
     "locales": {
         "en_US": {
             "name": "Where the Crawdads Sing",
-            "description": "Bestselling novel combining mystery, coming-of-age, and nature writing. A captivating story that has touched millions of readers worldwide.",
-            "category": "books"
+            "description": "Bestselling novel combining mystery, coming-of-age, and nature writing. A captivating story that has touched millions of readers worldwide."
         },
         "de_DE": {
             "name": "Der Schwarm - Frank Schätzing",
-            "description": "Spannender Thriller über die Geheimnisse der Tiefsee. Ein internationaler Bestseller, der Wissenschaft und Spannung vereint.",
-            "category": "books"
+            "description": "Spannender Thriller über die Geheimnisse der Tiefsee. Ein internationaler Bestseller, der Wissenschaft und Spannung vereint."
         }
     }
 }

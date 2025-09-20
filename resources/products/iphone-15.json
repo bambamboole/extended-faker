@@ -1,16 +1,14 @@
 {
     "sku": "PHONE-002",
-    "category_group": "electronics",
+    "category": "cell-phones-smartphones",
     "locales": {
         "en_US": {
             "name": "iPhone 15 Pro Max 256GB",
-            "description": "Revolutionary smartphone with titanium design and advanced A17 Pro chip. Features Pro camera system with incredible detail and next-generation performance.",
-            "category": "cell-phones-smartphones"
+            "description": "Revolutionary smartphone with titanium design and advanced A17 Pro chip. Features Pro camera system with incredible detail and next-generation performance."
         },
         "de_DE": {
             "name": "iPhone 15 Pro Max",
-            "description": "Premium iPhone mit Titan-Design und A17 Pro Chip. Revolutionäre Kamera mit 5x Zoom und professioneller Videoqualität.",
-            "category": "cell-phones-smartphones"
+            "description": "Premium iPhone mit Titan-Design und A17 Pro Chip. Revolutionäre Kamera mit 5x Zoom und professioneller Videoqualität."
         }
     }
 }

@@ -1,16 +1,14 @@
 {
     "sku": "SPORT-002",
-    "category_group": "sports",
+    "category": "sports-outdoors",
     "locales": {
         "en_US": {
             "name": "Yeti Rambler Water Bottle",
-            "description": "Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours. Built for adventure.",
-            "category": "sports-outdoors"
+            "description": "Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours. Built for adventure."
         },
         "de_DE": {
             "name": "Yeti Rambler Wasserflasche",
-            "description": "Isolierte Edelstahl-Wasserflasche, die Getränke 24 Stunden kalt oder 12 Stunden heiß hält. Gebaut für Abenteuer.",
-            "category": "sports-outdoors"
+            "description": "Isolierte Edelstahl-Wasserflasche, die Getränke 24 Stunden kalt oder 12 Stunden heiß hält. Gebaut für Abenteuer."
         }
     }
 }

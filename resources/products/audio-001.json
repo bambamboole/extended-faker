@@ -1,16 +1,14 @@
 {
     "sku": "AUDIO-001",
-    "category_group": "electronics",
+    "category": "wearable-technology",
     "locales": {
         "en_US": {
             "name": "Sony WH-1000XM5 Headphones",
-            "description": "Industry-leading noise-canceling headphones with 30-hour battery life and premium sound quality. Experience music like never before.",
-            "category": "wearable-technology"
+            "description": "Industry-leading noise-canceling headphones with 30-hour battery life and premium sound quality. Experience music like never before."
         },
         "de_DE": {
             "name": "Sony WH-1000XM4 Kopfhörer",
-            "description": "Professionelle Noise-Cancelling Kopfhörer mit branchenführender Geräuschunterdrückung und bis zu 30 Stunden Akkulaufzeit.",
-            "category": "wearable-technology"
+            "description": "Professionelle Noise-Cancelling Kopfhörer mit branchenführender Geräuschunterdrückung und bis zu 30 Stunden Akkulaufzeit."
         }
     }
 }

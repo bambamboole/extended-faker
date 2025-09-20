@@ -29,7 +29,10 @@ class CategoryRepository extends JsonFileRepository
         $result = [];
         foreach ($this->getItems() as $key => $category) {
             if (isset($category['locales'][$locale])) {
-                $result[] = array_merge(['key' => $key, 'parent' => $category['parent'] ?? null], $category['locales'][$locale]);
+                $result[] = array_merge([
+                    'key' => $key,
+                    'parent' => $category['parent'] ?? null,
+                ], $category['locales'][$locale]);
             }
         }
         return $result;
@@ -66,7 +69,10 @@ class CategoryRepository extends JsonFileRepository
         $result = [];
         foreach ($this->getItems() as $key => $category) {
             if (($category['parent'] ?? null) === $parent && isset($category['locales'][$locale])) {
-                $result[] = array_merge(['key' => $key, 'parent' => $category['parent'] ?? null], $category['locales'][$locale]);
+                $result[] = array_merge([
+                    'key' => $key,
+                    'parent' => $category['parent'] ?? null,
+                ], $category['locales'][$locale]);
             }
         }
         return $result;

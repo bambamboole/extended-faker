@@ -1,16 +1,14 @@
 {
     "sku": "PHONE-003",
-    "category_group": "electronics",
+    "category": "cell-phones-smartphones",
     "locales": {
         "en_US": {
             "name": "Google Pixel 8 Pro",
-            "description": "AI-powered smartphone with advanced camera system and pure Android experience. Capture stunning photos with computational photography.",
-            "category": "cell-phones-smartphones"
+            "description": "AI-powered smartphone with advanced camera system and pure Android experience. Capture stunning photos with computational photography."
         },
         "de_DE": {
             "name": "Google Pixel 8 Pro",
-            "description": "KI-gestütztes Smartphone mit fortschrittlichem Kamera-System und purem Android-Erlebnis. Beeindruckende Fotos durch Computer-Fotografie.",
-            "category": "cell-phones-smartphones"
+            "description": "KI-gestütztes Smartphone mit fortschrittlichem Kamera-System und purem Android-Erlebnis. Beeindruckende Fotos durch Computer-Fotografie."
         }
     }
 }

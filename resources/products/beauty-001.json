@@ -1,16 +1,14 @@
 {
     "sku": "BEAUTY-001",
-    "category_group": "beauty",
+    "category": "skin-care",
     "locales": {
         "en_US": {
             "name": "CeraVe Moisturizing Cream",
-            "description": "Daily moisturizing cream with essential ceramides and hyaluronic acid. Dermatologist-recommended for healthy skin.",
-            "category": "skin-care"
+            "description": "Daily moisturizing cream with essential ceramides and hyaluronic acid. Dermatologist-recommended for healthy skin."
         },
         "de_DE": {
             "name": "Nivea Creme Dose 150ml",
-            "description": "Klassische Hautcreme mit bewährter Formel für die ganze Familie. Seit über 100 Jahren vertraute Hautpflege.",
-            "category": "skin-care"
+            "description": "Klassische Hautcreme mit bewährter Formel für die ganze Familie. Seit über 100 Jahren vertraute Hautpflege."
         }
     }
 }

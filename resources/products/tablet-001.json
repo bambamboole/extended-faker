@@ -1,16 +1,14 @@
 {
     "sku": "TABLET-001",
-    "category_group": "electronics",
+    "category": "computers-accessories",
     "locales": {
         "en_US": {
             "name": "iPad Air 5th Generation",
-            "description": "Powerful tablet with M1 chip and stunning Liquid Retina display. Perfect for creativity, productivity, and entertainment on the go.",
-            "category": "computers-accessories"
+            "description": "Powerful tablet with M1 chip and stunning Liquid Retina display. Perfect for creativity, productivity, and entertainment on the go."
         },
         "de_DE": {
             "name": "iPad Air 10.9 Zoll",
-            "description": "Leistungsstarkes Tablet mit M1 Chip und brillantem Liquid Retina Display. Perfekt für Kreativität und Produktivität unterwegs.",
-            "category": "computers-accessories"
+            "description": "Leistungsstarkes Tablet mit M1 Chip und brillantem Liquid Retina Display. Perfekt für Kreativität und Produktivität unterwegs."
         }
     }
 }

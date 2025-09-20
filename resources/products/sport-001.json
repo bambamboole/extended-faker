@@ -1,16 +1,14 @@
 {
     "sku": "SPORT-001",
-    "category_group": "sports",
+    "category": "athletic-apparel",
     "locales": {
         "en_US": {
             "name": "Nike Dri-FIT Running Shorts",
-            "description": "Lightweight running shorts with moisture-wicking technology. Designed for comfort and performance during intense workouts.",
-            "category": "athletic-apparel"
+            "description": "Lightweight running shorts with moisture-wicking technology. Designed for comfort and performance during intense workouts."
         },
         "de_DE": {
             "name": "Nike Dri-FIT Laufshirt",
-            "description": "Funktionsshirt mit Feuchtigkeitstransport für optimalen Tragekomfort beim Sport. Entwickelt für Höchstleistungen.",
-            "category": "athletic-apparel"
+            "description": "Funktionsshirt mit Feuchtigkeitstransport für optimalen Tragekomfort beim Sport. Entwickelt für Höchstleistungen."
         }
     }
 }
