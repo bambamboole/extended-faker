@@ -1,0 +1,14 @@
+{
+    "sku": "BEAUTY-006",
+    "category": "skin-care",
+    "locales": {
+        "en_US": {
+            "name": "La Mer Crème de la Mer Moisturizing Cream",
+            "description": "Luxurious moisturizing cream with Miracle Broth and sea kelp. Transforms skin with deep hydration and regeneration."
+        },
+        "de_DE": {
+            "name": "La Mer Crème de la Mer Feuchtigkeitscreme",
+            "description": "Luxuriöse Feuchtigkeitscreme mit Miracle Broth und Meeresalgen. Verwandelt die Haut mit tiefer Hydratation und Regeneration."
+        }
+    }
+}

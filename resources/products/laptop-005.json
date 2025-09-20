@@ -1,0 +1,14 @@
+{
+    "sku": "LAPTOP-005",
+    "category": "computers-accessories",
+    "locales": {
+        "en_US": {
+            "name": "HP Spectre x360 2-in-1 Laptop",
+            "description": "Premium convertible laptop with 13.5-inch OLED touchscreen, Intel Evo platform, and up to 17 hours battery life."
+        },
+        "de_DE": {
+            "name": "HP Spectre x360 2-in-1 Laptop",
+            "description": "Premium Convertible-Laptop mit 13,5-Zoll-OLED-Touchscreen, Intel Evo-Plattform und bis zu 17 Stunden Akkulaufzeit."
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "sku": "LAPTOP-004",
+    "category": "computers-accessories",
+    "locales": {
+        "en_US": {
+            "name": "ASUS ROG Strix Gaming Laptop",
+            "description": "High-performance gaming laptop with RTX 4070 graphics, 16GB RAM, and 144Hz display. Built for serious gamers and creators."
+        },
+        "de_DE": {
+            "name": "ASUS ROG Strix Gaming-Laptop",
+            "description": "Hochleistungs-Gaming-Laptop mit RTX 4070 Grafik, 16GB RAM und 144Hz-Display. Für ernsthafte Gamer und Kreative entwickelt."
+        }
+    }
+}

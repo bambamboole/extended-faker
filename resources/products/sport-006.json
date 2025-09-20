@@ -1,0 +1,14 @@
+{
+    "sku": "SPORT-006",
+    "category": "sports-outdoors",
+    "locales": {
+        "en_US": {
+            "name": "Hydro Flask Water Bottle 32oz",
+            "description": "Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours. BPA-free and dishwasher safe."
+        },
+        "de_DE": {
+            "name": "Hydro Flask Trinkflasche 950ml",
+            "description": "Isolierte Edelstahl-Trinkflasche, die Getränke 24 Stunden kalt oder 12 Stunden heiß hält. BPA-frei und spülmaschinenfest."
+        }
+    }
+}

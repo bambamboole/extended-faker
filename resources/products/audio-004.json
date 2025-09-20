@@ -1,0 +1,14 @@
+{
+    "sku": "AUDIO-004",
+    "category": "electronics",
+    "locales": {
+        "en_US": {
+            "name": "JBL Charge 5 Portable Bluetooth Speaker",
+            "description": "Waterproof portable speaker with 20+ hours of playtime and built-in powerbank. Bold sound wherever you go."
+        },
+        "de_DE": {
+            "name": "JBL Charge 5 Tragbarer Bluetooth-Lautsprecher",
+            "description": "Wasserdichter tragbarer Lautsprecher mit 20+ Stunden Wiedergabezeit und integrierter Powerbank. Kraftvoller Sound überall."
+        }
+    }
+}

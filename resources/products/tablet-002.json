@@ -1,0 +1,14 @@
+{
+    "sku": "TABLET-002",
+    "category": "electronics",
+    "locales": {
+        "en_US": {
+            "name": "Samsung Galaxy Tab S9 Ultra",
+            "description": "Premium 14.6-inch tablet with S Pen included, powerful Snapdragon processor, and all-day battery life. Perfect for work and creativity."
+        },
+        "de_DE": {
+            "name": "Samsung Galaxy Tab S9 Ultra",
+            "description": "Premium 14,6-Zoll-Tablet mit inklusivem S Pen, leistungsstarkem Snapdragon-Prozessor und ganztägiger Akkulaufzeit."
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "sku": "LAPTOP-003",
+    "category": "computers-accessories",
+    "locales": {
+        "en_US": {
+            "name": "Dell XPS 13 Plus Laptop",
+            "description": "Ultra-thin laptop with 13th Gen Intel Core processor and stunning InfinityEdge display. Perfect for professionals and students."
+        },
+        "de_DE": {
+            "name": "Dell XPS 13 Plus Notebook",
+            "description": "Ultraschlankes Notebook mit Intel Core Prozessor der 13. Generation und beeindruckendem InfinityEdge-Display. Perfekt für Profis."
+        }
+    }
+}

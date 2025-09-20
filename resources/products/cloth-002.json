@@ -1,0 +1,14 @@
+{
+    "sku": "CLOTH-002",
+    "category": "mens-clothing",
+    "locales": {
+        "en_US": {
+            "name": "Levi's 501 Original Fit Jeans",
+            "description": "The original straight fit jeans that started it all. Made with premium denim and built to last generations. Classic American style."
+        },
+        "de_DE": {
+            "name": "Levi's 501 Original Fit Jeans",
+            "description": "Die ursprüngliche gerade geschnittene Jeans, mit der alles begann. Aus Premium-Denim gefertigt und für Generationen gebaut."
+        }
+    }
+}

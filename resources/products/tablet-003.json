@@ -1,0 +1,14 @@
+{
+    "sku": "TABLET-003",
+    "category": "electronics",
+    "locales": {
+        "en_US": {
+            "name": "Microsoft Surface Pro 9",
+            "description": "Versatile 2-in-1 tablet with laptop performance. Includes Surface Pro Signature Keyboard and Surface Slim Pen 2."
+        },
+        "de_DE": {
+            "name": "Microsoft Surface Pro 9",
+            "description": "Vielseitiges 2-in-1-Tablet mit Laptop-Leistung. Inklusive Surface Pro Signature Keyboard und Surface Slim Pen 2."
+        }
+    }
+}

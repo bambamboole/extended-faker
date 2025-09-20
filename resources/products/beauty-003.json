@@ -1,0 +1,14 @@
+{
+    "sku": "BEAUTY-003",
+    "category": "makeup-cosmetics",
+    "locales": {
+        "en_US": {
+            "name": "Fenty Beauty Gloss Bomb Universal Lip Luminizer",
+            "description": "High-shine lip gloss with explosive shine and a non-sticky formula. Universal shade that flatters all skin tones."
+        },
+        "de_DE": {
+            "name": "Fenty Beauty Gloss Bomb Lippenglanz",
+            "description": "Hochglanz-Lippengloss mit explosivem Glanz und nicht-klebender Formel. Universalton, der alle Hauttöne schmeichelt."
+        }
+    }
+}

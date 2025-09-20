@@ -1,0 +1,14 @@
+{
+    "sku": "PHONE-002",
+    "category": "cell-phones-smartphones",
+    "locales": {
+        "en_US": {
+            "name": "Google Pixel 8 Pro",
+            "description": "Advanced smartphone with Google's AI-powered photography and 7 years of security updates. Features Titan M security chip."
+        },
+        "de_DE": {
+            "name": "Google Pixel 8 Pro",
+            "description": "Fortschrittliches Smartphone mit Googles KI-gestützter Fotografie und 7 Jahren Sicherheitsupdates. Mit Titan M Sicherheitschip."
+        }
+    }
+}

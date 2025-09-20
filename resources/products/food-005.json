@@ -1,0 +1,14 @@
+{
+    "sku": "FOOD-005",
+    "category": "coffee-tea",
+    "locales": {
+        "en_US": {
+            "name": "Lavazza Super Crema Espresso Beans",
+            "description": "Italian espresso beans with a rich, full-bodied flavor and creamy texture. Perfect for espresso machines and moka pots."
+        },
+        "de_DE": {
+            "name": "Lavazza Super Crema Espressobohnen",
+            "description": "Italienische Espressobohnen mit reichem, vollmundigem Geschmack und cremiger Textur. Perfekt für Espressomaschinen."
+        }
+    }
+}

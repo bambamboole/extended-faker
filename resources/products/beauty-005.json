@@ -1,0 +1,14 @@
+{
+    "sku": "BEAUTY-005",
+    "category": "makeup-cosmetics",
+    "locales": {
+        "en_US": {
+            "name": "Charlotte Tilbury Pillow Talk Lipstick",
+            "description": "Iconic matte lipstick in the universally flattering Pillow Talk shade. Hydrating formula with buildable coverage."
+        },
+        "de_DE": {
+            "name": "Charlotte Tilbury Pillow Talk Lippenstift",
+            "description": "Ikonischer matter Lippenstift im universell schmeichelnden Pillow Talk-Ton. Feuchtigkeitsspendende Formel mit aufbaubarer Deckkraft."
+        }
+    }
+}

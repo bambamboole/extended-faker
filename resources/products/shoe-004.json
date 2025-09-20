@@ -1,0 +1,14 @@
+{
+    "sku": "SHOE-004",
+    "category": "shoes-footwear",
+    "locales": {
+        "en_US": {
+            "name": "Converse Chuck Taylor All Star Classic",
+            "description": "Iconic canvas sneakers with rubber toe cap and vulcanized sole. Timeless design that goes with everything."
+        },
+        "de_DE": {
+            "name": "Converse Chuck Taylor All Star Klassik",
+            "description": "Ikonische Canvas-Sneaker mit Gummi-Zehenkappe und vulkanisierter Sohle. Zeitloses Design, das zu allem passt."
+        }
+    }
+}

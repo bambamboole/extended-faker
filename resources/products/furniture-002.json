@@ -1,0 +1,14 @@
+{
+    "sku": "FURNITURE-002",
+    "category": "furniture",
+    "locales": {
+        "en_US": {
+            "name": "IKEA MALM 6-Drawer Dresser",
+            "description": "Modern dresser with 6 spacious drawers and smooth-running drawer slides. Perfect for bedroom storage with clean Scandinavian design."
+        },
+        "de_DE": {
+            "name": "IKEA MALM 6-Schubladen Kommode",
+            "description": "Moderne Kommode mit 6 geräumigen Schubladen und leichtgängigen Schubladenführungen. Perfekt für Schlafzimmer-Aufbewahrung."
+        }
+    }
+}

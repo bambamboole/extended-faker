@@ -1,0 +1,14 @@
+{
+    "sku": "FURNITURE-003",
+    "category": "furniture",
+    "locales": {
+        "en_US": {
+            "name": "Herman Miller Aeron Office Chair",
+            "description": "Ergonomic office chair with breathable mesh material and advanced tilt mechanism. Designed for all-day comfort and support."
+        },
+        "de_DE": {
+            "name": "Herman Miller Aeron Bürostuhl",
+            "description": "Ergonomischer Bürostuhl mit atmungsaktivem Mesh-Material und fortschrittlichem Kippmechanismus. Für ganztägigen Komfort konzipiert."
+        }
+    }
+}

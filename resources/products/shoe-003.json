@@ -1,0 +1,14 @@
+{
+    "sku": "SHOE-003",
+    "category": "shoes-footwear",
+    "locales": {
+        "en_US": {
+            "name": "Nike Air Force 1 Low White",
+            "description": "Classic basketball-inspired sneakers with premium leather upper and legendary Air cushioning. Timeless style meets modern comfort."
+        },
+        "de_DE": {
+            "name": "Nike Air Force 1 Low Weiß",
+            "description": "Klassische Basketball-inspirierte Sneaker mit Premium-Lederobermaterial und legendärer Air-Dämpfung. Zeitloser Stil trifft modernen Komfort."
+        }
+    }
+}
