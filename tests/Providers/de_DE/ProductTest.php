@@ -172,3 +172,101 @@ test('german specific content', function (string $method, array $expectedContent
 
     expect($foundExpected)->toBeTrue("Method {$method} should contain German-specific content");
 })->with('german product data');
+
+// Product Lookup Functionality Tests
+
+test('product name lookup returns specific german product', function () {
+    $productName = $this->faker->productName('Samsung Galaxy S24 Ultra');
+
+    expect($productName)->toBe('Samsung Galaxy S24 Ultra');
+});
+
+test('product description lookup returns specific german description', function () {
+    $description = $this->faker->productDescription('Samsung Galaxy S24 Ultra');
+
+    expect($description)->toBe('Hochmodernes Smartphone mit 6,8 Zoll Dynamic AMOLED Display, 200MP Kamera und bis zu 1TB Speicher. Perfekt für Fotografen und Tech-Enthusiasten.');
+});
+
+test('product category lookup returns specific german category', function () {
+    $category = $this->faker->productCategory('Samsung Galaxy S24 Ultra');
+
+    expect($category)->toBe('Smartphones & Handys');
+});
+
+test('product lookup returns complete german product data', function () {
+    $product = $this->faker->product('Samsung Galaxy S24 Ultra');
+
+    expect($product)
+        ->toBeArray()
+        ->toHaveKeys(['name', 'description', 'category'])
+        ->and($product['name'])->toBe('Samsung Galaxy S24 Ultra')
+        ->and($product['description'])->toBe('Hochmodernes Smartphone mit 6,8 Zoll Dynamic AMOLED Display, 200MP Kamera und bis zu 1TB Speicher. Perfekt für Fotografen und Tech-Enthusiasten.')
+        ->and($product['category'])->toBe('Smartphones & Handys');
+});
+
+test('german product lookup maintains data consistency across calls', function () {
+    $name = 'IKEA Billy Bücherregal';
+
+    $productName = $this->faker->productName($name);
+    $description = $this->faker->productDescription($name);
+    $category = $this->faker->productCategory($name);
+    $completeProduct = $this->faker->product($name);
+
+    expect($productName)->toBe($name);
+    expect($completeProduct['name'])->toBe($productName);
+    expect($completeProduct['description'])->toBe($description);
+    expect($completeProduct['category'])->toBe($category);
+    expect($completeProduct['category'])->toBe('Möbel');
+});
+
+test('german provider available product names contains expected products', function () {
+    $availableNames = $this->faker->getAvailableProductNames();
+
+    expect($availableNames)->toContain('Samsung Galaxy S24 Ultra');
+    expect($availableNames)->toContain('MacBook Air M2');
+    expect($availableNames)->toContain('IKEA Billy Bücherregal');
+    expect($availableNames)->toContain('Ritter Sport Schokolade');
+    expect($availableNames)->toContain('Haribo Goldbären 200g');
+});
+
+test('german provider all available products can be looked up', function () {
+    $availableNames = $this->faker->getAvailableProductNames();
+
+    expect(count($availableNames))->toBeGreaterThan(40, 'Should have many German products');
+
+    // Test a sample of products
+    $sampleNames = array_slice($availableNames, 0, 10);
+
+    foreach ($sampleNames as $name) {
+        $product = $this->faker->product($name);
+        expect($product['name'])->toBe($name);
+        expect($product['description'])->toBeString()->not->toBeEmpty();
+        expect($product['category'])->toBeString()->not->toBeEmpty();
+    }
+});
+
+test('german product lookup throws exception for non-existent product', function () {
+    expect(fn() => $this->faker->productName('Nicht-existierendes Produkt'))
+        ->toThrow(InvalidArgumentException::class, 'Product \'Nicht-existierendes Produkt\' not found in available products.');
+});
+
+test('german product descriptions contain german language', function () {
+    $sampleNames = ['Samsung Galaxy S24 Ultra', 'IKEA Billy Bücherregal', 'Ritter Sport Schokolade'];
+
+    foreach ($sampleNames as $name) {
+        $description = $this->faker->productDescription($name);
+
+        // Check for German-specific words/patterns
+        $germanIndicators = ['mit', 'für', 'und', 'der', 'die', 'das', 'aus', 'bei'];
+        $containsGerman = false;
+
+        foreach ($germanIndicators as $indicator) {
+            if (stripos($description, $indicator) !== false) {
+                $containsGerman = true;
+                break;
+            }
+        }
+
+        expect($containsGerman)->toBeTrue("Description for {$name} should contain German language indicators");
+    }
+});

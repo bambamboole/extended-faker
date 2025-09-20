@@ -225,3 +225,80 @@ test('description length variety', function () {
     expect($maxLength)->toBeGreaterThan($minLength, 'Descriptions should vary in length');
     expect($minLength)->toBeGreaterThan(10, 'Descriptions should be reasonably long');
 });
+
+// Product Lookup Functionality Tests
+
+test('product name lookup returns specific english product', function () {
+    $productName = $this->faker->productName('Samsung Galaxy S24 Ultra 5G');
+
+    expect($productName)->toBe('Samsung Galaxy S24 Ultra 5G');
+});
+
+test('product description lookup returns specific english description', function () {
+    $description = $this->faker->productDescription('Samsung Galaxy S24 Ultra 5G');
+
+    expect($description)->toBe('Cutting-edge smartphone featuring a 6.8-inch Dynamic AMOLED display, 200MP camera system, and up to 1TB storage. Perfect for photography enthusiasts and power users.');
+});
+
+test('product category lookup returns specific english category', function () {
+    $category = $this->faker->productCategory('Samsung Galaxy S24 Ultra 5G');
+
+    expect($category)->toBe('Cell Phones & Smartphones');
+});
+
+test('product lookup returns complete english product data', function () {
+    $product = $this->faker->product('Samsung Galaxy S24 Ultra 5G');
+
+    expect($product)
+        ->toBeArray()
+        ->toHaveKeys(['name', 'description', 'category'])
+        ->and($product['name'])->toBe('Samsung Galaxy S24 Ultra 5G')
+        ->and($product['description'])->toBe('Cutting-edge smartphone featuring a 6.8-inch Dynamic AMOLED display, 200MP camera system, and up to 1TB storage. Perfect for photography enthusiasts and power users.')
+        ->and($product['category'])->toBe('Cell Phones & Smartphones');
+});
+
+test('english product lookup maintains data consistency across calls', function () {
+    $name = 'MacBook Air M2 13-inch';
+
+    $productName = $this->faker->productName($name);
+    $description = $this->faker->productDescription($name);
+    $category = $this->faker->productCategory($name);
+    $completeProduct = $this->faker->product($name);
+
+    expect($productName)->toBe($name);
+    expect($completeProduct['name'])->toBe($productName);
+    expect($completeProduct['description'])->toBe($description);
+    expect($completeProduct['category'])->toBe($category);
+    expect($completeProduct['category'])->toBe('Computers & Accessories');
+});
+
+test('english provider available product names contains expected products', function () {
+    $availableNames = $this->faker->getAvailableProductNames();
+
+    expect($availableNames)->toContain('Samsung Galaxy S24 Ultra 5G');
+    expect($availableNames)->toContain('iPhone 15 Pro Max 256GB');
+    expect($availableNames)->toContain('MacBook Air M2 13-inch');
+    expect($availableNames)->toContain('Levi\'s 501 Original Fit Jeans');
+    expect($availableNames)->toContain('Instant Pot Duo 7-in-1');
+});
+
+test('english provider all available products can be looked up', function () {
+    $availableNames = $this->faker->getAvailableProductNames();
+
+    expect(count($availableNames))->toBeGreaterThan(50, 'Should have many English products');
+
+    // Test a sample of products
+    $sampleNames = array_slice($availableNames, 0, 10);
+
+    foreach ($sampleNames as $name) {
+        $product = $this->faker->product($name);
+        expect($product['name'])->toBe($name);
+        expect($product['description'])->toBeString()->not->toBeEmpty();
+        expect($product['category'])->toBeString()->not->toBeEmpty();
+    }
+});
+
+test('english product lookup throws exception for non-existent product', function () {
+    expect(fn() => $this->faker->productName('Non-existent English Product'))
+        ->toThrow(InvalidArgumentException::class, 'Product \'Non-existent English Product\' not found in available products.');
+});

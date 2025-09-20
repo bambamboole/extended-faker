@@ -105,3 +105,96 @@ test('methods are callable', function () {
         ->and($this->faker->product())->toBeArray();
 
 });
+
+// Product Lookup Functionality Tests
+
+test('product name with specific name returns same name', function () {
+    $productName = $this->faker->productName('Standard Item');
+
+    expect($productName)->toBe('Standard Item');
+});
+
+test('product description with specific name returns consistent description', function () {
+    $description = $this->faker->productDescription('Standard Item');
+
+    expect($description)->toBe('Professional-grade item with excellent durability.');
+});
+
+test('product category with specific name returns consistent category', function () {
+    $category = $this->faker->productCategory('Standard Item');
+
+    expect($category)->toBe('Clothing');
+});
+
+test('product with specific name returns complete consistent data', function () {
+    $product = $this->faker->product('Standard Item');
+
+    expect($product)
+        ->toBeArray()
+        ->toHaveKeys(['name', 'description', 'category'])
+        ->and($product['name'])->toBe('Standard Item')
+        ->and($product['description'])->toBe('Professional-grade item with excellent durability.')
+        ->and($product['category'])->toBe('Clothing');
+});
+
+test('product lookup maintains data consistency', function () {
+    // Test that all methods return consistent data for same product name
+    $name = 'Generic Product';
+
+    $productName = $this->faker->productName($name);
+    $description = $this->faker->productDescription($name);
+    $category = $this->faker->productCategory($name);
+    $completeProduct = $this->faker->product($name);
+
+    expect($productName)->toBe($name);
+    expect($completeProduct['name'])->toBe($productName);
+    expect($completeProduct['description'])->toBe($description);
+    expect($completeProduct['category'])->toBe($category);
+});
+
+test('product lookup throws exception for non-existent product', function () {
+    expect(fn() => $this->faker->productName('Non-existent Product'))
+        ->toThrow(InvalidArgumentException::class, 'Product \'Non-existent Product\' not found in available products.');
+
+    expect(fn() => $this->faker->productDescription('Non-existent Product'))
+        ->toThrow(InvalidArgumentException::class);
+
+    expect(fn() => $this->faker->productCategory('Non-existent Product'))
+        ->toThrow(InvalidArgumentException::class);
+
+    expect(fn() => $this->faker->product('Non-existent Product'))
+        ->toThrow(InvalidArgumentException::class);
+});
+
+test('get available product names returns array of strings', function () {
+    $availableNames = $this->faker->getAvailableProductNames();
+
+    expect($availableNames)
+        ->toBeArray()
+        ->not->toBeEmpty();
+
+    foreach ($availableNames as $name) {
+        expect($name)->toBeString()->not->toBeEmpty();
+    }
+});
+
+test('get available product names contains expected products', function () {
+    $availableNames = $this->faker->getAvailableProductNames();
+
+    expect($availableNames)->toContain('Generic Product');
+    expect($availableNames)->toContain('Standard Item');
+    expect($availableNames)->toContain('Basic Product');
+});
+
+test('all available product names can be looked up', function () {
+    $availableNames = $this->faker->getAvailableProductNames();
+
+    foreach ($availableNames as $name) {
+        // Should not throw exception
+        expect(fn() => $this->faker->product($name))->not->toThrow(Exception::class);
+
+        // Should return consistent data
+        $product = $this->faker->product($name);
+        expect($product['name'])->toBe($name);
+    }
+});

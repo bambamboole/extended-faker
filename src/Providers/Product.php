@@ -7,84 +7,145 @@ use Faker\Provider\Base;
 class Product extends Base
 {
     /**
-     * Default product names (will be overridden by locale providers)
+     * Structured product data with name-description-category mappings
+     * (will be overridden by locale providers)
      */
-    protected static $productNames = [
-        'Generic Product',
-        'Standard Item',
-        'Basic Product',
-        'Essential Item',
-        'Universal Product',
+    protected static $products = [
+        [
+            'name' => 'Generic Product',
+            'description' => 'A high-quality product designed for everyday use.',
+            'category' => 'Electronics',
+        ],
+        [
+            'name' => 'Standard Item',
+            'description' => 'Professional-grade item with excellent durability.',
+            'category' => 'Clothing',
+        ],
+        [
+            'name' => 'Basic Product',
+            'description' => 'Essential product for modern lifestyle.',
+            'category' => 'Home & Garden',
+        ],
+        [
+            'name' => 'Essential Item',
+            'description' => 'Reliable and efficient solution for your needs.',
+            'category' => 'Books',
+        ],
+        [
+            'name' => 'Universal Product',
+            'description' => 'Premium quality item with outstanding performance.',
+            'category' => 'Health',
+        ],
     ];
 
     /**
-     * Default product descriptions (will be overridden by locale providers)
+     * Legacy arrays for backward compatibility
+     * @deprecated Use $products instead
      */
-    protected static $productDescriptions = [
-        'A high-quality product designed for everyday use.',
-        'Professional-grade item with excellent durability.',
-        'Essential product for modern lifestyle.',
-        'Reliable and efficient solution for your needs.',
-        'Premium quality item with outstanding performance.',
-    ];
+    protected static $productNames = [];
+    protected static $productDescriptions = [];
+    protected static $productCategories = [];
 
     /**
-     * Default product categories (will be overridden by locale providers)
-     */
-    protected static $productCategories = [
-        'Electronics',
-        'Clothing',
-        'Home & Garden',
-        'Books',
-        'Food',
-        'Sports',
-        'Automotive',
-        'Health',
-    ];
-
-    /**
-     * Generate a random product name.
+     * Generate a random product name or get name for specific product.
      *
-     * @example 'Samsung Galaxy S24'
+     * @param string|null $name If provided, validates the name exists
+     * @return string
+     *
+     * @example productName() // 'Generic Product'
+     * @example productName('Standard Item') // 'Standard Item'
      */
-    public function productName(): string
+    public function productName(?string $name = null): string
     {
-        return static::randomElement(static::$productNames);
+        if ($name !== null) {
+            $product = $this->findProductByName($name);
+            return $product['name'];
+        }
+
+        return static::randomElement(static::$products)['name'];
     }
 
     /**
-     * Generate a random product description.
+     * Generate a random product description or get description for specific product.
      *
-     * @example 'High-quality smartphone with cutting-edge technology.'
+     * @param string|null $name If provided, returns description for that product
+     * @return string
+     *
+     * @example productDescription() // Random description
+     * @example productDescription('Standard Item') // 'Professional-grade item with excellent durability.'
      */
-    public function productDescription(): string
+    public function productDescription(?string $name = null): string
     {
-        return static::randomElement(static::$productDescriptions);
+        if ($name !== null) {
+            $product = $this->findProductByName($name);
+            return $product['description'];
+        }
+
+        return static::randomElement(static::$products)['description'];
     }
 
     /**
-     * Generate a random product category.
+     * Generate a random product category or get category for specific product.
      *
-     * @example 'Electronics'
+     * @param string|null $name If provided, returns category for that product
+     * @return string
+     *
+     * @example productCategory() // Random category
+     * @example productCategory('Standard Item') // 'Clothing'
      */
-    public function productCategory(): string
+    public function productCategory(?string $name = null): string
     {
-        return static::randomElement(static::$productCategories);
+        if ($name !== null) {
+            $product = $this->findProductByName($name);
+            return $product['category'];
+        }
+
+        return static::randomElement(static::$products)['category'];
     }
 
     /**
      * Generate a complete product with name, description, and category.
      *
+     * @param string|null $name If provided, returns data for that specific product
      * @return array{name: string, description: string, category: string}
      *
-     * @example ['name' => 'Samsung Galaxy S24', 'description' => 'High-quality...', 'category' => 'Electronics']
+     * @example product() // Random product
+     * @example product('Standard Item') // ['name' => 'Standard Item', 'description' => '...', 'category' => 'Clothing']
      */
-    public function product(): array
+    public function product(?string $name = null): array
     {
-        return [
-            'name' => $this->productName(),
-            'description' => $this->productDescription(),
-            'category' => $this->productCategory(),
-        ];
+        if ($name !== null) {
+            return $this->findProductByName($name);
+        }
+
+        return static::randomElement(static::$products);
+    }
+
+    /**
+     * Find a product by name.
+     *
+     * @param string $name
+     * @return array{name: string, description: string, category: string}
+     * @throws \InvalidArgumentException if product not found
+     */
+    protected function findProductByName(string $name): array
+    {
+        foreach (static::$products as $product) {
+            if ($product['name'] === $name) {
+                return $product;
+            }
+        }
+
+        throw new \InvalidArgumentException("Product '{$name}' not found in available products.");
+    }
+
+    /**
+     * Get all available product names.
+     *
+     * @return array<string>
+     */
+    public function getAvailableProductNames(): array
+    {
+        return array_column(static::$products, 'name');
     }
 }
