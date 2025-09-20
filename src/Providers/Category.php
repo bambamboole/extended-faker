@@ -53,8 +53,9 @@ class Category extends Base
 
     public function categoryByKey(string $key, ?string $locale = null): array
     {
-        $category = $this->repository->getCategoryByKey($key, $locale ?? $this->getLocale());
-        if (!$category) throw new \InvalidArgumentException("Category with key '{$key}' not found in locale '{$locale ?? $this->getLocale()}'.");
+        $locale ??= $this->getLocale();
+        $category = $this->repository->getCategoryByKey($key, $locale);
+        if (!$category) throw new \InvalidArgumentException("Category with key '{$key}' not found in locale '{$locale}'.");
         return $category;
     }
 
