@@ -11,9 +11,11 @@ class ExtendedFaker
         if (str_starts_with($locale, 'de')) {
             $faker->addProvider(new Providers\de_DE\Product($faker));
             $faker->addProvider(new Providers\de_DE\Category($faker));
+            $faker->addProvider(new Providers\de_DE\BlogPost($faker));
         } else {
             $faker->addProvider(new Providers\en_US\Product($faker));
             $faker->addProvider(new Providers\en_US\Category($faker));
+            $faker->addProvider(new Providers\en_US\BlogPost($faker));
         }
     }
 }
