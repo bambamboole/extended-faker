@@ -5,12 +5,10 @@ use Bambamboole\ExtendedFaker\Dto\ProductDto;
 
 class ProductRepository extends JsonFileRepository
 {
-    private readonly CategoryRepository $categoryRepository;
-
-    public function __construct(?CategoryRepository $categoryRepository = null)
-    {
+    public function __construct(
+        private readonly ?CategoryRepository $categoryRepository = new CategoryRepository(),
+    ) {
         parent::__construct('products', 'sku');
-        $this->categoryRepository = $categoryRepository ?? new CategoryRepository();
     }
 
     private function resolveProduct(string $sku, array $product, string $locale): ProductDto

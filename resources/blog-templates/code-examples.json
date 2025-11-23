@@ -1,0 +1,86 @@
+{
+  "php": [
+    {
+      "title": "Class Example",
+      "code": "<?php\n\nreadonly class UserDto\n{\n    public function __construct(\n        public string $name,\n        public string $email,\n        public int $age,\n    ) {}\n}"
+    },
+    {
+      "title": "Function Example",
+      "code": "<?php\n\nfunction processData(array $items): array\n{\n    return array_map(\n        fn($item) => strtoupper($item),\n        $items\n    );\n}"
+    },
+    {
+      "title": "Interface Example",
+      "code": "<?php\n\ninterface CacheInterface\n{\n    public function get(string $key): mixed;\n    public function set(string $key, mixed $value, int $ttl = 3600): bool;\n    public function delete(string $key): bool;\n}"
+    }
+  ],
+  "javascript": [
+    {
+      "title": "Async Function",
+      "code": "async function fetchData(url) {\n    try {\n        const response = await fetch(url);\n        return await response.json();\n    } catch (error) {\n        console.error('Fetch error:', error);\n        throw error;\n    }\n}"
+    },
+    {
+      "title": "Class Component",
+      "code": "class DataManager {\n    constructor() {\n        this.data = [];\n    }\n\n    add(item) {\n        this.data.push(item);\n    }\n\n    getAll() {\n        return [...this.data];\n    }\n}"
+    },
+    {
+      "title": "Arrow Functions",
+      "code": "const numbers = [1, 2, 3, 4, 5];\n\nconst doubled = numbers.map(n => n * 2);\nconst evens = numbers.filter(n => n % 2 === 0);\nconst sum = numbers.reduce((acc, n) => acc + n, 0);"
+    }
+  ],
+  "python": [
+    {
+      "title": "Class Definition",
+      "code": "class DataProcessor:\n    def __init__(self, data):\n        self.data = data\n    \n    def process(self):\n        return [item.upper() for item in self.data]\n    \n    def filter_items(self, condition):\n        return [item for item in self.data if condition(item)]"
+    },
+    {
+      "title": "Decorator Example",
+      "code": "def timer_decorator(func):\n    import time\n    def wrapper(*args, **kwargs):\n        start = time.time()\n        result = func(*args, **kwargs)\n        end = time.time()\n        print(f'{func.__name__} took {end - start:.2f} seconds')\n        return result\n    return wrapper"
+    },
+    {
+      "title": "List Comprehension",
+      "code": "# Filter and transform data\nnumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\nevens = [n for n in numbers if n % 2 == 0]\nsquares = [n ** 2 for n in numbers]\nfiltered = [n * 2 for n in numbers if n > 5]"
+    }
+  ],
+  "docker": [
+    {
+      "title": "Dockerfile",
+      "code": "FROM php:8.2-fpm\n\nRUN apt-get update && apt-get install -y \\\n    git \\\n    unzip \\\n    && rm -rf /var/lib/apt/lists/*\n\nCOPY --from=composer:latest /usr/bin/composer /usr/bin/composer\n\nWORKDIR /app\n\nCOPY . .\n\nRUN composer install --no-dev --optimize-autoloader\n\nCMD [\"php-fpm\"]"
+    },
+    {
+      "title": "Docker Compose",
+      "code": "version: '3.8'\n\nservices:\n  app:\n    build: .\n    ports:\n      - \"8000:8000\"\n    volumes:\n      - ./src:/app/src\n    environment:\n      - APP_ENV=production\n  \n  db:\n    image: postgres:15\n    environment:\n      POSTGRES_DB: myapp\n      POSTGRES_PASSWORD: secret"
+    }
+  ],
+  "configuration": [
+    {
+      "title": "YAML Config",
+      "code": "# Application Configuration\napp:\n  name: MyApp\n  version: 1.0.0\n  environment: production\n\ndatabase:\n  host: localhost\n  port: 5432\n  name: myapp_db\n\ncache:\n  driver: redis\n  ttl: 3600"
+    },
+    {
+      "title": "JSON Config",
+      "code": "{\n  \"name\": \"my-project\",\n  \"version\": \"1.0.0\",\n  \"scripts\": {\n    \"start\": \"node index.js\",\n    \"test\": \"jest\",\n    \"build\": \"webpack --mode production\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.18.0\"\n  }\n}"
+    }
+  ],
+  "api": [
+    {
+      "title": "REST Endpoint",
+      "code": "// GET /api/users/:id\napp.get('/api/users/:id', async (req, res) => {\n    try {\n        const user = await User.findById(req.params.id);\n        if (!user) {\n            return res.status(404).json({ error: 'User not found' });\n        }\n        res.json(user);\n    } catch (error) {\n        res.status(500).json({ error: 'Server error' });\n    }\n});"
+    },
+    {
+      "title": "API Client",
+      "code": "class ApiClient {\n    constructor(baseURL) {\n        this.baseURL = baseURL;\n    }\n\n    async get(endpoint) {\n        const response = await fetch(`${this.baseURL}${endpoint}`);\n        return response.json();\n    }\n\n    async post(endpoint, data) {\n        const response = await fetch(`${this.baseURL}${endpoint}`, {\n            method: 'POST',\n            headers: { 'Content-Type': 'application/json' },\n            body: JSON.stringify(data)\n        });\n        return response.json();\n    }\n}"
+    }
+  ],
+  "sql": [
+    {
+      "title": "Query Example",
+      "code": "SELECT u.id, u.name, COUNT(o.id) as order_count\nFROM users u\nLEFT JOIN orders o ON u.id = o.user_id\nWHERE u.created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY)\nGROUP BY u.id, u.name\nHAVING order_count > 0\nORDER BY order_count DESC\nLIMIT 10;"
+    }
+  ],
+  "general": [
+    {
+      "title": "Basic Example",
+      "code": "// Example implementation\nconst result = processData(input);\nconsole.log(result);"
+    }
+  ]
+}

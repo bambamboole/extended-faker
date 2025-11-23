@@ -1,0 +1,96 @@
+{
+  "authors": [
+    "Sarah Johnson",
+    "Jennifer Martinez",
+    "Emma Thompson",
+    "David Schneider",
+    "Michael Chen",
+    "Lisa Anderson",
+    "Robert Taylor",
+    "Amanda Williams",
+    "James Brown",
+    "Maria Garcia",
+    "Daniel Martinez",
+    "Sophie Laurent",
+    "Alex Turner",
+    "Nina Patel",
+    "Thomas Mueller",
+    "Elena Rodriguez",
+    "Chris Anderson",
+    "Maya Singh",
+    "Lucas Schmidt",
+    "Olivia Kim"
+  ],
+  "tagsByCategory": {
+    "technology": {
+      "programming": ["programming", "coding", "development", "software"],
+      "web": ["web-development", "frontend", "backend", "fullstack"],
+      "languages": ["php", "javascript", "python", "typescript", "java", "go", "rust"],
+      "frameworks": ["laravel", "react", "vue", "angular", "django", "express"],
+      "tools": ["docker", "kubernetes", "git", "ci-cd", "testing"],
+      "concepts": ["architecture", "design-patterns", "best-practices", "performance", "security"],
+      "data": ["database", "sql", "nosql", "redis", "postgresql", "mysql"],
+      "cloud": ["aws", "azure", "gcp", "cloud-computing", "serverless"],
+      "devops": ["devops", "automation", "deployment", "monitoring", "infrastructure"]
+    },
+    "business": {
+      "startup": ["startup", "entrepreneurship", "founder", "innovation"],
+      "finance": ["funding", "venture-capital", "bootstrapping", "investment", "finance"],
+      "growth": ["growth", "scaling", "strategy", "market-expansion"],
+      "management": ["management", "leadership", "team-building", "hiring"],
+      "marketing": ["marketing", "branding", "content-marketing", "seo", "social-media"],
+      "sales": ["sales", "b2b", "saas", "customer-acquisition"],
+      "operations": ["operations", "processes", "efficiency", "automation"],
+      "metrics": ["metrics", "analytics", "kpi", "data-driven"],
+      "product": ["product-management", "product-development", "user-research", "mvp"]
+    },
+    "travel": {
+      "destinations": ["travel", "destination", "tourism", "vacation"],
+      "planning": ["trip-planning", "itinerary", "budget-travel", "travel-tips"],
+      "lifestyle": ["digital-nomad", "remote-work", "expat", "location-independent"],
+      "experiences": ["culture", "food", "adventure", "sightseeing"],
+      "practical": ["accommodation", "transportation", "visa", "travel-insurance"],
+      "regions": ["europe", "asia", "americas", "oceania", "africa"],
+      "types": ["solo-travel", "family-travel", "luxury-travel", "backpacking"]
+    },
+    "lifestyle": {
+      "productivity": ["productivity", "time-management", "efficiency", "focus"],
+      "wellness": ["wellness", "health", "fitness", "mindfulness"],
+      "habits": ["habits", "routine", "self-improvement", "personal-development"],
+      "balance": ["work-life-balance", "stress-management", "mental-health"],
+      "goals": ["goal-setting", "motivation", "success", "achievement"],
+      "relationships": ["communication", "relationships", "networking", "collaboration"],
+      "learning": ["learning", "education", "skills", "continuous-improvement"],
+      "finance": ["personal-finance", "budgeting", "investing", "financial-planning"]
+    }
+  },
+  "techTopics": [
+    "PHP", "JavaScript", "Python", "TypeScript", "Docker", "Kubernetes",
+    "Laravel", "React", "Vue", "Node.js", "PostgreSQL", "MongoDB",
+    "Redis", "AWS", "CI/CD", "GraphQL", "REST APIs", "Microservices",
+    "Git", "Testing", "Security", "Performance", "Design Patterns"
+  ],
+  "businessTopics": [
+    "Startup Funding", "Team Management", "Product Development",
+    "Market Research", "Growth Strategy", "Customer Acquisition",
+    "Sales Process", "Business Model", "Financial Planning",
+    "Operations", "Marketing Strategy", "Brand Building",
+    "Metrics", "Leadership", "Competitive Analysis"
+  ],
+  "travelDestinations": [
+    "Lisbon", "Barcelona", "Bangkok", "Tokyo", "Singapore",
+    "Bali", "Amsterdam", "Berlin", "London", "Paris",
+    "New York", "San Francisco", "Dubai", "Prague", "Copenhagen",
+    "Melbourne", "Buenos Aires", "Mexico City", "Istanbul", "Tallinn"
+  ],
+  "lifestyleTopics": [
+    "Productivity", "Time Management", "Morning Routine",
+    "Habit Formation", "Goal Setting", "Mindfulness",
+    "Exercise", "Nutrition", "Sleep", "Stress Management",
+    "Focus", "Learning", "Reading", "Journaling", "Meditation"
+  ],
+  "yearRange": {
+    "min": 2023,
+    "max": 2024
+  }
+}
