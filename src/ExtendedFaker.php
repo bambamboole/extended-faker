@@ -1,13 +1,16 @@
 <?php declare(strict_types=1);
+
 namespace Bambamboole\ExtendedFaker;
 
 use Bambamboole\ExtendedFaker\Providers as Providers;
+use DavidBadura\FakerMarkdownGenerator\FakerProvider;
 use Faker\Generator;
 
 class ExtendedFaker
 {
     public static function extend(Generator $faker, string $locale = 'en_US'): void
     {
+        $faker->addProvider(new FakerProvider($faker));
         if (str_starts_with($locale, 'de')) {
             $faker->addProvider(new Providers\de_DE\Product($faker));
             $faker->addProvider(new Providers\de_DE\Category($faker));
