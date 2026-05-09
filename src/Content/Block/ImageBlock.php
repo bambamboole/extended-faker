@@ -22,8 +22,13 @@ final readonly class ImageBlock implements Block
     public function toWordPress(): string
     {
         $img = '<img src="' . $this->src . '" alt="' . $this->alt . '"/>';
-        $caption = $this->caption === null ? '' : '<figcaption class="wp-element-caption">' . $this->caption . '</figcaption>';
+        $caption = $this->caption === null
+            ? ''
+            : '<figcaption class="wp-element-caption">' . $this->caption . '</figcaption>';
 
-        return WordPressBlockSerializer::serialize('image', '<figure class="wp-block-image">' . $img . $caption . '</figure>');
+        return WordPressBlockSerializer::serialize(
+            'image',
+            '<figure class="wp-block-image">' . $img . $caption . '</figure>',
+        );
     }
 }

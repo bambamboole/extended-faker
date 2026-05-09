@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-use Bambamboole\ExtendedFaker\Dto\BlogPostDto;
 use Bambamboole\ExtendedFaker\Content\Content;
+use Bambamboole\ExtendedFaker\Dto\BlogPostDto;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
 use Bambamboole\ExtendedFaker\Generator\BlogPostGenerator;
 use Bambamboole\ExtendedFaker\Providers\de_DE\BlogPost as BlogPostDe;

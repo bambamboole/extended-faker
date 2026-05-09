@@ -268,7 +268,7 @@ class BlogPostGenerator
         foreach ($sections as $index => $section) {
             if ($index === 1 && $codeExample !== null && !$codeExampleAdded) {
                 $blocks[] = new HeadingBlock($codeExample['title'], 3);
-                $blocks[] = new CodeBlock(htmlspecialchars($codeExample['code'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+                $blocks[] = new CodeBlock(htmlspecialchars((string) $codeExample['code'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
                 $codeExampleAdded = true;
             }
 
@@ -278,7 +278,7 @@ class BlogPostGenerator
 
         if ($codeExample !== null && !$codeExampleAdded) {
             $blocks[] = new HeadingBlock($codeExample['title'], 3);
-            $blocks[] = new CodeBlock(htmlspecialchars($codeExample['code'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+            $blocks[] = new CodeBlock(htmlspecialchars((string) $codeExample['code'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
         }
 
         $blocks[] = new HeadingBlock('Conclusion', 2);

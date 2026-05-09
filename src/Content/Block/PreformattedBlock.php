@@ -19,6 +19,9 @@ final readonly class PreformattedBlock implements Block
 
     public function toWordPress(): string
     {
-        return WordPressBlockSerializer::serialize('preformatted', '<pre class="wp-block-preformatted">' . $this->content . '</pre>');
+        return WordPressBlockSerializer::serialize(
+            'preformatted',
+            '<pre class="wp-block-preformatted">' . $this->content . '</pre>',
+        );
     }
 }

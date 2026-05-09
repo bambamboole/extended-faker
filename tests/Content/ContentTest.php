@@ -17,20 +17,21 @@ it('renders ordered blocks to markdown and wordpress block markup', function () 
         new SeparatorBlock(),
     ]);
 
-    expect($content->toMarkdown())->toBe(<<<'MARKDOWN'
-        # Article Title
+    expect($content->toMarkdown())
+        ->toBe(<<<'MARKDOWN'
+            # Article Title
 
-        Intro paragraph.
+            Intro paragraph.
 
-        - First item
-        - Second item
+            - First item
+            - Second item
 
-        ```
-        echo 'Hello';
-        ```
+            ```
+            echo 'Hello';
+            ```
 
-        ---
-        MARKDOWN)
+            ---
+            MARKDOWN)
         ->and($content->toWordPress())
         ->toContain('<!-- wp:heading {"level":1} -->')
         ->toContain('<h1>Article Title</h1>')

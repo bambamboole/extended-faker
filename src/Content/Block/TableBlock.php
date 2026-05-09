@@ -19,6 +19,9 @@ final readonly class TableBlock implements Block
 
     public function toWordPress(): string
     {
-        return WordPressBlockSerializer::serialize('table', '<figure class="wp-block-table">' . $this->html . '</figure>');
+        return WordPressBlockSerializer::serialize(
+            'table',
+            '<figure class="wp-block-table">' . $this->html . '</figure>',
+        );
     }
 }

@@ -15,10 +15,7 @@ final readonly class Content
 
     public function toMarkdown(): string
     {
-        return implode("\n\n", array_map(
-            static fn(Block $block): string => $block->toMarkdown(),
-            $this->blocks,
-        ));
+        return implode("\n\n", array_map(static fn(Block $block): string => $block->toMarkdown(), $this->blocks));
     }
 
     public function toWordPress(?WordPressBlockOptions $options = null): string

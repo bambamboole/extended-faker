@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
+use Bambamboole\ExtendedFaker\Content\Content;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockFormatter;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
-use Bambamboole\ExtendedFaker\Content\Content;
 
 it('converts common markdown nodes to wordpress block markup', function () {
     $blocks = (new WordPressBlockFormatter())->fromMarkdown(<<<'MARKDOWN'
@@ -69,7 +69,9 @@ it('maps image table and preformatted html to dedicated blocks', function () {
 
     expect($blocks)
         ->toContain('<!-- wp:image -->')
-        ->toContain('<figure class="wp-block-image"><img src="https://example.com/image.jpg" alt="Example"/><figcaption class="wp-element-caption">Image caption</figcaption></figure>')
+        ->toContain(
+            '<figure class="wp-block-image"><img src="https://example.com/image.jpg" alt="Example"/><figcaption class="wp-element-caption">Image caption</figcaption></figure>',
+        )
         ->toContain('<!-- wp:table -->')
         ->toContain('<figure class="wp-block-table"><table><tbody><tr><td>Cell</td></tr></tbody></table></figure>')
         ->toContain('<!-- wp:preformatted -->')

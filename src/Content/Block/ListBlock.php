@@ -31,6 +31,10 @@ final readonly class ListBlock implements Block
         $items = array_map(static fn(string $item): string => '<li>' . $item . '</li>', $this->items);
         $attributes = $this->ordered ? ['ordered' => true] : [];
 
-        return WordPressBlockSerializer::serialize('list', '<' . $tag . '>' . implode('', $items) . '</' . $tag . '>', $attributes);
+        return WordPressBlockSerializer::serialize(
+            'list',
+            '<' . $tag . '>' . implode('', $items) . '</' . $tag . '>',
+            $attributes,
+        );
     }
 }
