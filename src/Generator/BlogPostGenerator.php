@@ -1,7 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker\Generator;
 
+use Bambamboole\ExtendedFaker\Content\Block\CodeBlock;
+use Bambamboole\ExtendedFaker\Content\Block\HeadingBlock;
+use Bambamboole\ExtendedFaker\Content\Block\ParagraphBlock;
+use Bambamboole\ExtendedFaker\Content\Content;
 use Bambamboole\ExtendedFaker\Dto\BlogPostDto;
 
 class BlogPostGenerator
@@ -53,7 +58,8 @@ class BlogPostGenerator
         }
 
         // Compose full content
-        $content = $this->composeContent($title, $intro, $sections, $codeExample, $conclusion);
+        $contentBlocks = $this->composeContent($title, $intro, $sections, $codeExample, $conclusion);
+        $content = $contentBlocks->toMarkdown();
 
         // Generate metadata
         $slug = $this->generateSlug($title);
@@ -74,6 +80,7 @@ class BlogPostGenerator
             publishedAt: $publishedAt,
             readingTime: $readingTime,
             locale: $locale,
+            contentBlocks: $contentBlocks,
         );
     }
 
@@ -211,7 +218,7 @@ class BlogPostGenerator
         $intro = str_replace('{title}', $title, $template);
         $intro = str_replace('{topic}', $topic, $intro);
 
-        return $intro;
+        return $this->fillPlaceholders($intro, $category, $random);
     }
 
     private function generateSections(string $category, int $count, \Random\Randomizer $random): array
@@ -251,29 +258,33 @@ class BlogPostGenerator
         array $sections,
         ?array $codeExample,
         string $conclusion,
-    ): string {
-        $content = "# {$title}\n\n";
-        $content .= "{$intro}\n\n";
+    ): Content {
+        $blocks = [
+            new HeadingBlock($title, 1),
+            new ParagraphBlock($intro),
+        ];
 
-        foreach ($sections as $section) {
-            $content .= "## {$section['heading']}\n\n";
-            $content .= "{$section['content']}\n\n";
-        }
-
-        // Insert code example after first section if present
-        if ($codeExample !== null && count($sections) > 0) {
-            $parts = explode("\n\n## ", $content, 2);
-            if (count($parts) === 2) {
-                $content = $parts[0] . "\n\n### {$codeExample['title']}\n\n";
-                $content .= "```\n{$codeExample['code']}\n```\n\n";
-                $content .= '## ' . $parts[1];
+        $codeExampleAdded = false;
+        foreach ($sections as $index => $section) {
+            if ($index === 1 && $codeExample !== null && !$codeExampleAdded) {
+                $blocks[] = new HeadingBlock($codeExample['title'], 3);
+                $blocks[] = new CodeBlock(htmlspecialchars((string) $codeExample['code'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+                $codeExampleAdded = true;
             }
+
+            $blocks[] = new HeadingBlock($section['heading'], 2);
+            $blocks[] = new ParagraphBlock($section['content']);
         }
 
-        $content .= "## Conclusion\n\n";
-        $content .= "{$conclusion}\n";
+        if ($codeExample !== null && !$codeExampleAdded) {
+            $blocks[] = new HeadingBlock($codeExample['title'], 3);
+            $blocks[] = new CodeBlock(htmlspecialchars((string) $codeExample['code'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+        }
 
-        return $content;
+        $blocks[] = new HeadingBlock('Conclusion', 2);
+        $blocks[] = new ParagraphBlock($conclusion);
+
+        return new Content($blocks);
     }
 
     private function generateSlug(string $title): string

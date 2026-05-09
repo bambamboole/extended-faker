@@ -5,3 +5,4 @@ todo.md
 .phpunit.cache
 composer.lock
 .idea
+docs/superpowers/

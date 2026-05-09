@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Providers\de_DE\Product;
