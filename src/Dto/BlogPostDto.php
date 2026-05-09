@@ -1,9 +1,15 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker\Dto;
 
+use Bambamboole\ExtendedFaker\Content\Block\ParagraphBlock;
+use Bambamboole\ExtendedFaker\Content\Content;
+
 class BlogPostDto
 {
+    public Content $contentBlocks;
+
     public function __construct(
         public string $slug,
         public string $title,
@@ -15,7 +21,10 @@ class BlogPostDto
         public string $publishedAt,
         public int $readingTime,
         public string $locale,
-    ) {}
+        ?Content $contentBlocks = null,
+    ) {
+        $this->contentBlocks = $contentBlocks ?? new Content([new ParagraphBlock($content)]);
+    }
 
     public function toArray(): array
     {

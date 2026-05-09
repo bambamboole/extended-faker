@@ -1,6 +1,10 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 use Bambamboole\ExtendedFaker\Dto\BlogPostDto;
+use Bambamboole\ExtendedFaker\Content\Content;
+use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
+use Bambamboole\ExtendedFaker\Generator\BlogPostGenerator;
 use Bambamboole\ExtendedFaker\Providers\de_DE\BlogPost as BlogPostDe;
 use Bambamboole\ExtendedFaker\Providers\en_US\BlogPost;
 use Faker\Factory as FakerFactory;
@@ -26,6 +30,8 @@ test('blog post methods return expected types', function () {
     expect($blogPost)->toBeInstanceOf(BlogPostDto::class);
     expect($blogPost->title)->toBeString()->not->toBeEmpty();
     expect($blogPost->content)->toBeString()->not->toBeEmpty();
+    expect($blogPost->contentBlocks)->toBeInstanceOf(Content::class);
+    expect($blogPost->content)->toBe($blogPost->contentBlocks->toMarkdown());
     expect($blogPost->excerpt)->toBeString()->not->toBeEmpty();
     expect($blogPost->category)->toBeString()->not->toBeEmpty();
     expect($blogPost->tags)->toBeArray()->not->toBeEmpty();
@@ -50,6 +56,27 @@ test('blog post content contains markdown', function () {
 
     // Check for markdown headings
     expect($content)->toContain('#');
+});
+
+test('blog post block content contains wordpress block markup', function () {
+    $post = $this->faker->blogPost();
+    $content = $this->faker->blogPostBlockContent($post->slug);
+
+    expect($content)
+        ->toBe($post->contentBlocks->toWordPress())
+        ->toContain('<!-- wp:')
+        ->toContain('<!-- /wp:')
+        ->toContain($post->title);
+});
+
+test('blog post block content supports wordpress block options', function () {
+    $post = $this->faker->blogPost();
+    $content = $this->faker->blogPostContentAsWordPressBlocks(
+        $post->slug,
+        new WordPressBlockOptions(includeTitleHeading: false, headingOffset: 1),
+    );
+
+    expect($content)->not->toContain('<h1>' . $post->title . '</h1>')->toContain('<!-- wp:heading {"level":3} -->');
 });
 
 test('blog post categories are valid', function () {
@@ -180,4 +207,17 @@ test('blog posts have reasonable word count', function () {
 test('blog post published date is valid', function () {
     $blogPost = $this->faker->blogPost();
     expect($blogPost->publishedAt)->toMatch('/^\d{4}-\d{2}-\d{2}$/');
+});
+
+test('generated blog post content has no unresolved placeholders', function () {
+    $generator = new BlogPostGenerator(__DIR__ . '/../../resources/blog-templates');
+    $categories = ['technology', 'business', 'travel', 'lifestyle'];
+
+    foreach ($categories as $category) {
+        for ($seed = 0; $seed < 25; $seed++) {
+            $blogPost = $generator->generate($seed, $category);
+
+            expect($blogPost->content)->not->toMatch('/\{[A-Za-z]+\}/');
+        }
+    }
 });

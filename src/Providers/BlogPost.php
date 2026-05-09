@@ -1,8 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker\Providers;
 
 use Bambamboole\ExtendedFaker\Dto\BlogPostDto;
+use Bambamboole\ExtendedFaker\Formatter\WordPressBlockFormatter;
+use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
 use Bambamboole\ExtendedFaker\Repository\BlogPostRepository;
 use Faker\Provider\Base;
 
@@ -64,6 +67,18 @@ abstract class BlogPost extends Base
         }
 
         return $blogPost->content;
+    }
+
+    public function blogPostBlockContent(?string $identifier = null, ?WordPressBlockOptions $options = null): string
+    {
+        return $this->blogPost($identifier)->contentBlocks->toWordPress($options);
+    }
+
+    public function blogPostContentAsWordPressBlocks(
+        ?string $identifier = null,
+        ?WordPressBlockOptions $options = null,
+    ): string {
+        return $this->blogPostBlockContent($identifier, $options);
     }
 
     public function blogPostExcerpt(?string $identifier = null): string
@@ -153,6 +168,9 @@ abstract class BlogPost extends Base
                     publishedAt: date('Y-m-d'),
                     readingTime: 5,
                     locale: $this->getLocale(),
+                    contentBlocks: (new WordPressBlockFormatter())->parseMarkdown(
+                        "# Sample Blog Post\n\nThis is a sample blog post with some content.",
+                    ),
                 );
             }
             throw new \InvalidArgumentException("Blog post '{$identifier}' not found in available posts.");
