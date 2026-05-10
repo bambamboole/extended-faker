@@ -1,0 +1,60 @@
+{
+  "slug": "cookie-policy",
+  "template": "legal",
+  "locales": {
+    "en_US": {
+      "title": "Cookie Policy",
+      "excerpt": "Some cookies remember preferences. Others simply believe in you.",
+      "seo": {
+        "title": "Cookie Policy",
+        "description": "See how cookies support preferences, analytics, and a smoother site experience."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Tiny files, clear choices"
+        },
+        {
+          "type": "paragraph",
+          "content": "Some cookies remember preferences. Others simply believe in you. The useful ones help the site behave consistently between visits."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Essential cookies keep the site working.",
+            "Preference cookies remember polite choices.",
+            "Analytics cookies count things without reading minds."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Cookie-Richtlinie",
+      "excerpt": "Manche Cookies merken sich Vorlieben. Andere glauben einfach an Sie.",
+      "seo": {
+        "title": "Cookie-Richtlinie",
+        "description": "Erfahren Sie, wie Cookies Vorlieben, Analysen und ein ruhigeres Nutzungserlebnis unterstützen."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Kleine Dateien, klare Auswahl"
+        },
+        {
+          "type": "paragraph",
+          "content": "Manche Cookies merken sich Vorlieben. Andere glauben einfach an Sie. Die nützlichen helfen der Website, sich zwischen Besuchen verlässlich zu verhalten."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Notwendige Cookies halten die Seite am Laufen.",
+            "Präferenz-Cookies merken sich höfliche Entscheidungen.",
+            "Analyse-Cookies zählen Dinge, ohne Gedanken zu lesen."
+          ]
+        }
+      ]
+    }
+  }
+}

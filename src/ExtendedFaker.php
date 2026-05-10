@@ -16,10 +16,12 @@ class ExtendedFaker
             $faker->addProvider(new Providers\de_DE\Product($faker));
             $faker->addProvider(new Providers\de_DE\Category($faker));
             $faker->addProvider(new Providers\de_DE\BlogPost($faker));
+            $faker->addProvider(new Providers\de_DE\Page($faker));
         } else {
             $faker->addProvider(new Providers\en_US\Product($faker));
             $faker->addProvider(new Providers\en_US\Category($faker));
             $faker->addProvider(new Providers\en_US\BlogPost($faker));
+            $faker->addProvider(new Providers\en_US\Page($faker));
         }
     }
 }

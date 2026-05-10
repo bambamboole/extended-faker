@@ -1,0 +1,52 @@
+{
+  "slug": "privacy",
+  "template": "legal",
+  "locales": {
+    "en_US": {
+      "title": "Privacy",
+      "excerpt": "We collect only what we need, which is mostly patience and a few cookies.",
+      "seo": {
+        "title": "Privacy",
+        "description": "Understand what data we collect, why we use it, and how we protect it."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Data with boundaries"
+        },
+        {
+          "type": "paragraph",
+          "content": "We collect only what we need, which is mostly patience and a few cookies. The real data gets handled with purpose, limits, and people who read settings twice."
+        },
+        {
+          "type": "quote",
+          "content": "If a field is not useful, it does not get invited."
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Datenschutz",
+      "excerpt": "Wir sammeln nur, was nötig ist: vor allem Geduld und ein paar Cookies.",
+      "seo": {
+        "title": "Datenschutz",
+        "description": "Erfahren Sie, welche Daten wir erheben, warum wir sie nutzen und wie wir sie schützen."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Daten mit Grenzen"
+        },
+        {
+          "type": "paragraph",
+          "content": "Wir sammeln nur, was nötig ist: vor allem Geduld und ein paar Cookies. Echte Daten behandeln wir zweckgebunden, begrenzt und mit Menschen, die Einstellungen zweimal prüfen."
+        },
+        {
+          "type": "quote",
+          "content": "Wenn ein Feld keinen Nutzen hat, bekommt es keine Einladung."
+        }
+      ]
+    }
+  }
+}

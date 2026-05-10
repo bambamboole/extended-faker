@@ -1,0 +1,60 @@
+{
+  "slug": "shipping-returns",
+  "template": "support",
+  "locales": {
+    "en_US": {
+      "title": "Shipping and Returns",
+      "excerpt": "Packages go out, regrets come back, everyone gets a tracking number.",
+      "seo": {
+        "title": "Shipping and Returns",
+        "description": "Learn how shipping, delivery updates, returns, and exchanges work."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Movement with receipts"
+        },
+        {
+          "type": "paragraph",
+          "content": "Packages go out, regrets come back, everyone gets a tracking number. We try to make both directions boring in the best possible way."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Orders ship with tracking when available.",
+            "Returns start with the order number.",
+            "Exchanges move fastest when the box still has its dignity."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Versand und Rücksendungen",
+      "excerpt": "Pakete gehen raus, Reue kommt zurück, alle bekommen eine Sendungsnummer.",
+      "seo": {
+        "title": "Versand und Rücksendungen",
+        "description": "Erfahren Sie, wie Versand, Lieferupdates, Rückgaben und Umtausch funktionieren."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Bewegung mit Beleg"
+        },
+        {
+          "type": "paragraph",
+          "content": "Pakete gehen raus, Reue kommt zurück, alle bekommen eine Sendungsnummer. Beide Richtungen sollen angenehm unspektakulär bleiben."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bestellungen werden nach Möglichkeit mit Tracking verschickt.",
+            "Rücksendungen beginnen mit der Bestellnummer.",
+            "Umtausch läuft schneller, wenn der Karton noch Haltung zeigt."
+          ]
+        }
+      ]
+    }
+  }
+}

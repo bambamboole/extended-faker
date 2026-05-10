@@ -1,13 +1,14 @@
 # Extended Faker
 
-PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, and blog post data. Provides 25+ products, 19+ categories, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
+PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, and page data. Provides 25+ products, 19+ categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
 
 ## Features
 
 - **Cross-language consistency**: Same identifiers across locales with localized content
-- **Multiple data types**: Products, categories, and blog posts
+- **Multiple data types**: Products, categories, blog posts, and pages
 - **Dynamic blog post generation**: Compositional template system generates 1000+ unique blog posts
 - **Markdown blog posts**: Professional content with headings, code blocks, and rich formatting
+- **Fixture-backed pages**: Named pages composed of structured Content blocks, renderable to Markdown or WordPress block markup
 - **Realistic data**: Actual product names, descriptions, categories, and dynamically composed articles
 - **Deterministic generation**: Same seed produces same blog post for reproducible testing
 - **Extensible**: Easy to add new data via JSON template files
@@ -93,6 +94,27 @@ $enPost = $faker->blogPost();
 $dePost = $faker->getBlogPostInLocale($enPost->slug, 'de_DE');
 ```
 
+### Pages
+
+```php
+use Bambamboole\ExtendedFaker\Providers\en_US\Page;
+
+$faker->addProvider(new Page($faker));
+
+// Named fixture-backed page
+$page = $faker->page('about');
+// PageDto with title, slug, content blocks, excerpt, template, seo, etc.
+
+// Render page content
+$content = $faker->pageContent('about');      // Markdown content
+$blocks = $faker->pageBlockContent('about');  // WordPress block markup
+$seo = $faker->pageSeo('about');              // SEO title and description
+
+// Cross-locale pages work with shared slugs
+$dePage = $faker->getPageInLocale($page->slug, 'de_DE');
+$aboutPage = $faker->pageBySlug('about', 'en_US');
+```
+
 ### Using ExtendedFaker Helper
 
 For convenience, use the `ExtendedFaker::extend()` method to register all providers at once:
@@ -101,7 +123,7 @@ For convenience, use the `ExtendedFaker::extend()` method to register all provid
 use Faker\Factory;
 use Bambamboole\ExtendedFaker\ExtendedFaker;
 
-// Automatically registers Product, Category, and BlogPost providers
+// Automatically registers Product, Category, BlogPost, and Page providers
 $faker = Factory::create('en_US');
 ExtendedFaker::extend($faker, 'en_US');
 
@@ -109,6 +131,7 @@ ExtendedFaker::extend($faker, 'en_US');
 $product = $faker->product();
 $category = $faker->category();
 $blogPost = $faker->blogPost();
+$page = $faker->page();
 
 // German locale
 $fakerDe = Factory::create('de_DE');
@@ -143,9 +166,21 @@ ExtendedFaker::extend($fakerDe, 'de_DE');
 - `getBlogPostSlug(string $title): string`
 - `getBlogPostInLocale(string $slug, string $locale): BlogPostDto`
 
+### Page Provider
+- `pageTitle(?string $identifier = null): string`
+- `pageContent(?string $identifier = null): string`
+- `pageBlockContent(?string $identifier = null, ?WordPressBlockOptions $options = null): string`
+- `pageExcerpt(?string $identifier = null): string`
+- `pageTemplate(?string $identifier = null): string`
+- `pageSeo(?string $identifier = null): array`
+- `page(?string $identifier = null): PageDto`
+- `pageBySlug(string $slug, ?string $locale = null): PageDto`
+- `getPageSlug(string $title): string`
+- `getPageInLocale(string $slug, string $locale): PageDto`
+
 ## Data Structure
 
-Products and categories are stored as JSON files, while blog posts are dynamically generated from composable templates:
+Products, categories, and pages are stored as JSON files, while blog posts are dynamically generated from composable templates:
 
 ```
 resources/
@@ -156,6 +191,10 @@ resources/
 ├── categories/
 │   ├── cell-phones-smartphones.json
 │   ├── electronics.json
+│   └── ...
+├── pages/
+│   ├── about.json
+│   ├── contact.json
 │   └── ...
 └── blog-templates/
     ├── titles.json              // Title patterns by category

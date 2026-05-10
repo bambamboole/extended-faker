@@ -1,0 +1,52 @@
+{
+  "slug": "team",
+  "template": "team",
+  "locales": {
+    "en_US": {
+      "title": "Team",
+      "excerpt": "Meet the people behind the buttons, labels, and suspiciously confident release notes.",
+      "seo": {
+        "title": "Team",
+        "description": "Meet the people who design, write, test, and occasionally rename everything."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "People behind the interface"
+        },
+        {
+          "type": "paragraph",
+          "content": "Meet the people behind the buttons, labels, and suspiciously confident release notes. We are fond of careful defaults and unusually specific bug reports."
+        },
+        {
+          "type": "quote",
+          "content": "Someone always asks whether the empty state could be kinder. Usually they are right."
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Team",
+      "excerpt": "Die Menschen hinter Buttons, Beschriftungen und erstaunlich selbstbewussten Release Notes.",
+      "seo": {
+        "title": "Team",
+        "description": "Lernen Sie die Menschen kennen, die gestalten, schreiben, testen und gelegentlich alles umbenennen."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Menschen hinter der Oberfläche"
+        },
+        {
+          "type": "paragraph",
+          "content": "Die Menschen hinter Buttons, Beschriftungen und erstaunlich selbstbewussten Release Notes mögen gute Voreinstellungen und sehr konkrete Fehlermeldungen."
+        },
+        {
+          "type": "quote",
+          "content": "Irgendjemand fragt immer, ob der leere Zustand freundlicher sein könnte. Meistens stimmt das."
+        }
+      ]
+    }
+  }
+}
