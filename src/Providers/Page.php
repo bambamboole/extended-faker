@@ -29,8 +29,10 @@ abstract class Page extends Base
         }
 
         return $this->normalizePage(
-            $this->repository->getPageBySlug($identifier, $this->getLocale())
-                ?? $this->repository->findPageByTitle($identifier, $this->getLocale()),
+            $this->repository->getPageBySlug($identifier, $this->getLocale()) ?? $this->repository->findPageByTitle(
+                $identifier,
+                $this->getLocale(),
+            ),
         );
     }
 

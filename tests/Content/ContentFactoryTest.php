@@ -13,17 +13,26 @@ it('hydrates fixture block definitions into content', function () {
         ['type' => 'separator'],
         ['type' => 'code', 'content' => 'echo "<ship & win>";'],
         ['type' => 'preformatted', 'content' => 'Status: cautiously optimistic'],
-        ['type' => 'image', 'src' => 'https://example.com/team.jpg', 'alt' => 'Team photo', 'caption' => 'Everyone blinked asynchronously.'],
+        [
+            'type' => 'image',
+            'src' => 'https://example.com/team.jpg',
+            'alt' => 'Team photo',
+            'caption' => 'Everyone blinked asynchronously.',
+        ],
         ['type' => 'table', 'html' => '<table><tbody><tr><td>Plan</td><td>Snacks</td></tr></tbody></table>'],
         ['type' => 'html', 'html' => '<aside>Legally decorative sidebar.</aside>'],
     ]);
 
     $wordpress = $content->toWordPress();
 
-    expect($content)->toBeInstanceOf(Content::class)
-        ->and($content->blocks)->toHaveCount(10)
-        ->and($content->toMarkdown())->toContain('# About Us')
-        ->and($wordpress)->toContain('<!-- wp:paragraph -->')
+    expect($content)
+        ->toBeInstanceOf(Content::class)
+        ->and($content->blocks)
+        ->toHaveCount(10)
+        ->and($content->toMarkdown())
+        ->toContain('# About Us')
+        ->and($wordpress)
+        ->toContain('<!-- wp:paragraph -->')
         ->toContain('<p>We shipped the roadmap, then asked it how it felt.</p>')
         ->toContain('<!-- wp:list -->')
         ->toContain('<li>Tiny buttons</li>')
@@ -47,5 +56,6 @@ it('hydrates fixture block definitions into content', function () {
 it('rejects unknown fixture block types', function () {
     expect(fn() => ContentFactory::fromArray([
         ['type' => 'accordion-of-regret', 'content' => 'Nope'],
-    ]))->toThrow(InvalidArgumentException::class, 'Unsupported content block type');
+    ]))
+        ->toThrow(InvalidArgumentException::class, 'Unsupported content block type');
 });

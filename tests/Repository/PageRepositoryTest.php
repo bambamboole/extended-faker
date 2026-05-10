@@ -91,10 +91,8 @@ test('page fixtures are publication ready', function () {
                 $localeData['blocks'],
             ));
             expect($blockTypes)->not->toBe(['paragraph']);
-            expect(count(array_filter(
-                $blockTypes,
-                static fn(string $blockType): bool => $blockType !== 'paragraph',
-            )))->toBeGreaterThanOrEqual(1);
+            expect(count(array_filter($blockTypes, static fn(string $blockType): bool => $blockType !== 'paragraph')))
+                ->toBeGreaterThanOrEqual(1);
         }
     }
 });

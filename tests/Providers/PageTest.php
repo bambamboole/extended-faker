@@ -25,8 +25,10 @@ test('page fields can be retrieved by slug', function () {
 
     expect($this->faker->pageSeo('about'))
         ->toHaveKeys(['title', 'description'])
-        ->and($this->faker->pageSeo('about')['title'])->toBeString()->not->toBeEmpty()
-        ->and($this->faker->pageSeo('about')['description'])->toBeString()->not->toBeEmpty();
+        ->and($this->faker->pageSeo('about')['title'])
+        ->toBeString()
+        ->not->toBeEmpty()->and($this->faker->pageSeo('about')['description'])->toBeString()
+        ->not->toBeEmpty();
 });
 
 test('page returns dto with markdown content generated from content blocks', function () {
@@ -55,9 +57,7 @@ test('page block content supports wordpress block options', function () {
         new WordPressBlockOptions(includeTitleHeading: false, headingOffset: 1),
     );
 
-    expect($content)
-        ->not->toContain('<h1>About Us</h1>')
-        ->toContain('<!-- wp:heading {"level":3} -->');
+    expect($content)->not->toContain('<h1>About Us</h1>')->toContain('<!-- wp:heading {"level":3} -->');
 });
 
 test('page lookup by slug and title works', function () {

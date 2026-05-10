@@ -20,10 +20,9 @@ final class ContentFactory
     /** @param list<array<string, mixed>> $blocks */
     public static function fromArray(array $blocks): Content
     {
-        return new Content(array_values(array_map(
-            static fn(array $block): Block => self::blockFromArray($block),
-            $blocks,
-        )));
+        return new Content(array_values(array_map(self::blockFromArray(
+            ...
+        ), $blocks)));
     }
 
     /** @param array<string, mixed> $block */
