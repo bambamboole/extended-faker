@@ -1,0 +1,60 @@
+{
+  "slug": "terms",
+  "template": "legal",
+  "locales": {
+    "en_US": {
+      "title": "Terms",
+      "excerpt": "The rules, but written with fewer trapdoors than usual.",
+      "seo": {
+        "title": "Terms",
+        "description": "Read the service terms in plain language with practical expectations and fewer surprises."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "The agreement in daylight"
+        },
+        {
+          "type": "paragraph",
+          "content": "The rules, but written with fewer trapdoors than usual. Use the service fairly, keep credentials private, and tell us when something has gone sideways."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Respect access limits.",
+            "Do not upload anything that starts a legal group chat.",
+            "Report issues before they become folklore."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Bedingungen",
+      "excerpt": "Die Regeln, aber mit weniger Falltüren als üblich.",
+      "seo": {
+        "title": "Bedingungen",
+        "description": "Lesen Sie die Nutzungsbedingungen in verständlicher Sprache mit klaren Erwartungen."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Die Vereinbarung bei Licht"
+        },
+        {
+          "type": "paragraph",
+          "content": "Die Regeln, aber mit weniger Falltüren als üblich. Nutzen Sie den Dienst fair, schützen Sie Zugangsdaten und melden Sie sich, wenn etwas schiefgelaufen ist."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Zugriffsgrenzen respektieren.",
+            "Nichts hochladen, das eine juristische Gruppenunterhaltung auslöst.",
+            "Probleme melden, bevor sie zur Legende werden."
+          ]
+        }
+      ]
+    }
+  }
+}

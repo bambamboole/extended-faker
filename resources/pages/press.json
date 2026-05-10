@@ -1,0 +1,52 @@
+{
+  "slug": "press",
+  "template": "press",
+  "locales": {
+    "en_US": {
+      "title": "Press",
+      "excerpt": "Logos, blurbs, and quotes that survived three rounds of enthusiastic editing.",
+      "seo": {
+        "title": "Press",
+        "description": "Find approved company facts, media notes, quotes, and press contact details."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Materials for accurate stories"
+        },
+        {
+          "type": "paragraph",
+          "content": "Logos, blurbs, and quotes that survived three rounds of enthusiastic editing are gathered here for writers, producers, and deadline sprinters."
+        },
+        {
+          "type": "quote",
+          "content": "We are available for comment, context, and gentle correction of our company name."
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Presse",
+      "excerpt": "Logos, Kurztexte und Zitate, die drei Runden begeisterter Bearbeitung überstanden haben.",
+      "seo": {
+        "title": "Presse",
+        "description": "Finden Sie freigegebene Unternehmensdaten, Medienhinweise, Zitate und Pressekontakt."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Material für präzise Geschichten"
+        },
+        {
+          "type": "paragraph",
+          "content": "Logos, Kurztexte und Zitate, die drei Runden begeisterter Bearbeitung überstanden haben, liegen hier für Redaktionen und Menschen mit knappen Fristen."
+        },
+        {
+          "type": "quote",
+          "content": "Wir liefern gern Kommentare, Kontext und eine freundliche Korrektur unseres Firmennamens."
+        }
+      ]
+    }
+  }
+}

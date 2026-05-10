@@ -1,0 +1,60 @@
+{
+  "slug": "pricing",
+  "template": "pricing",
+  "locales": {
+    "en_US": {
+      "title": "Pricing",
+      "excerpt": "Plans for teams of one, teams of many, and teams that call themselves a task force.",
+      "seo": {
+        "title": "Pricing",
+        "description": "Compare practical plans for solo work, growing teams, and determined task forces."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Pick the plan that fits the room"
+        },
+        {
+          "type": "paragraph",
+          "content": "Plans for teams of one, teams of many, and teams that call themselves a task force because the calendar invite sounded more dramatic that way."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Starter for tidy solo projects.",
+            "Team for shared dashboards and shared snacks.",
+            "Scale for groups with acronyms and opinions."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Preise",
+      "excerpt": "Tarife für Einzelkämpfer, große Teams und Runden, die sich Taskforce nennen.",
+      "seo": {
+        "title": "Preise",
+        "description": "Vergleichen Sie passende Tarife für Einzelarbeit, wachsende Teams und entschlossene Taskforces."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Der Tarif muss zum Tisch passen"
+        },
+        {
+          "type": "paragraph",
+          "content": "Tarife für Einzelkämpfer, große Teams und Runden, die sich Taskforce nennen, weil es in der Einladung einfach wichtiger klang."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Starter für überschaubare Solo-Projekte.",
+            "Team für gemeinsame Dashboards und geteilte Kekse.",
+            "Scale für Gruppen mit Abkürzungen und klaren Meinungen."
+          ]
+        }
+      ]
+    }
+  }
+}

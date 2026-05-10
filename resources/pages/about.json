@@ -1,0 +1,60 @@
+{
+  "slug": "about",
+  "template": "standard",
+  "locales": {
+    "en_US": {
+      "title": "About Us",
+      "excerpt": "We started with a spreadsheet and got emotionally attached.",
+      "seo": {
+        "title": "About Us",
+        "description": "Meet the small, practical team behind the tools, notes, and carefully named buttons."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Small beginnings, useful habits"
+        },
+        {
+          "type": "paragraph",
+          "content": "We started with a spreadsheet and got emotionally attached. Since then, we have been turning repetitive work into calmer workflows with fewer mystery columns."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Make useful things before making loud promises.",
+            "Write labels that explain themselves.",
+            "Leave the meeting with fewer questions than we brought in."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Über uns",
+      "excerpt": "Angefangen hat alles mit einer Tabelle, die dann irgendwie zum Teammitglied wurde.",
+      "seo": {
+        "title": "Über uns",
+        "description": "Lernen Sie das Team hinter den Werkzeugen, Texten und erstaunlich klaren Buttons kennen."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Klein angefangen, ordentlich weitergemacht"
+        },
+        {
+          "type": "paragraph",
+          "content": "Angefangen hat alles mit einer Tabelle, die dann irgendwie zum Teammitglied wurde. Heute bauen wir ruhige Abläufe für Arbeit, die sonst gern lauter wird als nötig."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Erst nützlich sein, dann glänzen.",
+            "Beschriftungen schreiben, die niemand nachschlagen muss.",
+            "Besprechungen mit weniger offenen Fragen verlassen."
+          ]
+        }
+      ]
+    }
+  }
+}

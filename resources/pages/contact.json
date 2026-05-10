@@ -1,0 +1,52 @@
+{
+  "slug": "contact",
+  "template": "contact",
+  "locales": {
+    "en_US": {
+      "title": "Contact",
+      "excerpt": "Send a message. A human will read it after arguing with the inbox filters.",
+      "seo": {
+        "title": "Contact",
+        "description": "Reach the team for questions, requests, and messages that deserve a real reply."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Say hello"
+        },
+        {
+          "type": "paragraph",
+          "content": "Send a message. A human will read it after arguing with the inbox filters and promising the contact form that it is doing a fine job."
+        },
+        {
+          "type": "quote",
+          "content": "Clear questions get the fastest answers, but charmingly chaotic ones are welcome too."
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Kontakt",
+      "excerpt": "Schicken Sie uns eine Nachricht. Ein Mensch liest sie, sobald der Posteingang nachgibt.",
+      "seo": {
+        "title": "Kontakt",
+        "description": "Erreichen Sie das Team mit Fragen, Anliegen und Nachrichten, die eine echte Antwort verdienen."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Sagen Sie hallo"
+        },
+        {
+          "type": "paragraph",
+          "content": "Schicken Sie uns eine Nachricht. Ein Mensch liest sie, sobald der Posteingang nachgibt und die Filter ihre Bedenken sortiert haben."
+        },
+        {
+          "type": "quote",
+          "content": "Klare Fragen bekommen die schnellsten Antworten, charmantes Durcheinander ist aber ebenfalls willkommen."
+        }
+      ]
+    }
+  }
+}

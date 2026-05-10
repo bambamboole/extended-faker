@@ -1,0 +1,60 @@
+{
+  "slug": "faq",
+  "template": "faq",
+  "locales": {
+    "en_US": {
+      "title": "FAQ",
+      "excerpt": "Questions people ask before, during, and immediately after clicking the wrong thing.",
+      "seo": {
+        "title": "FAQ",
+        "description": "Answers to common questions about accounts, billing, features, and mild confusion."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Answers before the second tab opens"
+        },
+        {
+          "type": "paragraph",
+          "content": "Questions people ask before, during, and immediately after clicking the wrong thing live here with answers that try to be direct without sounding annoyed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Billing questions get plain answers.",
+            "Account questions get step-by-step help.",
+            "Feature questions get honest status."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "FAQ",
+      "excerpt": "Fragen vor, während und direkt nach dem Klick auf die falsche Stelle.",
+      "seo": {
+        "title": "FAQ",
+        "description": "Antworten auf häufige Fragen zu Konten, Abrechnung, Funktionen und leichter Verwirrung."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Antworten, bevor der zweite Tab aufgeht"
+        },
+        {
+          "type": "paragraph",
+          "content": "Fragen vor, während und direkt nach dem Klick auf die falsche Stelle stehen hier mit Antworten, die direkt sind, aber nicht genervt klingen."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Abrechnungsfragen bekommen klare Antworten.",
+            "Kontofragen bekommen Schritt-für-Schritt-Hilfe.",
+            "Funktionsfragen bekommen einen ehrlichen Stand."
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "slug": "investors",
+  "template": "investors",
+  "locales": {
+    "en_US": {
+      "title": "Investors",
+      "excerpt": "Metrics, momentum, and a chart that is trying its best.",
+      "seo": {
+        "title": "Investors",
+        "description": "Review investor updates, company direction, practical metrics, and long-term priorities."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Signals with context"
+        },
+        {
+          "type": "paragraph",
+          "content": "Metrics, momentum, and a chart that is trying its best come together here. We prefer durable progress over dramatic arrows."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Updates focus on practical growth.",
+            "Reports explain the number behind the number.",
+            "Plans include ambition and a calendar."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Investoren",
+      "excerpt": "Kennzahlen, Schwung und ein Diagramm, das wirklich sein Bestes gibt.",
+      "seo": {
+        "title": "Investoren",
+        "description": "Lesen Sie Investorenupdates, Unternehmensrichtung, praktische Kennzahlen und langfristige Prioritäten."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Signale mit Kontext"
+        },
+        {
+          "type": "paragraph",
+          "content": "Kennzahlen, Schwung und ein Diagramm, das wirklich sein Bestes gibt, kommen hier zusammen. Dauerhafter Fortschritt ist uns lieber als dramatische Pfeile."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Updates konzentrieren sich auf praktisches Wachstum.",
+            "Berichte erklären die Zahl hinter der Zahl.",
+            "Pläne enthalten Ehrgeiz und einen Kalender."
+          ]
+        }
+      ]
+    }
+  }
+}

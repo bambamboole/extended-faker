@@ -1,0 +1,60 @@
+{
+  "slug": "careers",
+  "template": "careers",
+  "locales": {
+    "en_US": {
+      "title": "Careers",
+      "excerpt": "Bring your talent, your questions, and a healthy respect for staging environments.",
+      "seo": {
+        "title": "Careers",
+        "description": "Join a team that values thoughtful work, practical feedback, and calm releases."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Work with us"
+        },
+        {
+          "type": "paragraph",
+          "content": "Bring your talent, your questions, and a healthy respect for staging environments. We like people who can explain a tradeoff without turning it into theater."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Product minds who care about details.",
+            "Engineers who test the weird path.",
+            "Operators who keep launches boring."
+          ]
+        }
+      ]
+    },
+    "de_DE": {
+      "title": "Karriere",
+      "excerpt": "Bringen Sie Talent, Fragen und Respekt vor Staging-Umgebungen mit.",
+      "seo": {
+        "title": "Karriere",
+        "description": "Werden Sie Teil eines Teams, das durchdachte Arbeit, klares Feedback und ruhige Releases schätzt."
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "content": "Arbeiten Sie mit uns"
+        },
+        {
+          "type": "paragraph",
+          "content": "Bringen Sie Talent, Fragen und Respekt vor Staging-Umgebungen mit. Wir mögen Menschen, die Abwägungen erklären können, ohne daraus ein Drama zu machen."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Produktmenschen mit Blick für Details.",
+            "Entwicklerinnen und Entwickler, die auch den schrägen Pfad testen.",
+            "Organisationstalente, die Starts angenehm unspektakulär halten."
+          ]
+        }
+      ]
+    }
+  }
+}
