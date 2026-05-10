@@ -49,8 +49,10 @@ abstract class Page extends Base
         return $this->page($identifier)->content;
     }
 
-    public function pageBlockContent(string|PageType|null $identifier = null, ?WordPressBlockOptions $options = null): string
-    {
+    public function pageBlockContent(
+        string|PageType|null $identifier = null,
+        ?WordPressBlockOptions $options = null,
+    ): string {
         return $this->page($identifier)->contentBlocks->toWordPress($options);
     }
 

@@ -86,9 +86,7 @@ test('page methods accept page type enum identifiers', function () {
         new WordPressBlockOptions(includeTitleHeading: false, headingOffset: 1),
     );
 
-    expect($content)
-        ->not->toContain('<h1>About Us</h1>')
-        ->toContain('<!-- wp:heading {"level":3} -->');
+    expect($content)->not->toContain('<h1>About Us</h1>')->toContain('<!-- wp:heading {"level":3} -->');
 });
 
 test('page enum lookup supports explicit locale', function () {
