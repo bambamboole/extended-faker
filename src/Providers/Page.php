@@ -8,6 +8,7 @@ use Bambamboole\ExtendedFaker\Content\Block\ParagraphBlock;
 use Bambamboole\ExtendedFaker\Content\Content;
 use Bambamboole\ExtendedFaker\Dto\PageDto;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
+use Bambamboole\ExtendedFaker\Page\PageType;
 use Bambamboole\ExtendedFaker\Repository\PageRepository;
 use Faker\Provider\Base;
 use InvalidArgumentException;
@@ -22,8 +23,10 @@ abstract class Page extends Base
         $this->repository = $repository ?? new PageRepository();
     }
 
-    private function findPage(?string $identifier): ?PageDto
+    private function findPage(string|PageType|null $identifier): ?PageDto
     {
+        $identifier = $this->normalizeIdentifier($identifier);
+
         if ($identifier === null) {
             return $this->normalizePage($this->repository->getRandomPage($this->getLocale()));
         }
@@ -36,50 +39,56 @@ abstract class Page extends Base
         );
     }
 
-    public function pageTitle(?string $identifier = null): string
+    public function pageTitle(string|PageType|null $identifier = null): string
     {
         return $this->page($identifier)->title;
     }
 
-    public function pageContent(?string $identifier = null): string
+    public function pageContent(string|PageType|null $identifier = null): string
     {
         return $this->page($identifier)->content;
     }
 
-    public function pageBlockContent(?string $identifier = null, ?WordPressBlockOptions $options = null): string
+    public function pageBlockContent(string|PageType|null $identifier = null, ?WordPressBlockOptions $options = null): string
     {
         return $this->page($identifier)->contentBlocks->toWordPress($options);
     }
 
-    public function pageExcerpt(?string $identifier = null): string
+    public function pageExcerpt(string|PageType|null $identifier = null): string
     {
         return $this->page($identifier)->excerpt;
     }
 
-    public function pageTemplate(?string $identifier = null): string
+    public function pageTemplate(string|PageType|null $identifier = null): string
     {
         return $this->page($identifier)->template;
     }
 
     /** @return array{title: string, description: string} */
-    public function pageSeo(?string $identifier = null): array
+    public function pageSeo(string|PageType|null $identifier = null): array
     {
         return $this->page($identifier)->seo;
     }
 
-    public function page(?string $identifier = null): PageDto
+    public function page(string|PageType|null $identifier = null): PageDto
     {
+        $resolvedIdentifier = $this->normalizeIdentifier($identifier);
         $page = $this->findPage($identifier);
 
         if ($page) {
             return $page;
         }
 
-        if ($identifier === null) {
+        if ($resolvedIdentifier === null) {
             return $this->samplePage();
         }
 
-        throw new InvalidArgumentException("Page '{$identifier}' not found in locale '{$this->getLocale()}'.");
+        throw new InvalidArgumentException("Page '{$resolvedIdentifier}' not found in locale '{$this->getLocale()}'.");
+    }
+
+    public function pageByType(PageType $page, ?string $locale = null): PageDto
+    {
+        return $this->pageBySlug($page->value, $locale);
     }
 
     public function pageBySlug(string $slug, ?string $locale = null): PageDto
@@ -141,6 +150,11 @@ abstract class Page extends Base
             $page->seo,
             $page->locale,
         );
+    }
+
+    private function normalizeIdentifier(string|PageType|null $identifier): ?string
+    {
+        return $identifier instanceof PageType ? $identifier->value : $identifier;
     }
 
     private function samplePage(): PageDto

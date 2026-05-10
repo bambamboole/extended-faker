@@ -98,12 +98,17 @@ $dePost = $faker->getBlogPostInLocale($enPost->slug, 'de_DE');
 
 ```php
 use Bambamboole\ExtendedFaker\Providers\en_US\Page;
+use Bambamboole\ExtendedFaker\Page\PageType;
 
 $faker->addProvider(new Page($faker));
 
 // Named fixture-backed page
 $page = $faker->page('about');
 // PageDto with title, slug, content blocks, excerpt, template, seo, etc.
+
+// Typed page lookup
+$pricing = $faker->page(PageType::Pricing);
+$about = $faker->pageByType(PageType::About);
 
 // Render page content
 $content = $faker->pageContent('about');      // Markdown content
@@ -167,13 +172,14 @@ ExtendedFaker::extend($fakerDe, 'de_DE');
 - `getBlogPostInLocale(string $slug, string $locale): BlogPostDto`
 
 ### Page Provider
-- `pageTitle(?string $identifier = null): string`
-- `pageContent(?string $identifier = null): string`
-- `pageBlockContent(?string $identifier = null, ?WordPressBlockOptions $options = null): string`
-- `pageExcerpt(?string $identifier = null): string`
-- `pageTemplate(?string $identifier = null): string`
-- `pageSeo(?string $identifier = null): array`
-- `page(?string $identifier = null): PageDto`
+- `pageTitle(string|PageType|null $identifier = null): string`
+- `pageContent(string|PageType|null $identifier = null): string`
+- `pageBlockContent(string|PageType|null $identifier = null, ?WordPressBlockOptions $options = null): string`
+- `pageExcerpt(string|PageType|null $identifier = null): string`
+- `pageTemplate(string|PageType|null $identifier = null): string`
+- `pageSeo(string|PageType|null $identifier = null): array`
+- `page(string|PageType|null $identifier = null): PageDto`
+- `pageByType(PageType $page, ?string $locale = null): PageDto`
 - `pageBySlug(string $slug, ?string $locale = null): PageDto`
 - `getPageSlug(string $title): string`
 - `getPageInLocale(string $slug, string $locale): PageDto`

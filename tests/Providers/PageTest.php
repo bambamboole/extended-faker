@@ -5,6 +5,7 @@ use Bambamboole\ExtendedFaker\Content\Content;
 use Bambamboole\ExtendedFaker\Dto\PageDto;
 use Bambamboole\ExtendedFaker\ExtendedFaker;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
+use Bambamboole\ExtendedFaker\Page\PageType;
 use Bambamboole\ExtendedFaker\Providers\de_DE\Page as PageDe;
 use Bambamboole\ExtendedFaker\Providers\en_US\Page;
 use Faker\Factory as FakerFactory;
@@ -65,6 +66,37 @@ test('page lookup by slug and title works', function () {
     expect($this->faker->pageBySlug('about')->title)->toBe('About Us');
     expect($this->faker->getPageSlug('About Us'))->toBe('about');
     expect($this->faker->page('About Us')->slug)->toBe('about');
+});
+
+test('page can be retrieved by enum', function () {
+    $page = $this->faker->pageByType(PageType::About);
+
+    expect($page)->toBeInstanceOf(PageDto::class);
+    expect($page->slug)->toBe('about');
+    expect($page->title)->toBe('About Us');
+});
+
+test('page methods accept page type enum identifiers', function () {
+    expect($this->faker->page(PageType::Pricing)->slug)->toBe('pricing');
+    expect($this->faker->pageTitle(PageType::Pricing))->toBe('Pricing');
+    expect($this->faker->pageContent(PageType::Pricing))->toContain('# Pricing');
+
+    $content = $this->faker->pageBlockContent(
+        PageType::About,
+        new WordPressBlockOptions(includeTitleHeading: false, headingOffset: 1),
+    );
+
+    expect($content)
+        ->not->toContain('<h1>About Us</h1>')
+        ->toContain('<!-- wp:heading {"level":3} -->');
+});
+
+test('page enum lookup supports explicit locale', function () {
+    $page = $this->faker->pageByType(PageType::About, 'de_DE');
+
+    expect($page->slug)->toBe('about');
+    expect($page->locale)->toBe('de_DE');
+    expect($page->title)->toBe('Über uns');
 });
 
 test('page can be retrieved from a specific locale', function () {
