@@ -19,6 +19,31 @@ final readonly class QuoteBlock implements Block
 
     public function toWordPress(): string
     {
-        return WordPressBlockSerializer::serialize('quote', '<blockquote>' . $this->content . '</blockquote>');
+        return WordPressBlockSerializer::serialize(
+            'quote',
+            '<blockquote class="wp-block-quote">' . $this->innerParagraphBlocks() . '</blockquote>',
+        );
+    }
+
+    private function innerParagraphBlocks(): string
+    {
+        $content = trim($this->content);
+
+        // Markdown path supplies one or more <p>...</p> elements because CommonMark wraps
+        // blockquote contents in paragraphs; fixture path supplies raw text.
+        if (!str_contains($content, '<p>')) {
+            return $this->wrapParagraph($content);
+        }
+
+        return (string) preg_replace_callback(
+            '#<p>(.*?)</p>\s*#s',
+            fn(array $match): string => $this->wrapParagraph($match[1]),
+            $content,
+        );
+    }
+
+    private function wrapParagraph(string $html): string
+    {
+        return "<!-- wp:paragraph -->\n<p>{$html}</p>\n<!-- /wp:paragraph -->";
     }
 }

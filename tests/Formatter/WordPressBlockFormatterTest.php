@@ -38,6 +38,11 @@ it('converts common markdown nodes to wordpress block markup', function () {
         ->toContain('<!-- wp:list -->')
         ->toContain('<!-- wp:list {"ordered":true} -->')
         ->toContain('<!-- wp:quote -->')
+        ->toContain(
+            "<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n"
+            . "<p>A quoted thought.</p>\n"
+            . '<!-- /wp:paragraph --></blockquote>',
+        )
         ->toContain('<!-- wp:code -->')
         ->toContain('<pre class="wp-block-code"><code class="language-php">')
         ->toContain('<!-- wp:separator -->');
@@ -76,6 +81,20 @@ it('maps image table and preformatted html to dedicated blocks', function () {
         ->toContain('<figure class="wp-block-table"><table><tbody><tr><td>Cell</td></tr></tbody></table></figure>')
         ->toContain('<!-- wp:preformatted -->')
         ->toContain('<pre class="wp-block-preformatted">Preformatted text</pre>');
+});
+
+it('renders multi-paragraph blockquotes as nested paragraph blocks', function () {
+    $blocks = (new WordPressBlockFormatter())->fromMarkdown(<<<'MARKDOWN'
+        > First line.
+        >
+        > Second line.
+        MARKDOWN);
+
+    expect($blocks)
+        ->toContain('<!-- wp:quote -->')
+        ->toContain('<blockquote class="wp-block-quote">')
+        ->toContain("<!-- wp:paragraph -->\n<p>First line.</p>\n<!-- /wp:paragraph -->")
+        ->toContain("<!-- wp:paragraph -->\n<p>Second line.</p>\n<!-- /wp:paragraph -->");
 });
 
 it('can omit the first h1 and offset heading levels', function () {
