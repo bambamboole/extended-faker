@@ -38,7 +38,11 @@ it('hydrates fixture block definitions into content', function () {
         ->toContain('<li>Tiny buttons</li>')
         ->toContain('<li>Large opinions</li>')
         ->toContain('<!-- wp:quote -->')
-        ->toContain('<blockquote>Move fast and document the weird parts.</blockquote>')
+        ->toContain(
+            "<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n"
+            . "<p>Move fast and document the weird parts.</p>\n"
+            . '<!-- /wp:paragraph --></blockquote>',
+        )
         ->toContain('<!-- wp:separator -->')
         ->toContain('<!-- wp:code -->')
         ->toContain('<pre class="wp-block-code">echo &quot;&lt;ship &amp; win&gt;&quot;;</pre>')
