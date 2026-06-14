@@ -13,7 +13,10 @@ $generator = new ComicSvgGenerator;
 /** @var list<array{key: string, motifKey: string, paletteSeed: string, type: string, size: int}> $jobs */
 $jobs = [];
 
-// Products: motif = category, palette seed = base SKU, square 256.
+// Square pixel size used for every rasterized WebP.
+$size = 1024;
+
+// Products: motif = category, palette seed = base SKU.
 foreach (glob($resources.'/products/*.json') as $file) {
     /** @var array{sku: string, category: string} $data */
     $data = json_decode((string) file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
@@ -22,19 +25,19 @@ foreach (glob($resources.'/products/*.json') as $file) {
         'motifKey' => $data['category'],
         'paletteSeed' => $data['sku'],
         'type' => 'products',
-        'size' => 256,
+        'size' => $size,
     ];
 }
 
-// Categories: motif = key, palette seed = key, square 256.
+// Categories: motif = key, palette seed = key.
 foreach ((new CategoryRepository)->getAllCategoryKeys() as $key) {
-    $jobs[] = ['key' => $key, 'motifKey' => $key, 'paletteSeed' => $key, 'type' => 'categories', 'size' => 256];
+    $jobs[] = ['key' => $key, 'motifKey' => $key, 'paletteSeed' => $key, 'type' => 'categories', 'size' => $size];
 }
 
-// Pages: motif = slug, palette seed = slug, square 512.
+// Pages: motif = slug, palette seed = slug.
 foreach (glob($resources.'/pages/*.json') as $file) {
     $slug = basename($file, '.json');
-    $jobs[] = ['key' => $slug, 'motifKey' => $slug, 'paletteSeed' => $slug, 'type' => 'pages', 'size' => 512];
+    $jobs[] = ['key' => $slug, 'motifKey' => $slug, 'paletteSeed' => $slug, 'type' => 'pages', 'size' => $size];
 }
 
 // Generate SVGs (PHP, deterministic) and collect a rasterization manifest.
