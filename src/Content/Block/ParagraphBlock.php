@@ -19,6 +19,6 @@ final readonly class ParagraphBlock implements Block
 
     public function toWordPress(): string
     {
-        return WordPressBlockSerializer::serialize('paragraph', '<p>' . $this->content . '</p>');
+        return WordPressBlockSerializer::serialize('paragraph', '<p>'.$this->content.'</p>');
     }
 }

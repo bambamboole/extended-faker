@@ -14,7 +14,7 @@ it('renders ordered blocks to markdown and wordpress block markup', function () 
         new ParagraphBlock('Intro paragraph.'),
         new ListBlock(['First item', 'Second item']),
         new CodeBlock('<code class="language-php">echo &#039;Hello&#039;;</code>'),
-        new SeparatorBlock(),
+        new SeparatorBlock,
     ]);
 
     expect($content->toMarkdown())

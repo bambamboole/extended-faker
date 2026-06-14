@@ -28,9 +28,9 @@ final class WordPressBlockFormatter
 
     public function parseMarkdown(string $markdown, ?WordPressBlockOptions $options = null): Content
     {
-        $options ??= new WordPressBlockOptions();
+        $options ??= new WordPressBlockOptions;
 
-        $html = (new CommonMarkConverter())
+        $html = (new CommonMarkConverter)
             ->convert($markdown)
             ->getContent();
 
@@ -44,12 +44,12 @@ final class WordPressBlockFormatter
 
     public function parseHtml(string $html, ?WordPressBlockOptions $options = null): Content
     {
-        $options ??= new WordPressBlockOptions();
+        $options ??= new WordPressBlockOptions;
 
         $dom = new DOMDocument('1.0', 'UTF-8');
         $previousErrors = libxml_use_internal_errors(true);
         $dom->loadHTML(
-            '<' . '?xml encoding="utf-8" ?><body>' . $html . '</body>',
+            '<'.'?xml encoding="utf-8" ?><body>'.$html.'</body>',
             LIBXML_HTML_NODEFDTD | LIBXML_HTML_NOIMPLIED,
         );
         libxml_clear_errors();
@@ -62,7 +62,7 @@ final class WordPressBlockFormatter
 
         $blocks = [];
         foreach ($body->childNodes as $node) {
-            if (!$node instanceof DOMElement) {
+            if (! $node instanceof DOMElement) {
                 continue;
             }
 
@@ -91,7 +91,7 @@ final class WordPressBlockFormatter
             $name === 'ol' => $this->listBlock($element, $dom, true),
             $name === 'pre' => $this->codeBlock($element, $dom),
             $name === 'blockquote' => new QuoteBlock($this->innerHtml($element, $dom)),
-            $name === 'hr' => new SeparatorBlock(),
+            $name === 'hr' => new SeparatorBlock,
             $name === 'img' => $this->imageBlock($element),
             $name === 'figure' => $this->figureBlock($element, $dom, $options),
             $name === 'table' => new TableBlock($outerHtml),
@@ -112,7 +112,7 @@ final class WordPressBlockFormatter
     ): ?HeadingBlock {
         $sourceLevel = (int) substr(strtolower($heading->nodeName), 1);
 
-        if ($isFirstBlock && $sourceLevel === 1 && !$options->includeTitleHeading) {
+        if ($isFirstBlock && $sourceLevel === 1 && ! $options->includeTitleHeading) {
             return null;
         }
 
@@ -162,7 +162,7 @@ final class WordPressBlockFormatter
     private function figureBlock(DOMElement $figure, DOMDocument $dom, WordPressBlockOptions $options): ?Block
     {
         $image = $figure->getElementsByTagName('img')->item(0);
-        if (!$image instanceof DOMElement) {
+        if (! $image instanceof DOMElement) {
             $html = $dom->saveHTML($figure) ?: '';
 
             return $options->fallbackToHtmlBlock ? new HtmlBlock($html) : null;

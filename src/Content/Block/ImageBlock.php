@@ -16,19 +16,19 @@ final readonly class ImageBlock implements Block
 
     public function toMarkdown(): string
     {
-        return '![' . $this->alt . '](' . $this->src . ')';
+        return '!['.$this->alt.']('.$this->src.')';
     }
 
     public function toWordPress(): string
     {
-        $img = '<img src="' . $this->src . '" alt="' . $this->alt . '"/>';
+        $img = '<img src="'.$this->src.'" alt="'.$this->alt.'"/>';
         $caption = $this->caption === null
             ? ''
-            : '<figcaption class="wp-element-caption">' . $this->caption . '</figcaption>';
+            : '<figcaption class="wp-element-caption">'.$this->caption.'</figcaption>';
 
         return WordPressBlockSerializer::serialize(
             'image',
-            '<figure class="wp-block-image">' . $img . $caption . '</figure>',
+            '<figure class="wp-block-image">'.$img.$caption.'</figure>',
         );
     }
 }

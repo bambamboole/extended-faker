@@ -40,5 +40,5 @@ test('cross locale functionality works', function () {
 });
 
 test('invalid product throws exception', function () {
-    expect(fn() => $this->faker->productName('NonExistent'))->toThrow(InvalidArgumentException::class);
+    expect(fn () => $this->faker->productName('NonExistent'))->toThrow(InvalidArgumentException::class);
 });

@@ -15,12 +15,12 @@ final readonly class Content
 
     public function toMarkdown(): string
     {
-        return implode("\n\n", array_map(static fn(Block $block): string => $block->toMarkdown(), $this->blocks));
+        return implode("\n\n", array_map(static fn (Block $block): string => $block->toMarkdown(), $this->blocks));
     }
 
     public function toWordPress(?WordPressBlockOptions $options = null): string
     {
-        $options ??= new WordPressBlockOptions();
+        $options ??= new WordPressBlockOptions;
 
         $blocks = [];
         foreach ($this->blocks as $block) {
@@ -28,13 +28,14 @@ final readonly class Content
                 count($blocks) === 0
                 && $block instanceof HeadingBlock
                 && $block->level === 1
-                && !$options->includeTitleHeading
+                && ! $options->includeTitleHeading
             ) {
                 continue;
             }
 
             if ($block instanceof HeadingBlock && $options->headingOffset !== 0) {
                 $blocks[] = $block->withLevel($block->level + $options->headingOffset)->toWordPress();
+
                 continue;
             }
 

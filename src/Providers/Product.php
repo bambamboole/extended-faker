@@ -14,7 +14,7 @@ abstract class Product extends Base
     public function __construct($generator)
     {
         parent::__construct($generator);
-        $this->repository = new ProductRepository();
+        $this->repository = new ProductRepository;
     }
 
     private function findProduct(?string $identifier): ?ProductDto
@@ -22,51 +22,57 @@ abstract class Product extends Base
         if ($identifier === null) {
             return $this->repository->getRandomProduct($this->getLocale());
         }
-        return (
+
+        return
             $this->repository->getProductBySku($identifier, $this->getLocale()) ?? $this->repository->findProductByName(
                 $identifier,
                 $this->getLocale(),
-            )
-        );
+            );
     }
 
     public function productName(?string $identifier = null): string
     {
         $product = $this->findProduct($identifier);
-        if (!$product) {
-            if ($identifier === null)
+        if (! $product) {
+            if ($identifier === null) {
                 return 'Generic Product';
+            }
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
+
         return $product->name;
     }
 
     public function productDescription(?string $identifier = null): string
     {
         $product = $this->findProduct($identifier);
-        if (!$product) {
-            if ($identifier === null)
+        if (! $product) {
+            if ($identifier === null) {
                 return 'A high-quality product designed for everyday use.';
+            }
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
+
         return $product->description;
     }
 
     public function productCategory(?string $identifier = null): string
     {
         $product = $this->findProduct($identifier);
-        if (!$product) {
-            if ($identifier === null)
+        if (! $product) {
+            if ($identifier === null) {
                 return 'Electronics';
+            }
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
+
         return $product->category;
     }
 
     public function product(?string $identifier = null): ProductDto
     {
         $product = $this->findProduct($identifier);
-        if (!$product) {
+        if (! $product) {
             if ($identifier === null) {
                 return new ProductDto(
                     'GENERIC-001',
@@ -77,6 +83,7 @@ abstract class Product extends Base
             }
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
+
         return $product;
     }
 
@@ -84,26 +91,30 @@ abstract class Product extends Base
     {
         $targetLocale = $locale ?? $this->getLocale();
         $product = $this->repository->getProductBySku($sku, $targetLocale);
-        if (!$product)
+        if (! $product) {
             throw new \InvalidArgumentException("Product with SKU '{$sku}' not found in locale '{$targetLocale}'.");
+        }
+
         return $product;
     }
 
     public function getProductSku(string $name): string
     {
         $product = $this->repository->findProductByName($name, $this->getLocale());
-        if (!$product) {
+        if (! $product) {
             throw new \InvalidArgumentException("Product '{$name}' not found in locale '{$this->getLocale()}'.");
         }
+
         return $product->sku;
     }
 
     public function getProductInLocale(string $sku, string $locale): ProductDto
     {
         $product = $this->repository->getProductBySku($sku, $locale);
-        if (!$product) {
+        if (! $product) {
             throw new \InvalidArgumentException("Product with SKU '{$sku}' not found in locale '{$locale}'.");
         }
+
         return $product;
     }
 

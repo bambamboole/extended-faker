@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace Bambamboole\ExtendedFaker\Repository;
 
 class CategoryRepository extends JsonFileRepository
@@ -12,15 +13,17 @@ class CategoryRepository extends JsonFileRepository
     public function getCategoryByKey(string $key, string $locale = 'en_US'): ?array
     {
         $category = $this->getItemByKey($key);
-        if (!$category || !isset($category['locales'][$locale])) {
+        if (! $category || ! isset($category['locales'][$locale])) {
             return null;
         }
+
         return array_merge(['key' => $key, 'parent' => $category['parent'] ?? null], $category['locales'][$locale]);
     }
 
     public function getCategoryName(string $key, string $locale = 'en_US'): ?string
     {
         $category = $this->getCategoryByKey($key, $locale);
+
         return $category['name'] ?? null;
     }
 
@@ -35,6 +38,7 @@ class CategoryRepository extends JsonFileRepository
                 ], $category['locales'][$locale]);
             }
         }
+
         return $result;
     }
 
@@ -51,6 +55,7 @@ class CategoryRepository extends JsonFileRepository
                 $names[] = $category['locales'][$locale]['name'];
             }
         }
+
         return $names;
     }
 
@@ -75,6 +80,7 @@ class CategoryRepository extends JsonFileRepository
                 ], $category['locales'][$locale]);
             }
         }
+
         return $result;
     }
 
@@ -95,6 +101,7 @@ class CategoryRepository extends JsonFileRepository
                 return true;
             }
         }
+
         return false;
     }
 }

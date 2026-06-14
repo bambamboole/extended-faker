@@ -4,7 +4,7 @@ declare(strict_types=1);
 use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 
 beforeEach(function () {
-    $this->repository = new CategoryRepository();
+    $this->repository = new CategoryRepository;
     CategoryRepository::clearCache();
 });
 

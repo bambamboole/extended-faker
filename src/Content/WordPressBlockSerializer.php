@@ -22,6 +22,6 @@ final class WordPressBlockSerializer
 
         $json = json_encode($attributes, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES);
 
-        return ' ' . $json;
+        return ' '.$json;
     }
 }

@@ -24,7 +24,7 @@ final readonly class HeadingBlock implements Block
 
     public function toMarkdown(): string
     {
-        return str_repeat('#', $this->level) . ' ' . $this->content;
+        return str_repeat('#', $this->level).' '.$this->content;
     }
 
     public function toWordPress(): string

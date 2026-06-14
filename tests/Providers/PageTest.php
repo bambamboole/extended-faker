@@ -110,9 +110,9 @@ test('page can be retrieved from a specific locale', function () {
 });
 
 test('invalid explicit page identifier throws exception', function () {
-    expect(fn() => $this->faker->page('not-a-real-page'))->toThrow(InvalidArgumentException::class);
-    expect(fn() => $this->faker->pageTitle('not-a-real-page'))->toThrow(InvalidArgumentException::class);
-    expect(fn() => $this->faker->pageBySlug('not-a-real-page'))->toThrow(InvalidArgumentException::class);
+    expect(fn () => $this->faker->page('not-a-real-page'))->toThrow(InvalidArgumentException::class);
+    expect(fn () => $this->faker->pageTitle('not-a-real-page'))->toThrow(InvalidArgumentException::class);
+    expect(fn () => $this->faker->pageBySlug('not-a-real-page'))->toThrow(InvalidArgumentException::class);
 });
 
 test('extended faker registers page providers for en_US and de_DE', function () {

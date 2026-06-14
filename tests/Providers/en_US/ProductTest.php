@@ -4,6 +4,7 @@ declare(strict_types=1);
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Providers\en_US\Product;
 use Faker\Factory as FakerFactory;
+use Faker\Generator;
 
 beforeEach(function () {
     $this->faker = FakerFactory::create('en_US');
@@ -17,6 +18,6 @@ test('english provider returns english content', function () {
 });
 
 test('english provider inherits from base', function () {
-    expect($this->faker)->toBeInstanceOf(Faker\Generator::class);
+    expect($this->faker)->toBeInstanceOf(Generator::class);
     expect($this->faker->productName())->toBeString();
 });

@@ -16,7 +16,7 @@ class PageRepository extends JsonFileRepository
     public function getPageBySlug(string $slug, string $locale = 'en_US'): ?PageDto
     {
         $page = $this->getItemByKey($slug);
-        if (!$page || !isset($page['locales'][$locale])) {
+        if (! $page || ! isset($page['locales'][$locale])) {
             return null;
         }
 
@@ -79,7 +79,7 @@ class PageRepository extends JsonFileRepository
     }
 
     /**
-     * @param array<string, mixed> $page
+     * @param  array<string, mixed>  $page
      */
     private function resolvePage(string $slug, array $page, string $locale): PageDto
     {

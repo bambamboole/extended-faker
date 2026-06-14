@@ -40,8 +40,8 @@ it('hydrates fixture block definitions into content', function () {
         ->toContain('<!-- wp:quote -->')
         ->toContain(
             "<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n"
-            . "<p>Move fast and document the weird parts.</p>\n"
-            . '<!-- /wp:paragraph --></blockquote>',
+            ."<p>Move fast and document the weird parts.</p>\n"
+            .'<!-- /wp:paragraph --></blockquote>',
         )
         ->toContain('<!-- wp:separator -->')
         ->toContain('<!-- wp:code -->')
@@ -58,7 +58,7 @@ it('hydrates fixture block definitions into content', function () {
 });
 
 it('rejects unknown fixture block types', function () {
-    expect(fn() => ContentFactory::fromArray([
+    expect(fn () => ContentFactory::fromArray([
         ['type' => 'accordion-of-regret', 'content' => 'Nope'],
     ]))
         ->toThrow(InvalidArgumentException::class, 'Unsupported content block type');

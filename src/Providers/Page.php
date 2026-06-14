@@ -20,7 +20,7 @@ abstract class Page extends Base
     public function __construct($generator, ?PageRepository $repository = null)
     {
         parent::__construct($generator);
-        $this->repository = $repository ?? new PageRepository();
+        $this->repository = $repository ?? new PageRepository;
     }
 
     private function findPage(string|PageType|null $identifier): ?PageDto
@@ -98,7 +98,7 @@ abstract class Page extends Base
         $targetLocale = $locale ?? $this->getLocale();
         $page = $this->normalizePage($this->repository->getPageBySlug($slug, $targetLocale));
 
-        if (!$page) {
+        if (! $page) {
             throw new InvalidArgumentException("Page with slug '{$slug}' not found in locale '{$targetLocale}'.");
         }
 
@@ -109,7 +109,7 @@ abstract class Page extends Base
     {
         $page = $this->repository->findPageByTitle($title, $this->getLocale());
 
-        if (!$page) {
+        if (! $page) {
             throw new InvalidArgumentException("Page '{$title}' not found in locale '{$this->getLocale()}'.");
         }
 
@@ -120,7 +120,7 @@ abstract class Page extends Base
     {
         $page = $this->normalizePage($this->repository->getPageBySlug($slug, $locale));
 
-        if (!$page) {
+        if (! $page) {
             throw new InvalidArgumentException("Page with slug '{$slug}' not found in locale '{$locale}'.");
         }
 

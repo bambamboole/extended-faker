@@ -76,7 +76,7 @@ test('blog post block content supports wordpress block options', function () {
         new WordPressBlockOptions(includeTitleHeading: false, headingOffset: 1),
     );
 
-    expect($content)->not->toContain('<h1>' . $post->title . '</h1>')->toContain('<!-- wp:heading {"level":3} -->');
+    expect($content)->not->toContain('<h1>'.$post->title.'</h1>')->toContain('<!-- wp:heading {"level":3} -->');
 });
 
 test('blog post categories are valid', function () {
@@ -128,11 +128,11 @@ test('german locale provider works correctly', function () {
 });
 
 test('invalid blog post slug throws exception', function () {
-    expect(fn() => $this->faker->blogPostBySlug('non-existent-slug'))->toThrow(InvalidArgumentException::class);
+    expect(fn () => $this->faker->blogPostBySlug('non-existent-slug'))->toThrow(InvalidArgumentException::class);
 });
 
 test('invalid blog post title throws exception', function () {
-    expect(fn() => $this->faker->blogPostTitle('non-existent-title'))->toThrow(InvalidArgumentException::class);
+    expect(fn () => $this->faker->blogPostTitle('non-existent-title'))->toThrow(InvalidArgumentException::class);
 });
 
 test('blog post DTO toArray method works', function () {
@@ -210,7 +210,7 @@ test('blog post published date is valid', function () {
 });
 
 test('generated blog post content has no unresolved placeholders', function () {
-    $generator = new BlogPostGenerator(__DIR__ . '/../../resources/blog-templates');
+    $generator = new BlogPostGenerator(__DIR__.'/../../resources/blog-templates');
     $categories = ['technology', 'business', 'travel', 'lifestyle'];
 
     foreach ($categories as $category) {

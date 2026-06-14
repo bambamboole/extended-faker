@@ -6,7 +6,7 @@ use Bambamboole\ExtendedFaker\Formatter\WordPressBlockFormatter;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
 
 it('converts common markdown nodes to wordpress block markup', function () {
-    $blocks = (new WordPressBlockFormatter())->fromMarkdown(<<<'MARKDOWN'
+    $blocks = (new WordPressBlockFormatter)->fromMarkdown(<<<'MARKDOWN'
         # Article Title
 
         Intro paragraph with **strong text**.
@@ -40,8 +40,8 @@ it('converts common markdown nodes to wordpress block markup', function () {
         ->toContain('<!-- wp:quote -->')
         ->toContain(
             "<blockquote class=\"wp-block-quote\"><!-- wp:paragraph -->\n"
-            . "<p>A quoted thought.</p>\n"
-            . '<!-- /wp:paragraph --></blockquote>',
+            ."<p>A quoted thought.</p>\n"
+            .'<!-- /wp:paragraph --></blockquote>',
         )
         ->toContain('<!-- wp:code -->')
         ->toContain('<pre class="wp-block-code"><code class="language-php">')
@@ -49,7 +49,7 @@ it('converts common markdown nodes to wordpress block markup', function () {
 });
 
 it('parses markdown into content blocks', function () {
-    $content = (new WordPressBlockFormatter())->parseMarkdown(<<<'MARKDOWN'
+    $content = (new WordPressBlockFormatter)->parseMarkdown(<<<'MARKDOWN'
         # Article Title
 
         Intro paragraph.
@@ -66,7 +66,7 @@ it('parses markdown into content blocks', function () {
 });
 
 it('maps image table and preformatted html to dedicated blocks', function () {
-    $blocks = (new WordPressBlockFormatter())->fromHtml(<<<'HTML'
+    $blocks = (new WordPressBlockFormatter)->fromHtml(<<<'HTML'
         <figure><img src="https://example.com/image.jpg" alt="Example"><figcaption>Image caption</figcaption></figure>
         <table><tbody><tr><td>Cell</td></tr></tbody></table>
         <pre>Preformatted text</pre>
@@ -84,7 +84,7 @@ it('maps image table and preformatted html to dedicated blocks', function () {
 });
 
 it('renders multi-paragraph blockquotes as nested paragraph blocks', function () {
-    $blocks = (new WordPressBlockFormatter())->fromMarkdown(<<<'MARKDOWN'
+    $blocks = (new WordPressBlockFormatter)->fromMarkdown(<<<'MARKDOWN'
         > First line.
         >
         > Second line.
@@ -98,7 +98,7 @@ it('renders multi-paragraph blockquotes as nested paragraph blocks', function ()
 });
 
 it('can omit the first h1 and offset heading levels', function () {
-    $blocks = (new WordPressBlockFormatter())->fromMarkdown(
+    $blocks = (new WordPressBlockFormatter)->fromMarkdown(
         "# Article Title\n\n## Section Title",
         new WordPressBlockOptions(includeTitleHeading: false, headingOffset: 1),
     );
@@ -111,7 +111,7 @@ it('can omit the first h1 and offset heading levels', function () {
 });
 
 it('wraps unsupported top-level html in an html block', function () {
-    $blocks = (new WordPressBlockFormatter())->fromHtml('<aside>Custom HTML</aside>');
+    $blocks = (new WordPressBlockFormatter)->fromHtml('<aside>Custom HTML</aside>');
 
     expect($blocks)
         ->toContain('<!-- wp:html -->')
@@ -120,7 +120,7 @@ it('wraps unsupported top-level html in an html block', function () {
 });
 
 it('can skip unsupported top-level html fallback blocks', function () {
-    $blocks = (new WordPressBlockFormatter())->fromHtml(
+    $blocks = (new WordPressBlockFormatter)->fromHtml(
         '<aside>Custom HTML</aside>',
         new WordPressBlockOptions(fallbackToHtmlBlock: false),
     );

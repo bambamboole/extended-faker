@@ -9,7 +9,9 @@ use Bambamboole\ExtendedFaker\Generator\BlogPostGenerator;
 class BlogPostRepository
 {
     private static array $cache = [];
+
     private static array $slugToSeedMap = [];
+
     private static array $titleToSeedMap = [];
 
     private const SEED_RANGE = 10000; // 0-9999 seeds available
@@ -50,6 +52,7 @@ class BlogPostRepository
     public function generateRandomBlogPost(?string $category = null, string $locale = 'en_US'): BlogPostDto
     {
         $seed = random_int(0, self::SEED_RANGE - 1);
+
         return $this->generateBlogPost($seed, $category, $locale);
     }
 
@@ -87,6 +90,7 @@ class BlogPostRepository
         // Check if we have a reverse mapping
         if (isset(self::$slugToSeedMap[$lookupKey])) {
             $mapping = self::$slugToSeedMap[$lookupKey];
+
             return $this->generateBlogPost($mapping['seed'], $mapping['category'], $locale);
         }
 
@@ -111,6 +115,7 @@ class BlogPostRepository
         // Check if we have a reverse mapping
         if (isset(self::$titleToSeedMap[$lookupKey])) {
             $mapping = self::$titleToSeedMap[$lookupKey];
+
             return $this->generateBlogPost($mapping['seed'], $mapping['category'], $locale);
         }
 
@@ -154,7 +159,8 @@ class BlogPostRepository
     public function getAllSlugs(): array
     {
         $posts = $this->generateUniqueBatch(100);
-        return array_map(fn($post) => $post->slug, $posts);
+
+        return array_map(fn ($post) => $post->slug, $posts);
     }
 
     /**
@@ -163,7 +169,8 @@ class BlogPostRepository
     public function getAllTitles(string $locale = 'en_US'): array
     {
         $posts = $this->generateUniqueBatch(100, null, $locale);
-        return array_map(fn($post) => $post->title, $posts);
+
+        return array_map(fn ($post) => $post->title, $posts);
     }
 
     /**
