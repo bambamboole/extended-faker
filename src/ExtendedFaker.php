@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker;
 
-use Bambamboole\ExtendedFaker\Providers as Providers;
 use DavidBadura\FakerMarkdownGenerator\FakerProvider;
 use Faker\Generator;
 

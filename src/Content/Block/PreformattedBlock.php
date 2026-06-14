@@ -21,7 +21,7 @@ final readonly class PreformattedBlock implements Block
     {
         return WordPressBlockSerializer::serialize(
             'preformatted',
-            '<pre class="wp-block-preformatted">' . $this->content . '</pre>',
+            '<pre class="wp-block-preformatted">'.$this->content.'</pre>',
         );
     }
 }

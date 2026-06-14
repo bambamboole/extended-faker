@@ -20,7 +20,7 @@ final class ContentFactory
     /** @param list<array<string, mixed>> $blocks */
     public static function fromArray(array $blocks): Content
     {
-        return new Content(array_values(array_map(self::blockFromArray(...), $blocks)));
+        return new Content(array_map(self::blockFromArray(...), $blocks));
     }
 
     /** @param array<string, mixed> $block */
@@ -30,11 +30,11 @@ final class ContentFactory
             'heading' => new HeadingBlock((string) ($block['content'] ?? ''), (int) ($block['level'] ?? 2)),
             'paragraph' => new ParagraphBlock((string) ($block['content'] ?? '')),
             'list' => new ListBlock(
-                array_map(static fn(mixed $item): string => (string) $item, (array) ($block['items'] ?? [])),
+                array_map(static fn (mixed $item): string => (string) $item, (array) ($block['items'] ?? [])),
                 (bool) ($block['ordered'] ?? false),
             ),
             'quote' => new QuoteBlock((string) ($block['content'] ?? '')),
-            'separator' => new SeparatorBlock(),
+            'separator' => new SeparatorBlock,
             'code' => new CodeBlock(htmlspecialchars(
                 (string) ($block['content'] ?? ''),
                 ENT_QUOTES | ENT_SUBSTITUTE,

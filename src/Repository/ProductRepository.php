@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace Bambamboole\ExtendedFaker\Repository;
 
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
@@ -7,7 +8,7 @@ use Bambamboole\ExtendedFaker\Dto\ProductDto;
 class ProductRepository extends JsonFileRepository
 {
     public function __construct(
-        private readonly ?CategoryRepository $categoryRepository = new CategoryRepository(),
+        private readonly ?CategoryRepository $categoryRepository = new CategoryRepository,
     ) {
         parent::__construct('products', 'sku');
     }
@@ -17,6 +18,7 @@ class ProductRepository extends JsonFileRepository
         $productData = $product['locales'][$locale];
         $categoryName =
             $this->categoryRepository->getCategoryName($product['category'], $locale) ?? $product['category'];
+
         return new ProductDto($sku, $productData['name'], $productData['description'], $categoryName);
     }
 
@@ -24,9 +26,10 @@ class ProductRepository extends JsonFileRepository
     {
         $expandedItems = $this->getExpandedItems();
         $product = $expandedItems[$sku] ?? null;
-        if (!$product || !isset($product['locales'][$locale])) {
+        if (! $product || ! isset($product['locales'][$locale])) {
             return null;
         }
+
         return $this->resolveProduct($sku, $product, $locale);
     }
 
@@ -37,6 +40,7 @@ class ProductRepository extends JsonFileRepository
                 return $this->resolveProduct($sku, $product, $locale);
             }
         }
+
         return null;
     }
 
@@ -48,6 +52,7 @@ class ProductRepository extends JsonFileRepository
                 $result[] = $this->resolveProduct($sku, $product, $locale);
             }
         }
+
         return $result;
     }
 
@@ -64,6 +69,7 @@ class ProductRepository extends JsonFileRepository
                 $names[] = $product['locales'][$locale]['name'];
             }
         }
+
         return $names;
     }
 
@@ -71,6 +77,7 @@ class ProductRepository extends JsonFileRepository
     {
         $expandedItems = $this->getExpandedItems();
         $product = $expandedItems[$sku] ?? null;
+
         return $product && isset($product['locales'][$locale]);
     }
 
@@ -78,12 +85,14 @@ class ProductRepository extends JsonFileRepository
     {
         $expandedItems = $this->getExpandedItems();
         $product = $expandedItems[$sku] ?? null;
+
         return $product && isset($product['locales']) ? array_keys($product['locales']) : [];
     }
 
     public function getRandomProduct(string $locale = 'en_US'): ?ProductDto
     {
         $products = $this->getAllProducts($locale);
+
         return empty($products) ? null : $products[array_rand($products)];
     }
 
@@ -95,6 +104,7 @@ class ProductRepository extends JsonFileRepository
                 $result[] = $this->resolveProduct($sku, $product, $locale);
             }
         }
+
         return $result;
     }
 
@@ -104,6 +114,7 @@ class ProductRepository extends JsonFileRepository
         foreach ($this->getItems() as $product) {
             $categories[] = $product['category'];
         }
+
         return array_unique($categories);
     }
 
@@ -129,7 +140,7 @@ class ProductRepository extends JsonFileRepository
 
     private function hasVariants(array $product): bool
     {
-        return isset($product['variants']) && is_array($product['variants']) && !empty($product['variants']);
+        return isset($product['variants']) && is_array($product['variants']) && ! empty($product['variants']);
     }
 
     private function generateVariantCombinations(array $variants): array
@@ -167,14 +178,15 @@ class ProductRepository extends JsonFileRepository
     {
         $result = $template;
         foreach ($variantCombination as $variantName => $variantValue) {
-            $result = str_replace('{' . $variantName . '}', $variantValue, $result);
+            $result = str_replace('{'.$variantName.'}', $variantValue, $result);
         }
+
         return $result;
     }
 
     private function expandProductVariants(string $baseSku, array $product): array
     {
-        if (!$this->hasVariants($product)) {
+        if (! $this->hasVariants($product)) {
             return [$baseSku => $product];
         }
 
@@ -204,7 +216,7 @@ class ProductRepository extends JsonFileRepository
 
     protected function getExpandedItems(): array
     {
-        $cacheKey = static::class . '_expanded';
+        $cacheKey = static::class.'_expanded';
         if (isset(self::$caches[$cacheKey])) {
             return self::$caches[$cacheKey];
         }
@@ -218,6 +230,7 @@ class ProductRepository extends JsonFileRepository
         }
 
         self::$caches[$cacheKey] = $expandedItems;
+
         return $expandedItems;
     }
 }

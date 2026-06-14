@@ -1,55 +1,60 @@
 {
-  "name": "bambamboole/extended-faker",
-  "type": "library",
-  "require": {
-    "php": ">=8.2.0",
-    "fakerphp/faker": "^1.24",
-    "league/commonmark": "^2.7",
-    "symfony/yaml": "^7.3",
-    "davidbadura/faker-markdown-generator": "^1.1"
-  },
-  "require-dev": {
-    "pestphp/pest": "^3.8",
-    "phpstan/phpstan": "^2.1",
-    "pestphp/pest-plugin-type-coverage": "^3.6",
-    "rector/rector": "^2.1",
-    "carthage-software/mago": "^1.0.0-beta.17"
-  },
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "Bambamboole\\ExtendedFaker\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\": "tests/"
-    }
-  },
-  "scripts": {
-    "@post-autoload-dump": [
-      "@mago:install-binary"
+    "name": "bambamboole/extended-faker",
+    "description": "A FakerPHP extension providing realistic product, category, blog post, and fixture-backed page data across locales.",
+    "keywords": [
+        "bambamboole",
+        "faker",
+        "fakerphp",
+        "fixtures",
+        "testing",
+        "seeding"
     ],
-    "test": "vendor/bin/pest",
-    "test:coverage": "vendor/bin/pest --coverage-html coverage",
-    "test:ci": "vendor/bin/pest --coverage-clover coverage.xml",
-    "phpstan:analyse": "vendor/bin/phpstan analyse --ansi --memory-limit=4G",
-    "phpstan:baseline": "vendor/bin/phpstan analyse --generate-baseline --memory-limit=4G",
-    "rector": "vendor/bin/rector",
-    "lint": [
-      "vendor/bin/mago fmt",
-      "@rector",
-      "@phpstan:analyse"
+    "homepage": "https://github.com/bambamboole/extended-faker",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Manuel Christlieb",
+            "email": "manuel@christlieb.eu"
+        }
     ],
-    "all": [
-      "@lint",
-      "@test"
-    ]
-  },
-  "config": {
-    "allow-plugins": {
-      "pestphp/pest-plugin": true,
-      "carthage-software/mago": true
-    }
-  }
+    "require": {
+        "php": "^8.3",
+        "fakerphp/faker": "^1.24",
+        "league/commonmark": "^2.7",
+        "symfony/yaml": "^7.3",
+        "davidbadura/faker-markdown-generator": "^1.1"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.16",
+        "phpstan/phpstan": "^2.1",
+        "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-type-coverage": "^3.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bambamboole\\ExtendedFaker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "lint": "vendor/bin/pint",
+        "test:lint": "vendor/bin/pint --test",
+        "test": "vendor/bin/pest",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "test:type-coverage": "vendor/bin/pest --type-coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

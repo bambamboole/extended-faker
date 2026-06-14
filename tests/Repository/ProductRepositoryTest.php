@@ -6,7 +6,7 @@ use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 use Bambamboole\ExtendedFaker\Repository\ProductRepository;
 
 beforeEach(function () {
-    $this->repository = new ProductRepository();
+    $this->repository = new ProductRepository;
     ProductRepository::clearCache();
     CategoryRepository::clearCache();
 });

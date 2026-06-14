@@ -8,6 +8,8 @@ use Bambamboole\ExtendedFaker\Content\Block\HeadingBlock;
 use Bambamboole\ExtendedFaker\Content\Block\ParagraphBlock;
 use Bambamboole\ExtendedFaker\Content\Content;
 use Bambamboole\ExtendedFaker\Dto\BlogPostDto;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 
 class BlogPostGenerator
 {
@@ -19,12 +21,16 @@ class BlogPostGenerator
 
     // Content generation parameters
     private const MIN_SECTIONS = 4;
+
     private const MAX_SECTIONS = 5;
+
     private const MIN_TAGS = 3;
+
     private const MAX_TAGS = 5;
 
     // Placeholder value ranges
     private const MIN_NUMBER_PLACEHOLDER = 5;
+
     private const MAX_NUMBER_PLACEHOLDER = 15;
 
     public function __construct(
@@ -36,7 +42,7 @@ class BlogPostGenerator
         $this->loadTemplates();
 
         // Create isolated random generator with seed (no global state pollution)
-        $random = new \Random\Randomizer(new \Random\Engine\Mt19937($seed));
+        $random = new Randomizer(new Mt19937($seed));
 
         // Select category
         $category ??= self::CATEGORIES[$random->getInt(0, count(self::CATEGORIES) - 1)];
@@ -102,13 +108,13 @@ class BlogPostGenerator
         self::$templates = [];
 
         foreach ($requiredFiles as $templateKey => $fileName) {
-            $filePath = $this->templatesPath . '/' . $fileName . '.json';
+            $filePath = $this->templatesPath.'/'.$fileName.'.json';
 
-            if (!file_exists($filePath)) {
+            if (! file_exists($filePath)) {
                 throw new \RuntimeException("Template file not found: {$filePath}");
             }
 
-            if (!is_readable($filePath)) {
+            if (! is_readable($filePath)) {
                 throw new \RuntimeException("Template file not readable: {$filePath}");
             }
 
@@ -122,7 +128,7 @@ class BlogPostGenerator
                 throw new \RuntimeException(sprintf('Invalid JSON in %s: %s', $filePath, json_last_error_msg()));
             }
 
-            if (!is_array($data)) {
+            if (! is_array($data)) {
                 throw new \RuntimeException("Template file must contain a JSON array or object: {$filePath}");
             }
 
@@ -136,39 +142,39 @@ class BlogPostGenerator
     {
         // Validate that all required categories have templates
         foreach (self::CATEGORIES as $category) {
-            if (!isset(self::$templates['titles'][$category])) {
+            if (! isset(self::$templates['titles'][$category])) {
                 throw new \RuntimeException("Missing titles for category: {$category}");
             }
 
-            if (!is_array(self::$templates['titles'][$category]) || empty(self::$templates['titles'][$category])) {
+            if (! is_array(self::$templates['titles'][$category]) || empty(self::$templates['titles'][$category])) {
                 throw new \RuntimeException("Titles for category '{$category}' must be a non-empty array");
             }
 
-            if (!isset(self::$templates['introductions'][$category])) {
+            if (! isset(self::$templates['introductions'][$category])) {
                 throw new \RuntimeException("Missing introductions for category: {$category}");
             }
 
             if (
-                !is_array(self::$templates['introductions'][$category])
+                ! is_array(self::$templates['introductions'][$category])
                 || empty(self::$templates['introductions'][$category])
             ) {
                 throw new \RuntimeException("Introductions for category '{$category}' must be a non-empty array");
             }
 
-            if (!isset(self::$templates['sections'][$category])) {
+            if (! isset(self::$templates['sections'][$category])) {
                 throw new \RuntimeException("Missing sections for category: {$category}");
             }
 
-            if (!is_array(self::$templates['sections'][$category]) || empty(self::$templates['sections'][$category])) {
+            if (! is_array(self::$templates['sections'][$category]) || empty(self::$templates['sections'][$category])) {
                 throw new \RuntimeException("Sections for category '{$category}' must be a non-empty array");
             }
 
-            if (!isset(self::$templates['conclusions'][$category])) {
+            if (! isset(self::$templates['conclusions'][$category])) {
                 throw new \RuntimeException("Missing conclusions for category: {$category}");
             }
 
             if (
-                !is_array(self::$templates['conclusions'][$category])
+                ! is_array(self::$templates['conclusions'][$category])
                 || empty(self::$templates['conclusions'][$category])
             ) {
                 throw new \RuntimeException("Conclusions for category '{$category}' must be a non-empty array");
@@ -178,28 +184,28 @@ class BlogPostGenerator
         // Validate metadata structure
         $requiredMetadataKeys = ['authors', 'tagsByCategory', 'yearRange'];
         foreach ($requiredMetadataKeys as $key) {
-            if (!isset(self::$templates['metadata'][$key])) {
+            if (! isset(self::$templates['metadata'][$key])) {
                 throw new \RuntimeException("Missing required metadata key: {$key}");
             }
         }
 
         // Validate tagsByCategory has all categories
         foreach (self::CATEGORIES as $category) {
-            if (!isset(self::$templates['metadata']['tagsByCategory'][$category])) {
+            if (! isset(self::$templates['metadata']['tagsByCategory'][$category])) {
                 throw new \RuntimeException("Missing tags for category in metadata: {$category}");
             }
         }
 
         // Validate year range
         if (
-            !isset(self::$templates['metadata']['yearRange']['min'])
-            || !isset(self::$templates['metadata']['yearRange']['max'])
+            ! isset(self::$templates['metadata']['yearRange']['min'])
+            || ! isset(self::$templates['metadata']['yearRange']['max'])
         ) {
             throw new \RuntimeException("Year range must have 'min' and 'max' keys");
         }
     }
 
-    private function generateTitle(string $category, \Random\Randomizer $random): string
+    private function generateTitle(string $category, Randomizer $random): string
     {
         $templates = self::$templates['titles'][$category];
         $template = $templates[$random->getInt(0, count($templates) - 1)];
@@ -207,7 +213,7 @@ class BlogPostGenerator
         return $this->fillPlaceholders($template, $category, $random);
     }
 
-    private function generateIntroduction(string $category, string $title, \Random\Randomizer $random): string
+    private function generateIntroduction(string $category, string $title, Randomizer $random): string
     {
         $templates = self::$templates['introductions'][$category];
         $template = $templates[$random->getInt(0, count($templates) - 1)];
@@ -221,7 +227,7 @@ class BlogPostGenerator
         return $this->fillPlaceholders($intro, $category, $random);
     }
 
-    private function generateSections(string $category, int $count, \Random\Randomizer $random): array
+    private function generateSections(string $category, int $count, Randomizer $random): array
     {
         $availableSections = self::$templates['sections'][$category];
         $selectedSections = [];
@@ -237,18 +243,20 @@ class BlogPostGenerator
         return $selectedSections;
     }
 
-    private function generateCodeExample(\Random\Randomizer $random): ?array
+    private function generateCodeExample(Randomizer $random): ?array
     {
         $categories = ['php', 'javascript', 'python', 'docker', 'configuration', 'api', 'general'];
         $category = $categories[$random->getInt(0, count($categories) - 1)];
 
         $examples = self::$templates['codeExamples'][$category];
+
         return $examples[$random->getInt(0, count($examples) - 1)];
     }
 
-    private function generateConclusion(string $category, \Random\Randomizer $random): string
+    private function generateConclusion(string $category, Randomizer $random): string
     {
         $templates = self::$templates['conclusions'][$category];
+
         return $templates[$random->getInt(0, count($templates) - 1)];
     }
 
@@ -266,7 +274,7 @@ class BlogPostGenerator
 
         $codeExampleAdded = false;
         foreach ($sections as $index => $section) {
-            if ($index === 1 && $codeExample !== null && !$codeExampleAdded) {
+            if ($index === 1 && $codeExample !== null && ! $codeExampleAdded) {
                 $blocks[] = new HeadingBlock($codeExample['title'], 3);
                 $blocks[] = new CodeBlock(htmlspecialchars(
                     (string) $codeExample['code'],
@@ -280,7 +288,7 @@ class BlogPostGenerator
             $blocks[] = new ParagraphBlock($section['content']);
         }
 
-        if ($codeExample !== null && !$codeExampleAdded) {
+        if ($codeExample !== null && ! $codeExampleAdded) {
             $blocks[] = new HeadingBlock($codeExample['title'], 3);
             $blocks[] = new CodeBlock(htmlspecialchars(
                 (string) $codeExample['code'],
@@ -314,10 +322,10 @@ class BlogPostGenerator
             $excerpt = substr($excerpt, 0, $lastSpace);
         }
 
-        return $excerpt . '...';
+        return $excerpt.'...';
     }
 
-    private function generateTags(string $category, \Random\Randomizer $random): array
+    private function generateTags(string $category, Randomizer $random): array
     {
         $tagsByCategory = self::$templates['metadata']['tagsByCategory'][$category];
         $allTags = [];
@@ -333,19 +341,21 @@ class BlogPostGenerator
         return array_slice($allTags, 0, min($count, count($allTags)));
     }
 
-    private function selectAuthor(\Random\Randomizer $random): string
+    private function selectAuthor(Randomizer $random): string
     {
         $authors = self::$templates['metadata']['authors'];
+
         return $authors[$random->getInt(0, count($authors) - 1)];
     }
 
-    private function generatePublishedDate(\Random\Randomizer $random): string
+    private function generatePublishedDate(Randomizer $random): string
     {
         $yearRange = self::$templates['metadata']['yearRange'];
         $startDate = strtotime("{$yearRange['min']}-01-01");
         $endDate = strtotime("{$yearRange['max']}-12-31");
 
         $randomTimestamp = $random->getInt($startDate, $endDate);
+
         return date('Y-m-d', $randomTimestamp);
     }
 
@@ -364,7 +374,7 @@ class BlogPostGenerator
         return max(1, $readingTime);
     }
 
-    private function fillPlaceholders(string $template, string $category, \Random\Randomizer $random): string
+    private function fillPlaceholders(string $template, string $category, Randomizer $random): string
     {
         $metadata = self::$templates['metadata'];
 

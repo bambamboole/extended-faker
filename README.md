@@ -1,5 +1,9 @@
 # Extended Faker
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bambamboole/extended-faker.svg?style=flat-square)](https://packagist.org/packages/bambamboole/extended-faker)
+[![Total Downloads](https://img.shields.io/packagist/dt/bambamboole/extended-faker.svg?style=flat-square)](https://packagist.org/packages/bambamboole/extended-faker)
+![GitHub Actions](https://github.com/bambamboole/extended-faker/actions/workflows/ci.yml/badge.svg)
+
 PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, and page data. Provides 25+ products, 19+ categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
 
 ## Features
@@ -237,7 +241,7 @@ Each generated post includes:
 
 ## Requirements
 
-- PHP 8.2+
+- PHP 8.3+
 - fakerphp/faker ^1.24
 - league/commonmark ^2.7
 - symfony/yaml ^7.3
@@ -245,10 +249,25 @@ Each generated post includes:
 ## Testing
 
 ```bash
-composer install
-./vendor/bin/pest
+composer test            # run the test suite
+composer test:coverage   # run with coverage
+composer test:lint       # check code style (Pint)
+composer analyse         # static analysis (PHPStan)
 ```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+### Security
+
+If you discover any security related issues, please email manuel@christlieb.eu instead of using the issue tracker.
+
+## Credits
+
+- [Manuel Christlieb](https://github.com/bambamboole)
+- [All Contributors](../../contributors)
 
 ## License
 
-MIT License
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

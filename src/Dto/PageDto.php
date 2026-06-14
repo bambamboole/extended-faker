@@ -8,7 +8,7 @@ use Bambamboole\ExtendedFaker\Content\Content;
 final class PageDto
 {
     /**
-     * @param array{title: string, description: string} $seo
+     * @param  array{title: string, description: string}  $seo
      */
     public function __construct(
         public string $slug,

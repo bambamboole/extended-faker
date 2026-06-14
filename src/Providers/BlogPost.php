@@ -6,6 +6,7 @@ namespace Bambamboole\ExtendedFaker\Providers;
 use Bambamboole\ExtendedFaker\Dto\BlogPostDto;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockFormatter;
 use Bambamboole\ExtendedFaker\Formatter\WordPressBlockOptions;
+use Bambamboole\ExtendedFaker\Generator\BlogPostGenerator;
 use Bambamboole\ExtendedFaker\Repository\BlogPostRepository;
 use Faker\Provider\Base;
 
@@ -21,8 +22,8 @@ abstract class BlogPost extends Base
 
     protected function createDefaultRepository(): BlogPostRepository
     {
-        $templatesPath = __DIR__ . '/../../resources/blog-templates';
-        $blogPostGenerator = new \Bambamboole\ExtendedFaker\Generator\BlogPostGenerator($templatesPath);
+        $templatesPath = __DIR__.'/../../resources/blog-templates';
+        $blogPostGenerator = new BlogPostGenerator($templatesPath);
 
         return new BlogPostRepository($blogPostGenerator);
     }
@@ -33,19 +34,18 @@ abstract class BlogPost extends Base
             return $this->repository->getRandomBlogPost($this->getLocale());
         }
 
-        return (
+        return
             $this->repository->getBlogPostBySlug(
                 $identifier,
                 $this->getLocale(),
-            ) ?? $this->repository->findBlogPostByTitle($identifier, $this->getLocale())
-        );
+            ) ?? $this->repository->findBlogPostByTitle($identifier, $this->getLocale());
     }
 
     public function blogPostTitle(?string $identifier = null): string
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return 'Sample Blog Post';
             }
@@ -59,7 +59,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return "# Sample Blog Post\n\nThis is a sample blog post with some content.";
             }
@@ -85,7 +85,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return 'This is a sample excerpt for a blog post.';
             }
@@ -99,7 +99,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return 'general';
             }
@@ -113,7 +113,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return ['general', 'blog'];
             }
@@ -127,7 +127,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return 'Anonymous';
             }
@@ -141,7 +141,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return 5;
             }
@@ -155,7 +155,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->findBlogPost($identifier);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             if ($identifier === null) {
                 return new BlogPostDto(
                     slug: 'sample-post',
@@ -168,7 +168,7 @@ abstract class BlogPost extends Base
                     publishedAt: date('Y-m-d'),
                     readingTime: 5,
                     locale: $this->getLocale(),
-                    contentBlocks: (new WordPressBlockFormatter())->parseMarkdown(
+                    contentBlocks: (new WordPressBlockFormatter)->parseMarkdown(
                         "# Sample Blog Post\n\nThis is a sample blog post with some content.",
                     ),
                 );
@@ -184,7 +184,7 @@ abstract class BlogPost extends Base
         $targetLocale = $locale ?? $this->getLocale();
         $blogPost = $this->repository->getBlogPostBySlug($slug, $targetLocale);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             throw new \InvalidArgumentException("Blog post with slug '{$slug}' not found in locale '{$targetLocale}'.");
         }
 
@@ -195,7 +195,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->repository->findBlogPostByTitle($title, $this->getLocale());
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             throw new \InvalidArgumentException("Blog post '{$title}' not found in locale '{$this->getLocale()}'.");
         }
 
@@ -206,7 +206,7 @@ abstract class BlogPost extends Base
     {
         $blogPost = $this->repository->getBlogPostBySlug($slug, $locale);
 
-        if (!$blogPost) {
+        if (! $blogPost) {
             throw new \InvalidArgumentException("Blog post with slug '{$slug}' not found in locale '{$locale}'.");
         }
 

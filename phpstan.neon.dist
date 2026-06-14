@@ -1,18 +1,4 @@
-includes:
-    - phpstan-baseline.neon
-
 parameters:
-
     paths:
-        - src/
-
-    # Level 9 is the highest level
+        - src
     level: 5
-
-    reportUnmatchedIgnoredErrors: false
-    checkNullables: true
-    treatPhpDocTypesAsCertain: false
-
-    ignoreErrors:
-        - identifier: trait.unused
-#    excludePaths:

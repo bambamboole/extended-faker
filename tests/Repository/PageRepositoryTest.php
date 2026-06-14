@@ -5,7 +5,7 @@ use Bambamboole\ExtendedFaker\Dto\PageDto;
 use Bambamboole\ExtendedFaker\Repository\PageRepository;
 
 beforeEach(function () {
-    $this->repository = new PageRepository();
+    $this->repository = new PageRepository;
     PageRepository::clearCache();
 });
 
@@ -59,11 +59,11 @@ test('gets all german pages', function () {
 
     expect($pages)->toHaveCount(12);
     expect($pages)->each->toBeInstanceOf(PageDto::class);
-    expect(array_map(static fn(PageDto $page): string => $page->locale, $pages))->each->toBe('de_DE');
+    expect(array_map(static fn (PageDto $page): string => $page->locale, $pages))->each->toBe('de_DE');
 });
 
 test('page fixtures are publication ready', function () {
-    foreach (glob(__DIR__ . '/../../resources/pages/*.json') as $fixturePath) {
+    foreach (glob(__DIR__.'/../../resources/pages/*.json') as $fixturePath) {
         $slug = basename($fixturePath, '.json');
         $fixture = json_decode(file_get_contents($fixturePath), true);
 
@@ -87,11 +87,11 @@ test('page fixtures are publication ready', function () {
             expect($fixtureText)->not->toMatch('/lorem ipsum/i');
 
             $blockTypes = array_unique(array_map(
-                static fn(array $block): string => $block['type'],
+                static fn (array $block): string => $block['type'],
                 $localeData['blocks'],
             ));
             expect($blockTypes)->not->toBe(['paragraph']);
-            expect(count(array_filter($blockTypes, static fn(string $blockType): bool => $blockType !== 'paragraph')))
+            expect(count(array_filter($blockTypes, static fn (string $blockType): bool => $blockType !== 'paragraph')))
                 ->toBeGreaterThanOrEqual(1);
         }
     }

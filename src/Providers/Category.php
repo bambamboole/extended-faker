@@ -13,13 +13,14 @@ abstract class Category extends Base
     public function __construct($generator)
     {
         parent::__construct($generator);
-        $this->repository = new CategoryRepository();
+        $this->repository = new CategoryRepository;
     }
 
     private function findCategory(?string $identifier): ?array
     {
         if ($identifier === null) {
             $categories = $this->repository->getAllCategories($this->getLocale());
+
             return empty($categories) ? null : $this->randomElement($categories);
         }
 
@@ -33,30 +34,33 @@ abstract class Category extends Base
                 return $cat;
             }
         }
+
         return null;
     }
 
     public function categoryName(?string $identifier = null): string
     {
         $category = $this->findCategory($identifier);
-        if (!$category) {
+        if (! $category) {
             if ($identifier === null) {
                 return 'General';
             }
             throw new \InvalidArgumentException("Category '{$identifier}' not found in available categories.");
         }
+
         return $category['name'];
     }
 
     public function category(?string $identifier = null): array
     {
         $category = $this->findCategory($identifier);
-        if (!$category) {
+        if (! $category) {
             if ($identifier === null) {
                 return ['key' => 'general', 'name' => 'General', 'parent' => null];
             }
             throw new \InvalidArgumentException("Category '{$identifier}' not found in available categories.");
         }
+
         return $category;
     }
 

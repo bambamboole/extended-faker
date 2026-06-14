@@ -14,11 +14,11 @@ final readonly class CodeBlock implements Block
 
     public function toMarkdown(): string
     {
-        return "```\n" . html_entity_decode(strip_tags($this->codeHtml), ENT_QUOTES | ENT_HTML5) . "\n```";
+        return "```\n".html_entity_decode(strip_tags($this->codeHtml), ENT_QUOTES | ENT_HTML5)."\n```";
     }
 
     public function toWordPress(): string
     {
-        return WordPressBlockSerializer::serialize('code', '<pre class="wp-block-code">' . $this->codeHtml . '</pre>');
+        return WordPressBlockSerializer::serialize('code', '<pre class="wp-block-code">'.$this->codeHtml.'</pre>');
     }
 }

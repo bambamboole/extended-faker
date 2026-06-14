@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 namespace Bambamboole\ExtendedFaker\Repository;
 
 abstract class JsonFileRepository
@@ -19,9 +20,9 @@ abstract class JsonFileRepository
         }
 
         self::$caches[$cacheKey] = [];
-        $path = __DIR__ . '/../../resources/' . $this->resourceSubPath;
+        $path = __DIR__.'/../../resources/'.$this->resourceSubPath;
 
-        foreach (glob($path . '/*.json') as $file) {
+        foreach (glob($path.'/*.json') as $file) {
             $data = json_decode(file_get_contents($file), true);
             $key = $data[$this->keyField];
             self::$caches[$cacheKey][$key] = $data;
@@ -48,12 +49,14 @@ abstract class JsonFileRepository
     public function hasItemInLocale(string $key, string $locale): bool
     {
         $item = $this->getItemByKey($key);
+
         return $item && isset($item['locales'][$locale]);
     }
 
     public function getItemLocales(string $key): array
     {
         $item = $this->getItemByKey($key);
+
         return $item && isset($item['locales']) ? array_keys($item['locales']) : [];
     }
 
@@ -62,7 +65,7 @@ abstract class JsonFileRepository
         if (isset(self::$caches[static::class])) {
             unset(self::$caches[static::class]);
         }
-        $expandedKey = static::class . '_expanded';
+        $expandedKey = static::class.'_expanded';
         if (isset(self::$caches[$expandedKey])) {
             unset(self::$caches[$expandedKey]);
         }
