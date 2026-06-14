@@ -1,4 +1,5 @@
-.claude
+.claude/*
+!.claude/skills
 vendor
 node_modules
 composer.lock

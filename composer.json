@@ -56,6 +56,10 @@
             "pestphp/pest-plugin": true
         }
     },
+    "suggest": {
+        "ext-dom": "To validate generated SVG markup",
+        "_image-build": "Rebuilding fixture images (composer images:build) needs Node.js and sharp (run: npm install). The shipped package only reads the committed WebP files and has no such requirement."
+    },
     "minimum-stability": "stable",
     "prefer-stable": true
 }
