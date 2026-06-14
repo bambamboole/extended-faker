@@ -22,7 +22,7 @@
         "php": "^8.3",
         "fakerphp/faker": "^1.24",
         "league/commonmark": "^2.7",
-        "symfony/yaml": "^7.3",
+        "symfony/yaml": "^7.3 || ^8.0",
         "davidbadura/faker-markdown-generator": "^1.1"
     },
     "require-dev": {
