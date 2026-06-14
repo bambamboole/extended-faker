@@ -1,0 +1,9 @@
+{
+    "name": "extended-faker-image-build",
+    "private": true,
+    "type": "module",
+    "description": "Build-time tooling to rasterize fixture SVGs to WebP (not part of the shipped PHP package).",
+    "devDependencies": {
+        "sharp": "^0.35.1"
+    }
+}

@@ -47,13 +47,18 @@
         "test:lint": "vendor/bin/pint --test",
         "test": "vendor/bin/pest",
         "test:coverage": "vendor/bin/pest --coverage",
-        "test:type-coverage": "vendor/bin/pest --type-coverage"
+        "test:type-coverage": "vendor/bin/pest --type-coverage",
+        "images:build": "@php bin/build-images.php"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "suggest": {
+        "ext-dom": "To validate generated SVG markup",
+        "_image-build": "Rebuilding fixture images (composer images:build) needs Node.js and sharp (run: npm install). The shipped package only reads the committed WebP files and has no such requirement."
     },
     "minimum-stability": "stable",
     "prefer-stable": true

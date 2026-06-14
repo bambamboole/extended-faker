@@ -72,6 +72,13 @@ abstract class Page extends Base
         return $this->page($identifier)->seo;
     }
 
+    public function pageImage(string|PageType|null $identifier = null): ?string
+    {
+        $image = $this->page($identifier)->image;
+
+        return $image !== '' ? $image : null;
+    }
+
     public function page(string|PageType|null $identifier = null): PageDto
     {
         $resolvedIdentifier = $this->normalizeIdentifier($identifier);

@@ -5,6 +5,7 @@ namespace Bambamboole\ExtendedFaker\Repository;
 
 use Bambamboole\ExtendedFaker\Content\ContentFactory;
 use Bambamboole\ExtendedFaker\Dto\PageDto;
+use Bambamboole\ExtendedFaker\Image\ImagePath;
 
 class PageRepository extends JsonFileRepository
 {
@@ -95,6 +96,7 @@ class PageRepository extends JsonFileRepository
             $page['template'],
             $localeData['seo'],
             $locale,
+            ImagePath::for('pages', $slug),
         );
     }
 }

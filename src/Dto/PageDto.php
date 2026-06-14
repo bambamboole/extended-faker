@@ -19,6 +19,7 @@ final class PageDto
         public string $template,
         public array $seo,
         public string $locale,
+        public string $image = '',
     ) {}
 
     public function toArray(): array
@@ -31,6 +32,7 @@ final class PageDto
             'template' => $this->template,
             'seo' => $this->seo,
             'locale' => $this->locale,
+            'image' => $this->image,
         ];
     }
 }
