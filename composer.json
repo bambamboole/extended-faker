@@ -47,7 +47,8 @@
         "test:lint": "vendor/bin/pint --test",
         "test": "vendor/bin/pest",
         "test:coverage": "vendor/bin/pest --coverage",
-        "test:type-coverage": "vendor/bin/pest --type-coverage"
+        "test:type-coverage": "vendor/bin/pest --type-coverage",
+        "images:build": "@php bin/build-images.php"
     },
     "config": {
         "sort-packages": true,
