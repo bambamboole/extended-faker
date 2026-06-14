@@ -69,6 +69,19 @@ abstract class Product extends Base
         return $product->category;
     }
 
+    public function productImage(?string $identifier = null): ?string
+    {
+        $product = $this->findProduct($identifier);
+        if (! $product) {
+            if ($identifier === null) {
+                return null;
+            }
+            throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
+        }
+
+        return $product->image !== '' ? $product->image : null;
+    }
+
     public function product(?string $identifier = null): ProductDto
     {
         $product = $this->findProduct($identifier);

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker\Repository;
 
+use Bambamboole\ExtendedFaker\Image\ImagePath;
+
 class CategoryRepository extends JsonFileRepository
 {
     public function __construct()
@@ -17,7 +19,11 @@ class CategoryRepository extends JsonFileRepository
             return null;
         }
 
-        return array_merge(['key' => $key, 'parent' => $category['parent'] ?? null], $category['locales'][$locale]);
+        return array_merge([
+            'key' => $key,
+            'parent' => $category['parent'] ?? null,
+            'image' => ImagePath::for('categories', $key),
+        ], $category['locales'][$locale]);
     }
 
     public function getCategoryName(string $key, string $locale = 'en_US'): ?string
@@ -35,6 +41,7 @@ class CategoryRepository extends JsonFileRepository
                 $result[] = array_merge([
                     'key' => $key,
                     'parent' => $category['parent'] ?? null,
+                    'image' => ImagePath::for('categories', $key),
                 ], $category['locales'][$locale]);
             }
         }
@@ -77,6 +84,7 @@ class CategoryRepository extends JsonFileRepository
                 $result[] = array_merge([
                     'key' => $key,
                     'parent' => $category['parent'] ?? null,
+                    'image' => ImagePath::for('categories', $key),
                 ], $category['locales'][$locale]);
             }
         }

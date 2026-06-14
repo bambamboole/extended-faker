@@ -10,6 +10,7 @@ class ProductDto
         public string $name,
         public string $description,
         public string $category,
+        public string $image = '',
     ) {}
 
     public function toArray(): array
@@ -19,6 +20,7 @@ class ProductDto
             'name' => $this->name,
             'description' => $this->description,
             'category' => $this->category,
+            'image' => $this->image,
         ];
     }
 }
