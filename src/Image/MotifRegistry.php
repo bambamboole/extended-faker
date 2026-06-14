@@ -48,7 +48,6 @@ final class MotifRegistry
     {
         $this->fallback = new FallbackMotif;
         $this->motifs = [
-            // Categories
             'electronics' => new ElectronicsMotif,
             'computers-accessories' => new LaptopMotif,
             'wearable-technology' => new WatchMotif,
@@ -70,7 +69,6 @@ final class MotifRegistry
             'sports-outdoors' => new BallMotif,
             'car-accessories' => new CarMotif,
 
-            // Pages
             'about' => new InfoMotif,
             'contact' => new EnvelopeMotif,
             'pricing' => new TagMotif,
