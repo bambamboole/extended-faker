@@ -19,7 +19,6 @@ class BlogPostGenerator
 
     private const WORDS_PER_MINUTE = 200;
 
-    // Content generation parameters
     private const MIN_SECTIONS = 4;
 
     private const MAX_SECTIONS = 5;
@@ -28,7 +27,6 @@ class BlogPostGenerator
 
     private const MAX_TAGS = 5;
 
-    // Placeholder value ranges
     private const MIN_NUMBER_PLACEHOLDER = 5;
 
     private const MAX_NUMBER_PLACEHOLDER = 15;
@@ -41,33 +39,25 @@ class BlogPostGenerator
     {
         $this->loadTemplates();
 
-        // Create isolated random generator with seed (no global state pollution)
         $random = new Randomizer(new Mt19937($seed));
 
-        // Select category
         $category ??= self::CATEGORIES[$random->getInt(0, count(self::CATEGORIES) - 1)];
 
-        // Generate title
         $title = $this->generateTitle($category, $random);
 
-        // Generate content components
         $intro = $this->generateIntroduction($category, $title, $random);
-        // Generate sections to hit target word count
         $sectionCount = $random->getInt(self::MIN_SECTIONS, self::MAX_SECTIONS);
         $sections = $this->generateSections($category, $sectionCount, $random);
         $conclusion = $this->generateConclusion($category, $random);
 
-        // Optionally add a code example for technology posts
         $codeExample = null;
         if ($category === 'technology' && $random->getInt(0, 1) === 1) {
             $codeExample = $this->generateCodeExample($random);
         }
 
-        // Compose full content
         $contentBlocks = $this->composeContent($title, $intro, $sections, $codeExample, $conclusion);
         $content = $contentBlocks->toMarkdown();
 
-        // Generate metadata
         $slug = $this->generateSlug($title);
         $excerpt = $this->generateExcerpt($intro);
         $tags = $this->generateTags($category, $random);
@@ -140,7 +130,6 @@ class BlogPostGenerator
 
     private function validateTemplateStructure(): void
     {
-        // Validate that all required categories have templates
         foreach (self::CATEGORIES as $category) {
             if (! isset(self::$templates['titles'][$category])) {
                 throw new \RuntimeException("Missing titles for category: {$category}");
@@ -181,7 +170,6 @@ class BlogPostGenerator
             }
         }
 
-        // Validate metadata structure
         $requiredMetadataKeys = ['authors', 'tagsByCategory', 'yearRange'];
         foreach ($requiredMetadataKeys as $key) {
             if (! isset(self::$templates['metadata'][$key])) {
@@ -189,14 +177,12 @@ class BlogPostGenerator
             }
         }
 
-        // Validate tagsByCategory has all categories
         foreach (self::CATEGORIES as $category) {
             if (! isset(self::$templates['metadata']['tagsByCategory'][$category])) {
                 throw new \RuntimeException("Missing tags for category in metadata: {$category}");
             }
         }
 
-        // Validate year range
         if (
             ! isset(self::$templates['metadata']['yearRange']['min'])
             || ! isset(self::$templates['metadata']['yearRange']['max'])
@@ -205,20 +191,22 @@ class BlogPostGenerator
         }
     }
 
+    private function pick(array $items, Randomizer $random): mixed
+    {
+        return $items[$random->getInt(0, count($items) - 1)];
+    }
+
     private function generateTitle(string $category, Randomizer $random): string
     {
-        $templates = self::$templates['titles'][$category];
-        $template = $templates[$random->getInt(0, count($templates) - 1)];
+        $template = $this->pick(self::$templates['titles'][$category], $random);
 
         return $this->fillPlaceholders($template, $category, $random);
     }
 
     private function generateIntroduction(string $category, string $title, Randomizer $random): string
     {
-        $templates = self::$templates['introductions'][$category];
-        $template = $templates[$random->getInt(0, count($templates) - 1)];
+        $template = $this->pick(self::$templates['introductions'][$category], $random);
 
-        // Extract main topic from title
         $topic = $this->extractTopicFromTitle($title);
 
         $intro = str_replace('{title}', $title, $template);
@@ -232,7 +220,6 @@ class BlogPostGenerator
         $availableSections = self::$templates['sections'][$category];
         $selectedSections = [];
 
-        // Randomly select unique sections
         $indices = range(0, count($availableSections) - 1);
         $indices = $random->shuffleArray($indices);
 
@@ -245,19 +232,14 @@ class BlogPostGenerator
 
     private function generateCodeExample(Randomizer $random): ?array
     {
-        $categories = ['php', 'javascript', 'python', 'docker', 'configuration', 'api', 'general'];
-        $category = $categories[$random->getInt(0, count($categories) - 1)];
+        $category = $this->pick(['php', 'javascript', 'python', 'docker', 'configuration', 'api', 'general'], $random);
 
-        $examples = self::$templates['codeExamples'][$category];
-
-        return $examples[$random->getInt(0, count($examples) - 1)];
+        return $this->pick(self::$templates['codeExamples'][$category], $random);
     }
 
     private function generateConclusion(string $category, Randomizer $random): string
     {
-        $templates = self::$templates['conclusions'][$category];
-
-        return $templates[$random->getInt(0, count($templates) - 1)];
+        return $this->pick(self::$templates['conclusions'][$category], $random);
     }
 
     private function composeContent(
@@ -272,15 +254,12 @@ class BlogPostGenerator
             new ParagraphBlock($intro),
         ];
 
+        $codeBlocks = $codeExample !== null ? $this->codeExampleBlocks($codeExample) : [];
+
         $codeExampleAdded = false;
         foreach ($sections as $index => $section) {
-            if ($index === 1 && $codeExample !== null && ! $codeExampleAdded) {
-                $blocks[] = new HeadingBlock($codeExample['title'], 3);
-                $blocks[] = new CodeBlock(htmlspecialchars(
-                    (string) $codeExample['code'],
-                    ENT_QUOTES | ENT_SUBSTITUTE,
-                    'UTF-8',
-                ));
+            if ($index === 1 && $codeBlocks !== [] && ! $codeExampleAdded) {
+                array_push($blocks, ...$codeBlocks);
                 $codeExampleAdded = true;
             }
 
@@ -288,13 +267,8 @@ class BlogPostGenerator
             $blocks[] = new ParagraphBlock($section['content']);
         }
 
-        if ($codeExample !== null && ! $codeExampleAdded) {
-            $blocks[] = new HeadingBlock($codeExample['title'], 3);
-            $blocks[] = new CodeBlock(htmlspecialchars(
-                (string) $codeExample['code'],
-                ENT_QUOTES | ENT_SUBSTITUTE,
-                'UTF-8',
-            ));
+        if ($codeBlocks !== [] && ! $codeExampleAdded) {
+            array_push($blocks, ...$codeBlocks);
         }
 
         $blocks[] = new HeadingBlock('Conclusion', 2);
@@ -303,18 +277,29 @@ class BlogPostGenerator
         return new Content($blocks);
     }
 
+    /**
+     * @param  array<string, mixed>  $codeExample
+     * @return list<HeadingBlock|CodeBlock>
+     */
+    private function codeExampleBlocks(array $codeExample): array
+    {
+        return [
+            new HeadingBlock($codeExample['title'], 3),
+            new CodeBlock(htmlspecialchars(
+                (string) $codeExample['code'],
+                ENT_QUOTES | ENT_SUBSTITUTE,
+                'UTF-8',
+            )),
+        ];
+    }
+
     private function generateSlug(string $title): string
     {
-        $slug = strtolower($title);
-        $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
-        $slug = trim((string) $slug, '-');
-
-        return $slug;
+        return trim((string) preg_replace('/[^a-z0-9]+/', '-', strtolower($title)), '-');
     }
 
     private function generateExcerpt(string $intro): string
     {
-        // Take first 150 characters and add ellipsis
         $excerpt = substr($intro, 0, 150);
         $lastSpace = strrpos($excerpt, ' ');
 
@@ -334,7 +319,6 @@ class BlogPostGenerator
             $allTags = array_merge($allTags, $tagGroup);
         }
 
-        // Select random tags
         $allTags = $random->shuffleArray($allTags);
         $count = $random->getInt(self::MIN_TAGS, self::MAX_TAGS);
 
@@ -343,9 +327,7 @@ class BlogPostGenerator
 
     private function selectAuthor(Randomizer $random): string
     {
-        $authors = self::$templates['metadata']['authors'];
-
-        return $authors[$random->getInt(0, count($authors) - 1)];
+        return $this->pick(self::$templates['metadata']['authors'], $random);
     }
 
     private function generatePublishedDate(Randomizer $random): string
@@ -361,7 +343,6 @@ class BlogPostGenerator
 
     private function calculateReadingTime(string $content): int
     {
-        // Remove markdown syntax for accurate word count
         $text = preg_replace('/```[\s\S]*?```/', '', $content); // Remove code blocks
         $text = preg_replace('/`[^`]*`/', '', (string) $text); // Remove inline code
         $text = preg_replace('/!\[.*?\]\(.*?\)/', '', (string) $text); // Remove images
@@ -378,74 +359,28 @@ class BlogPostGenerator
     {
         $metadata = self::$templates['metadata'];
 
-        // Replace {tech} placeholder
-        if (str_contains($template, '{tech}')) {
-            $topics = $metadata['techTopics'];
-            $template = str_replace('{tech}', $topics[$random->getInt(0, count($topics) - 1)], $template);
-        }
-
-        // Replace {alternative} placeholder (for comparison titles)
-        if (str_contains($template, '{alternative}')) {
-            $topics = $metadata['techTopics'];
-            $template = str_replace('{alternative}', $topics[$random->getInt(0, count($topics) - 1)], $template);
-        }
-
-        // Replace {topic} placeholder
-        if (str_contains($template, '{topic}')) {
-            $topicsKey = match ($category) {
+        $resolvers = [
+            '{tech}' => fn () => $this->pick($metadata['techTopics'], $random),
+            '{alternative}' => fn () => $this->pick($metadata['techTopics'], $random),
+            '{topic}' => fn () => $this->pick($metadata[match ($category) {
                 'technology' => 'techTopics',
                 'business' => 'businessTopics',
                 'travel' => 'travelDestinations',
                 'lifestyle' => 'lifestyleTopics',
                 default => 'techTopics',
-            };
-            $topics = $metadata[$topicsKey];
-            $template = str_replace('{topic}', $topics[$random->getInt(0, count($topics) - 1)], $template);
-        }
+            }], $random),
+            '{destination}' => fn () => $this->pick($metadata['travelDestinations'], $random),
+            '{year}' => fn () => (string) $random->getInt($metadata['yearRange']['min'], $metadata['yearRange']['max']),
+            '{number}' => fn () => (string) $random->getInt(self::MIN_NUMBER_PLACEHOLDER, self::MAX_NUMBER_PLACEHOLDER),
+            '{experience}' => fn () => $this->pick(['adventure', 'culture', 'relaxation', 'food', 'nature', 'history'], $random),
+            '{Adjective}' => fn () => $this->pick(['Essential', 'Advanced', 'Modern', 'Complete', 'Ultimate', 'Practical'], $random),
+            '{Benefit}' => fn () => $this->pick(['Success', 'Best Results', 'Maximum Impact', 'Better Outcomes', 'Peak Performance'], $random),
+        ];
 
-        // Replace {destination} placeholder
-        if (str_contains($template, '{destination}')) {
-            $destinations = $metadata['travelDestinations'];
-            $template = str_replace(
-                '{destination}',
-                $destinations[$random->getInt(0, count($destinations) - 1)],
-                $template,
-            );
-        }
-
-        // Replace {year} placeholder
-        if (str_contains($template, '{year}')) {
-            $yearRange = $metadata['yearRange'];
-            $year = $random->getInt($yearRange['min'], $yearRange['max']);
-            $template = str_replace('{year}', (string) $year, $template);
-        }
-
-        // Replace {number} placeholder
-        if (str_contains($template, '{number}')) {
-            $number = $random->getInt(self::MIN_NUMBER_PLACEHOLDER, self::MAX_NUMBER_PLACEHOLDER);
-            $template = str_replace('{number}', (string) $number, $template);
-        }
-
-        // Replace {experience} placeholder
-        if (str_contains($template, '{experience}')) {
-            $experiences = ['adventure', 'culture', 'relaxation', 'food', 'nature', 'history'];
-            $template = str_replace(
-                '{experience}',
-                $experiences[$random->getInt(0, count($experiences) - 1)],
-                $template,
-            );
-        }
-
-        // Replace {Adjective} placeholder
-        if (str_contains($template, '{Adjective}')) {
-            $adjectives = ['Essential', 'Advanced', 'Modern', 'Complete', 'Ultimate', 'Practical'];
-            $template = str_replace('{Adjective}', $adjectives[$random->getInt(0, count($adjectives) - 1)], $template);
-        }
-
-        // Replace {Benefit} placeholder
-        if (str_contains($template, '{Benefit}')) {
-            $benefits = ['Success', 'Best Results', 'Maximum Impact', 'Better Outcomes', 'Peak Performance'];
-            $template = str_replace('{Benefit}', $benefits[$random->getInt(0, count($benefits) - 1)], $template);
+        foreach ($resolvers as $placeholder => $resolve) {
+            if (str_contains($template, $placeholder)) {
+                $template = str_replace($placeholder, $resolve(), $template);
+            }
         }
 
         return $template;
@@ -453,15 +388,12 @@ class BlogPostGenerator
 
     private function extractTopicFromTitle(string $title): string
     {
-        // Simple topic extraction - take the first significant word/phrase
-        // Remove common starting words
         $title = preg_replace(
             '/^(The|A|An|Essential|Introduction to|Guide to|Mastering|Understanding|Getting Started with)\s+/i',
             '',
             $title,
         );
 
-        // Extract first major word or phrase (up to colon or dash)
         if (preg_match('/^([^:\-]+)/', (string) $title, $matches)) {
             return trim($matches[1]);
         }

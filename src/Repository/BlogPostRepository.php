@@ -14,7 +14,7 @@ class BlogPostRepository
 
     private static array $titleToSeedMap = [];
 
-    private const SEED_RANGE = 10000; // 0-9999 seeds available
+    private const SEED_RANGE = 10000;
 
     public function __construct(
         private readonly BlogPostGenerator $generator,
@@ -35,7 +35,6 @@ class BlogPostRepository
         $blogPost = $this->generator->generate($seed, $category, $locale);
         self::$cache[$cacheKey] = $blogPost;
 
-        // Build reverse lookups for slug and title
         $slugKey = $this->buildLookupKey($blogPost->slug, $locale);
         $titleKey = $this->buildLookupKey($blogPost->title, $locale);
 
@@ -87,21 +86,13 @@ class BlogPostRepository
     {
         $lookupKey = $this->buildLookupKey($slug, $locale);
 
-        // Check if we have a reverse mapping
         if (isset(self::$slugToSeedMap[$lookupKey])) {
             $mapping = self::$slugToSeedMap[$lookupKey];
 
             return $this->generateBlogPost($mapping['seed'], $mapping['category'], $locale);
         }
 
-        // Fallback: check cache only (in case mapping wasn't built yet)
-        foreach (self::$cache as $cached) {
-            if ($cached->slug === $slug && $cached->locale === $locale) {
-                return $cached;
-            }
-        }
-
-        return null;
+        return $this->findInCache(fn (BlogPostDto $post): bool => $post->slug === $slug && $post->locale === $locale);
     }
 
     /**
@@ -112,16 +103,22 @@ class BlogPostRepository
     {
         $lookupKey = $this->buildLookupKey($title, $locale);
 
-        // Check if we have a reverse mapping
         if (isset(self::$titleToSeedMap[$lookupKey])) {
             $mapping = self::$titleToSeedMap[$lookupKey];
 
             return $this->generateBlogPost($mapping['seed'], $mapping['category'], $locale);
         }
 
-        // Fallback: check cache only (in case mapping wasn't built yet)
+        return $this->findInCache(fn (BlogPostDto $post): bool => $post->title === $title && $post->locale === $locale);
+    }
+
+    /**
+     * @param  callable(BlogPostDto): bool  $matches
+     */
+    private function findInCache(callable $matches): ?BlogPostDto
+    {
         foreach (self::$cache as $cached) {
-            if ($cached->title === $title && $cached->locale === $locale) {
+            if ($matches($cached)) {
                 return $cached;
             }
         }
