@@ -1,0 +1,31 @@
+{
+    "skuPrefix": "PH",
+    "nameTemplate": "{brand} {line} {model} {storage} {color}",
+    "pools": {
+        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia"],
+        "line": ["Pulse", "Edge", "Vega", "Aura", "Nova", "Flux", "Prime", "Halo"],
+        "model": ["7 Pro", "X3", "5 Max", "Air", "Ultra", "12", "S9", "Mini"]
+    },
+    "variants": {
+        "storage": ["128GB", "256GB", "512GB", "1TB"],
+        "color": ["Graphite", "Midnight", "Silver", "Ocean Blue", "Sand", "Forest"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {model} is a {adjective} smartphone featuring {feature} and {storage} of storage.",
+                "{brand}'s {line} {model}: {adjective} design, {feature}, available in {color}."
+            ],
+            "adjective": ["sleek", "powerful", "compact", "premium", "lightweight"],
+            "feature": ["an OLED display", "all-day battery life", "a pro camera system", "fast wireless charging", "a titanium frame"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {model} ist ein {adjective} Smartphone mit {feature} und {storage} Speicher.",
+                "{brand} {line} {model}: {adjective} Design, {feature}, erhältlich in {color}."
+            ],
+            "adjective": ["elegantes", "leistungsstarkes", "kompaktes", "hochwertiges", "leichtes"],
+            "feature": ["einem OLED-Display", "ganztägiger Akkulaufzeit", "einem Pro-Kamerasystem", "schnellem kabellosem Laden", "einem Titanrahmen"]
+        }
+    }
+}
