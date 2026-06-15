@@ -31,3 +31,11 @@ it('generates a bounded batch and a category-filtered batch', function () {
 it('produces a ProductDto from a random seed', function () {
     expect((new ProductRepository)->getRandomProduct('en_US'))->toBeInstanceOf(ProductDto::class);
 });
+
+it('round-trips a category-forced product by sku', function () {
+    $repo = new ProductRepository;
+    $made = $repo->getProductsByCategory('shoes-footwear', 'en_US', 5)[3];
+
+    expect($made->sku)->toStartWith('SH-')
+        ->and($repo->getProductBySku($made->sku, 'en_US')->toArray())->toBe($made->toArray());
+});

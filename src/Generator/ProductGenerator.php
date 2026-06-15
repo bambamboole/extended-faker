@@ -22,7 +22,8 @@ final class ProductGenerator
     {
         $random = new Randomizer(new Mt19937($seed));
 
-        $category ??= $this->pick($this->templates->categories(), $random);
+        $picked = $this->pick($this->templates->categories(), $random);
+        $category ??= $picked;
         $template = $this->templates->get($category);
 
         $values = [];

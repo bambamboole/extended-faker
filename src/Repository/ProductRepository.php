@@ -32,13 +32,12 @@ class ProductRepository
         }
 
         // Validate the prefix is known before generating.
-        if ($this->templates->categoryForPrefix($decoded['prefix']) === null) {
+        $category = $this->templates->categoryForPrefix($decoded['prefix']);
+        if ($category === null) {
             return null;
         }
 
-        // Pass null for category so the seeded randomizer replays the same
-        // sequence (including the category pick) as the original generate() call.
-        return $this->generator->generate($decoded['seed'], null, $locale);
+        return $this->generator->generate($decoded['seed'], $category, $locale);
     }
 
     public function getRandomProduct(string $locale = 'en_US'): ProductDto

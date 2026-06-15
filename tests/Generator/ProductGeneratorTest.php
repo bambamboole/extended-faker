@@ -37,3 +37,12 @@ it('picks a category from the seed when none is given', function () {
     expect($product->sku)->toContain('-')
         ->and($product->category)->toBeString()->not->toBe('');
 });
+
+it('generates identically whether the picked category is implicit or explicit', function () {
+    $gen = new ProductGenerator;
+    $implicit = $gen->generate(2024);
+    $category = (new \Bambamboole\ExtendedFaker\Generator\ProductSku)::decode($implicit->sku);
+    // decode prefix -> category, then regenerate explicitly
+    $explicit = $gen->generate(2024, (new \Bambamboole\ExtendedFaker\Generator\ProductTemplates)->categoryForPrefix($category['prefix']));
+    expect($explicit->toArray())->toBe($implicit->toArray());
+});
