@@ -7,6 +7,7 @@ namespace Bambamboole\ExtendedFaker\Generator;
 use Bambamboole\ExtendedFaker\Dto\ImageDto;
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Image\ImagePath;
+use Bambamboole\ExtendedFaker\Image\PaletteBook;
 use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 use Random\Engine\Mt19937;
 use Random\Randomizer;
@@ -16,6 +17,7 @@ final class ProductGenerator
     public function __construct(
         private readonly ProductTemplates $templates = new ProductTemplates,
         private readonly CategoryRepository $categories = new CategoryRepository,
+        private readonly PaletteBook $palettes = new PaletteBook,
     ) {}
 
     public function generate(int $seed, ?string $category = null, string $locale = 'en_US'): ProductDto
@@ -30,8 +32,15 @@ final class ProductGenerator
         foreach ($template['pools'] as $key => $pool) {
             $values['{'.$key.'}'] = $this->pick($pool, $random);
         }
+
+        $colorIndex = null;
         foreach ($template['variants'] as $key => $pool) {
-            $values['{'.$key.'}'] = $this->pick($pool, $random);
+            $pool = array_values($pool);
+            $index = $random->getInt(0, count($pool) - 1);
+            $values['{'.$key.'}'] = $pool[$index];
+            if ($key === 'color') {
+                $colorIndex = $index;
+            }
         }
         $name = strtr((string) $template['nameTemplate'], $values);
 
@@ -51,7 +60,12 @@ final class ProductGenerator
 
         $sku = ProductSku::encode($this->templates->prefixFor($category), $seed);
         $categoryName = $this->categories->getCategoryName($category, $locale) ?? $category;
-        $image = ImageDto::fromPath(ImagePath::for('categories', $category));
+
+        $paletteCount = $this->palettes->count();
+        $paletteIndex = $colorIndex !== null
+            ? $colorIndex % $paletteCount
+            : (int) (abs(crc32($sku)) % $paletteCount);
+        $image = ImageDto::fromPath(ImagePath::for('products', $category.'/'.$paletteIndex));
 
         return new ProductDto($sku, $name, $description, $categoryName, $image);
     }

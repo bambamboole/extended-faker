@@ -11,9 +11,9 @@ final class ComicSvgGenerator
         private readonly PaletteBook $palettes = new PaletteBook,
     ) {}
 
-    public function generate(string $motifKey, ?string $paletteSeed = null): string
+    public function generate(string $motifKey, ?string $paletteSeed = null, ?Palette $palette = null): string
     {
-        $palette = $this->palettes->pick($paletteSeed ?? $motifKey);
+        $palette ??= $this->palettes->pick($paletteSeed ?? $motifKey);
         $body = $this->registry->for($motifKey)->draw($palette);
 
         return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">'

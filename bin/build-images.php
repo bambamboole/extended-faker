@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use Bambamboole\ExtendedFaker\Generator\ProductTemplates;
 use Bambamboole\ExtendedFaker\Image\ComicSvgGenerator;
+use Bambamboole\ExtendedFaker\Image\PaletteBook;
 use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 
 require __DIR__.'/../vendor/autoload.php';
@@ -39,6 +41,23 @@ foreach ($jobs as $job) {
     $webpPath = $dir.'/'.$job['key'].'.webp';
     file_put_contents($svgPath, $generator->generate($job['motifKey'], $job['paletteSeed']));
     $manifest[] = ['svg' => $svgPath, 'webp' => $webpPath, 'size' => $job['size']];
+}
+
+// Products: per-category palette pool. Each category's motif is rendered in every
+// palette, and a generated product references the one matching its colour.
+$palettes = (new PaletteBook)->all();
+foreach ((new ProductTemplates)->categories() as $category) {
+    $dir = $resources.'/images/products/'.$category;
+    if (! is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+
+    foreach ($palettes as $index => $palette) {
+        $svgPath = $dir.'/'.$index.'.svg';
+        $webpPath = $dir.'/'.$index.'.webp';
+        file_put_contents($svgPath, $generator->generate($category, null, $palette));
+        $manifest[] = ['svg' => $svgPath, 'webp' => $webpPath, 'size' => $size];
+    }
 }
 
 echo 'Generated '.count($manifest)." SVGs into resources/images/\n";

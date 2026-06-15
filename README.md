@@ -227,16 +227,18 @@ Every product, category, and page exposes a small, copyright-safe **comic image*
 (bold-outline SVG rasterized to WebP, committed under `resources/images/`).
 
 ```php
-$faker->productImage();                 // category image path, e.g. "images/categories/music.webp"
-$faker->productImageDto();              // full ImageDto for that category image
+$faker->productImageDto();              // ImageDto -> images/products/{category}/{n}.webp
+$faker->productImage();                 // path, e.g. "images/products/cell-phones-smartphones/3.webp"
 $faker->category()['image'];            // "images/categories/electronics.webp"
 $faker->page('about')->image;           // "images/pages/about.webp"
 $faker->pageImage('about');             // same path
 ```
 
-Product image DTOs include both the relative path and the resolved file metadata. Category
-and page image paths are relative to the package `resources/` directory. The shipped package
-only reads the committed WebP files. To regenerate the set (e.g. after adding a motif), run
+Each generated product gets a committed WebP matching its **category and colour**: every
+category's comic motif is rendered in each palette, and a product points to the palette
+that matches its colour (so products sharing a category and colour share an image). The
+`ImageDto` exposes the relative path plus the resolved absolute path and file metadata. The
+shipped package only reads the committed WebP files. To regenerate the set, run
 `npm install && composer images:build` — rasterization uses Node + [sharp](https://sharp.pixelplumbing.com).
 See the `creating-fixture-images` skill for the motif system.
 
