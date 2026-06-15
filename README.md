@@ -227,8 +227,8 @@ Every product, category, and page exposes a small, copyright-safe **comic image*
 (bold-outline SVG rasterized to WebP, committed under `resources/images/`).
 
 ```php
-$faker->productImage();                 // relative path, or null (generative products have no fixture image)
-$faker->productImageDto();              // full ImageDto, or null
+$faker->productImage();                 // category image path, e.g. "images/categories/music.webp"
+$faker->productImageDto();              // full ImageDto for that category image
 $faker->category()['image'];            // "images/categories/electronics.webp"
 $faker->page('about')->image;           // "images/pages/about.webp"
 $faker->pageImage('about');             // same path
