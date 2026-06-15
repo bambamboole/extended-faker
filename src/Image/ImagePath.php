@@ -10,4 +10,9 @@ final class ImagePath
     {
         return 'images/'.$type.'/'.$key.'.webp';
     }
+
+    public static function absolute(string $path): string
+    {
+        return dirname(__DIR__, 2).'/resources/'.ltrim($path, '/');
+    }
 }

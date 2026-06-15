@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker\Repository;
 
+use Bambamboole\ExtendedFaker\Dto\ImageDto;
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Image\ImagePath;
 
@@ -19,7 +20,7 @@ class ProductRepository extends JsonFileRepository
         $productData = $product['locales'][$locale];
         $categoryName =
             $this->categoryRepository->getCategoryName($product['category'], $locale) ?? $product['category'];
-        $image = ImagePath::for('products', $product['sku']);
+        $image = ImageDto::fromPath(ImagePath::for('products', $product['sku']));
 
         return new ProductDto($sku, $productData['name'], $productData['description'], $categoryName, $image);
     }

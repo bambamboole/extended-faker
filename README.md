@@ -245,15 +245,20 @@ Every product, category, and page exposes a small, copyright-safe **comic image*
 (bold-outline SVG rasterized to WebP, committed under `resources/images/`).
 
 ```php
-$faker->product()['image'];   // "images/products/PHONE-002.webp"
-$faker->productImage();        // same path, or null for the generic fallback
-$faker->category()['image'];  // "images/categories/electronics.webp"
-$faker->page('about')->image; // "images/pages/about.webp"
-$faker->pageImage('about');    // same path
+$faker->product()->image->path;         // "images/products/PHONE-002.webp"
+$faker->product()->image->absolutePath; // "/path/to/resources/images/products/PHONE-002.webp"
+$faker->product()->image->mimeType;     // "image/webp"
+$faker->product()->image->size;         // file size in bytes
+$faker->productImage();                 // relative path, or null for the generic fallback
+$faker->productImageDto();              // full ImageDto, or null for the generic fallback
+$faker->category()['image'];            // "images/categories/electronics.webp"
+$faker->page('about')->image;           // "images/pages/about.webp"
+$faker->pageImage('about');             // same path
 ```
 
-Paths are relative to the package `resources/` directory. The shipped package only reads
-the committed WebP files. To regenerate the set (e.g. after adding a motif), run
+Product image DTOs include both the relative path and the resolved file metadata. Category
+and page image paths are relative to the package `resources/` directory. The shipped package
+only reads the committed WebP files. To regenerate the set (e.g. after adding a motif), run
 `npm install && composer images:build` — rasterization uses Node + [sharp](https://sharp.pixelplumbing.com).
 See the `creating-fixture-images` skill for the motif system.
 

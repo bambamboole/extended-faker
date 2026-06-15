@@ -10,9 +10,12 @@ class ProductDto
         public string $name,
         public string $description,
         public string $category,
-        public string $image = '',
+        public ?ImageDto $image = null,
     ) {}
 
+    /**
+     * @return array{sku: string, name: string, description: string, category: string, image: array{path: string, absolute_path: string, mime_type: string, size: int}|null}
+     */
     public function toArray(): array
     {
         return [
@@ -20,7 +23,7 @@ class ProductDto
             'name' => $this->name,
             'description' => $this->description,
             'category' => $this->category,
-            'image' => $this->image,
+            'image' => $this->image?->toArray(),
         ];
     }
 }

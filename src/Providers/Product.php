@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker\Providers;
 
+use Bambamboole\ExtendedFaker\Dto\ImageDto;
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Repository\ProductRepository;
 use Faker\Provider\Base;
@@ -79,7 +80,20 @@ abstract class Product extends Base
             throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
         }
 
-        return $product->image !== '' ? $product->image : null;
+        return $product->image?->path;
+    }
+
+    public function productImageDto(?string $identifier = null): ?ImageDto
+    {
+        $product = $this->findProduct($identifier);
+        if (! $product) {
+            if ($identifier === null) {
+                return null;
+            }
+            throw new \InvalidArgumentException("Product '{$identifier}' not found in available products.");
+        }
+
+        return $product->image;
     }
 
     public function product(?string $identifier = null): ProductDto
