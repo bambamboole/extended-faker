@@ -1,13 +1,14 @@
 {
     "skuPrefix": "FN",
-    "nameTemplate": "{brand} {line} {item}",
+    "nameTemplate": "{brand} {line} {item} {material} {finish}",
     "pools": {
-        "brand": ["Nordvik", "Hvenor", "Alvesta", "Birkara", "Fjordhem", "Strandvik", "Dalgard", "Tronvik", "Halvora", "Skovby", "Lynford", "Valleby"],
-        "line": ["Nordic", "Urban", "Heritage", "Scandinavian", "Modern", "Loft", "Coastal", "Artisan"],
-        "item": ["Sofa", "Dining Table", "Bookcase", "Armchair", "Coffee Table", "Bed Frame", "Sideboard", "Desk"]
+        "brand": ["Nordvik", "Hvenor", "Alvesta", "Birkara", "Fjordhem", "Strandvik", "Dalgard", "Tronvik", "Halvora", "Skovby", "Lynford", "Valleby", "Torvik", "Stenby", "Ravnor", "Eldvik"],
+        "line": ["Nordic", "Urban", "Heritage", "Scandinavian", "Modern", "Loft", "Coastal", "Artisan", "Classic", "Boreal", "Rustic", "Minimal"],
+        "item": ["Sofa", "Dining Table", "Bookcase", "Armchair", "Coffee Table", "Bed Frame", "Sideboard", "Desk", "Console Table", "Wardrobe", "Bar Stool", "Shelf Unit"]
     },
     "variants": {
-        "material": ["Oak", "Walnut", "Pine", "White Lacquer", "Charcoal Fabric", "Linen Grey"]
+        "material": ["Oak", "Walnut", "Pine", "White Lacquer", "Charcoal Fabric", "Linen Grey"],
+        "finish": ["Natural", "Matte", "Gloss", "Brushed", "Distressed", "Oiled"]
     },
     "locales": {
         "en_US": {

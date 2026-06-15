@@ -1,10 +1,10 @@
 {
     "skuPrefix": "SH",
-    "nameTemplate": "{brand} {line} {type}",
+    "nameTemplate": "{brand} {line} {type} {color}",
     "pools": {
-        "brand": ["Strideo", "Kickova", "Solarun", "Traxio", "Veltro", "Pavexa", "Suedara", "Griptec", "Feetix", "Landora", "Runova", "Stepra"],
-        "line": ["Apex", "Velo", "Drift", "Summit", "Rush", "Glide", "Terra", "Sprint"],
-        "type": ["Sneakers", "Running Shoes", "Trail Runners", "Loafers", "Boots", "Slip-Ons", "Sandals", "Cross-Trainers"]
+        "brand": ["Strideo", "Kickova", "Solarun", "Traxio", "Veltro", "Pavexa", "Suedara", "Griptec", "Feetix", "Landora", "Runova", "Stepra", "Archova", "Solexa", "Stridexa", "Padova"],
+        "line": ["Apex", "Velo", "Drift", "Summit", "Rush", "Glide", "Terra", "Sprint", "Crest", "Peak", "Swift", "Coast"],
+        "type": ["Sneakers", "Running Shoes", "Trail Runners", "Loafers", "Boots", "Slip-Ons", "Sandals", "Cross-Trainers", "Hiking Boots", "Athletic Flats", "Court Shoes", "Mules"]
     },
     "variants": {
         "color": ["Black", "White", "Grey", "Navy", "Tan", "Olive"]

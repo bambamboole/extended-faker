@@ -1,10 +1,10 @@
 {
     "skuPrefix": "SN",
-    "nameTemplate": "{brand} {flavor} {item}",
+    "nameTemplate": "{brand} {flavor} {item} {size}",
     "pools": {
-        "brand": ["Munchio", "Cravio", "Snackra", "Bitzio", "Crunchex", "Popola", "Bittera", "Tastivo", "Nibblera", "Crispix", "Puffino", "Chewra"],
-        "flavor": ["Classic", "Honey BBQ", "Sea Salt", "Cheddar", "Spicy Ranch", "Dark Chocolate", "Caramel", "Sour Apple"],
-        "item": ["Chips", "Pretzels", "Popcorn", "Granola Bars", "Trail Mix", "Gummy Bears", "Crackers", "Protein Bites"]
+        "brand": ["Munchio", "Cravio", "Snackra", "Bitzio", "Crunchex", "Popola", "Bittera", "Tastivo", "Nibblera", "Crispix", "Puffino", "Chewra", "Snappix", "Zestova", "Bitova", "Crunchara"],
+        "flavor": ["Classic", "Honey BBQ", "Sea Salt", "Cheddar", "Spicy Ranch", "Dark Chocolate", "Caramel", "Sour Apple", "Buffalo Wing", "Sweet Chili", "Dill Pickle", "Cinnamon"],
+        "item": ["Chips", "Pretzels", "Popcorn", "Granola Bars", "Trail Mix", "Gummy Bears", "Crackers", "Protein Bites", "Jerky", "Rice Cakes", "Fruit Snacks", "Energy Bites"]
     },
     "variants": {
         "size": ["1oz", "2oz", "6oz", "10oz", "16oz", "24oz"]

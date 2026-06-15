@@ -1,10 +1,10 @@
 {
     "skuPrefix": "SP",
-    "nameTemplate": "{brand} {line} {item}",
+    "nameTemplate": "{brand} {line} {item} {color}",
     "pools": {
-        "brand": ["Trailova", "Peakora", "Summixa", "Ridera", "Campex", "Hikura", "Climbra", "Gearova", "Alpinia", "Tensio", "Ridgecra", "Torrova"],
-        "line": ["Summit", "Trail", "Base Camp", "Alpine", "Venture", "Enduro", "Glacier", "Ridgeline"],
-        "item": ["Backpack", "Tent", "Sleeping Bag", "Trekking Poles", "Headlamp", "Hydration Pack", "Climbing Harness", "Camp Stove"]
+        "brand": ["Trailova", "Peakora", "Summixa", "Ridera", "Campex", "Hikura", "Climbra", "Gearova", "Alpinia", "Tensio", "Ridgecra", "Torrova", "Ventora", "Basexa", "Pathova", "Summova"],
+        "line": ["Summit", "Trail", "Base Camp", "Alpine", "Venture", "Enduro", "Glacier", "Ridgeline", "Expedition", "Ultralight", "Trekker", "Explorer"],
+        "item": ["Backpack", "Tent", "Sleeping Bag", "Trekking Poles", "Headlamp", "Hydration Pack", "Climbing Harness", "Camp Stove", "Sleeping Pad", "Dry Bag", "Carabiner Set", "Gaiters"]
     },
     "variants": {
         "color": ["Forest Green", "Burnt Orange", "Navy Blue", "Slate Grey", "Red Rock", "Arctic White"]

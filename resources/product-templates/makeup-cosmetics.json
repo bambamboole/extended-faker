@@ -1,10 +1,10 @@
 {
     "skuPrefix": "MK",
-    "nameTemplate": "{brand} {product} {variant}",
+    "nameTemplate": "{brand} {product} {variant} {shade}",
     "pools": {
-        "brand": ["Lumira", "Belleza", "Cosmetix", "Glamara", "Prismia", "Shadora", "Velvetine", "Aurelia", "Rossetta", "Pigmenta", "Luxia", "Radiance"],
-        "product": ["Foundation", "Mascara", "Lipstick", "Eyeshadow Palette", "Blush", "Highlighter", "Eyeliner", "Setting Spray"],
-        "variant": ["Matte", "Gloss", "Satin", "Dewy", "Ultra HD", "Natural", "Bold", "Luminous"]
+        "brand": ["Lumira", "Belleza", "Cosmetix", "Glamara", "Prismia", "Shadora", "Velvetine", "Aurelia", "Rossetta", "Pigmenta", "Luxia", "Radiance", "Chromova", "Glowex", "Tintara", "Vivida"],
+        "product": ["Foundation", "Mascara", "Lipstick", "Eyeshadow Palette", "Blush", "Highlighter", "Eyeliner", "Setting Spray", "Concealer", "Bronzer", "Lip Liner", "Eyebrow Gel"],
+        "variant": ["Matte", "Gloss", "Satin", "Dewy", "Ultra HD", "Natural", "Bold", "Luminous", "Sheer", "Velvet", "Shimmer", "Metallic"]
     },
     "variants": {
         "shade": ["Fair", "Light", "Medium", "Tan", "Deep", "Rich"]

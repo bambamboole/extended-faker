@@ -1,10 +1,10 @@
 {
     "skuPrefix": "SK",
-    "nameTemplate": "{brand} {product} {variant}",
+    "nameTemplate": "{brand} {product} {variant} {size}",
     "pools": {
-        "brand": ["Dermova", "Clarena", "Hydrix", "Lumifirm", "Seruvia", "Pureva", "Glowara", "Vitaskin", "Celluria", "Renewex", "Aqualia", "Elixira"],
-        "product": ["Moisturizer", "Serum", "Cleanser", "Eye Cream", "Toner", "Exfoliator", "Sunscreen", "Face Mask"],
-        "variant": ["Daily", "Intensive", "Hydrating", "Anti-Aging", "Brightening", "Soothing", "Purifying", "Revitalizing"]
+        "brand": ["Dermova", "Clarena", "Hydrix", "Lumifirm", "Seruvia", "Pureva", "Glowara", "Vitaskin", "Celluria", "Renewex", "Aqualia", "Elixira", "Glowex", "Serumova", "Dermara", "Clarovia"],
+        "product": ["Moisturizer", "Serum", "Cleanser", "Eye Cream", "Toner", "Exfoliator", "Sunscreen", "Face Mask", "Retinol Cream", "Vitamin C Serum", "Night Cream", "Essence"],
+        "variant": ["Daily", "Intensive", "Hydrating", "Anti-Aging", "Brightening", "Soothing", "Purifying", "Revitalizing", "Clarifying", "Nourishing", "Firming", "Balancing"]
     },
     "variants": {
         "size": ["0.5oz", "1oz", "2oz", "4oz", "8oz"]

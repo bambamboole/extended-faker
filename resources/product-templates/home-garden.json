@@ -1,10 +1,10 @@
 {
     "skuPrefix": "HG",
-    "nameTemplate": "{brand} {line} {item}",
+    "nameTemplate": "{brand} {line} {item} {color}",
     "pools": {
-        "brand": ["Bloomora", "Terravex", "Gardenio", "Naturo", "Leafway", "Cultivio", "Sprouta", "Verdaro", "Mossia", "Rootiva", "Pottara", "Floriva"],
-        "line": ["Garden Pro", "Bloom", "Terra", "Nature", "EcoGrow", "Heritage", "Harvest", "Urban"],
-        "item": ["Planter", "Garden Hose", "Pruning Shears", "Raised Bed Kit", "Watering Can", "Potting Mix", "Trellis Set", "Compost Bin"]
+        "brand": ["Bloomora", "Terravex", "Gardenio", "Naturo", "Leafway", "Cultivio", "Sprouta", "Verdaro", "Mossia", "Rootiva", "Pottara", "Floriva", "Growara", "Solia", "Plantex", "Ecoriva"],
+        "line": ["Garden Pro", "Bloom", "Terra", "Nature", "EcoGrow", "Heritage", "Harvest", "Urban", "Patio", "Wild", "Rustic", "Artisan"],
+        "item": ["Planter", "Garden Hose", "Pruning Shears", "Raised Bed Kit", "Watering Can", "Potting Mix", "Trellis Set", "Compost Bin", "Grow Light", "Seed Starter Kit", "Fertilizer Blend", "Plant Stand"]
     },
     "variants": {
         "color": ["Forest Green", "Terracotta", "Slate Grey", "Natural Wood", "Matte Black", "Ivory"]

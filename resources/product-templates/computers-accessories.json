@@ -1,13 +1,14 @@
 {
     "skuPrefix": "CP",
-    "nameTemplate": "{brand} {line} {model} {storage}",
+    "nameTemplate": "{brand} {line} {model} {storage} {color}",
     "pools": {
-        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia"],
-        "line": ["ProBook", "AirSlate", "ThinEdge", "PowerDesk", "NanoBook", "StudioPad", "EliteBook", "SwiftAir"],
-        "model": ["14 Pro", "15 Ultra", "13 Air", "16 Max", "X1", "S7", "Z9", "G5"]
+        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia", "Axora", "Pixelra", "Cognia", "Bytevex"],
+        "line": ["ProBook", "AirSlate", "ThinEdge", "PowerDesk", "NanoBook", "StudioPad", "EliteBook", "SwiftAir", "UltraThin", "WorkForce", "SpectraBook", "PrimeDesk"],
+        "model": ["14 Pro", "15 Ultra", "13 Air", "16 Max", "X1", "S7", "Z9", "G5", "M3", "R5", "V8", "T2"]
     },
     "variants": {
-        "storage": ["256GB SSD", "512GB SSD", "1TB SSD", "2TB SSD"]
+        "storage": ["256GB SSD", "512GB SSD", "1TB SSD", "2TB SSD"],
+        "color": ["Space Grey", "Silver", "Midnight Black", "Pearl White", "Rose Gold", "Titanium"]
     },
     "locales": {
         "en_US": {

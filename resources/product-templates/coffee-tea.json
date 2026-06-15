@@ -1,14 +1,75 @@
 {
     "skuPrefix": "CF",
-    "nameTemplate": "{brand} {origin} {roast} {form}",
+    "nameTemplate": "{brand} {origin} {roast} {form} {size}",
     "pools": {
-        "brand": ["Vianto", "Brezzio", "Roastara", "Kalura", "Torrefex", "Avenco", "Lumero", "Crespado", "Brewlux", "Valdoro", "Granum", "Corteza"],
-        "origin": ["Ethiopian", "Colombian", "Guatemalan", "Sumatran", "Kenyan", "Brazilian", "Costa Rican", "Vietnamese"],
-        "roast": ["Light", "Medium", "Medium-Dark", "Dark", "Espresso", "French", "City", "Full City"],
-        "form": ["Whole Bean", "Ground", "K-Cup", "Loose Leaf Tea", "Tea Bags", "Cold Brew Concentrate", "Instant", "Pods"]
+        "brand": [
+            "Vianto",
+            "Brezzio",
+            "Roastara",
+            "Kalura",
+            "Torrefex",
+            "Avenco",
+            "Lumero",
+            "Crespado",
+            "Brewlux",
+            "Valdoro",
+            "Granum",
+            "Corteza",
+            "Breva",
+            "Solvano",
+            "Torrica",
+            "Caffeva"
+        ],
+        "origin": [
+            "Ethiopian",
+            "Colombian",
+            "Guatemalan",
+            "Sumatran",
+            "Kenyan",
+            "Brazilian",
+            "Costa Rican",
+            "Vietnamese",
+            "Peruvian",
+            "Jamaican",
+            "Honduran",
+            "Indonesian"
+        ],
+        "roast": [
+            "Light",
+            "Medium",
+            "Medium-Dark",
+            "Dark",
+            "Espresso",
+            "French",
+            "City",
+            "Full City",
+            "Blonde",
+            "Nordic",
+            "Italian",
+            "American"
+        ],
+        "form": [
+            "Whole Bean",
+            "Ground",
+            "K-Cup",
+            "Loose Leaf Tea",
+            "Tea Bags",
+            "Cold Brew Concentrate",
+            "Instant",
+            "Pods"
+        ]
     },
     "variants": {
-        "size": ["8oz", "12oz", "16oz", "32oz", "1lb", "2lb"]
+        "size": [
+            "8oz",
+            "12oz",
+            "16oz",
+            "32oz",
+            "1lb",
+            "2lb",
+            "3lb",
+            "5lb"
+        ]
     },
     "locales": {
         "en_US": {
@@ -16,16 +77,40 @@
                 "{brand} {origin} {roast} {form} is a {adjective} brew with {feature}, perfect for your morning routine.",
                 "Experience the {adjective} taste of {brand}'s {origin} {roast}: {feature} in every {form} serving."
             ],
-            "adjective": ["rich", "smooth", "bold", "aromatic", "vibrant"],
-            "feature": ["notes of dark chocolate and citrus", "a velvety body and bright finish", "deep caramel undertones", "a floral and fruity aroma", "low acidity and full flavor"]
+            "adjective": [
+                "rich",
+                "smooth",
+                "bold",
+                "aromatic",
+                "vibrant"
+            ],
+            "feature": [
+                "notes of dark chocolate and citrus",
+                "a velvety body and bright finish",
+                "deep caramel undertones",
+                "a floral and fruity aroma",
+                "low acidity and full flavor"
+            ]
         },
         "de_DE": {
             "descriptionTemplates": [
                 "{brand} {origin} {roast} {form} ist ein {adjective} Getränk mit {feature}, perfekt für Ihren Morgen.",
                 "Erleben Sie den {adjective} Geschmack von {brand}'s {origin} {roast}: {feature} in jeder {form}-Portion."
             ],
-            "adjective": ["kräftigen", "samtigen", "intensiven", "aromatischen", "lebhaften"],
-            "feature": ["Noten von dunkler Schokolade und Zitrus", "einem samtigen Körper und frischem Abgang", "tiefen Karamelluntertönen", "einem blumigen und fruchtigen Aroma", "niedriger Säure und vollem Geschmack"]
+            "adjective": [
+                "kräftigen",
+                "samtigen",
+                "intensiven",
+                "aromatischen",
+                "lebhaften"
+            ],
+            "feature": [
+                "Noten von dunkler Schokolade und Zitrus",
+                "einem samtigen Körper und frischem Abgang",
+                "tiefen Karamelluntertönen",
+                "einem blumigen und fruchtigen Aroma",
+                "niedriger Säure und vollem Geschmack"
+            ]
         }
     }
 }

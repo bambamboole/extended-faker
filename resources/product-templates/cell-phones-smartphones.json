@@ -2,9 +2,9 @@
     "skuPrefix": "PH",
     "nameTemplate": "{brand} {line} {model} {storage} {color}",
     "pools": {
-        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia"],
-        "line": ["Pulse", "Edge", "Vega", "Aura", "Nova", "Flux", "Prime", "Halo"],
-        "model": ["7 Pro", "X3", "5 Max", "Air", "Ultra", "12", "S9", "Mini"]
+        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia", "Ionova", "Prismax", "Cellvex", "Phorix"],
+        "line": ["Pulse", "Edge", "Vega", "Aura", "Nova", "Flux", "Prime", "Halo", "Apex", "Surge", "Focus", "Snap"],
+        "model": ["7 Pro", "X3", "5 Max", "Air", "Ultra", "12", "S9", "Mini", "Lite", "Plus", "Max", "Neo"]
     },
     "variants": {
         "storage": ["128GB", "256GB", "512GB", "1TB"],

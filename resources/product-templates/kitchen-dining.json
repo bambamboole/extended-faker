@@ -1,10 +1,10 @@
 {
     "skuPrefix": "KD",
-    "nameTemplate": "{brand} {line} {item}",
+    "nameTemplate": "{brand} {line} {item} {color}",
     "pools": {
-        "brand": ["Cookara", "Chefio", "Kitchna", "Brassura", "Culinia", "Sautela", "Flamio", "Platexa", "Simmero", "Gristlo", "Stewara", "Poteva"],
-        "line": ["Classic", "Pro", "Heritage", "Artisan", "Essential", "Prestige", "Origin", "Apex"],
-        "item": ["Skillet", "Dutch Oven", "Knife Set", "Cutting Board", "Mixing Bowls", "Wok", "Saucepan", "Baking Sheet"]
+        "brand": ["Cookara", "Chefio", "Kitchna", "Brassura", "Culinia", "Sautela", "Flamio", "Platexa", "Simmero", "Gristlo", "Stewara", "Poteva", "Grillova", "Panex", "Copperia", "Steelova"],
+        "line": ["Classic", "Pro", "Heritage", "Artisan", "Essential", "Prestige", "Origin", "Apex", "Signature", "Master", "Chef's", "Everyday"],
+        "item": ["Skillet", "Dutch Oven", "Knife Set", "Cutting Board", "Mixing Bowls", "Wok", "Saucepan", "Baking Sheet", "Roasting Pan", "Colander", "Stockpot", "Griddle"]
     },
     "variants": {
         "color": ["Black", "Stainless Steel", "Copper", "Matte Red", "Navy Blue", "Cream"]

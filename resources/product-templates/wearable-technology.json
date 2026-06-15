@@ -1,13 +1,14 @@
 {
     "skuPrefix": "WT",
-    "nameTemplate": "{brand} {line} {model} {size}",
+    "nameTemplate": "{brand} {line} {model} {size} {color}",
     "pools": {
-        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia"],
-        "line": ["Pulse", "Aura", "Vivo", "FitEdge", "SmartBand", "ActiveX", "HealthQ", "TrackPro"],
-        "model": ["Series 3", "Gen 2", "Ultra", "Sport", "Classic", "Slim", "Pro", "Air"]
+        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia", "Pulsexa", "Fitova", "Trackio", "Healthex"],
+        "line": ["Pulse", "Aura", "Vivo", "FitEdge", "SmartBand", "ActiveX", "HealthQ", "TrackPro", "BioSync", "VitalX", "WellBand", "ChronoFit"],
+        "model": ["Series 3", "Gen 2", "Ultra", "Sport", "Classic", "Slim", "Pro", "Air", "Plus", "Max", "Lite", "One"]
     },
     "variants": {
-        "size": ["38mm", "42mm", "44mm", "46mm", "49mm", "52mm"]
+        "size": ["38mm", "42mm", "44mm", "46mm", "49mm", "52mm"],
+        "color": ["Midnight Black", "Silver", "Rose Gold", "Graphite", "Cream", "Blue"]
     },
     "locales": {
         "en_US": {

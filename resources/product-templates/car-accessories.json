@@ -1,10 +1,10 @@
 {
     "skuPrefix": "CA",
-    "nameTemplate": "{brand} {line} {item}",
+    "nameTemplate": "{brand} {line} {item} {color}",
     "pools": {
-        "brand": ["Motovex", "Autoriva", "Drivera", "Turboxa", "Carvelo", "Gearshift", "Cruisio", "Treadova", "Accelvex", "Torquex", "Axleora", "Pitopia"],
-        "line": ["Pro Series", "Elite", "Street", "Off-Road", "Sport", "Touring", "Track", "Stealth"],
-        "item": ["Dash Cam", "Seat Covers", "Floor Mats", "Car Charger", "Phone Mount", "Roof Rack", "Cargo Net", "Jump Starter"]
+        "brand": ["Motovex", "Autoriva", "Drivera", "Turboxa", "Carvelo", "Gearshift", "Cruisio", "Treadova", "Accelvex", "Torquex", "Axleora", "Pitopia", "Velocar", "Driftix", "Roadova", "Tarmacx"],
+        "line": ["Pro Series", "Elite", "Street", "Off-Road", "Sport", "Touring", "Track", "Stealth", "Rally", "Urban", "Carbon", "Prestige"],
+        "item": ["Dash Cam", "Seat Covers", "Floor Mats", "Car Charger", "Phone Mount", "Roof Rack", "Cargo Net", "Jump Starter", "Steering Wheel Cover", "Trunk Organizer", "Window Tint Kit", "Tire Gauge"]
     },
     "variants": {
         "color": ["Black", "Charcoal", "Grey", "Carbon Fibre Look", "Silver", "Tan"]
@@ -24,7 +24,7 @@
                 "{brand} {line} {item} in {color}: {adjective} und entwickelt mit {feature} für anspruchsvolle Fahrer."
             ],
             "adjective": ["erstklassiges", "einfach zu installierendes", "universell passendes", "robustes", "hochtechnologisches"],
-            "feature": ["einem manipulationssicheren Montagsystem", "4K-Auflösung und Weitwinkelobjektiv", "militärischer Stoßfestigkeit", "einem Chassis aus Luftfahrtaluminium", "universeller Kompatibilität mit allen Fahrzeugtypen"]
+            "feature": ["einem manipulationssicheren Montagesystem", "4K-Auflösung und Weitwinkelobjektiv", "militärischer Stoßfestigkeit", "einem Chassis aus Luftfahrtaluminium", "universeller Kompatibilität mit allen Fahrzeugtypen"]
         }
     }
 }

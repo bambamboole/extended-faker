@@ -1,11 +1,11 @@
 {
     "skuPrefix": "AA",
-    "nameTemplate": "{brand} {adjective} {material} {garment}",
+    "nameTemplate": "{brand} {adjective} {material} {garment} {color}",
     "pools": {
-        "brand": ["Velocra", "Apexo", "Kinova", "Stratix", "Fleximo", "Sprintra", "Dynova", "Pacerio", "Agilux", "Vortec", "Rythma", "Endura"],
-        "adjective": ["Pro", "Elite", "Active", "Performance", "Training", "Endurance", "Sport", "Fusion"],
-        "material": ["Dri-Tech", "AeroKnit", "FlexWeave", "ClimaCool", "PolyMesh", "SpandexFlex", "ThermoLite", "CompressX"],
-        "garment": ["Shorts", "Leggings", "Tank Top", "Hoodie", "Sports Bra", "Compression Tee", "Track Jacket", "Running Tights"]
+        "brand": ["Velocra", "Apexo", "Kinova", "Stratix", "Fleximo", "Sprintra", "Dynova", "Pacerio", "Agilux", "Vortec", "Rythma", "Endura", "Streakova", "Powerx", "Aktiva", "Sprintex"],
+        "adjective": ["Pro", "Elite", "Active", "Performance", "Training", "Endurance", "Sport", "Fusion", "Turbo", "Dynamic", "Ultra", "Swift"],
+        "material": ["Dri-Tech", "AeroKnit", "FlexWeave", "ClimaCool", "PolyMesh", "SpandexFlex", "ThermoLite", "CompressX", "AirFlow", "HydroWick", "CoolMax", "DryFit"],
+        "garment": ["Shorts", "Leggings", "Tank Top", "Hoodie", "Sports Bra", "Compression Tee", "Track Jacket", "Running Tights", "Joggers", "Crop Top", "Quarter-Zip", "Wind Jacket"]
     },
     "variants": {
         "color": ["Black", "Electric Blue", "Neon Green", "Charcoal", "White", "Coral"]
@@ -25,7 +25,7 @@
                 "{brand} {adjective} {material} {garment}: {adjective2} Sportbekleidung für {feature} in {color}."
             ],
             "adjective2": ["Spitzen-", "Wettkampf-", "Hochintensitäts-", "ganztägiger", "überlegener"],
-            "feature": ["Vier-Wege-Stretch für uneingeschränkte Bewegungsfreiheit", "schweißableitender Technologie, die Sie trocken hält", "Antioderbehandlung für längeres Tragen", "Flachnaht-Nähten, die Reiben verhindern", "UPF-50+-Sonnenschutz"]
+            "feature": ["Vier-Wege-Stretch für uneingeschränkte Bewegungsfreiheit", "schweißableitender Technologie, die Sie trocken hält", "Antiodorbehandlung für längeres Tragen", "Flachnaht-Nähten, die Reiben verhindern", "UPF-50+-Sonnenschutz"]
         }
     }
 }

@@ -1,11 +1,11 @@
 {
     "skuPrefix": "MC",
-    "nameTemplate": "{brand} {adjective} {material} {garment}",
+    "nameTemplate": "{brand} {adjective} {material} {garment} {color}",
     "pools": {
-        "brand": ["Dravico", "Norwick", "Stenvale", "Harlow & Co", "Crestfeld", "Brackmore", "Aldwyn", "Trentford", "Moorwick", "Dunvale", "Halcroft", "Westmere"],
-        "adjective": ["Classic", "Slim", "Relaxed", "Athletic", "Tailored", "Modern", "Standard", "Comfort"],
-        "material": ["Cotton", "Linen", "Denim", "Flannel", "Merino", "Canvas", "Fleece", "Twill"],
-        "garment": ["T-Shirt", "Hoodie", "Jeans", "Chinos", "Jacket", "Polo", "Sweater", "Shorts"]
+        "brand": ["Dravico", "Norwick", "Stenvale", "Harlow & Co", "Crestfeld", "Brackmore", "Aldwyn", "Trentford", "Moorwick", "Dunvale", "Halcroft", "Westmere", "Stonfeld", "Elmwick", "Ashvale", "Greywood"],
+        "adjective": ["Classic", "Slim", "Relaxed", "Athletic", "Tailored", "Modern", "Standard", "Comfort", "Vintage", "Rugged", "Refined", "Essential"],
+        "material": ["Cotton", "Linen", "Denim", "Flannel", "Merino", "Canvas", "Fleece", "Twill", "Chambray", "Ripstop", "Wool Blend", "Stretch"],
+        "garment": ["T-Shirt", "Hoodie", "Jeans", "Chinos", "Jacket", "Polo", "Sweater", "Shorts", "Vest", "Overshirt", "Cargo Pants", "Henley"]
     },
     "variants": {
         "color": ["Black", "Navy", "Heather Grey", "Olive", "White", "Burgundy"]
