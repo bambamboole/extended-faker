@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "SN",
+    "nameTemplate": "{brand} {flavor} {item} {size}",
+    "pools": {
+        "brand": ["Munchio", "Cravio", "Snackra", "Bitzio", "Crunchex", "Popola", "Bittera", "Tastivo", "Nibblera", "Crispix", "Puffino", "Chewra", "Snappix", "Zestova", "Bitova", "Crunchara"],
+        "flavor": ["Classic", "Honey BBQ", "Sea Salt", "Cheddar", "Spicy Ranch", "Dark Chocolate", "Caramel", "Sour Apple", "Buffalo Wing", "Sweet Chili", "Dill Pickle", "Cinnamon"],
+        "item": ["Chips", "Pretzels", "Popcorn", "Granola Bars", "Trail Mix", "Gummy Bears", "Crackers", "Protein Bites", "Jerky", "Rice Cakes", "Fruit Snacks", "Energy Bites"]
+    },
+    "variants": {
+        "size": ["1oz", "2oz", "6oz", "10oz", "16oz", "24oz"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{brand} {flavor} {item} are {adjective} snacks packed with {feature}, perfect for on-the-go munching.",
+                "Satisfy your cravings with {brand}'s {adjective} {flavor} {item}: {feature} in every bite."
+            ],
+            "adjective": ["irresistible", "crispy", "indulgent", "wholesome", "satisfying"],
+            "feature": ["real ingredients and bold flavor", "a satisfying crunch", "no artificial preservatives", "a perfect balance of sweet and salty", "high-quality natural ingredients"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{brand} {flavor} {item} sind {adjective} Snacks voller {feature}, perfekt für unterwegs.",
+                "Stillen Sie Ihren Hunger mit {brand}'s {adjective} {flavor} {item}: {feature} in jedem Bissen."
+            ],
+            "adjective": ["unwiderstehlichen", "knusprigen", "köstlichen", "nahrhaften", "befriedigenden"],
+            "feature": ["echten Zutaten und kräftigem Geschmack", "einem befriedigenden Crunch", "ohne künstliche Konservierungsstoffe", "einer perfekten Balance aus Süße und Salz", "hochwertigen natürlichen Zutaten"]
+        }
+    }
+}

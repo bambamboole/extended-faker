@@ -1,0 +1,112 @@
+{
+    "skuPrefix": "GF",
+    "nameTemplate": "{brand} {flavor} {item} {size} {packaging}",
+    "pools": {
+        "brand": [
+            "Epicura",
+            "Délicio",
+            "Artisano",
+            "Gourmeto",
+            "Finestra",
+            "Savorex",
+            "Maestra",
+            "Culinaro",
+            "Truffino",
+            "Provença",
+            "Terroir",
+            "Abundia",
+            "Savanta",
+            "Cultica",
+            "Gouravia",
+            "Saporia"
+        ],
+        "flavor": [
+            "Truffle",
+            "Smoked",
+            "Aged",
+            "Roasted",
+            "Wild Herb",
+            "Black Garlic",
+            "Saffron",
+            "Umami",
+            "Citrus",
+            "Chili",
+            "Honey",
+            "Lavender"
+        ],
+        "item": [
+            "Olive Oil",
+            "Hot Sauce",
+            "Pasta",
+            "Jam",
+            "Honey",
+            "Mustard",
+            "Vinegar",
+            "Salt Blend",
+            "Spice Mix",
+            "Pesto",
+            "Tapenade",
+            "Chutney"
+        ]
+    },
+    "variants": {
+        "size": [
+            "4oz",
+            "8oz",
+            "12oz",
+            "16oz",
+            "32oz",
+            "1L"
+        ],
+        "packaging": [
+            "Gift Box",
+            "Jar",
+            "Bottle",
+            "Tin",
+            "Sachet",
+            "Crate"
+        ]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{brand} {flavor} {item} is a {adjective} gourmet product crafted with {feature} for the discerning palate.",
+                "Elevate your cooking with {brand}'s {adjective} {flavor} {item}: {feature} in every drop."
+            ],
+            "adjective": [
+                "artisanal",
+                "exquisite",
+                "hand-crafted",
+                "small-batch",
+                "premium"
+            ],
+            "feature": [
+                "cold-pressed ingredients",
+                "stone-ground tradition",
+                "sustainably sourced produce",
+                "time-honored production methods",
+                "bold and complex flavor profiles"
+            ]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{brand} {flavor} {item} ist ein {adjective} Gourmetprodukt, handgefertigt mit {feature} für den anspruchsvollen Gaumen.",
+                "Verfeinern Sie Ihre Küche mit {brand}'s {adjective} {flavor} {item}: {feature} in jedem Tropfen."
+            ],
+            "adjective": [
+                "handwerkliches",
+                "exquisites",
+                "handgefertigtes",
+                "kleinseriiges",
+                "erstklassiges"
+            ],
+            "feature": [
+                "kaltgepressten Zutaten",
+                "der Tradition des Steinmahlens",
+                "nachhaltig beschafften Rohstoffen",
+                "bewährten Produktionsmethoden",
+                "kräftigen und komplexen Geschmacksprofilen"
+            ]
+        }
+    }
+}

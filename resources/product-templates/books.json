@@ -1,0 +1,32 @@
+{
+    "skuPrefix": "BK",
+    "nameTemplate": "{adjective} {noun} {genre}",
+    "pools": {
+        "adjective": ["The Lost", "The Hidden", "A Silent", "The Last", "An Infinite", "The Forgotten", "A Broken", "The Endless", "The Dark", "A Golden", "The Rising", "An Eternal", "The Crimson", "A Wandering", "The Veiled", "The Ancient", "A Shattered", "The Hollow", "A Distant", "The Burning", "The Fleeting", "A Restless", "The Twisted", "The Pale", "The Sovereign", "A Fractured", "The Wicked", "The Blessed", "A Desperate", "The Final"],
+        "noun": ["Kingdom", "Echo", "Promise", "Journey", "Shadow", "Horizon", "Garden", "Archive", "Cipher", "Flame", "Tide", "Legacy", "Throne", "Relic", "Covenant", "Storm", "Mirror", "Labyrinth", "Oracle", "Requiem", "Abyss", "Chronicle", "Paradox", "Veil", "Ember", "Specter", "Aegis", "Mantle", "Verdict", "Lament"],
+        "genre": ["A Novel", "A Thriller", "A Mystery", "A Saga", "A Chronicle", "A Tale", "An Epic", "A Memoir", "A Novella", "A Collection"]
+    },
+    "variants": {
+        "format": ["Hardcover", "Paperback", "Large Print", "Collector's Edition"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "A {adjective2} tale that {feature}, available as a {format} edition — the perfect read for {reader}.",
+                "This {adjective2} story {feature}. Available in {format} — ideal for {reader}."
+            ],
+            "adjective2": ["gripping", "heartfelt", "thought-provoking", "spellbinding", "unforgettable"],
+            "feature": ["keeps you turning pages until dawn", "challenges everything you thought you knew", "weaves history and imagination together", "delivers an emotional punch on every page", "introduces characters you will never forget"],
+            "reader": ["fiction lovers", "mystery fans", "adventure seekers", "book club members", "literary enthusiasts"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Eine {adjective2} Geschichte, die {feature}, als {format}-Ausgabe — die perfekte Lektüre für {reader}.",
+                "Diese {adjective2} Geschichte {feature}. Als {format} erhältlich — ideal für {reader}."
+            ],
+            "adjective2": ["fesselnde", "berührende", "zum Nachdenken anregende", "bezaubernde", "unvergessliche"],
+            "feature": ["Sie bis in die Nacht lesen lässt", "alles in Frage stellt, was Sie zu wissen glaubten", "Geschichte und Fantasie miteinander verwebt", "auf jeder Seite emotional berührt", "Figuren vorstellt, die Sie nie vergessen werden"],
+            "reader": ["Romanliebhaber", "Krimifans", "Abenteuerfreunde", "Buchclubmitglieder", "Literaturbegeisterte"]
+        }
+    }
+}

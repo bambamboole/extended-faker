@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "MU",
+    "nameTemplate": "{artist} {album} {edition}",
+    "pools": {
+        "artist": ["The Velvet Echo", "Lunar Static", "Mira Solano", "Dusk Protocol", "Nova Fern", "The Indigo Set", "Calix Drum", "Ember Roads", "The Hollow Tide", "Sable Crest", "Orion Vale", "Prism Drift", "Cascade Theory", "Neon Willow", "The Copper Lane", "Static Bloom", "Indra Wave", "Meridian Sound", "Pale Harbor", "Solstice Kin", "Vex Hollow", "Auric Thread", "The Last Relay", "Cipher Coast", "Zenith Call", "Boreal Hum", "The Rust Circuit", "Nocturne Gate", "Tandem Sky", "Flint & Ash"],
+        "album": ["Resonance", "Fault Lines", "The Signal", "Open Sky", "Drift", "Undertow", "Pale Mirror", "After Hours", "Deep Field", "Running Cold", "Slow Burn", "Glass Heart", "Into the Current", "Waveform", "Shadow Channel", "Coastline", "Neon Static", "Parallel Hearts", "Sunken Hours", "Hollow Ground", "The Quiet Fire", "Transmit", "Surface Tension", "Nightfall", "Copper Wire", "Vapor Trail", "Deadlight", "The Long Return", "Signal Break", "Meridian"],
+        "edition": ["Vol. 1", "Vol. 2", "Deluxe", "Anniversary", "Remastered", "Extended", "Original", "Live Edition", "Studio Sessions", "Bonus Tracks"]
+    },
+    "variants": {
+        "format": ["Vinyl LP", "CD", "Cassette", "Digital Download", "Limited Box Set"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{artist}'s {album} is a {adjective} collection of tracks that {feature}, now available on {format}.",
+                "Experience the {adjective} sound of {artist} on {album}: {feature}. Available as {format}."
+            ],
+            "adjective": ["haunting", "euphoric", "genre-defying", "soulful", "atmospheric"],
+            "feature": ["blends electronic textures with live instrumentation", "explores themes of loss and renewal", "showcases virtuosic songwriting", "pulls you into a cinematic soundscape", "earned critical acclaim worldwide"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{artist}'s {album} ist eine {adjective} Sammlung von Tracks, die {feature}, jetzt auf {format} erhältlich.",
+                "Erleben Sie den {adjective} Sound von {artist} auf {album}: {feature}. Als {format} verfügbar."
+            ],
+            "adjective": ["eindringliche", "euphorische", "genreübergreifende", "einfühlsame", "atmosphärische"],
+            "feature": ["elektronische Texturen mit Live-Instrumentierung verbindet", "Themen von Verlust und Erneuerung erkundet", "virtuoses Songwriting präsentiert", "Sie in eine filmische Klanglandschaft entführt", "weltweite kritische Anerkennung erlangt hat"]
+        }
+    }
+}

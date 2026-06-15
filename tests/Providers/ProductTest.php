@@ -1,44 +1,50 @@
 <?php
+
 declare(strict_types=1);
 
-use Bambamboole\ExtendedFaker\Dto\ProductDto;
+use Bambamboole\ExtendedFaker\Dto\ImageDto;
 use Bambamboole\ExtendedFaker\Providers\en_US\Product;
-use Faker\Factory as FakerFactory;
+use Faker\Factory;
 
-beforeEach(function () {
-    $this->faker = FakerFactory::create();
-    $this->faker->addProvider(new Product($this->faker));
+function productProvider(): Product
+{
+    $faker = Factory::create('en_US');
+    $provider = new Product($faker);
+    $faker->addProvider($provider);
+
+    return $provider;
+}
+
+it('generates a deterministic product by seed', function () {
+    $provider = productProvider();
+
+    expect($provider->generateProduct(5)->toArray())->toBe($provider->generateProduct(5)->toArray());
 });
 
-test('product methods return expected types', function () {
-    expect($this->faker->productName())->toBeString()->not->toBeEmpty();
-    expect($this->faker->productDescription())->toBeString()->not->toBeEmpty();
-    expect($this->faker->productCategory())->toBeString()->not->toBeEmpty();
+it('returns a product by its generated sku', function () {
+    $provider = productProvider();
+    $made = $provider->generateProduct(88);
 
-    $product = $this->faker->product();
-    expect($product)->toBeInstanceOf(ProductDto::class);
-    expect($product->name)->toBeString()->not->toBeEmpty();
-    expect($product->description)->toBeString()->not->toBeEmpty();
-    expect($product->category)->toBeString()->not->toBeEmpty();
-    expect($product->sku)->toBeString()->not->toBeEmpty();
+    expect($provider->productBySku($made->sku)->toArray())->toBe($made->toArray());
 });
 
-test('product methods with identifier work', function () {
-    expect($this->faker->productName('PHONE-001-256GB-TITANIUMBLACK'))->toBeString();
-    $product = $this->faker->productBySku('PHONE-001-256GB-TITANIUMBLACK');
-    expect($product)->toBeInstanceOf(ProductDto::class);
-    expect($product->sku)->toBe('PHONE-001-256GB-TITANIUMBLACK');
-    expect($this->faker->getProductSku('Samsung Galaxy S24 Ultra 256GB Titanium Black'))->toBeString();
+it('exposes name, category and image accessors', function () {
+    $provider = productProvider();
+    $made = $provider->generateProduct(3);
+
+    expect($provider->productName($made->sku))->toBe($made->name)
+        ->and($provider->productImage($made->sku))->toBe($made->image?->path)
+        ->and($provider->productImageDto($made->sku))->toBeInstanceOf(ImageDto::class);
 });
 
-test('cross locale functionality works', function () {
-    $enProduct = $this->faker->getProductInLocale('PHONE-001-256GB-TITANIUMBLACK', 'en_US');
-    $deProduct = $this->faker->getProductInLocale('PHONE-001-256GB-TITANIUMBLACK', 'de_DE');
+it('yields far more unique products than the old ~1819 curated cap via unique()', function () {
+    $faker = Factory::create('en_US');
+    $faker->addProvider(new Product($faker));
 
-    expect($enProduct->sku)->toBe($deProduct->sku);
-    expect($enProduct->name)->not->toBe($deProduct->name);
-});
+    $seen = [];
+    for ($i = 0; $i < 10000; $i++) {
+        $seen[$faker->unique()->product()->sku] = true;
+    }
 
-test('invalid product throws exception', function () {
-    expect(fn () => $this->faker->productName('NonExistent'))->toThrow(InvalidArgumentException::class);
-});
+    expect(count($seen))->toBe(10000);
+})->group('scale');

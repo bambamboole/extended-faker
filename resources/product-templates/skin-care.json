@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "SK",
+    "nameTemplate": "{brand} {product} {variant} {size}",
+    "pools": {
+        "brand": ["Dermova", "Clarena", "Hydrix", "Lumifirm", "Seruvia", "Pureva", "Glowara", "Vitaskin", "Celluria", "Renewex", "Aqualia", "Elixira", "Glowex", "Serumova", "Dermara", "Clarovia"],
+        "product": ["Moisturizer", "Serum", "Cleanser", "Eye Cream", "Toner", "Exfoliator", "Sunscreen", "Face Mask", "Retinol Cream", "Vitamin C Serum", "Night Cream", "Essence"],
+        "variant": ["Daily", "Intensive", "Hydrating", "Anti-Aging", "Brightening", "Soothing", "Purifying", "Revitalizing", "Clarifying", "Nourishing", "Firming", "Balancing"]
+    },
+    "variants": {
+        "size": ["0.5oz", "1oz", "2oz", "4oz", "8oz"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{brand} {product} {variant} is a {adjective} formula that {feature}, suitable for all skin types.",
+                "Transform your skincare routine with {brand}'s {adjective} {product} {variant}: {feature}."
+            ],
+            "adjective": ["clinically proven", "gentle yet effective", "dermatologist-approved", "fragrance-free", "science-backed"],
+            "feature": ["visibly reduces fine lines and wrinkles", "deeply hydrates for 48 hours", "restores the skin's natural barrier", "brightens uneven skin tone", "soothes irritation and redness"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{brand} {product} {variant} ist eine {adjective} Formel, die {feature}, geeignet für alle Hauttypen.",
+                "Transformieren Sie Ihre Hautpflegeroutine mit {brand}'s {adjective} {product} {variant}: {feature}."
+            ],
+            "adjective": ["klinisch bewährte", "sanfte und dennoch wirksame", "dermatologisch geprüfte", "parfümfreie", "wissenschaftlich fundierte"],
+            "feature": ["Fältchen und Falten sichtbar reduziert", "48 Stunden tief hydratisiert", "die natürliche Hautbarriere wiederherstellt", "ungleichmäßigen Hautton aufhellt", "Reizungen und Rötungen lindert"]
+        }
+    }
+}

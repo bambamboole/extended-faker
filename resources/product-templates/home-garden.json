@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "HG",
+    "nameTemplate": "{brand} {line} {item} {color}",
+    "pools": {
+        "brand": ["Bloomora", "Terravex", "Gardenio", "Naturo", "Leafway", "Cultivio", "Sprouta", "Verdaro", "Mossia", "Rootiva", "Pottara", "Floriva", "Growara", "Solia", "Plantex", "Ecoriva"],
+        "line": ["Garden Pro", "Bloom", "Terra", "Nature", "EcoGrow", "Heritage", "Harvest", "Urban", "Patio", "Wild", "Rustic", "Artisan"],
+        "item": ["Planter", "Garden Hose", "Pruning Shears", "Raised Bed Kit", "Watering Can", "Potting Mix", "Trellis Set", "Compost Bin", "Grow Light", "Seed Starter Kit", "Fertilizer Blend", "Plant Stand"]
+    },
+    "variants": {
+        "color": ["Forest Green", "Terracotta", "Slate Grey", "Natural Wood", "Matte Black", "Ivory"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {item} is a {adjective} garden essential built with {feature} for thriving outdoor spaces.",
+                "{brand} {line} {item} in {color}: {adjective} and designed with {feature} to elevate your garden."
+            ],
+            "adjective": ["durable", "eco-friendly", "weather-resistant", "easy-to-use", "premium"],
+            "feature": ["UV-stabilized materials for outdoor longevity", "an ergonomic grip for fatigue-free use", "rust-proof stainless steel hardware", "a drainage system that prevents root rot", "sustainable recycled construction"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {item} ist ein {adjective} Gartenhelfer mit {feature} für blühende Außenbereiche.",
+                "{brand} {line} {item} in {color}: {adjective} und entwickelt mit {feature} für Ihren Garten."
+            ],
+            "adjective": ["robustes", "umweltfreundliches", "wetterfestes", "benutzerfreundliches", "erstklassiges"],
+            "feature": ["UV-stabilisierten Materialien für Langlebigkeit im Freien", "einem ergonomischen Griff für ermüdungsfreies Arbeiten", "rostfreier Edelstahlhardware", "einem Drainagesystem, das Wurzelfäule verhindert", "nachhaltiger Recyclingkonstruktion"]
+        }
+    }
+}

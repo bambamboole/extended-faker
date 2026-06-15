@@ -36,4 +36,9 @@ final class PaletteBook
     {
         return $this->palettes;
     }
+
+    public function count(): int
+    {
+        return count($this->palettes);
+    }
 }

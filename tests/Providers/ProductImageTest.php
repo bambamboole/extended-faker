@@ -2,34 +2,56 @@
 
 declare(strict_types=1);
 
-use Bambamboole\ExtendedFaker\Dto\ImageDto;
-use Bambamboole\ExtendedFaker\Providers\en_US\Product;
+use Bambamboole\ExtendedFaker\Generator\ProductTemplates;
+use Bambamboole\ExtendedFaker\Image\PaletteBook;
 use Bambamboole\ExtendedFaker\Repository\ProductRepository;
-use Faker\Factory as FakerFactory;
 
-it('exposes an image path that resolves to a committed webp', function () {
+it('gives every generated product a committed category+colour webp via ImageDto', function () {
     $repo = new ProductRepository;
 
-    foreach ($repo->getAllProducts('en_US') as $product) {
-        expect($product->image)->toBeInstanceOf(ImageDto::class);
+    for ($seed = 0; $seed < 60; $seed++) {
+        $product = $repo->generate($seed, null, 'en_US');
 
-        $path = __DIR__.'/../../resources/'.$product->image->path;
-        expect($product->image->path)->toStartWith('images/products/')
-            ->and($product->image->absolutePath)->toBe((string) realpath($path))
-            ->and($product->image->mimeType)->toBe('image/webp')
-            ->and($product->image->size)->toBe(filesize($path))
-            ->and(substr((string) file_get_contents($path), 0, 4))->toBe('RIFF');
+        expect($product->image)->not->toBeNull()
+            ->and($product->image->path)->toStartWith('images/products/')
+            ->and($product->image->path)->toEndWith('.webp')
+            ->and($product->image->mimeType)->toBe('image/webp');
+
+        expect(file_exists($product->image->absolutePath))->toBeTrue("missing {$product->image->path}");
+        expect(substr((string) file_get_contents($product->image->absolutePath), 0, 4))->toBe('RIFF');
     }
 });
 
-it('exposes product image formatters', function () {
-    $faker = FakerFactory::create();
-    $faker->addProvider(new Product($faker));
+it('uses the same image for products that share category and colour, and matches across locales', function () {
+    $repo = new ProductRepository;
 
-    $image = $faker->productImageDto('PHONE-001-256GB-TITANIUMBLACK');
+    $en = $repo->generate(7, 'cell-phones-smartphones', 'en_US');
+    $de = $repo->generate(7, 'cell-phones-smartphones', 'de_DE');
 
-    expect($faker->productImage('PHONE-001-256GB-TITANIUMBLACK'))
-        ->toBe('images/products/PHONE-001.webp')
-        ->and($image)->toBeInstanceOf(ImageDto::class)
-        ->and($image->absolutePath)->toEndWith('/resources/images/products/PHONE-001.webp');
+    expect($de->image->path)->toBe($en->image->path);
+
+    $sameColour = null;
+    for ($seed = 0; $seed < 200 && $sameColour === null; $seed++) {
+        if ($seed === 7) {
+            continue;
+        }
+        $candidate = $repo->generate($seed, 'cell-phones-smartphones', 'en_US');
+        if ($candidate->image->path === $en->image->path) {
+            $sameColour = $candidate;
+        }
+    }
+
+    expect($sameColour)->not->toBeNull()
+        ->and($sameColour->image->path)->toBe($en->image->path);
+});
+
+it('has a committed webp for every category and palette index', function () {
+    $paletteCount = (new PaletteBook)->count();
+
+    foreach ((new ProductTemplates)->categories() as $category) {
+        for ($index = 0; $index < $paletteCount; $index++) {
+            $path = __DIR__.'/../../resources/images/products/'.$category.'/'.$index.'.webp';
+            expect(file_exists($path))->toBeTrue("missing products/{$category}/{$index}.webp");
+        }
+    }
 });

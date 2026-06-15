@@ -1,124 +1,70 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Bambamboole\ExtendedFaker\Repository;
 
-use Bambamboole\ExtendedFaker\Dto\ImageDto;
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
-use Bambamboole\ExtendedFaker\Image\ImagePath;
+use Bambamboole\ExtendedFaker\Generator\ProductGenerator;
+use Bambamboole\ExtendedFaker\Generator\ProductSku;
+use Bambamboole\ExtendedFaker\Generator\ProductTemplates;
 
-class ProductRepository extends JsonFileRepository
+class ProductRepository
 {
+    private const SEED_MAX = 2147483647;
+
     public function __construct(
-        private readonly ?CategoryRepository $categoryRepository = new CategoryRepository,
-    ) {
-        parent::__construct('products', 'sku');
-    }
+        private readonly ProductGenerator $generator = new ProductGenerator,
+        private readonly ProductTemplates $templates = new ProductTemplates,
+        private readonly CategoryRepository $categoryRepository = new CategoryRepository,
+    ) {}
 
-    private function resolveProduct(string $sku, array $product, string $locale): ProductDto
+    public function generate(int $seed, ?string $category = null, string $locale = 'en_US'): ProductDto
     {
-        $productData = $product['locales'][$locale];
-        $categoryName =
-            $this->categoryRepository->getCategoryName($product['category'], $locale) ?? $product['category'];
-        $image = ImageDto::fromPath(ImagePath::for('products', $product['sku']));
-
-        return new ProductDto($sku, $productData['name'], $productData['description'], $categoryName, $image);
+        return $this->generator->generate($seed, $category, $locale);
     }
 
     public function getProductBySku(string $sku, string $locale = 'en_US'): ?ProductDto
     {
-        $expandedItems = $this->getExpandedItems();
-        $product = $expandedItems[$sku] ?? null;
-        if (! $product || ! isset($product['locales'][$locale])) {
+        $decoded = ProductSku::decode($sku);
+        if ($decoded === null) {
             return null;
         }
 
-        return $this->resolveProduct($sku, $product, $locale);
-    }
-
-    public function findProductByName(string $name, string $locale = 'en_US'): ?ProductDto
-    {
-        foreach ($this->getExpandedItems() as $sku => $product) {
-            if (isset($product['locales'][$locale]) && $product['locales'][$locale]['name'] === $name) {
-                return $this->resolveProduct($sku, $product, $locale);
-            }
+        // Validate the prefix is known before generating.
+        $category = $this->templates->categoryForPrefix($decoded['prefix']);
+        if ($category === null) {
+            return null;
         }
 
-        return null;
+        return $this->generator->generate($decoded['seed'], $category, $locale);
     }
 
-    public function getAllProducts(string $locale = 'en_US'): array
+    public function getRandomProduct(string $locale = 'en_US'): ProductDto
     {
-        $result = [];
-        foreach ($this->getExpandedItems() as $sku => $product) {
-            if (isset($product['locales'][$locale])) {
-                $result[] = $this->resolveProduct($sku, $product, $locale);
-            }
+        return $this->generator->generate(random_int(0, self::SEED_MAX), null, $locale);
+    }
+
+    /** @return list<ProductDto> */
+    public function getAllProducts(string $locale = 'en_US', int $count = 50): array
+    {
+        $products = [];
+        for ($seed = 0; $seed < $count; $seed++) {
+            $products[] = $this->generator->generate($seed, null, $locale);
         }
 
-        return $result;
+        return $products;
     }
 
-    public function getAllSkus(): array
+    /** @return list<ProductDto> */
+    public function getProductsByCategory(string $category, string $locale = 'en_US', int $count = 25): array
     {
-        return array_keys($this->getExpandedItems());
-    }
-
-    public function getAllProductNames(string $locale = 'en_US'): array
-    {
-        $names = [];
-        foreach ($this->getExpandedItems() as $product) {
-            if (isset($product['locales'][$locale])) {
-                $names[] = $product['locales'][$locale]['name'];
-            }
+        $products = [];
+        for ($seed = 0; $seed < $count; $seed++) {
+            $products[] = $this->generator->generate($seed, $category, $locale);
         }
 
-        return $names;
-    }
-
-    public function hasProductInLocale(string $sku, string $locale): bool
-    {
-        $expandedItems = $this->getExpandedItems();
-        $product = $expandedItems[$sku] ?? null;
-
-        return $product && isset($product['locales'][$locale]);
-    }
-
-    public function getItemLocales(string $sku): array
-    {
-        $expandedItems = $this->getExpandedItems();
-        $product = $expandedItems[$sku] ?? null;
-
-        return $product && isset($product['locales']) ? array_keys($product['locales']) : [];
-    }
-
-    public function getRandomProduct(string $locale = 'en_US'): ?ProductDto
-    {
-        $products = $this->getAllProducts($locale);
-
-        return empty($products) ? null : $products[array_rand($products)];
-    }
-
-    public function getProductsByCategory(string $category, string $locale = 'en_US'): array
-    {
-        $result = [];
-        foreach ($this->getItems() as $sku => $product) {
-            if ($product['category'] === $category && isset($product['locales'][$locale])) {
-                $result[] = $this->resolveProduct($sku, $product, $locale);
-            }
-        }
-
-        return $result;
-    }
-
-    public function getUsedCategories(): array
-    {
-        $categories = [];
-        foreach ($this->getItems() as $product) {
-            $categories[] = $product['category'];
-        }
-
-        return array_unique($categories);
+        return $products;
     }
 
     public function getCategoryRepository(): CategoryRepository
@@ -131,109 +77,9 @@ class ProductRepository extends JsonFileRepository
         return $this->categoryRepository->getCategoryName($key, $locale);
     }
 
-    public function getAllCategories(string $locale = 'en_US'): array
+    /** @return list<string> */
+    public function getUsedCategories(): array
     {
-        return $this->categoryRepository->getAllCategories($locale);
-    }
-
-    public function getAllCategoryKeys(): array
-    {
-        return $this->categoryRepository->getAllCategoryKeys();
-    }
-
-    private function hasVariants(array $product): bool
-    {
-        return isset($product['variants']) && is_array($product['variants']) && ! empty($product['variants']);
-    }
-
-    private function generateVariantCombinations(array $variants): array
-    {
-        $combinations = [[]];
-
-        foreach ($variants as $variantName => $variantValues) {
-            $newCombinations = [];
-            foreach ($combinations as $combination) {
-                foreach ($variantValues as $value) {
-                    $newCombination = $combination;
-                    $newCombination[$variantName] = $value;
-                    $newCombinations[] = $newCombination;
-                }
-            }
-            $combinations = $newCombinations;
-        }
-
-        return $combinations;
-    }
-
-    private function generateVariantSku(string $baseSku, array $variantCombination): string
-    {
-        $skuParts = [$baseSku];
-
-        foreach ($variantCombination as $variantName => $variantValue) {
-            $sanitized = strtoupper(str_replace([' ', '.'], ['', ''], $variantValue));
-            $skuParts[] = $sanitized;
-        }
-
-        return implode('-', $skuParts);
-    }
-
-    private function interpolateTemplate(string $template, array $variantCombination): string
-    {
-        $result = $template;
-        foreach ($variantCombination as $variantName => $variantValue) {
-            $result = str_replace('{'.$variantName.'}', $variantValue, $result);
-        }
-
-        return $result;
-    }
-
-    private function expandProductVariants(string $baseSku, array $product): array
-    {
-        if (! $this->hasVariants($product)) {
-            return [$baseSku => $product];
-        }
-
-        $expandedProducts = [];
-        $combinations = $this->generateVariantCombinations($product['variants']);
-
-        foreach ($combinations as $combination) {
-            $variantSku = $this->generateVariantSku($baseSku, $combination);
-            $variantProduct = $product;
-
-            unset($variantProduct['variants']);
-
-            foreach ($variantProduct['locales'] as $locale => &$localeData) {
-                if (isset($localeData['name'])) {
-                    $localeData['name'] = $this->interpolateTemplate($localeData['name'], $combination);
-                }
-                if (isset($localeData['description'])) {
-                    $localeData['description'] = $this->interpolateTemplate($localeData['description'], $combination);
-                }
-            }
-
-            $expandedProducts[$variantSku] = $variantProduct;
-        }
-
-        return $expandedProducts;
-    }
-
-    protected function getExpandedItems(): array
-    {
-        $cacheKey = static::class.'_expanded';
-        if (isset(self::$caches[$cacheKey])) {
-            return self::$caches[$cacheKey];
-        }
-
-        $baseItems = $this->getItems();
-        $expandedItems = [];
-
-        foreach ($baseItems as $baseSku => $product) {
-            $variants = $this->expandProductVariants($baseSku, $product);
-            $expandedItems = array_merge($expandedItems, $variants);
-        }
-
-        self::$caches[$cacheKey] = $expandedItems;
-
-        return $expandedItems;
+        return $this->templates->categories();
     }
 }

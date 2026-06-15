@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "SH",
+    "nameTemplate": "{brand} {line} {type} {color}",
+    "pools": {
+        "brand": ["Strideo", "Kickova", "Solarun", "Traxio", "Veltro", "Pavexa", "Suedara", "Griptec", "Feetix", "Landora", "Runova", "Stepra", "Archova", "Solexa", "Stridexa", "Padova"],
+        "line": ["Apex", "Velo", "Drift", "Summit", "Rush", "Glide", "Terra", "Sprint", "Crest", "Peak", "Swift", "Coast"],
+        "type": ["Sneakers", "Running Shoes", "Trail Runners", "Loafers", "Boots", "Slip-Ons", "Sandals", "Cross-Trainers", "Hiking Boots", "Athletic Flats", "Court Shoes", "Mules"]
+    },
+    "variants": {
+        "color": ["Black", "White", "Grey", "Navy", "Tan", "Olive"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {type} deliver {adjective} comfort with {feature}, perfect for all-day wear in {color}.",
+                "{brand} {line} {type}: {adjective} footwear engineered with {feature} — available in {color}."
+            ],
+            "adjective": ["cloud-like", "durable", "responsive", "supportive", "lightweight"],
+            "feature": ["a cushioned EVA midsole", "breathable mesh uppers", "a grippy rubber outsole for all-terrain traction", "an orthopedic footbed with arch support", "seamless construction that eliminates hot spots"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Die {brand} {line} {type} bieten {adjective} Komfort mit {feature}, perfekt für den ganzen Tag in {color}.",
+                "{brand} {line} {type}: {adjective} Schuhe entwickelt mit {feature} — erhältlich in {color}."
+            ],
+            "adjective": ["wolkenweichen", "strapazierfähigen", "reaktionsschnellen", "stützenden", "leichten"],
+            "feature": ["einer gedämpften EVA-Zwischensohle", "atmungsaktiven Mesh-Oberteilen", "einer griffigen Gummiaußensohle für Geländetraktion", "einem orthopädischen Fußbett mit Bogenstütze", "nahtloser Konstruktion ohne Druckpunkte"]
+        }
+    }
+}
