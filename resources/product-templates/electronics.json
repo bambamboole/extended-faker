@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "EL",
+    "nameTemplate": "{brand} {line} {model} {color}",
+    "pools": {
+        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia"],
+        "line": ["Pulse", "Edge", "Vega", "Aura", "Nova", "Flux", "Prime", "Halo"],
+        "model": ["Pro", "Ultra", "Max", "Air", "Lite", "Studio", "Go", "Plus"]
+    },
+    "variants": {
+        "color": ["Graphite", "Midnight", "Silver", "Champagne", "Slate", "White"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {model} is a {adjective} electronic device offering {feature} in a sleek {color} finish.",
+                "{brand}'s {line} {model}: {adjective} performance, {feature}, and an elegant {color} design."
+            ],
+            "adjective": ["versatile", "high-performance", "innovative", "reliable", "cutting-edge"],
+            "feature": ["seamless wireless connectivity", "advanced noise cancellation", "long-lasting battery life", "crystal-clear audio output", "smart touch controls"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {model} ist ein {adjective} Elektronikgerät mit {feature} in elegantem {color}-Design.",
+                "{brand} {line} {model}: {adjective} Leistung, {feature} und stilvolles {color}-Finish."
+            ],
+            "adjective": ["vielseitiges", "leistungsstarkes", "innovatives", "zuverlässiges", "hochmodernes"],
+            "feature": ["nahtloser kabelloser Konnektivität", "fortschrittlicher Geräuschunterdrückung", "langer Akkulaufzeit", "kristallklarem Audioausgang", "intelligenten Touch-Bedienelementen"]
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "KD",
+    "nameTemplate": "{brand} {line} {item}",
+    "pools": {
+        "brand": ["Cookara", "Chefio", "Kitchna", "Brassura", "Culinia", "Sautela", "Flamio", "Platexa", "Simmero", "Gristlo", "Stewara", "Poteva"],
+        "line": ["Classic", "Pro", "Heritage", "Artisan", "Essential", "Prestige", "Origin", "Apex"],
+        "item": ["Skillet", "Dutch Oven", "Knife Set", "Cutting Board", "Mixing Bowls", "Wok", "Saucepan", "Baking Sheet"]
+    },
+    "variants": {
+        "color": ["Black", "Stainless Steel", "Copper", "Matte Red", "Navy Blue", "Cream"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {item} is a {adjective} kitchen essential built with {feature} for everyday culinary adventures.",
+                "{brand} {line} {item}: {adjective} craftsmanship meets {feature}, available in {color}."
+            ],
+            "adjective": ["durable", "premium", "versatile", "restaurant-quality", "ergonomic"],
+            "feature": ["scratch-resistant non-stick coating", "heavy-gauge construction", "even heat distribution", "dishwasher-safe materials", "lifetime-warranted craftsmanship"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {item} ist ein {adjective} Küchenhelfer mit {feature} für tägliche Kochavontüren.",
+                "{brand} {line} {item}: {adjective} Handwerkskunst trifft {feature}, erhältlich in {color}."
+            ],
+            "adjective": ["robustes", "erstklassiges", "vielseitiges", "restaurant-qualität", "ergonomisches"],
+            "feature": ["kratzfester Antihaftbeschichtung", "massiver Konstruktion", "gleichmäßiger Wärmeverteilung", "spülmaschinenfesten Materialien", "lebenslang garantierter Verarbeitung"]
+        }
+    }
+}

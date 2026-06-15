@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "FN",
+    "nameTemplate": "{brand} {line} {item}",
+    "pools": {
+        "brand": ["Nordvik", "Hvenor", "Alvesta", "Birkara", "Fjordhem", "Strandvik", "Dalgard", "Tronvik", "Halvora", "Skovby", "Lynford", "Valleby"],
+        "line": ["Nordic", "Urban", "Heritage", "Scandinavian", "Modern", "Loft", "Coastal", "Artisan"],
+        "item": ["Sofa", "Dining Table", "Bookcase", "Armchair", "Coffee Table", "Bed Frame", "Sideboard", "Desk"]
+    },
+    "variants": {
+        "material": ["Oak", "Walnut", "Pine", "White Lacquer", "Charcoal Fabric", "Linen Grey"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {item} is a {adjective} piece crafted in {material} with {feature} — a timeless addition to any home.",
+                "{brand} {line} {item} in {material}: {adjective} design meets {feature} for lasting everyday comfort."
+            ],
+            "adjective": ["beautifully crafted", "minimalist", "sustainably sourced", "heirloom-quality", "solid-wood"],
+            "feature": ["dovetail joinery for lasting strength", "a hand-oiled natural finish", "modular configuration options", "soft-close drawer mechanisms", "a spacious and versatile design"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {item} ist ein {adjective} Möbelstück aus {material} mit {feature} — ein zeitloser Blickfang für jedes Zuhause.",
+                "{brand} {line} {item} in {material}: {adjective} Design trifft {feature} für dauerhaften Wohnkomfort."
+            ],
+            "adjective": ["wunderschön gefertigtes", "minimalistisches", "nachhaltig beschafftes", "erbstücktaugliches", "massivholz"],
+            "feature": ["Schwalbenschwanzverbindungen für dauerhafte Stärke", "einem handgeölten Naturfinish", "modularen Konfigurationsmöglichkeiten", "Soft-Close-Schubladenmechanismen", "einem geräumigen und vielseitigen Design"]
+        }
+    }
+}

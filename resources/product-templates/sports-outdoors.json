@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "SP",
+    "nameTemplate": "{brand} {line} {item}",
+    "pools": {
+        "brand": ["Trailova", "Peakora", "Summixa", "Ridera", "Campex", "Hikura", "Climbra", "Gearova", "Alpinia", "Tensio", "Ridgecra", "Torrova"],
+        "line": ["Summit", "Trail", "Base Camp", "Alpine", "Venture", "Enduro", "Glacier", "Ridgeline"],
+        "item": ["Backpack", "Tent", "Sleeping Bag", "Trekking Poles", "Headlamp", "Hydration Pack", "Climbing Harness", "Camp Stove"]
+    },
+    "variants": {
+        "color": ["Forest Green", "Burnt Orange", "Navy Blue", "Slate Grey", "Red Rock", "Arctic White"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {item} is a {adjective} outdoor gear piece built with {feature}, ready for any adventure in {color}.",
+                "{brand} {line} {item}: {adjective} performance with {feature} — trusted by outdoor enthusiasts in {color}."
+            ],
+            "adjective": ["rugged", "ultralight", "all-season", "expedition-ready", "weather-proof"],
+            "feature": ["ripstop nylon construction for tear resistance", "a waterproof and breathable membrane", "an adjustable suspension system", "packable design that weighs under 2 lbs", "industry-leading insulation technology"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {item} ist ein {adjective} Outdoor-Ausrüstungstück mit {feature}, bereit für jedes Abenteuer in {color}.",
+                "{brand} {line} {item}: {adjective} Leistung mit {feature} — vertraut bei Outdoor-Enthusiasten in {color}."
+            ],
+            "adjective": ["robustes", "ultraleichtes", "allwetterfestes", "expeditionstaugliches", "wasserdichtes"],
+            "feature": ["Ripstop-Nylon-Konstruktion für Reißfestigkeit", "einer wasserdichten und atmungsaktiven Membran", "einem verstellbaren Tragesystem", "einem packbaren Design unter 1 kg", "branchenführender Isolationstechnologie"]
+        }
+    }
+}

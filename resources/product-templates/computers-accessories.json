@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "CP",
+    "nameTemplate": "{brand} {line} {model} {storage}",
+    "pools": {
+        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia"],
+        "line": ["ProBook", "AirSlate", "ThinEdge", "PowerDesk", "NanoBook", "StudioPad", "EliteBook", "SwiftAir"],
+        "model": ["14 Pro", "15 Ultra", "13 Air", "16 Max", "X1", "S7", "Z9", "G5"]
+    },
+    "variants": {
+        "storage": ["256GB SSD", "512GB SSD", "1TB SSD", "2TB SSD"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {model} delivers {adjective} computing with {feature} and {storage} of blazing-fast storage.",
+                "{brand} {line} {model}: {adjective} design, {feature}, and {storage} SSD for every workflow."
+            ],
+            "adjective": ["powerful", "ultra-thin", "professional", "portable", "blazing-fast"],
+            "feature": ["an all-day battery", "a vibrant Retina-class display", "a whisper-quiet cooling system", "a backlit precision keyboard", "Thunderbolt 4 connectivity"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {model} bietet {adjective} Computing mit {feature} und {storage} schnellem Speicher.",
+                "{brand} {line} {model}: {adjective} Design, {feature} und {storage} SSD für jeden Arbeitsablauf."
+            ],
+            "adjective": ["leistungsstarkes", "ultraflaches", "professionelles", "portables", "blitzschnelles"],
+            "feature": ["ganztägiger Akkulaufzeit", "einem lebhaften Retina-Display", "einem leisen Kühlsystem", "einer beleuchteten Präzisionstastatur", "Thunderbolt-4-Konnektivität"]
+        }
+    }
+}

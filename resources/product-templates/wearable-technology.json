@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "WT",
+    "nameTemplate": "{brand} {line} {model} {size}",
+    "pools": {
+        "brand": ["Voltari", "Nexora", "Kintsu", "Aeris", "Orbiq", "Lumen", "Cobalt", "Vantec", "Zephyr", "Helix", "Nimbus", "Arcadia"],
+        "line": ["Pulse", "Aura", "Vivo", "FitEdge", "SmartBand", "ActiveX", "HealthQ", "TrackPro"],
+        "model": ["Series 3", "Gen 2", "Ultra", "Sport", "Classic", "Slim", "Pro", "Air"]
+    },
+    "variants": {
+        "size": ["38mm", "42mm", "44mm", "46mm", "49mm", "52mm"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {model} is a {adjective} smartwatch offering {feature} in a comfortable {size} case.",
+                "{brand} {line} {model}: {adjective} wearable technology with {feature}, sized {size} for all-day comfort."
+            ],
+            "adjective": ["stylish", "advanced", "lightweight", "durable", "health-focused"],
+            "feature": ["continuous heart-rate monitoring", "GPS tracking", "sleep analysis", "water resistance up to 50m", "a vibrant always-on display"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Die {brand} {line} {model} ist eine {adjective} Smartwatch mit {feature} im komfortablen {size}-Gehäuse.",
+                "{brand} {line} {model}: {adjective} Wearable-Technologie mit {feature}, {size} für ganztägigen Komfort."
+            ],
+            "adjective": ["stilvolle", "fortschrittliche", "leichte", "robuste", "gesundheitsorientierte"],
+            "feature": ["kontinuierlicher Herzfrequenzüberwachung", "GPS-Tracking", "Schlafanalyse", "Wasserbeständigkeit bis 50 m", "einem lebhaften Always-on-Display"]
+        }
+    }
+}

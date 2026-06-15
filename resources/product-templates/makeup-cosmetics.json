@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "MK",
+    "nameTemplate": "{brand} {product} {variant}",
+    "pools": {
+        "brand": ["Lumira", "Belleza", "Cosmetix", "Glamara", "Prismia", "Shadora", "Velvetine", "Aurelia", "Rossetta", "Pigmenta", "Luxia", "Radiance"],
+        "product": ["Foundation", "Mascara", "Lipstick", "Eyeshadow Palette", "Blush", "Highlighter", "Eyeliner", "Setting Spray"],
+        "variant": ["Matte", "Gloss", "Satin", "Dewy", "Ultra HD", "Natural", "Bold", "Luminous"]
+    },
+    "variants": {
+        "shade": ["Fair", "Light", "Medium", "Tan", "Deep", "Rich"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{brand} {product} {variant} in {shade} is a {adjective} cosmetic offering {feature} for flawless results.",
+                "Achieve a {adjective} look with {brand}'s {product} {variant}: {feature}, available in {shade}."
+            ],
+            "adjective": ["long-lasting", "buildable", "skin-loving", "transfer-proof", "dermatologist-tested"],
+            "feature": ["full-coverage pigmentation", "a weightless, breathable formula", "24-hour wear without touch-ups", "hydrating botanical extracts", "a seamless, skin-like finish"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{brand} {product} {variant} in {shade} ist ein {adjective} Kosmetikprodukt mit {feature} für makellose Ergebnisse.",
+                "Erzielen Sie einen {adjective} Look mit {brand}'s {product} {variant}: {feature}, erhältlich in {shade}."
+            ],
+            "adjective": ["langanhaltende", "aufbaubare", "hautpflegende", "abriebfeste", "dermatologisch getestete"],
+            "feature": ["volldeckender Pigmentierung", "einer leichten, atmungsaktiven Formel", "24-Stunden-Halt ohne Nachbessern", "feuchtigkeitsspendenden pflanzlichen Extrakten", "einem nahtlosen, hautähnlichen Finish"]
+        }
+    }
+}

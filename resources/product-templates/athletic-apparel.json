@@ -1,0 +1,31 @@
+{
+    "skuPrefix": "AA",
+    "nameTemplate": "{brand} {adjective} {material} {garment}",
+    "pools": {
+        "brand": ["Velocra", "Apexo", "Kinova", "Stratix", "Fleximo", "Sprintra", "Dynova", "Pacerio", "Agilux", "Vortec", "Rythma", "Endura"],
+        "adjective": ["Pro", "Elite", "Active", "Performance", "Training", "Endurance", "Sport", "Fusion"],
+        "material": ["Dri-Tech", "AeroKnit", "FlexWeave", "ClimaCool", "PolyMesh", "SpandexFlex", "ThermoLite", "CompressX"],
+        "garment": ["Shorts", "Leggings", "Tank Top", "Hoodie", "Sports Bra", "Compression Tee", "Track Jacket", "Running Tights"]
+    },
+    "variants": {
+        "color": ["Black", "Electric Blue", "Neon Green", "Charcoal", "White", "Coral"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {adjective} {material} {garment} is engineered for {adjective2} performance with {feature}, available in {color}.",
+                "{brand} {adjective} {material} {garment}: {adjective2} athletic wear built for {feature} in {color}."
+            ],
+            "adjective2": ["peak", "competitive", "high-intensity", "all-day", "superior"],
+            "feature": ["four-way stretch for unrestricted movement", "sweat-wicking technology that keeps you dry", "anti-odor treatment for extended wear", "flatlock seams that eliminate chafing", "UPF 50+ sun protection"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {adjective} {material} {garment} ist für {adjective2} Leistung mit {feature} konzipiert, erhältlich in {color}.",
+                "{brand} {adjective} {material} {garment}: {adjective2} Sportbekleidung für {feature} in {color}."
+            ],
+            "adjective2": ["Spitzen-", "Wettkampf-", "Hochintensitäts-", "ganztägiger", "überlegener"],
+            "feature": ["Vier-Wege-Stretch für uneingeschränkte Bewegungsfreiheit", "schweißableitender Technologie, die Sie trocken hält", "Antioderbehandlung für längeres Tragen", "Flachnaht-Nähten, die Reiben verhindern", "UPF-50+-Sonnenschutz"]
+        }
+    }
+}

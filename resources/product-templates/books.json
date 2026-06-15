@@ -1,0 +1,31 @@
+{
+    "skuPrefix": "BK",
+    "nameTemplate": "{adjective} {noun}",
+    "pools": {
+        "adjective": ["The Lost", "The Hidden", "A Silent", "The Last", "An Infinite", "The Forgotten", "A Broken", "The Endless", "The Dark", "A Golden", "The Rising", "An Eternal"],
+        "noun": ["Kingdom", "Echo", "Promise", "Journey", "Shadow", "Horizon", "Garden", "Archive", "Cipher", "Flame", "Tide", "Legacy"]
+    },
+    "variants": {
+        "format": ["Hardcover", "Paperback", "Large Print", "Collector's Edition"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "A {adjective} tale that {feature}, available as a {format} edition — the perfect read for {reader}.",
+                "This {adjective} story {feature}. Available in {format} — ideal for {reader}."
+            ],
+            "adjective": ["gripping", "heartfelt", "thought-provoking", "spellbinding", "unforgettable"],
+            "feature": ["keeps you turning pages until dawn", "challenges everything you thought you knew", "weaves history and imagination together", "delivers an emotional punch on every page", "introduces characters you will never forget"],
+            "reader": ["fiction lovers", "mystery fans", "adventure seekers", "book club members", "literary enthusiasts"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Eine {adjective} Geschichte, die {feature}, als {format}-Ausgabe — die perfekte Lektüre für {reader}.",
+                "Diese {adjective} Geschichte {feature}. Als {format} erhältlich — ideal für {reader}."
+            ],
+            "adjective": ["fesselnde", "berührende", "zum Nachdenken anregende", "bezaubernde", "unvergessliche"],
+            "feature": ["Sie bis in die Nacht lesen lässt", "alles in Frage stellt, was Sie zu wissen glaubten", "Geschichte und Fantasie miteinander verwebt", "auf jeder Seite emotional berührt", "Figuren vorstellt, die Sie nie vergessen werden"],
+            "reader": ["Romanliebhaber", "Krimifans", "Abenteuerfreunde", "Buchclubmitglieder", "Literaturbegeisterte"]
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "skuPrefix": "MC",
+    "nameTemplate": "{brand} {adjective} {material} {garment}",
+    "pools": {
+        "brand": ["Dravico", "Norwick", "Stenvale", "Harlow & Co", "Crestfeld", "Brackmore", "Aldwyn", "Trentford", "Moorwick", "Dunvale", "Halcroft", "Westmere"],
+        "adjective": ["Classic", "Slim", "Relaxed", "Athletic", "Tailored", "Modern", "Standard", "Comfort"],
+        "material": ["Cotton", "Linen", "Denim", "Flannel", "Merino", "Canvas", "Fleece", "Twill"],
+        "garment": ["T-Shirt", "Hoodie", "Jeans", "Chinos", "Jacket", "Polo", "Sweater", "Shorts"]
+    },
+    "variants": {
+        "color": ["Black", "Navy", "Heather Grey", "Olive", "White", "Burgundy"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {adjective} {material} {garment} offers {adjective2} comfort with {feature}, perfect for everyday wear in {color}.",
+                "{brand} brings you the {adjective2} {material} {garment}: {feature}, available in {color}."
+            ],
+            "adjective2": ["exceptional", "everyday", "unmatched", "reliable", "versatile"],
+            "feature": ["a preshrunk and pill-resistant fabric", "reinforced stitching at stress points", "a relaxed yet structured fit", "moisture-wicking technology", "a smooth, breathable construction"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {adjective} {material} {garment} bietet {adjective2} Komfort mit {feature}, perfekt für den Alltag in {color}.",
+                "{brand} bringt Ihnen das {adjective2} {material} {garment}: {feature}, erhältlich in {color}."
+            ],
+            "adjective2": ["außergewöhnlichen", "alltäglichen", "unübertroffenen", "zuverlässigen", "vielseitigen"],
+            "feature": ["vorgeschrumpftem und pillingresistentem Stoff", "verstärkten Nähten an Belastungspunkten", "einer entspannten und dennoch strukturierten Passform", "feuchtigkeitsableitender Technologie", "einer glatten, atmungsaktiven Konstruktion"]
+        }
+    }
+}

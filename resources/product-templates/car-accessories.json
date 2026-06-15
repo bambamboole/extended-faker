@@ -1,0 +1,30 @@
+{
+    "skuPrefix": "CA",
+    "nameTemplate": "{brand} {line} {item}",
+    "pools": {
+        "brand": ["Motovex", "Autoriva", "Drivera", "Turboxa", "Carvelo", "Gearshift", "Cruisio", "Treadova", "Accelvex", "Torquex", "Axleora", "Pitopia"],
+        "line": ["Pro Series", "Elite", "Street", "Off-Road", "Sport", "Touring", "Track", "Stealth"],
+        "item": ["Dash Cam", "Seat Covers", "Floor Mats", "Car Charger", "Phone Mount", "Roof Rack", "Cargo Net", "Jump Starter"]
+    },
+    "variants": {
+        "color": ["Black", "Charcoal", "Grey", "Carbon Fibre Look", "Silver", "Tan"]
+    },
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "The {brand} {line} {item} is a {adjective} car accessory engineered with {feature} to upgrade your drive.",
+                "{brand} {line} {item} in {color}: {adjective} and built with {feature} for drivers who demand the best."
+            ],
+            "adjective": ["premium", "easy-to-install", "universal-fit", "heavy-duty", "high-tech"],
+            "feature": ["a tamper-proof mounting system", "4K resolution and wide-angle lens", "military-grade impact resistance", "an aviation-grade aluminum chassis", "universal compatibility with all vehicle types"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "Das {brand} {line} {item} ist ein {adjective} Autozubehör mit {feature} für ein besseres Fahrerlebnis.",
+                "{brand} {line} {item} in {color}: {adjective} und entwickelt mit {feature} für anspruchsvolle Fahrer."
+            ],
+            "adjective": ["erstklassiges", "einfach zu installierendes", "universell passendes", "robustes", "hochtechnologisches"],
+            "feature": ["einem manipulationssicheren Montagsystem", "4K-Auflösung und Weitwinkelobjektiv", "militärischer Stoßfestigkeit", "einem Chassis aus Luftfahrtaluminium", "universeller Kompatibilität mit allen Fahrzeugtypen"]
+        }
+    }
+}
