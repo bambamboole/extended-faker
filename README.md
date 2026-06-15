@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/bambamboole/extended-faker.svg?style=flat-square)](https://packagist.org/packages/bambamboole/extended-faker)
 ![GitHub Actions](https://github.com/bambamboole/extended-faker/actions/workflows/ci.yml/badge.svg)
 
-PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, and page data. Provides 25+ products, 19+ categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
+PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, and page data. Products are generated from compositional templates (effectively unlimited, trademark-free). Provides 19+ categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
 
 ## Features
 
@@ -13,7 +13,7 @@ PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with r
 - **Dynamic blog post generation**: Compositional template system generates 1000+ unique blog posts
 - **Markdown blog posts**: Professional content with headings, code blocks, and rich formatting
 - **Fixture-backed pages**: Named pages composed of structured Content blocks, renderable to Markdown or WordPress block markup
-- **Realistic data**: Actual product names, descriptions, categories, and dynamically composed articles
+- **Realistic data**: Synthetic, trademark-free product names, descriptions, categories, and dynamically composed articles
 - **Deterministic generation**: Same seed produces same blog post for reproducible testing
 - **Extensible**: Easy to add new data via JSON template files
 
@@ -25,7 +25,11 @@ composer require bambamboole/extended-faker
 
 ## Usage
 
-### Basic Product Data
+### Products
+
+Products are generated deterministically from compositional templates, so
+`$faker->unique()->product()` yields effectively unlimited unique products
+(synthetic, trademark-free names like "Voltari Pulse 7 Pro 256GB Graphite").
 
 ```php
 use Faker\Factory;
@@ -34,28 +38,10 @@ use Bambamboole\ExtendedFaker\Providers\en_US\Product;
 $faker = Factory::create('en_US');
 $faker->addProvider(new Product($faker));
 
-// Random product
-$product = $faker->product();
-// ['name' => 'Samsung Galaxy S24 Ultra 5G', 'sku' => 'PHONE-001', ...]
-
-// Specific product methods
-$name = $faker->productName();           // "iPhone 15 Pro Max"
-$description = $faker->productDescription(); // Full product description
-$category = $faker->productCategory();   // "Cell Phones & Smartphones"
-```
-
-### Cross-Language Support
-
-```php
-use Bambamboole\ExtendedFaker\Providers\de_DE\Product as GermanProduct;
-
-// English version
-$englishProduct = $faker->productBySku('PHONE-001', 'en_US');
-// ['name' => 'Samsung Galaxy S24 Ultra 5G', 'sku' => 'PHONE-001', ...]
-
-// German version (same SKU, localized content)
-$germanProduct = $faker->productBySku('PHONE-001', 'de_DE');
-// ['name' => 'Samsung Galaxy S24 Ultra', 'sku' => 'PHONE-001', ...]
+$product = $faker->product();              // random ProductDto
+$product = $faker->generateProduct(42);    // deterministic by seed
+$same    = $faker->productBySku($product->sku); // round-trips to the same product
+$de      = $faker->getProductInLocale($product->sku, 'de_DE'); // same SKU, localized
 ```
 
 ### Categories
@@ -153,10 +139,10 @@ ExtendedFaker::extend($fakerDe, 'de_DE');
 - `productName(?string $identifier = null): string`
 - `productDescription(?string $identifier = null): string`
 - `productCategory(?string $identifier = null): string`
-- `product(?string $identifier = null): array`
-- `productBySku(string $sku, ?string $locale = null): array`
-- `getProductSku(string $name): string`
-- `getProductInLocale(string $sku, string $locale): array`
+- `product(?string $identifier = null): ProductDto`
+- `generateProduct(int $seed, ?string $category = null, ?string $locale = null): ProductDto`
+- `productBySku(string $sku, ?string $locale = null): ProductDto`
+- `getProductInLocale(string $sku, string $locale): ProductDto`
 
 ### Category Provider
 - `categoryName(?string $identifier = null): string`
@@ -190,14 +176,10 @@ ExtendedFaker::extend($fakerDe, 'de_DE');
 
 ## Data Structure
 
-Products, categories, and pages are stored as JSON files, while blog posts are dynamically generated from composable templates:
+Categories and pages are stored as JSON files. Products and blog posts are dynamically generated from composable templates:
 
 ```
 resources/
-├── products/
-│   ├── samsung-galaxy-s24.json
-│   ├── iphone-15.json
-│   └── ...
 ├── categories/
 │   ├── cell-phones-smartphones.json
 │   ├── electronics.json
@@ -245,12 +227,8 @@ Every product, category, and page exposes a small, copyright-safe **comic image*
 (bold-outline SVG rasterized to WebP, committed under `resources/images/`).
 
 ```php
-$faker->product()->image->path;         // "images/products/PHONE-002.webp"
-$faker->product()->image->absolutePath; // "/path/to/resources/images/products/PHONE-002.webp"
-$faker->product()->image->mimeType;     // "image/webp"
-$faker->product()->image->size;         // file size in bytes
-$faker->productImage();                 // relative path, or null for the generic fallback
-$faker->productImageDto();              // full ImageDto, or null for the generic fallback
+$faker->productImage();                 // relative path, or null (generative products have no fixture image)
+$faker->productImageDto();              // full ImageDto, or null
 $faker->category()['image'];            // "images/categories/electronics.webp"
 $faker->page('about')->image;           // "images/pages/about.webp"
 $faker->pageImage('about');             // same path
