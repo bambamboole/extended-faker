@@ -16,19 +16,6 @@ $jobs = [];
 // Square pixel size used for every rasterized WebP.
 $size = 1024;
 
-// Products: motif = category, palette seed = base SKU.
-foreach (glob($resources.'/products/*.json') as $file) {
-    /** @var array{sku: string, category: string} $data */
-    $data = json_decode((string) file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
-    $jobs[] = [
-        'key' => $data['sku'],
-        'motifKey' => $data['category'],
-        'paletteSeed' => $data['sku'],
-        'type' => 'products',
-        'size' => $size,
-    ];
-}
-
 // Categories: motif = key, palette seed = key.
 foreach ((new CategoryRepository)->getAllCategoryKeys() as $key) {
     $jobs[] = ['key' => $key, 'motifKey' => $key, 'paletteSeed' => $key, 'type' => 'categories', 'size' => $size];

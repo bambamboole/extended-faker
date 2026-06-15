@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Generator\ProductGenerator;
 use Bambamboole\ExtendedFaker\Generator\ProductSku;
+use Bambamboole\ExtendedFaker\Generator\ProductTemplates;
 
 it('generates a deterministic product for a seed', function () {
     $gen = new ProductGenerator;
@@ -41,8 +42,8 @@ it('picks a category from the seed when none is given', function () {
 it('generates identically whether the picked category is implicit or explicit', function () {
     $gen = new ProductGenerator;
     $implicit = $gen->generate(2024);
-    $category = (new \Bambamboole\ExtendedFaker\Generator\ProductSku)::decode($implicit->sku);
+    $category = (new ProductSku)::decode($implicit->sku);
     // decode prefix -> category, then regenerate explicitly
-    $explicit = $gen->generate(2024, (new \Bambamboole\ExtendedFaker\Generator\ProductTemplates)->categoryForPrefix($category['prefix']));
+    $explicit = $gen->generate(2024, (new ProductTemplates)->categoryForPrefix($category['prefix']));
     expect($explicit->toArray())->toBe($implicit->toArray());
 });
