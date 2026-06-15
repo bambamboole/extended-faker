@@ -42,8 +42,7 @@ it('picks a category from the seed when none is given', function () {
 it('generates identically whether the picked category is implicit or explicit', function () {
     $gen = new ProductGenerator;
     $implicit = $gen->generate(2024);
-    $category = (new ProductSku)::decode($implicit->sku);
-    // decode prefix -> category, then regenerate explicitly
-    $explicit = $gen->generate(2024, (new ProductTemplates)->categoryForPrefix($category['prefix']));
+    $decoded = ProductSku::decode($implicit->sku);
+    $explicit = $gen->generate(2024, (new ProductTemplates)->categoryForPrefix($decoded['prefix']));
     expect($explicit->toArray())->toBe($implicit->toArray());
 });

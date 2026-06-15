@@ -37,14 +37,14 @@ it('exposes name, category and image accessors', function () {
         ->and($provider->productImageDto($made->sku))->toBeInstanceOf(ImageDto::class);
 });
 
-it('yields far more than 1819 unique products via unique()', function () {
+it('yields far more unique products than the old ~1819 curated cap via unique()', function () {
     $faker = Factory::create('en_US');
     $faker->addProvider(new Product($faker));
 
     $seen = [];
-    for ($i = 0; $i < 5000; $i++) {
+    for ($i = 0; $i < 10000; $i++) {
         $seen[$faker->unique()->product()->sku] = true;
     }
 
-    expect(count($seen))->toBe(5000);
+    expect(count($seen))->toBe(10000);
 })->group('scale');
