@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Bambamboole\ExtendedFaker\Generator;
 
 use Bambamboole\ExtendedFaker\Dto\ImageDto;
+use Bambamboole\ExtendedFaker\Dto\MoneyDto;
 use Bambamboole\ExtendedFaker\Dto\ProductDto;
 use Bambamboole\ExtendedFaker\Image\ImagePath;
 use Bambamboole\ExtendedFaker\Image\PaletteBook;
@@ -42,6 +43,16 @@ final class ProductGenerator
                 $colorIndex = $index;
             }
         }
+
+        $unitPool = array_values($template['unitVariants']);
+        $unit = $unitPool[$random->getInt(0, count($unitPool) - 1)];
+        $values['{unit}'] = (string) $unit['label'];
+
+        $range = $template['priceRange'];
+        $base = $random->getInt((int) $range['min'], (int) $range['max']);
+        $endingIndex = $random->getInt(0, count(ProductPrice::ENDINGS) - 1);
+        $priceAmount = ProductPrice::compute($base, (float) $unit['amount'], (float) $unitPool[0]['amount'], $endingIndex);
+
         $name = strtr((string) $template['nameTemplate'], $values);
 
         $localized = $template['locales'][$locale];
@@ -67,7 +78,9 @@ final class ProductGenerator
             : (int) (abs(crc32($sku)) % $paletteCount);
         $image = ImageDto::fromPath(ImagePath::for('products', $category.'/'.$paletteIndex));
 
-        return new ProductDto($sku, $name, $description, $categoryName, $image);
+        $price = new MoneyDto($priceAmount, str_starts_with($locale, 'de') ? 'EUR' : 'USD');
+
+        return new ProductDto($sku, $name, $description, $categoryName, $image, (float) $unit['amount'], (string) $unit['unit'], $price);
     }
 
     private function pick(array $items, Randomizer $random): mixed
