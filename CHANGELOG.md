@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.11.0](https://github.com/bambamboole/extended-faker/compare/0.10.0...0.11.0) (2026-08-01)
+
+
+### Features
+
+* add project-management and site-management contact roles ([bce8b99](https://github.com/bambamboole/extended-faker/commit/bce8b992b02ba670d522543a4cd29a0a83aa03c6))
+* construction-specific contact roles ([49163e3](https://github.com/bambamboole/extended-faker/commit/49163e3c3928e237704d0ff83c09efa03d1d441a))
+
 ## [0.10.0](https://github.com/bambamboole/extended-faker/compare/0.9.0...0.10.0) (2026-08-01)
 
 
