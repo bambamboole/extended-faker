@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Bambamboole\ExtendedFaker\Generator;
 
 use Bambamboole\ExtendedFaker\Dto\AddressDto;
+use Bambamboole\ExtendedFaker\Dto\CompanyCustomerDto;
 use Bambamboole\ExtendedFaker\Dto\PrivateCustomerDto;
+use Bambamboole\ExtendedFaker\Dto\SupplierDto;
 use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 use DateTimeImmutable;
 use Faker\Factory;
@@ -17,6 +19,14 @@ final class CustomerGenerator
     private const EMAIL_DOMAINS = ['example.com', 'example.org', 'example.net'];
 
     private const FAKER_LOCALES = ['DE' => 'de_DE', 'US' => 'en_US'];
+
+    private const BRANDS = ['Voltari', 'Nexora', 'Kintsu', 'Aeris', 'Orbiq', 'Vantec', 'Zephyr', 'Helix', 'Nimbus', 'Arcadia', 'Wavera', 'Pulsar'];
+
+    private const SUFFIXES = ['Logistics', 'Trading', 'Group', 'Solutions', 'Industries', 'Supply', 'Distribution', 'Systems', 'Partners', 'Holding'];
+
+    private const LEGAL_FORMS = ['DE' => ['GmbH', 'AG', 'KG', 'SE'], 'US' => ['Inc.', 'LLC', 'Corp.', 'Ltd.']];
+
+    private const PAYMENT_TERMS = ['net 14', 'net 30', 'net 60', 'net 90', '2/10 net 30'];
 
     /** @var array<string, Generator> */
     private array $fakers = [];
@@ -43,6 +53,63 @@ final class CustomerGenerator
             customerSince: $this->dateBetween($f, '2018-01-01', '2026-01-01'),
             iban: $country === 'DE' ? $f->iban('DE') : null,
         );
+    }
+
+    public function companyCustomer(int $seed, string $country = 'US'): CompanyCustomerDto
+    {
+        $f = $this->faker($country, $seed);
+
+        return new CompanyCustomerDto(
+            ...$this->companyFields($f, $country),
+            number: CustomerNumber::encode(CustomerNumber::TYPE_COMPANY, $country, $seed),
+        );
+    }
+
+    public function supplier(int $seed, string $country = 'US'): SupplierDto
+    {
+        $f = $this->faker($country, $seed);
+        $fields = $this->companyFields($f, $country);
+
+        $keys = $this->categories->getAllCategoryKeys();
+        sort($keys);
+
+        return new SupplierDto(
+            ...$fields,
+            number: CustomerNumber::encode(CustomerNumber::TYPE_SUPPLIER, $country, $seed),
+            paymentTerms: $f->randomElement(self::PAYMENT_TERMS),
+            suppliedCategories: $f->randomElements($keys, $f->numberBetween(1, 3)),
+        );
+    }
+
+    /**
+     * @return array{name: string, legalForm: string, vatId: string, email: string, phone: string, website: string, address: AddressDto, contactName: string, contactEmail: string, customerSince: DateTimeImmutable, iban: string|null}
+     */
+    private function companyFields(Generator $f, string $country): array
+    {
+        $base = $f->randomElement(self::BRANDS).' '.$f->randomElement(self::SUFFIXES);
+        $legalForm = $f->randomElement(self::LEGAL_FORMS[$country]);
+        $contactName = $f->firstName().' '.$f->lastName();
+
+        return [
+            'name' => $base.' '.$legalForm,
+            'legalForm' => $legalForm,
+            'vatId' => $this->vatId($f, $country),
+            'email' => $this->email($f, $base),
+            'phone' => $this->phone($f, $country),
+            'website' => 'https://'.$this->slug($base, '-').'.example.com',
+            'address' => $this->address($f, $country),
+            'contactName' => $contactName,
+            'contactEmail' => $this->email($f, $contactName),
+            'customerSince' => $this->dateBetween($f, '2018-01-01', '2026-01-01'),
+            'iban' => $country === 'DE' ? $f->iban('DE') : null,
+        ];
+    }
+
+    private function vatId(Generator $f, string $country): string
+    {
+        return $country === 'DE'
+            ? 'DE'.$f->numerify('#########')
+            : $f->numerify('##-#######');
     }
 
     private function faker(string $country, int $seed): Generator

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Bambamboole\ExtendedFaker\Dto\PrivateCustomerDto;
 use Bambamboole\ExtendedFaker\Generator\CustomerGenerator;
+use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 use Faker\Calculator\Iban;
 
 it('generates a deterministic private customer for a seed', function () {
@@ -48,3 +49,43 @@ it('derives safe emails and sane dates for many seeds', function () {
 it('rejects unsupported countries', function () {
     (new CustomerGenerator)->privateCustomer(1, 'FR');
 })->throws(InvalidArgumentException::class);
+
+it('generates deterministic company customers with synthetic names', function () {
+    $gen = new CustomerGenerator;
+
+    $a = $gen->companyCustomer(42, 'DE');
+
+    expect($a->toArray())->toBe($gen->companyCustomer(42, 'DE')->toArray())
+        ->and($a->number)->toBe('BUS-DE-16')
+        ->and($a->name)->toEndWith(' '.$a->legalForm)
+        ->and(['GmbH', 'AG', 'KG', 'SE'])->toContain($a->legalForm)
+        ->and($a->vatId)->toMatch('/^DE\d{9}$/')
+        ->and($a->website)->toMatch('/^https:\/\/[a-z0-9-]+\.example\.com$/')
+        ->and($a->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/')
+        ->and($a->contactEmail)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/');
+});
+
+it('uses US legal forms and EIN-style tax ids for US companies', function () {
+    $company = (new CustomerGenerator)->companyCustomer(9, 'US');
+
+    expect(['Inc.', 'LLC', 'Corp.', 'Ltd.'])->toContain($company->legalForm)
+        ->and($company->vatId)->toMatch('/^\d{2}-\d{7}$/')
+        ->and($company->iban)->toBeNull();
+});
+
+it('generates suppliers with valid supplied categories and payment terms', function () {
+    $gen = new CustomerGenerator;
+
+    $s = $gen->supplier(7, 'US');
+    $keys = (new CategoryRepository)->getAllCategoryKeys();
+
+    expect($s->toArray())->toBe($gen->supplier(7, 'US')->toArray())
+        ->and($s->number)->toBe('SUP-US-7')
+        ->and(['net 14', 'net 30', 'net 60', 'net 90', '2/10 net 30'])->toContain($s->paymentTerms)
+        ->and($s->suppliedCategories)->not->toBeEmpty()
+        ->and(count($s->suppliedCategories))->toBeLessThanOrEqual(3);
+
+    foreach ($s->suppliedCategories as $key) {
+        expect($keys)->toContain($key);
+    }
+});
