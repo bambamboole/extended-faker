@@ -171,6 +171,19 @@ it('generates 0-5 gender-consistent contacts with roles for companies and suppli
     expect(count($counts))->toBeGreaterThan(2);
 });
 
+it('draws the construction-specific contact roles', function () {
+    $gen = new CustomerGenerator;
+    $seen = [];
+
+    foreach (range(0, 99) as $seed) {
+        foreach ($gen->companyCustomer($seed, 'DE')->contacts as $contact) {
+            $seen[$contact->role->value] = true;
+        }
+    }
+
+    expect($seen)->toHaveKeys(['project-management', 'site-management']);
+});
+
 it('gives companies a German tax number and a distinct mobile number', function () {
     $gen = new CustomerGenerator;
 
