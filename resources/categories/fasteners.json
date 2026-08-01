@@ -1,0 +1,11 @@
+{
+    "key": "fasteners",
+    "locales": {
+        "en_US": {
+            "name": "Fasteners"
+        },
+        "de_DE": {
+            "name": "Befestigungstechnik"
+        }
+    }
+}

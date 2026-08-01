@@ -32,7 +32,9 @@ use Bambamboole\ExtendedFaker\Image\Motif\PhoneMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PlankMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PlantMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PlateMotif;
+use Bambamboole\ExtendedFaker\Image\Motif\PlugMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PotMotif;
+use Bambamboole\ExtendedFaker\Image\Motif\ScrewMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\ShirtMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\ShoeMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\SpeechBubbleMotif;
@@ -74,6 +76,8 @@ final class MotifRegistry
             'paint-coatings' => new PaintBucketMotif,
             'construction-wood' => new PlankMotif,
             'concrete-mortar' => new CementBagMotif,
+            'fasteners' => new ScrewMotif,
+            'electrical-supplies' => new PlugMotif,
 
             'about' => new InfoMotif,
             'contact' => new EnvelopeMotif,

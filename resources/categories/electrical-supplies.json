@@ -1,0 +1,11 @@
+{
+    "key": "electrical-supplies",
+    "locales": {
+        "en_US": {
+            "name": "Electrical Supplies"
+        },
+        "de_DE": {
+            "name": "Elektromaterial"
+        }
+    }
+}

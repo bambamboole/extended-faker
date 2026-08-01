@@ -1,0 +1,41 @@
+{
+    "skuPrefix": "ES",
+    "nameTemplate": "{brand} {item} {spec} {unit}",
+    "pools": {
+        "brand": ["Voltano", "Kabelix", "Elektrona", "Amperon", "Steckora", "Sicherix", "Luminet", "Phasea", "Ohmega", "Wattley"],
+        "item": ["Installation Cable", "Socket Outlet", "Light Switch", "Circuit Breaker", "Junction Box", "Cable Conduit", "Distribution Board", "Residual Current Device", "Terminal Blocks", "Cable Ties"]
+    },
+    "variants": {
+        "spec": ["3x1.5 mm2", "5x2.5 mm2", "16 A", "B16", "IP44", "IP65", "230 V", "flush-mount"]
+    },
+    "unitVariants": [
+        {"amount": 1, "unit": "pc", "label": "1 pc"},
+        {"amount": 10, "unit": "pc", "label": "10-pack"},
+        {"amount": 25, "unit": "m", "label": "25 m"},
+        {"amount": 50, "unit": "m", "label": "50 m"},
+        {"amount": 100, "unit": "m", "label": "100 m"}
+    ],
+    "priceRange": {"min": 199, "max": 4999},
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{adjective} {item} {spec} ensuring {feature}, suited for {use}.",
+                "{brand} {item}: {feature} with {adjective2} build quality, made for {use}."
+            ],
+            "adjective": ["VDE-tested", "Flame-retardant", "Touch-safe", "Halogen-free", "Easy-install"],
+            "adjective2": ["durable", "impact-resistant", "UV-stable", "weatherproof", "compact"],
+            "feature": ["safe and code-compliant installation", "tool-free quick connection", "reliable contact under load", "clean cable management", "dependable circuit protection"],
+            "use": ["residential wiring", "distribution boards", "outdoor installations", "renovation projects", "smart home retrofits"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{adjective} {item} {spec} für {feature} – geeignet für {use}.",
+                "{brand} {item}: {feature} mit {adjective2} Bauqualität, gemacht für {use}."
+            ],
+            "adjective": ["VDE-geprüfte", "Flammwidrige", "Berührungssichere", "Halogenfreie", "Montagefreundliche"],
+            "adjective2": ["langlebiger", "schlagfester", "UV-beständiger", "wetterfester", "kompakter"],
+            "feature": ["eine sichere, normgerechte Installation", "werkzeuglose Schnellverbindung", "zuverlässigen Kontakt unter Last", "saubere Kabelführung", "verlässlichen Leitungsschutz"],
+            "use": ["die Hausinstallation", "Verteilerschränke", "Außeninstallationen", "Renovierungsprojekte", "Smart-Home-Nachrüstungen"]
+        }
+    }
+}
