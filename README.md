@@ -57,7 +57,6 @@ with trade-appropriate units (liters, kg bags, packs, cable by the meter). The
 same SKU yields the same name, unit, and price amount in every locale; only the
 currency and description are localized.
 
-
 ### Customers & Suppliers
 
 Private customers, company customers, and suppliers are generated

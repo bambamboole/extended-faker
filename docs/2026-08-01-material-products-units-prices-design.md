@@ -94,8 +94,11 @@ public ?MoneyDto $price = null,
 ## Generator changes
 
 `ProductGenerator::generate(...)` — two new deterministic draws appended
-after the existing variant draws (appending draws does not disturb existing
-name/description sequences within a generation):
+after the existing variant draws (names are unaffected; generated
+descriptions for existing categories shift versus the previous release,
+since the new draws precede the description-template pick — cross-version
+stability was never promised; cross-locale price identity is the binding
+requirement):
 
 1. Pick a `unitVariant`; substitute `{unit}` in the name template values.
 2. Draw a base price in `priceRange`, scale by the picked variant's

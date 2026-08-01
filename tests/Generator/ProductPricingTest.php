@@ -42,6 +42,21 @@ it('keeps prices within the template range for single-variant categories', funct
     }
 });
 
+it('keeps prices within the scaled range for multi-variant categories', function () {
+    $gen = new ProductGenerator;
+    $t = (new ProductTemplates)->get('paint-coatings');
+    $reference = (float) $t['unitVariants'][0]['amount'];
+
+    foreach (range(0, 99) as $seed) {
+        $p = $gen->generate($seed, 'paint-coatings', 'en_US');
+        $scale = $p->unitAmount / $reference;
+
+        expect($p->price->amount)->toBeGreaterThanOrEqual((int) round($t['priceRange']['min'] * $scale) - 100)
+            ->and($p->price->amount)->toBeLessThanOrEqual((int) round($t['priceRange']['max'] * $scale) + 100)
+            ->and([49, 95, 99])->toContain($p->price->amount % 100);
+    }
+});
+
 it('round-trips unit and price through the sku', function () {
     $repo = new ProductRepository;
     $made = $repo->generate(12345, null, 'en_US');
