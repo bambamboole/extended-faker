@@ -27,5 +27,7 @@
             "adjective": ["stilvolle", "fortschrittliche", "leichte", "robuste", "gesundheitsorientierte"],
             "feature": ["kontinuierlicher Herzfrequenzüberwachung", "GPS-Tracking", "Schlafanalyse", "Wasserbeständigkeit bis 50 m", "einem lebhaften Always-on-Display"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 4999, "max": 39999}
 }

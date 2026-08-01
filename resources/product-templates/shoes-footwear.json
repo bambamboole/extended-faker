@@ -26,5 +26,7 @@
             "adjective": ["wolkenweichen", "strapazierfähigen", "reaktionsschnellen", "stützenden", "leichten"],
             "feature": ["einer gedämpften EVA-Zwischensohle", "atmungsaktiven Mesh-Oberteilen", "einer griffigen Gummiaußensohle für Geländetraktion", "einem orthopädischen Fußbett mit Bogenstütze", "nahtloser Konstruktion ohne Druckpunkte"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 3999, "max": 15999}
 }

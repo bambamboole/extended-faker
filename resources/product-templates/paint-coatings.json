@@ -1,0 +1,39 @@
+{
+    "skuPrefix": "PT",
+    "nameTemplate": "{brand} {item} {color} {finish} {unit}",
+    "pools": {
+        "brand": ["Structo", "Colorix", "Muralon", "Lackrit", "Pigmenta", "Coatex", "Farbula", "Tintaro", "Deckwell", "Brushona", "Velatura", "Primacoat"],
+        "item": ["Wall Paint", "Ceiling Paint", "Primer", "Wood Varnish", "Metal Lacquer", "Facade Paint", "Floor Coating", "Radiator Paint", "Chalk Paint", "Clear Coat"]
+    },
+    "variants": {
+        "color": ["White", "Anthracite", "Pebble Grey", "Sage Green", "Sky Blue", "Terracotta", "Sand Beige", "Pure Black"],
+        "finish": ["Matt", "Silk Matt", "Satin", "Gloss", "High-Gloss", "Ultra Matt"]
+    },
+    "unitVariants": [
+        {"amount": 0.75, "unit": "l", "label": "0.75 l"},
+        {"amount": 2.5, "unit": "l", "label": "2.5 l"},
+        {"amount": 5, "unit": "l", "label": "5 l"},
+        {"amount": 10, "unit": "l", "label": "10 l"}
+    ],
+    "priceRange": {"min": 1299, "max": 3999},
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{brand} {item} in {color} delivers {feature} with a beautiful {finish} finish, ideal for {surface}.",
+                "{adjective} {item} from {brand}: {feature}, available in {color} with a {finish} finish."
+            ],
+            "adjective": ["High-coverage", "Low-odor", "Fast-drying", "Scrub-resistant", "Breathable"],
+            "feature": ["excellent opacity in one coat", "easy application with brush or roller", "long-lasting color brilliance", "reliable coverage on tricky surfaces", "a smooth, even finish"],
+            "surface": ["interior walls and ceilings", "wood and metal surfaces", "high-traffic areas", "facades and exterior walls", "furniture upcycling projects"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{brand} {item} in {color} bietet {feature} mit edlem {finish}-Finish – ideal für {surface}.",
+                "{adjective} {item} von {brand}: {feature}, erhältlich in {color} mit {finish}-Finish."
+            ],
+            "adjective": ["Hochdeckende", "Geruchsarme", "Schnelltrocknende", "Scheuerbeständige", "Diffusionsoffene"],
+            "feature": ["hervorragende Deckkraft in einem Anstrich", "einfache Verarbeitung mit Pinsel oder Rolle", "langanhaltende Farbbrillanz", "zuverlässige Deckung auf schwierigen Untergründen", "ein glattes, gleichmäßiges Finish"],
+            "surface": ["Innenwände und Decken", "Holz- und Metallflächen", "stark beanspruchte Bereiche", "Fassaden und Außenwände", "Möbel-Upcycling-Projekte"]
+        }
+    }
+}

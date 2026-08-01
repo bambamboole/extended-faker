@@ -27,5 +27,7 @@
             "adjective": ["elegantes", "leistungsstarkes", "kompaktes", "hochwertiges", "leichtes"],
             "feature": ["einem OLED-Display", "ganztägiger Akkulaufzeit", "einem Pro-Kamerasystem", "schnellem kabellosem Laden", "einem Titanrahmen"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 19999, "max": 129999}
 }

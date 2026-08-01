@@ -108,5 +108,7 @@
                 "kräftigen und komplexen Geschmacksprofilen"
             ]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 599, "max": 4999}
 }

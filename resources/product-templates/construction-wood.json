@@ -1,0 +1,39 @@
+{
+    "skuPrefix": "WD",
+    "nameTemplate": "{brand} {wood} {item} {dimension} {unit}",
+    "pools": {
+        "brand": ["Holzano", "Timbera", "Woodrix", "Lignaro", "Forsta", "Plankora", "Balkano", "Sagewerk", "Kernholz", "Bretta"],
+        "wood": ["Spruce", "Pine", "Douglas Fir", "Larch", "Oak", "Beech"],
+        "item": ["Construction Timber", "Planed Board", "Squared Timber", "Roof Batten", "OSB Panel", "Plywood Panel", "Profile Board", "Decking Board", "Glulam Beam", "Formwork Panel"]
+    },
+    "variants": {
+        "dimension": ["40x60 mm", "60x80 mm", "80x100 mm", "18x144 mm", "12 mm", "15 mm", "22 mm", "28x70 mm"]
+    },
+    "unitVariants": [
+        {"amount": 1, "unit": "pc", "label": "1 pc"},
+        {"amount": 5, "unit": "pc", "label": "5-pack"},
+        {"amount": 10, "unit": "pc", "label": "10-pack"},
+        {"amount": 25, "unit": "pc", "label": "25-pack"}
+    ],
+    "priceRange": {"min": 399, "max": 4999},
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{adjective} {wood} {item} with {feature}, a dependable choice for {use}.",
+                "{brand} {item} in {wood}: {feature}, perfect for {use}."
+            ],
+            "adjective": ["Kiln-dried", "Planed", "Untreated", "Pressure-treated", "Precision-cut"],
+            "feature": ["dimensional stability", "a smooth planed surface", "strength grading for load-bearing use", "low moisture content", "easy on-site handling"],
+            "use": ["roof structures", "stud walls and framing", "interior fit-out", "garden and landscape projects", "formwork and flooring"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{adjective} {item} aus {wood} mit {feature} – eine zuverlässige Wahl für {use}.",
+                "{brand} {item} aus {wood}: {feature}, perfekt für {use}."
+            ],
+            "adjective": ["Kammergetrocknetes", "Gehobeltes", "Unbehandeltes", "Kesseldruckimprägniertes", "Präzise zugeschnittenes"],
+            "feature": ["hoher Formstabilität", "einer glatt gehobelten Oberfläche", "Festigkeitssortierung für tragende Zwecke", "niedriger Holzfeuchte", "einfacher Verarbeitung auf der Baustelle"],
+            "use": ["Dachkonstruktionen", "Ständerwände und Rahmenbau", "den Innenausbau", "Garten- und Landschaftsprojekte", "Schalung und Fußböden"]
+        }
+    }
+}

@@ -27,5 +27,7 @@
             "adjective": ["wunderschön gefertigtes", "minimalistisches", "nachhaltig beschafftes", "erbstücktaugliches", "massivholz"],
             "feature": ["Schwalbenschwanzverbindungen für dauerhafte Stärke", "einem handgeölten Naturfinish", "modularen Konfigurationsmöglichkeiten", "Soft-Close-Schubladenmechanismen", "einem geräumigen und vielseitigen Design"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 9999, "max": 89999}
 }

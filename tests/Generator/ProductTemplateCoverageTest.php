@@ -34,3 +34,22 @@ it('generates a structurally valid product for every category in both locales', 
         }
     }
 });
+
+it('defines valid unitVariants and priceRange in every template', function () {
+    $templates = new ProductTemplates;
+    $validUnits = ['pc', 'l', 'kg', 'm', 'm2', 'set'];
+
+    foreach ($templates->categories() as $category) {
+        $t = $templates->get($category);
+
+        expect($t)->toHaveKeys(['unitVariants', 'priceRange'], "missing unit/price keys in {$category}");
+        expect($t['unitVariants'])->not->toBeEmpty();
+        foreach ($t['unitVariants'] as $variant) {
+            expect($variant['amount'])->toBeGreaterThan(0)
+                ->and($validUnits)->toContain($variant['unit'])
+                ->and($variant['label'])->toBeString()->not->toBe('');
+        }
+        expect($t['priceRange']['min'])->toBeGreaterThan(0)
+            ->and($t['priceRange']['max'])->toBeGreaterThanOrEqual($t['priceRange']['min']);
+    }
+});

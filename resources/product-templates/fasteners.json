@@ -1,0 +1,41 @@
+{
+    "skuPrefix": "FS",
+    "nameTemplate": "{brand} {item} {size} {unit}",
+    "pools": {
+        "brand": ["Fixato", "Schraubex", "Naglo", "Boltura", "Ankerix", "Torqora", "Klemmfix", "Spanex", "Duebelo", "Gripwell"],
+        "item": ["Wood Screws", "Drywall Screws", "Wire Nails", "Ring Shank Nails", "Wall Anchors", "Hex Bolts", "Washers", "Threaded Rods", "Chipboard Screws", "Concrete Screws"]
+    },
+    "variants": {
+        "size": ["3.5x35 mm", "4x40 mm", "4.5x60 mm", "5x80 mm", "6x100 mm", "8x120 mm", "M8", "M10"]
+    },
+    "unitVariants": [
+        {"amount": 50, "unit": "pc", "label": "50-pack"},
+        {"amount": 100, "unit": "pc", "label": "100-pack"},
+        {"amount": 250, "unit": "pc", "label": "250-pack"},
+        {"amount": 500, "unit": "pc", "label": "500-pack"},
+        {"amount": 1000, "unit": "pc", "label": "1000-pack"}
+    ],
+    "priceRange": {"min": 299, "max": 1499},
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{adjective} {item} {size} providing {feature}, made for {use}.",
+                "{brand} {item}: {feature} thanks to a {adjective2} finish, ideal for {use}."
+            ],
+            "adjective": ["Corrosion-resistant", "Hardened", "Self-drilling", "Galvanized", "Precision-threaded"],
+            "adjective2": ["zinc-plated", "phosphated", "stainless", "yellow-passivated", "hardened"],
+            "feature": ["a secure, lasting hold", "fast, clean driving", "high pull-out resistance", "splinter-free countersinking", "reliable grip in any substrate"],
+            "use": ["timber construction", "drywall installation", "concrete and masonry", "outdoor decking", "furniture assembly"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{adjective} {item} {size} für {feature} – gemacht für {use}.",
+                "{brand} {item}: {feature} dank {adjective2} Oberfläche, ideal für {use}."
+            ],
+            "adjective": ["Korrosionsbeständige", "Gehärtete", "Selbstbohrende", "Verzinkte", "Präzisionsgewalzte"],
+            "adjective2": ["verzinkter", "phosphatierter", "rostfreier", "gelbpassivierter", "gehärteter"],
+            "feature": ["sicheren, dauerhaften Halt", "schnelles, sauberes Eindrehen", "hohe Auszugswerte", "ausrissfreies Versenken", "zuverlässigen Halt in jedem Untergrund"],
+            "use": ["den Holzbau", "den Trockenbau", "Beton und Mauerwerk", "Terrassen im Außenbereich", "die Möbelmontage"]
+        }
+    }
+}

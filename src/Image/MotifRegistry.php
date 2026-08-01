@@ -11,6 +11,7 @@ use Bambamboole\ExtendedFaker\Image\Motif\BoxMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\BriefcaseMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\CandyMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\CarMotif;
+use Bambamboole\ExtendedFaker\Image\Motif\CementBagMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\ChairMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\ChartMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\CoffeeMotif;
@@ -25,11 +26,15 @@ use Bambamboole\ExtendedFaker\Image\Motif\LipstickMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\LockMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\NewspaperMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\NoteMotif;
+use Bambamboole\ExtendedFaker\Image\Motif\PaintBucketMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PeopleMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PhoneMotif;
+use Bambamboole\ExtendedFaker\Image\Motif\PlankMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PlantMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PlateMotif;
+use Bambamboole\ExtendedFaker\Image\Motif\PlugMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\PotMotif;
+use Bambamboole\ExtendedFaker\Image\Motif\ScrewMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\ShirtMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\ShoeMotif;
 use Bambamboole\ExtendedFaker\Image\Motif\SpeechBubbleMotif;
@@ -68,6 +73,11 @@ final class MotifRegistry
             'home-garden' => new PlantMotif,
             'sports-outdoors' => new BallMotif,
             'car-accessories' => new CarMotif,
+            'paint-coatings' => new PaintBucketMotif,
+            'construction-wood' => new PlankMotif,
+            'concrete-mortar' => new CementBagMotif,
+            'fasteners' => new ScrewMotif,
+            'electrical-supplies' => new PlugMotif,
 
             'about' => new InfoMotif,
             'contact' => new EnvelopeMotif,

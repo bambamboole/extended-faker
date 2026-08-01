@@ -26,5 +26,7 @@
             "adjective": ["erstklassiges", "einfach zu installierendes", "universell passendes", "robustes", "hochtechnologisches"],
             "feature": ["einem manipulationssicheren Montagesystem", "4K-Auflösung und Weitwinkelobjektiv", "militärischer Stoßfestigkeit", "einem Chassis aus Luftfahrtaluminium", "universeller Kompatibilität mit allen Fahrzeugtypen"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 999, "max": 7999}
 }

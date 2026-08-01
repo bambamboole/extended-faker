@@ -26,5 +26,7 @@
             "adjective": ["robustes", "erstklassiges", "vielseitiges", "restaurant-qualität", "ergonomisches"],
             "feature": ["kratzfester Antihaftbeschichtung", "massiver Konstruktion", "gleichmäßiger Wärmeverteilung", "spülmaschinenfesten Materialien", "lebenslang garantierter Verarbeitung"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 1499, "max": 12999}
 }
