@@ -1,0 +1,11 @@
+{
+    "key": "construction-wood",
+    "locales": {
+        "en_US": {
+            "name": "Construction Wood"
+        },
+        "de_DE": {
+            "name": "Bauholz"
+        }
+    }
+}

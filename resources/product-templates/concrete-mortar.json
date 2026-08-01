@@ -1,0 +1,38 @@
+{
+    "skuPrefix": "CM",
+    "nameTemplate": "{brand} {item} {grade} {unit}",
+    "pools": {
+        "brand": ["Betonix", "Cementra", "Mortano", "Zemento", "Bindera", "Estrichon", "Putzola", "Fundamix", "Kalkora", "Speedcret"],
+        "item": ["Ready-Mix Concrete", "Cement", "Masonry Mortar", "Screed", "Tile Adhesive", "Repair Mortar", "Plaster", "Leveling Compound", "Quick-Set Concrete", "Grout"]
+    },
+    "variants": {
+        "grade": ["C20/25", "C25/30", "M5", "M10", "Rapid", "Standard", "Fine", "Coarse"]
+    },
+    "unitVariants": [
+        {"amount": 5, "unit": "kg", "label": "5 kg"},
+        {"amount": 10, "unit": "kg", "label": "10 kg"},
+        {"amount": 25, "unit": "kg", "label": "25 kg"},
+        {"amount": 40, "unit": "kg", "label": "40 kg"}
+    ],
+    "priceRange": {"min": 349, "max": 1299},
+    "locales": {
+        "en_US": {
+            "descriptionTemplates": [
+                "{adjective} {item} offering {feature}, made for {use}.",
+                "{brand} {item}: {feature} and consistent quality from every bag, ideal for {use}."
+            ],
+            "adjective": ["Frost-resistant", "Fast-setting", "High-strength", "Low-dust", "Shrinkage-compensated"],
+            "feature": ["reliable workability", "excellent adhesion", "a long working time", "high early strength", "weather-resistant curing"],
+            "use": ["foundations and footings", "masonry and brickwork", "floor screeds", "tiling jobs", "repair work"]
+        },
+        "de_DE": {
+            "descriptionTemplates": [
+                "{adjective} {item} mit {feature} – gemacht für {use}.",
+                "{brand} {item}: {feature} und gleichbleibende Qualität aus jedem Sack, ideal für {use}."
+            ],
+            "adjective": ["Frostbeständiger", "Schnellabbindender", "Hochfester", "Staubarmer", "Schwundkompensierter"],
+            "feature": ["zuverlässiger Verarbeitbarkeit", "hervorragender Haftung", "einer langen Verarbeitungszeit", "hoher Frühfestigkeit", "witterungsbeständiger Aushärtung"],
+            "use": ["Fundamente und Sockel", "Mauerwerk und Ziegelbau", "Estricharbeiten", "Fliesenarbeiten", "Reparaturarbeiten"]
+        }
+    }
+}

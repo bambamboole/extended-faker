@@ -1,0 +1,11 @@
+{
+    "key": "paint-coatings",
+    "locales": {
+        "en_US": {
+            "name": "Paint & Coatings"
+        },
+        "de_DE": {
+            "name": "Farben & Lacke"
+        }
+    }
+}

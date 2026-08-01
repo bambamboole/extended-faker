@@ -1,0 +1,11 @@
+{
+    "key": "concrete-mortar",
+    "locales": {
+        "en_US": {
+            "name": "Concrete & Mortar"
+        },
+        "de_DE": {
+            "name": "Beton & Mörtel"
+        }
+    }
+}
