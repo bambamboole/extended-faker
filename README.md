@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/bambamboole/extended-faker.svg?style=flat-square)](https://packagist.org/packages/bambamboole/extended-faker)
 ![GitHub Actions](https://github.com/bambamboole/extended-faker/actions/workflows/ci.yml/badge.svg)
 
-PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, and page data. Products are generated from compositional templates (effectively unlimited, trademark-free). Provides 19+ categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
+PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, page, customer, and supplier data. Products are generated from compositional templates (effectively unlimited, trademark-free). Provides 19+ categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
 
 ## Features
 
@@ -15,6 +15,7 @@ PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with r
 - **Fixture-backed pages**: Named pages composed of structured Content blocks, renderable to Markdown or WordPress block markup
 - **Realistic data**: Synthetic, trademark-free product names, descriptions, categories, and dynamically composed articles
 - **Deterministic generation**: Same seed produces same blog post for reproducible testing
+- **Generative customers & suppliers**: Deterministic private customers, company customers, and suppliers with round-trippable, country-prefixed numbers (DE/US data)
 - **Extensible**: Easy to add new data via JSON template files
 
 ## Installation
@@ -42,6 +43,37 @@ $product = $faker->product();              // random ProductDto
 $product = $faker->generateProduct(42);    // deterministic by seed
 $same    = $faker->productBySku($product->sku); // round-trips to the same product
 $de      = $faker->getProductInLocale($product->sku, 'de_DE'); // same SKU, localized
+```
+
+### Customers & Suppliers
+
+Private customers, company customers, and suppliers are generated
+deterministically like products. The number encodes the country and seed
+(`CUS-DE-16`), so the same number always resolves to the identical entity —
+from any locale. `de_DE` fakers generate German data (names, addresses,
++49 phones, valid IBANs, DE VAT ids), `en_US` fakers generate US data
+(EIN-style tax ids, no IBAN). All emails use `example.com/org/net` domains
+and company names are synthetic and trademark-free.
+
+```php
+use Bambamboole\ExtendedFaker\ExtendedFaker;
+use Faker\Factory;
+
+$faker = Factory::create('de_DE');
+ExtendedFaker::extend($faker, 'de_DE');
+
+// Private customers (B2C persons)
+$customer = $faker->privateCustomer();               // random PrivateCustomerDto
+$customer = $faker->generatePrivateCustomer(42);     // deterministic by seed
+$same     = $faker->privateCustomerByNumber($customer->number);
+
+// Company customers (B2B)
+$company = $faker->companyCustomer();                // CompanyCustomerDto with VAT id, website, contact person
+
+// Suppliers (companies plus payment terms and supplied product categories)
+$supplier = $faker->supplier();
+$supplier->paymentTerms;                             // "net 30"
+$supplier->suppliedCategories;                       // ["electronics", "furniture"]
 ```
 
 ### Categories
