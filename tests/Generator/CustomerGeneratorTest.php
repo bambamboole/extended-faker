@@ -83,7 +83,7 @@ it('generates deterministic company customers with synthetic names', function ()
         ->and(['GmbH', 'AG', 'KG', 'SE'])->toContain($a->legalForm)
         ->and($a->vatId)->toMatch('/^DE\d{9}$/')
         ->and($a->website)->toMatch('/^https:\/\/[a-z0-9-]+\.example\.com$/')
-        ->and($a->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/');
+        ->and($a->email)->toBe('info@'.substr($a->website, strlen('https://')));
 });
 
 it('uses US legal forms and EIN-style tax ids for US companies', function () {
@@ -155,12 +155,14 @@ it('generates 0-5 gender-consistent contacts with roles for companies and suppli
     foreach (range(0, 49) as $seed) {
         $company = $gen->companyCustomer($seed, 'DE');
         $counts[count($company->contacts)] = true;
+        $companyDomain = substr($company->website, strlen('https://'));
 
         expect(count($company->contacts))->toBeLessThanOrEqual(5);
         foreach ($company->contacts as $contact) {
             expect($contact)->toBeInstanceOf(ContactDto::class)
                 ->and([Salutation::Mr, Salutation::Mrs])->toContain($contact->salutation)
-                ->and($contact->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/')
+                ->and($contact->email)->toMatch('/^[a-z0-9.]+@[a-z0-9-]+\.example\.com$/')
+                ->and($contact->email)->toEndWith('@'.$companyDomain)
                 ->and($contact->role)->toBeInstanceOf(ContactRole::class)
                 ->and($pools[$contact->salutation === Salutation::Mr ? 'male' : 'female'])->toContain($contact->firstName);
         }

@@ -113,18 +113,21 @@ final class CustomerGenerator
     {
         $base = $f->randomElement(self::BRANDS).' '.$f->randomElement(self::SUFFIXES);
         $legalForm = $f->randomElement(self::LEGAL_FORMS[$country]);
+        // Subdomains of example.com are reserved by RFC 2606 too, so company
+        // and contact addresses stay guaranteed-undeliverable.
+        $domain = $this->slug($base, '-').'.example.com';
 
         return [
             'name' => $base.' '.$legalForm,
             'legalForm' => $legalForm,
             'vatId' => $this->vatId($f, $country),
             'taxNumber' => $country === 'DE' ? $f->numerify('##/###/#####') : null,
-            'email' => $this->email($f, $base),
+            'email' => 'info@'.$domain,
             'phone' => $this->phone($f, $country),
             'mobile' => $this->mobile($f, $country),
-            'website' => 'https://'.$this->slug($base, '-').'.example.com',
+            'website' => 'https://'.$domain,
             'address' => $this->address($f, $country),
-            'contacts' => $this->contacts($f, $country),
+            'contacts' => $this->contacts($f, $country, $domain),
             'customerSince' => $this->dateBetween($f, '2018-01-01', '2026-01-01'),
             'iban' => $country === 'DE' ? $f->iban('DE') : null,
         ];
@@ -133,7 +136,7 @@ final class CustomerGenerator
     /**
      * @return list<ContactDto>
      */
-    private function contacts(Generator $f, string $country): array
+    private function contacts(Generator $f, string $country, string $domain): array
     {
         $contacts = [];
         $count = $f->numberBetween(0, 5);
@@ -146,7 +149,7 @@ final class CustomerGenerator
                 salutation: $salutation,
                 firstName: $firstName,
                 lastName: $lastName,
-                email: $this->email($f, $firstName.' '.$lastName),
+                email: $this->slug($firstName.' '.$lastName).'@'.$domain,
                 phone: $this->mobile($f, $country),
                 role: $f->randomElement(ContactRole::cases()),
             );

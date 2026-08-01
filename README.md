@@ -64,8 +64,10 @@ deterministically like products. The number encodes the country and seed
 (`CUS-DE-16`), so the same number always resolves to the identical entity —
 from any locale. `de_DE` fakers generate German data (names, addresses,
 +49 phones, valid IBANs, DE VAT ids), `en_US` fakers generate US data
-(EIN-style tax ids, no IBAN). All emails use `example.com/org/net` domains
-and company names are synthetic and trademark-free.
+(EIN-style tax ids, no IBAN). All emails use RFC-2606-reserved domains —
+private customers on `example.com/org/net`, companies and their contacts on
+the company's own `<slug>.example.com` domain — and company names are
+synthetic and trademark-free.
 
 ```php
 use Bambamboole\ExtendedFaker\ExtendedFaker;
