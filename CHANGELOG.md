@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.9.0](https://github.com/bambamboole/extended-faker/compare/0.8.0...0.9.0) (2026-08-01)
+
+
+### Features
+
+* add CustomerNumber codec for customer/supplier identifiers ([0f3d531](https://github.com/bambamboole/extended-faker/commit/0f3d531688dadd82a694d2f16954f38874eb82d2))
+* add CustomerRepository ([b9daa56](https://github.com/bambamboole/extended-faker/commit/b9daa56e141dc485bd71b0a6fb18f8f639874888))
+* add fasteners and electrical supplies categories ([f91cd14](https://github.com/bambamboole/extended-faker/commit/f91cd14ff6a5feeee2ba0e7e2e4466296d266b16))
+* add generative company customers and suppliers ([252e023](https://github.com/bambamboole/extended-faker/commit/252e0236ea238fa5ba2b8901f14c912975349dfe))
+* add generative private customers ([4e2cd33](https://github.com/bambamboole/extended-faker/commit/4e2cd33e49f0907b3c218f3a752ee59b2ea48e06))
+* add MoneyDto and ProductPrice scale-and-snap helper ([fb6bafc](https://github.com/bambamboole/extended-faker/commit/fb6bafc38b5563ea59ad4904e11b2c51376c2f8e))
+* add paint, wood and concrete material categories ([63afb75](https://github.com/bambamboole/extended-faker/commit/63afb754b94479e5cfd323c6adacb3c4f01c939b))
+* add unit and price to generated products ([d5467f3](https://github.com/bambamboole/extended-faker/commit/d5467f3219b6e988cb0108a2f917b73d7a980595))
+* add unitVariants and priceRange to all product templates ([2436001](https://github.com/bambamboole/extended-faker/commit/2436001e34348a5c37404fe2b70dd8002eeec42a))
+* expose customer and supplier providers via ExtendedFaker ([692bb00](https://github.com/bambamboole/extended-faker/commit/692bb00e738e9c206ec4a6619bd68ecffe63e7f8))
+* generative customers and suppliers ([6bdd9b8](https://github.com/bambamboole/extended-faker/commit/6bdd9b8d25f8528f1810051cee4c53b6bc90ee3e))
+* material products with units and prices ([ddb14ff](https://github.com/bambamboole/extended-faker/commit/ddb14ff3abd6aefb9af2d63fa076a387c4c04add))
+
+
+### Bug Fixes
+
+* make customer generation timezone- and platform-independent ([689559e](https://github.com/bambamboole/extended-faker/commit/689559e59dc5add1e51ffe095653a4a7e2d40257))
+
 ## [0.8.0](https://github.com/bambamboole/extended-faker/compare/0.7.0...0.8.0) (2026-06-15)
 
 
