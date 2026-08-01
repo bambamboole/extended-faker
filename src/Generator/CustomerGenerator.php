@@ -6,6 +6,8 @@ namespace Bambamboole\ExtendedFaker\Generator;
 
 use Bambamboole\ExtendedFaker\Dto\AddressDto;
 use Bambamboole\ExtendedFaker\Dto\CompanyCustomerDto;
+use Bambamboole\ExtendedFaker\Dto\ContactDto;
+use Bambamboole\ExtendedFaker\Dto\ContactRole;
 use Bambamboole\ExtendedFaker\Dto\PrivateCustomerDto;
 use Bambamboole\ExtendedFaker\Dto\Salutation;
 use Bambamboole\ExtendedFaker\Dto\SupplierDto;
@@ -55,17 +57,26 @@ final class CustomerGenerator
         };
         $lastName = $f->lastName();
 
+        $titleRoll = $f->numberBetween(1, 100);
+        $academicTitle = match (true) {
+            $titleRoll <= 10 => 'Dr.',
+            $titleRoll <= 12 => 'Prof. Dr.',
+            default => null,
+        };
+
         return new PrivateCustomerDto(
             number: CustomerNumber::encode(CustomerNumber::TYPE_PRIVATE, $country, $seed),
+            salutation: $salutation,
+            academicTitle: $academicTitle,
             firstName: $firstName,
             lastName: $lastName,
             email: $this->email($f, $firstName.' '.$lastName),
             phone: $this->phone($f, $country),
+            mobile: $this->mobile($f, $country),
             birthdate: $this->dateBetween($f, '1946-01-01', '2008-01-01'),
             address: $this->address($f, $country),
             customerSince: $this->dateBetween($f, '2018-01-01', '2026-01-01'),
             iban: $country === 'DE' ? $f->iban('DE') : null,
-            salutation: $salutation,
         );
     }
 
@@ -96,27 +107,52 @@ final class CustomerGenerator
     }
 
     /**
-     * @return array{name: string, legalForm: string, vatId: string, email: string, phone: string, website: string, address: AddressDto, contactName: string, contactEmail: string, customerSince: DateTimeImmutable, iban: string|null}
+     * @return array{name: string, legalForm: string, vatId: string, taxNumber: string|null, email: string, phone: string, mobile: string, website: string, address: AddressDto, contacts: list<ContactDto>, customerSince: DateTimeImmutable, iban: string|null}
      */
     private function companyFields(Generator $f, string $country): array
     {
         $base = $f->randomElement(self::BRANDS).' '.$f->randomElement(self::SUFFIXES);
         $legalForm = $f->randomElement(self::LEGAL_FORMS[$country]);
-        $contactName = $f->firstName().' '.$f->lastName();
 
         return [
             'name' => $base.' '.$legalForm,
             'legalForm' => $legalForm,
             'vatId' => $this->vatId($f, $country),
+            'taxNumber' => $country === 'DE' ? $f->numerify('##/###/#####') : null,
             'email' => $this->email($f, $base),
             'phone' => $this->phone($f, $country),
+            'mobile' => $this->mobile($f, $country),
             'website' => 'https://'.$this->slug($base, '-').'.example.com',
             'address' => $this->address($f, $country),
-            'contactName' => $contactName,
-            'contactEmail' => $this->email($f, $contactName),
+            'contacts' => $this->contacts($f, $country),
             'customerSince' => $this->dateBetween($f, '2018-01-01', '2026-01-01'),
             'iban' => $country === 'DE' ? $f->iban('DE') : null,
         ];
+    }
+
+    /**
+     * @return list<ContactDto>
+     */
+    private function contacts(Generator $f, string $country): array
+    {
+        $contacts = [];
+        $count = $f->numberBetween(0, 5);
+        for ($i = 0; $i < $count; $i++) {
+            $salutation = $f->numberBetween(0, 1) === 0 ? Salutation::Mr : Salutation::Mrs;
+            $firstName = $salutation === Salutation::Mr ? $f->firstName('male') : $f->firstName('female');
+            $lastName = $f->lastName();
+
+            $contacts[] = new ContactDto(
+                salutation: $salutation,
+                firstName: $firstName,
+                lastName: $lastName,
+                email: $this->email($f, $firstName.' '.$lastName),
+                phone: $this->mobile($f, $country),
+                role: $f->randomElement(ContactRole::cases()),
+            );
+        }
+
+        return $contacts;
     }
 
     private function vatId(Generator $f, string $country): string
@@ -151,6 +187,13 @@ final class CustomerGenerator
     {
         return $country === 'DE'
             ? '+49 '.$f->numerify('1## #######')
+            : '+1 '.$f->numerify('### ###-####');
+    }
+
+    private function mobile(Generator $f, string $country): string
+    {
+        return $country === 'DE'
+            ? '+49 1'.$f->randomElement(['5', '6', '7']).$f->numerify('# #######')
             : '+1 '.$f->numerify('### ###-####');
     }
 

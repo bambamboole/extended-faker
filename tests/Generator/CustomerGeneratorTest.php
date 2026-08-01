@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Bambamboole\ExtendedFaker\Dto\ContactDto;
+use Bambamboole\ExtendedFaker\Dto\ContactRole;
 use Bambamboole\ExtendedFaker\Dto\PrivateCustomerDto;
 use Bambamboole\ExtendedFaker\Dto\Salutation;
 use Bambamboole\ExtendedFaker\Generator\CustomerGenerator;
@@ -81,8 +83,7 @@ it('generates deterministic company customers with synthetic names', function ()
         ->and(['GmbH', 'AG', 'KG', 'SE'])->toContain($a->legalForm)
         ->and($a->vatId)->toMatch('/^DE\d{9}$/')
         ->and($a->website)->toMatch('/^https:\/\/[a-z0-9-]+\.example\.com$/')
-        ->and($a->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/')
-        ->and($a->contactEmail)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/');
+        ->and($a->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/');
 });
 
 it('uses US legal forms and EIN-style tax ids for US companies', function () {
@@ -144,6 +145,55 @@ it('round-trips the salutation through toArray as its backed value', function ()
 
     expect($c->salutation)->toBeInstanceOf(Salutation::class)
         ->and($c->toArray()['salutation'])->toBe($c->salutation->value);
+});
+
+it('generates 0-5 gender-consistent contacts with roles for companies and suppliers', function () {
+    $gen = new CustomerGenerator;
+    $pools = deFirstNamePools();
+    $counts = [];
+
+    foreach (range(0, 49) as $seed) {
+        $company = $gen->companyCustomer($seed, 'DE');
+        $counts[count($company->contacts)] = true;
+
+        expect(count($company->contacts))->toBeLessThanOrEqual(5);
+        foreach ($company->contacts as $contact) {
+            expect($contact)->toBeInstanceOf(ContactDto::class)
+                ->and([Salutation::Mr, Salutation::Mrs])->toContain($contact->salutation)
+                ->and($contact->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/')
+                ->and($contact->role)->toBeInstanceOf(ContactRole::class)
+                ->and($pools[$contact->salutation === Salutation::Mr ? 'male' : 'female'])->toContain($contact->firstName);
+        }
+    }
+
+    expect(count($counts))->toBeGreaterThan(2);
+});
+
+it('gives companies a German tax number and a distinct mobile number', function () {
+    $gen = new CustomerGenerator;
+
+    $de = $gen->companyCustomer(11, 'DE');
+    $us = $gen->companyCustomer(11, 'US');
+
+    expect($de->taxNumber)->toMatch('/^\d{2}\/\d{3}\/\d{5}$/')
+        ->and($us->taxNumber)->toBeNull()
+        ->and($de->mobile)->toMatch('/^\+49 1[567]\d \d{7}$/')
+        ->and($us->mobile)->toMatch('/^\+1 \d{3} \d{3}-\d{4}$/');
+});
+
+it('gives private customers a mobile number and an occasional academic title', function () {
+    $gen = new CustomerGenerator;
+    $titles = [];
+
+    foreach (range(0, 99) as $seed) {
+        $c = $gen->privateCustomer($seed, 'DE');
+        $titles[$c->academicTitle ?? 'none'] = true;
+
+        expect($c->mobile)->toMatch('/^\+49 1[567]\d \d{7}$/')
+            ->and([null, 'Dr.', 'Prof. Dr.'])->toContain($c->academicTitle);
+    }
+
+    expect($titles)->toHaveKeys(['none', 'Dr.']);
 });
 
 it('generates suppliers with valid supplied categories and payment terms', function () {

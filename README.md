@@ -80,9 +80,14 @@ $customer = $faker->generatePrivateCustomer(42);     // deterministic by seed
 $same     = $faker->privateCustomerByNumber($customer->number);
 $customer->salutation;                               // Salutation enum ('mr'|'mrs'|'neutral'), always
                                                      // consistent with the first name's gender
+$customer->academicTitle;                            // null | "Dr." | "Prof. Dr."
+$customer->mobile;                                   // "+49 171 2345678" (distinct from phone)
 
 // Company customers (B2B)
-$company = $faker->companyCustomer();                // CompanyCustomerDto with VAT id, website, contact person
+$company = $faker->companyCustomer();                // CompanyCustomerDto with VAT id, website, mobile,
+                                                     // German tax number (DE only) and 0-5 contacts
+$company->contacts;                                  // list<ContactDto>: salutation, first/last name,
+                                                     // email, phone, role (ContactRole enum)
 
 // Suppliers (companies plus payment terms and supplied product categories)
 $supplier = $faker->supplier();
