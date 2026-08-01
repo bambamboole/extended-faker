@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/bambamboole/extended-faker.svg?style=flat-square)](https://packagist.org/packages/bambamboole/extended-faker)
 ![GitHub Actions](https://github.com/bambamboole/extended-faker/actions/workflows/ci.yml/badge.svg)
 
-PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, page, customer, and supplier data. Products are generated from compositional templates (effectively unlimited, trademark-free). Provides 19+ categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
+PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, page, customer, and supplier data. Products are generated from compositional templates (effectively unlimited, trademark-free). Provides 24 categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
 
 ## Features
 
@@ -16,6 +16,7 @@ PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with r
 - **Realistic data**: Synthetic, trademark-free product names, descriptions, categories, and dynamically composed articles
 - **Deterministic generation**: Same seed produces same blog post for reproducible testing
 - **Generative customers & suppliers**: Deterministic private customers, company customers, and suppliers with round-trippable, country-prefixed numbers (DE/US data)
+- **Units & prices**: Every product carries a structured unit (`2.5 l`, `500-pack`, `25 kg`) and a deterministic price (integer minor units, USD/EUR by locale)
 - **Extensible**: Easy to add new data via JSON template files
 
 ## Installation
@@ -43,7 +44,19 @@ $product = $faker->product();              // random ProductDto
 $product = $faker->generateProduct(42);    // deterministic by seed
 $same    = $faker->productBySku($product->sku); // round-trips to the same product
 $de      = $faker->getProductInLocale($product->sku, 'de_DE'); // same SKU, localized
+
+$product->unitAmount;       // 2.5
+$product->unit;             // "l"
+$product->price->amount;    // 2499 (minor units)
+$product->price->currency;  // "USD" (en_US) / "EUR" (de_DE)
 ```
+
+Material categories for construction-site data — Paint & Coatings, Construction
+Wood, Concrete & Mortar, Fasteners, and Electrical Supplies — generate products
+with trade-appropriate units (liters, kg bags, packs, cable by the meter). The
+same SKU yields the same name, unit, and price amount in every locale; only the
+currency and description are localized.
+
 
 ### Customers & Suppliers
 
