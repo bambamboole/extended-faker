@@ -26,5 +26,7 @@
             "adjective": ["eindringliche", "euphorische", "genreübergreifende", "einfühlsame", "atmosphärische"],
             "feature": ["elektronische Texturen mit Live-Instrumentierung verbindet", "Themen von Verlust und Erneuerung erkundet", "virtuoses Songwriting präsentiert", "Sie in eine filmische Klanglandschaft entführt", "weltweite kritische Anerkennung erlangt hat"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 999, "max": 2999}
 }

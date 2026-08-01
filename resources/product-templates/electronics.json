@@ -27,5 +27,7 @@
             "adjective": ["vielseitiges", "leistungsstarkes", "innovatives", "zuverlässiges", "hochmodernes"],
             "feature": ["nahtloser kabelloser Konnektivität", "fortschrittlicher Geräuschunterdrückung", "langer Akkulaufzeit", "kristallklarem Audioausgang", "intelligenten Touch-Bedienelementen"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 4999, "max": 99999}
 }

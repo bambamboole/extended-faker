@@ -27,5 +27,7 @@
             "adjective2": ["außergewöhnlichen", "alltäglichen", "unübertroffenen", "zuverlässigen", "vielseitigen"],
             "feature": ["vorgeschrumpftem und pillingresistentem Stoff", "verstärkten Nähten an Belastungspunkten", "einer entspannten und dennoch strukturierten Passform", "feuchtigkeitsableitender Technologie", "einer glatten, atmungsaktiven Konstruktion"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 1999, "max": 8999}
 }

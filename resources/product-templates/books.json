@@ -28,5 +28,7 @@
             "feature": ["Sie bis in die Nacht lesen lässt", "alles in Frage stellt, was Sie zu wissen glaubten", "Geschichte und Fantasie miteinander verwebt", "auf jeder Seite emotional berührt", "Figuren vorstellt, die Sie nie vergessen werden"],
             "reader": ["Romanliebhaber", "Krimifans", "Abenteuerfreunde", "Buchclubmitglieder", "Literaturbegeisterte"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 999, "max": 3499}
 }

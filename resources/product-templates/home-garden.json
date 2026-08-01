@@ -26,5 +26,7 @@
             "adjective": ["robustes", "umweltfreundliches", "wetterfestes", "benutzerfreundliches", "erstklassiges"],
             "feature": ["UV-stabilisierten Materialien für Langlebigkeit im Freien", "einem ergonomischen Griff für ermüdungsfreies Arbeiten", "rostfreier Edelstahlhardware", "einem Drainagesystem, das Wurzelfäule verhindert", "nachhaltiger Recyclingkonstruktion"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 999, "max": 14999}
 }

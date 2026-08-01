@@ -27,5 +27,7 @@
             "adjective2": ["Spitzen-", "Wettkampf-", "Hochintensitäts-", "ganztägiger", "überlegener"],
             "feature": ["Vier-Wege-Stretch für uneingeschränkte Bewegungsfreiheit", "schweißableitender Technologie, die Sie trocken hält", "Antiodorbehandlung für längeres Tragen", "Flachnaht-Nähten, die Reiben verhindern", "UPF-50+-Sonnenschutz"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 1999, "max": 5999}
 }

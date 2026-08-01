@@ -112,5 +112,7 @@
                 "niedriger Säure und vollem Geschmack"
             ]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 799, "max": 2999}
 }

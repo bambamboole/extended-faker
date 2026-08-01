@@ -27,5 +27,7 @@
             "adjective": ["leistungsstarkes", "ultraflaches", "professionelles", "portables", "blitzschnelles"],
             "feature": ["ganztägiger Akkulaufzeit", "einem lebhaften Retina-Display", "einem leisen Kühlsystem", "einer beleuchteten Präzisionstastatur", "Thunderbolt-4-Konnektivität"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 1499, "max": 19999}
 }

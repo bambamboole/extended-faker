@@ -26,5 +26,7 @@
             "adjective": ["unwiderstehlichen", "knusprigen", "köstlichen", "nahrhaften", "befriedigenden"],
             "feature": ["echten Zutaten und kräftigem Geschmack", "einem befriedigenden Crunch", "ohne künstliche Konservierungsstoffe", "einer perfekten Balance aus Süße und Salz", "hochwertigen natürlichen Zutaten"]
         }
-    }
+    },
+    "unitVariants": [{"amount": 1, "unit": "pc", "label": "1 pc"}],
+    "priceRange": {"min": 199, "max": 1499}
 }
