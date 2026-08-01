@@ -78,6 +78,8 @@ ExtendedFaker::extend($faker, 'de_DE');
 $customer = $faker->privateCustomer();               // random PrivateCustomerDto
 $customer = $faker->generatePrivateCustomer(42);     // deterministic by seed
 $same     = $faker->privateCustomerByNumber($customer->number);
+$customer->salutation;                               // Salutation enum ('mr'|'mrs'|'neutral'), always
+                                                     // consistent with the first name's gender
 
 // Company customers (B2B)
 $company = $faker->companyCustomer();                // CompanyCustomerDto with VAT id, website, contact person

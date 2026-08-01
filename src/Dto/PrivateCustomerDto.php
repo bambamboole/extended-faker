@@ -18,6 +18,7 @@ class PrivateCustomerDto
         public AddressDto $address,
         public DateTimeImmutable $customerSince,
         public ?string $iban,
+        public Salutation $salutation = Salutation::Neutral,
     ) {}
 
     /**
@@ -35,6 +36,7 @@ class PrivateCustomerDto
             'address' => $this->address->toArray(),
             'customer_since' => $this->customerSince->format('Y-m-d'),
             'iban' => $this->iban,
+            'salutation' => $this->salutation->value,
         ];
     }
 }
