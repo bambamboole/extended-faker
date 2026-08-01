@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.10.0](https://github.com/bambamboole/extended-faker/compare/0.9.0...0.10.0) (2026-08-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* CompanyCustomerDto/SupplierDto lose contactName and contactEmail in favor of contacts; PrivateCustomerDto constructor order changed (salutation moved before the name fields).
+
+### Features
+
+* add contacts, tax number, mobile and academic title to customers ([64218c5](https://github.com/bambamboole/extended-faker/commit/64218c50fd27487075e28a239dd813c75edfeb53))
+* add gender-consistent salutation to private customers ([12181fc](https://github.com/bambamboole/extended-faker/commit/12181fcde1a4e0439b44805d1e6efb6d5c9d8361))
+* add salutation to private customers ([2e4376a](https://github.com/bambamboole/extended-faker/commit/2e4376a9a62770fe07e72b486e67a73b66d82cae))
+* company-domain emails for companies and contacts ([fed3a93](https://github.com/bambamboole/extended-faker/commit/fed3a9381bc58a923ec6ef8c2db13beacb886cb3))
+* put company and contact emails on the company's own domain ([1927a9c](https://github.com/bambamboole/extended-faker/commit/1927a9c76e49f145480af1f765dab50ebcfe4996))
+
 ## [0.9.0](https://github.com/bambamboole/extended-faker/compare/0.8.0...0.9.0) (2026-08-01)
 
 
