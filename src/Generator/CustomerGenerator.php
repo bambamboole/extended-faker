@@ -7,6 +7,7 @@ namespace Bambamboole\ExtendedFaker\Generator;
 use Bambamboole\ExtendedFaker\Dto\AddressDto;
 use Bambamboole\ExtendedFaker\Dto\CompanyCustomerDto;
 use Bambamboole\ExtendedFaker\Dto\PrivateCustomerDto;
+use Bambamboole\ExtendedFaker\Dto\Salutation;
 use Bambamboole\ExtendedFaker\Dto\SupplierDto;
 use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 use DateTime;
@@ -41,7 +42,17 @@ final class CustomerGenerator
     {
         $f = $this->faker($country, $seed);
 
-        $firstName = $f->firstName();
+        $roll = $f->numberBetween(0, 9);
+        $salutation = match (true) {
+            $roll < 4 => Salutation::Mr,
+            $roll < 8 => Salutation::Mrs,
+            default => Salutation::Neutral,
+        };
+        $firstName = match ($salutation) {
+            Salutation::Mr => $f->firstName('male'),
+            Salutation::Mrs => $f->firstName('female'),
+            default => $f->firstName(),
+        };
         $lastName = $f->lastName();
 
         return new PrivateCustomerDto(
@@ -54,6 +65,7 @@ final class CustomerGenerator
             address: $this->address($f, $country),
             customerSince: $this->dateBetween($f, '2018-01-01', '2026-01-01'),
             iban: $country === 'DE' ? $f->iban('DE') : null,
+            salutation: $salutation,
         );
     }
 

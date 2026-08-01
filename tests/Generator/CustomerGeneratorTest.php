@@ -3,9 +3,29 @@
 declare(strict_types=1);
 
 use Bambamboole\ExtendedFaker\Dto\PrivateCustomerDto;
+use Bambamboole\ExtendedFaker\Dto\Salutation;
 use Bambamboole\ExtendedFaker\Generator\CustomerGenerator;
 use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
 use Faker\Calculator\Iban;
+use Faker\Generator;
+use Faker\Provider\de_DE\Person;
+
+/**
+ * @return array{male: list<string>, female: list<string>}
+ */
+function deFirstNamePools(): array
+{
+    $exposer = new class(new Generator) extends Person
+    {
+        /** @return array{male: list<string>, female: list<string>} */
+        public function pools(): array
+        {
+            return ['male' => self::$firstNameMale, 'female' => self::$firstNameFemale];
+        }
+    };
+
+    return $exposer->pools();
+}
 
 it('generates a deterministic private customer for a seed', function () {
     $gen = new CustomerGenerator;
@@ -97,6 +117,33 @@ it('transliterates German characters deterministically in emails', function () {
 
     expect($c->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/')
         ->and($c->email)->toBe('heinz.juergen.wiedemann@example.net');
+});
+
+it('draws only mr, mrs and neutral salutations that match the first name', function () {
+    $gen = new CustomerGenerator;
+    $pools = deFirstNamePools();
+    $seen = [];
+
+    foreach (range(0, 199) as $seed) {
+        $c = $gen->privateCustomer($seed, 'DE');
+        $seen[$c->salutation->value] = true;
+
+        if ($c->salutation === Salutation::Mr) {
+            expect($pools['male'])->toContain($c->firstName);
+        }
+        if ($c->salutation === Salutation::Mrs) {
+            expect($pools['female'])->toContain($c->firstName);
+        }
+    }
+
+    expect(array_keys($seen))->toEqualCanonicalizing(['mr', 'mrs', 'neutral']);
+});
+
+it('round-trips the salutation through toArray as its backed value', function () {
+    $c = (new CustomerGenerator)->privateCustomer(42, 'DE');
+
+    expect($c->salutation)->toBeInstanceOf(Salutation::class)
+        ->and($c->toArray()['salutation'])->toBe($c->salutation->value);
 });
 
 it('generates suppliers with valid supplied categories and payment terms', function () {
