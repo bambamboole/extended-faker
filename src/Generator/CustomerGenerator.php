@@ -9,7 +9,9 @@ use Bambamboole\ExtendedFaker\Dto\CompanyCustomerDto;
 use Bambamboole\ExtendedFaker\Dto\PrivateCustomerDto;
 use Bambamboole\ExtendedFaker\Dto\SupplierDto;
 use Bambamboole\ExtendedFaker\Repository\CategoryRepository;
+use DateTime;
 use DateTimeImmutable;
+use DateTimeZone;
 use Faker\Factory;
 use Faker\Generator;
 use InvalidArgumentException;
@@ -145,15 +147,31 @@ final class CustomerGenerator
         return $this->slug($name).'@'.$f->randomElement(self::EMAIL_DOMAINS);
     }
 
+    private const TRANSLIT_MAP = [
+        'ä' => 'ae', 'ö' => 'oe', 'ü' => 'ue',
+        'Ä' => 'ae', 'Ö' => 'oe', 'Ü' => 'ue',
+        'ß' => 'ss',
+        'é' => 'e', 'è' => 'e', 'ê' => 'e',
+        'á' => 'a', 'à' => 'a', 'â' => 'a',
+        'í' => 'i', 'ì' => 'i',
+        'ó' => 'o', 'ò' => 'o', 'ô' => 'o',
+        'ú' => 'u', 'ù' => 'u', 'û' => 'u',
+        'ñ' => 'n', 'ç' => 'c',
+    ];
+
     private function slug(string $value, string $separator = '.'): string
     {
-        $value = strtolower((string) iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $value));
+        $value = strtr(mb_strtolower($value), self::TRANSLIT_MAP);
 
         return trim((string) preg_replace('/[^a-z0-9]+/', $separator, $value), $separator);
     }
 
     private function dateBetween(Generator $f, string $from, string $to): DateTimeImmutable
     {
-        return DateTimeImmutable::createFromMutable($f->dateTimeBetween($from, $to))->setTime(0, 0);
+        $utc = new DateTimeZone('UTC');
+
+        return DateTimeImmutable::createFromMutable(
+            $f->dateTimeBetween(new DateTime($from, $utc), new DateTime($to, $utc), 'UTC')
+        )->setTime(0, 0);
     }
 }

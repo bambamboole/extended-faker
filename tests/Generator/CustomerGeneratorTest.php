@@ -73,6 +73,32 @@ it('uses US legal forms and EIN-style tax ids for US companies', function () {
         ->and($company->iban)->toBeNull();
 });
 
+it('generates identical customers regardless of process timezone', function () {
+    $gen = new CustomerGenerator;
+    $tz = date_default_timezone_get();
+
+    try {
+        date_default_timezone_set('UTC');
+        $utc = $gen->privateCustomer(42, 'DE')->toArray();
+        date_default_timezone_set('Pacific/Kiritimati');
+        $kiritimati = $gen->privateCustomer(42, 'DE')->toArray();
+    } finally {
+        date_default_timezone_set($tz);
+    }
+
+    expect($kiritimati)->toBe($utc);
+});
+
+it('transliterates German characters deterministically in emails', function () {
+    // seed 9, DE: firstName/lastName resolve to "Heinz-Jürgen Wiedemann"
+    $gen = new CustomerGenerator;
+
+    $c = $gen->privateCustomer(9, 'DE');
+
+    expect($c->email)->toMatch('/^[a-z0-9.]+@example\.(com|org|net)$/')
+        ->and($c->email)->toBe('heinz.juergen.wiedemann@example.net');
+});
+
 it('generates suppliers with valid supplied categories and payment terms', function () {
     $gen = new CustomerGenerator;
 
