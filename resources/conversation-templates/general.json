@@ -1,0 +1,103 @@
+{
+    "scripts": [
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Showroom visit possible?",
+                "de_DE": "Besuch im Showroom möglich?"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nI'd like to see some of your products in person before ordering. Do you have a showroom, and if so, what are the opening hours? Is an appointment required?\n\nThanks,\n{customerName}",
+                        "de_DE": "Hallo,\n\nich würde mir einige Ihrer Produkte gerne vor der Bestellung persönlich ansehen. Haben Sie einen Showroom, und falls ja, wie sind die Öffnungszeiten? Braucht man einen Termin?\n\nVielen Dank\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nyes, our showroom is open Monday to Friday from 9 am to 6 pm and Saturdays from 10 am to 2 pm. No appointment needed — but if you'd like a personal consultation, just reply with a preferred time and we'll reserve a slot for you.\n\nKind regards,\n{agentFirstName}\nCustomer Service",
+                        "de_DE": "Hallo {customerName},\n\nja, unser Showroom ist Montag bis Freitag von 9 bis 18 Uhr und samstags von 10 bis 14 Uhr geöffnet. Ein Termin ist nicht nötig — wenn Sie aber eine persönliche Beratung wünschen, antworten Sie einfach mit Ihrem Wunschtermin und wir reservieren Ihnen einen Slot.\n\nViele Grüße\n{agentFirstName}\nKundenservice"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "open",
+            "subject": {
+                "en_US": "Reseller partnership inquiry",
+                "de_DE": "Anfrage Händlerpartnerschaft"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear Sir or Madam,\n\nwe run a regional retail business and are interested in carrying your products. Do you offer a reseller program, and what are the requirements and conditions?\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte Damen und Herren,\n\nwir betreiben ein regionales Einzelhandelsgeschäft und sind daran interessiert, Ihre Produkte in unser Sortiment aufzunehmen. Bieten Sie ein Händlerprogramm an, und welche Voraussetzungen und Konditionen gelten?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Dear {customerName},\n\nthank you for your interest! We do offer a reseller program with tiered conditions. I've attached our partner brochure. To move forward, could you tell us a bit about your store — location, sales area, and current assortment?\n\nKind regards,\n{agentFirstName}\nPartner Management",
+                        "de_DE": "Sehr geehrte/r {customerName},\n\nvielen Dank für Ihr Interesse! Wir bieten ein Händlerprogramm mit gestaffelten Konditionen an. Unsere Partnerbroschüre habe ich angehängt. Für die nächsten Schritte: Könnten Sie uns etwas zu Ihrem Geschäft sagen — Standort, Verkaufsfläche und aktuelles Sortiment?\n\nMit freundlichen Grüßen\n{agentFirstName}\nPartnermanagement"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear {agentFirstName},\n\nthanks for the brochure. I'll gather the details you asked for and send them over in the next few days.\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte/r {agentFirstName},\n\ndanke für die Broschüre. Ich stelle die angefragten Informationen zusammen und sende sie Ihnen in den nächsten Tagen zu.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Question about materials and sustainability",
+                "de_DE": "Frage zu Materialien und Nachhaltigkeit"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nbefore ordering I'd like to know more about the materials you use and where your products are manufactured. Do you publish sustainability information or certifications?\n\nThanks,\n{customerName}",
+                        "de_DE": "Hallo,\n\nvor einer Bestellung würde ich gerne mehr über die verwendeten Materialien erfahren und darüber, wo Ihre Produkte gefertigt werden. Veröffentlichen Sie Informationen zur Nachhaltigkeit oder Zertifizierungen?\n\nVielen Dank\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\ngreat question! Detailed material information is listed on every product page under \"Specifications\", and our annual sustainability report — including all certifications — is available in the \"About us\" section of our website. If you have questions about a specific product, I'm happy to look up the details for you.\n\nKind regards,\n{agentFirstName}\nCustomer Service",
+                        "de_DE": "Hallo {customerName},\n\nsehr gute Frage! Detaillierte Materialangaben finden Sie auf jeder Produktseite unter \"Spezifikationen\", und unser jährlicher Nachhaltigkeitsbericht — inklusive aller Zertifizierungen — steht im Bereich \"Über uns\" auf unserer Website. Bei Fragen zu einem konkreten Produkt schaue ich gerne für Sie nach.\n\nViele Grüße\n{agentFirstName}\nKundenservice"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Request for product catalog",
+                "de_DE": "Anfrage Produktkatalog"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\ncould you send me your current product catalog? A PDF version by email is fine.\n\nThank you,\n{customerName}",
+                        "de_DE": "Hallo,\n\nkönnten Sie mir Ihren aktuellen Produktkatalog zusenden? Eine PDF-Version per E-Mail reicht völlig.\n\nVielen Dank\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nwith pleasure — the current catalog is attached as a PDF. If you'd also like a printed copy, just reply with your postal address and we'll send one free of charge.\n\nKind regards,\n{agentFirstName}\nCustomer Service",
+                        "de_DE": "Hallo {customerName},\n\nsehr gerne — der aktuelle Katalog ist als PDF angehängt. Falls Sie zusätzlich ein gedrucktes Exemplar möchten, antworten Sie einfach mit Ihrer Postadresse und wir senden Ihnen kostenlos eines zu.\n\nViele Grüße\n{agentFirstName}\nKundenservice"
+                    }
+                }
+            ]
+        }
+    ]
+}

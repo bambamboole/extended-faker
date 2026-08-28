@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/bambamboole/extended-faker.svg?style=flat-square)](https://packagist.org/packages/bambamboole/extended-faker)
 ![GitHub Actions](https://github.com/bambamboole/extended-faker/actions/workflows/ci.yml/badge.svg)
 
-PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, page, customer, and supplier data. Products are generated from compositional templates (effectively unlimited, trademark-free). Provides 24 categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
+PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with realistic product, category, blog post, page, customer, supplier, and conversation data. Products are generated from compositional templates (effectively unlimited, trademark-free). Provides 24 categories, 12 fixture-backed pages, and **dynamically generates 1000+ unique blog posts** with localized content across English (en_US) and German (de_DE).
 
 ## Features
 
@@ -16,6 +16,7 @@ PHP package extending [FakerPHP/Faker](https://github.com/FakerPHP/Faker) with r
 - **Realistic data**: Synthetic, trademark-free product names, descriptions, categories, and dynamically composed articles
 - **Deterministic generation**: Same seed produces same blog post for reproducible testing
 - **Generative customers & suppliers**: Deterministic private customers, company customers, and suppliers with round-trippable, country-prefixed numbers (DE/US data)
+- **Coherent conversations**: Email-style message threads (support, quote, complaint, general) with localized scripts, linked to a generated customer and product
 - **Units & prices**: Every product carries a structured unit (`2.5 l`, `500-pack`, `25 kg`) and a deterministic price (integer minor units, USD/EUR by locale)
 - **Extensible**: Easy to add new data via JSON template files
 
@@ -95,6 +96,43 @@ $company->contacts;                                  // list<ContactDto>: saluta
 $supplier = $faker->supplier();
 $supplier->paymentTerms;                             // "net 30"
 $supplier->suppliedCategories;                       // ["electronics", "furniture"]
+```
+
+### Conversations
+
+Conversations are coherent email threads between a customer and a support/sales
+agent — the messages reference each other, share one subject, and follow a
+scripted flow (question, answer, follow-up). Each conversation belongs to one
+of four categories (`support`, `quote`, `complaint`, `general`) and is linked
+to a real generated customer (quotes always to a company customer) and, except
+for `general`, to a real generated product mentioned in the messages.
+
+The number encodes country, category, and seed (`CON-DE-Q-16`), so the same
+number always resolves to the identical conversation — same participants,
+timestamps, and flow in every locale, with localized message text.
+
+```php
+use Bambamboole\ExtendedFaker\Dto\ConversationCategory;
+use Bambamboole\ExtendedFaker\ExtendedFaker;
+use Faker\Factory;
+
+$faker = Factory::create('de_DE');
+ExtendedFaker::extend($faker, 'de_DE');
+
+$conversation = $faker->conversation();                       // random ConversationDto
+$conversation = $faker->conversation('quote');                // random quote thread
+$conversation = $faker->conversation(ConversationCategory::Support);
+$conversation = $faker->generateConversation(42);             // deterministic by seed
+$same         = $faker->conversationByNumber($conversation->number);
+$en           = $faker->getConversationInLocale($conversation->number, 'en_US');
+
+$conversation->subject;              // "Angebotsanfrage: 250x Voltari Pulse 7 Pro"
+$conversation->status;               // ConversationStatus enum ('open'|'resolved')
+$conversation->customer;             // PrivateCustomerDto|CompanyCustomerDto
+$conversation->productSku;           // resolvable via $faker->productBySku(...)
+$conversation->messages[0]->role;    // MessageRole enum ('customer'|'agent')
+$conversation->messages[0]->sentAt;  // DateTimeImmutable, chronological
+$conversation->messages[0]->body;    // localized email-style text
 ```
 
 ### Categories
@@ -201,6 +239,12 @@ ExtendedFaker::extend($fakerDe, 'de_DE');
 - `categoryName(?string $identifier = null): string`
 - `category(?string $identifier = null): array`
 
+### Conversation Provider
+- `conversation(ConversationCategory|string|null $identifier = null): ConversationDto`
+- `generateConversation(int $seed, ConversationCategory|string|null $category = null): ConversationDto`
+- `conversationByNumber(string $number): ConversationDto`
+- `getConversationInLocale(string $number, string $locale): ConversationDto`
+
 ### BlogPost Provider
 - `blogPostTitle(?string $identifier = null): string`
 - `blogPostContent(?string $identifier = null): string`
@@ -241,6 +285,11 @@ resources/
 │   ├── about.json
 │   ├── contact.json
 │   └── ...
+├── conversation-templates/
+│   ├── support.json             // Scripted message flows per category,
+│   ├── quote.json               // localized (en_US/de_DE) side by side
+│   ├── complaint.json
+│   └── general.json
 └── blog-templates/
     ├── titles.json              // Title patterns by category
     ├── introductions.json       // Opening paragraph templates
