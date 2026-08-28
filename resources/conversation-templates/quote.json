@@ -1,0 +1,131 @@
+{
+    "scripts": [
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Quote request: {quantity}x {product}",
+                "de_DE": "Angebotsanfrage: {quantity}x {product}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear Sir or Madam,\n\nwe are interested in purchasing {quantity} units of the {product}. Could you send us a quote including delivery to our warehouse?\n\nPlease also state your current lead time.\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte Damen und Herren,\n\nwir sind an der Abnahme von {quantity} Stück des Artikels {product} interessiert. Könnten Sie uns ein Angebot inklusive Lieferung an unser Lager zusenden?\n\nBitte nennen Sie uns auch Ihre aktuelle Lieferzeit.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Dear {customerName},\n\nthank you for your inquiry. Please find attached our quote {orderNumber} for {quantity} units of the {product}, including a volume discount and free delivery. The quote is valid for 30 days; current lead time is 10 business days.\n\nWe look forward to your order.\n\nKind regards,\n{agentFirstName}\nSales Team",
+                        "de_DE": "Sehr geehrte/r {customerName},\n\nvielen Dank für Ihre Anfrage. Anbei erhalten Sie unser Angebot {orderNumber} über {quantity} Stück des Artikels {product}, inklusive Mengenrabatt und kostenfreier Lieferung. Das Angebot ist 30 Tage gültig; die aktuelle Lieferzeit beträgt 10 Werktage.\n\nWir freuen uns auf Ihre Bestellung.\n\nMit freundlichen Grüßen\n{agentFirstName}\nVertriebsteam"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear {agentFirstName},\n\nthe conditions work for us. Please consider this our order confirmation for quote {orderNumber}.\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte/r {agentFirstName},\n\ndie Konditionen passen für uns. Bitte betrachten Sie dies als unsere Auftragsbestätigung zum Angebot {orderNumber}.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Dear {customerName},\n\nthank you for your order! You will receive the order confirmation and expected delivery date in a separate email today.\n\nKind regards,\n{agentFirstName}\nSales Team",
+                        "de_DE": "Sehr geehrte/r {customerName},\n\nvielen Dank für Ihren Auftrag! Sie erhalten die Auftragsbestätigung mit dem voraussichtlichen Liefertermin heute in einer separaten E-Mail.\n\nMit freundlichen Grüßen\n{agentFirstName}\nVertriebsteam"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "open",
+            "subject": {
+                "en_US": "Availability and pricing for {product}",
+                "de_DE": "Verfügbarkeit und Preise für {product}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear Sir or Madam,\n\nfor an upcoming project we need approximately {quantity} units of the {product} by the end of next month. Is that quantity available on this timeline, and what would the unit price be at that volume?\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte Damen und Herren,\n\nfür ein anstehendes Projekt benötigen wir bis Ende nächsten Monats etwa {quantity} Stück des Artikels {product}. Ist diese Menge in dem Zeitraum lieferbar, und wie wäre der Stückpreis bei dieser Abnahmemenge?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Dear {customerName},\n\nthank you for your inquiry. The quantity is generally available. To prepare an accurate quote, could you let me know the delivery address and whether you need staggered deliveries or a single shipment?\n\nKind regards,\n{agentFirstName}\nSales Team",
+                        "de_DE": "Sehr geehrte/r {customerName},\n\nvielen Dank für Ihre Anfrage. Die Menge ist grundsätzlich verfügbar. Für ein genaues Angebot: Könnten Sie mir die Lieferadresse nennen und mitteilen, ob Sie Teillieferungen oder eine Gesamtlieferung benötigen?\n\nMit freundlichen Grüßen\n{agentFirstName}\nVertriebsteam"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Volume discount for recurring orders of {product}",
+                "de_DE": "Mengenrabatt bei regelmäßiger Abnahme von {product}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear Sir or Madam,\n\nwe currently order the {product} several times a year in smaller quantities. If we committed to around {quantity} units annually, what discount could you offer compared to list price?\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte Damen und Herren,\n\nwir bestellen das {product} derzeit mehrmals jährlich in kleineren Mengen. Wenn wir uns auf eine Jahresmenge von rund {quantity} Stück festlegen, welchen Rabatt könnten Sie uns gegenüber dem Listenpreis anbieten?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Dear {customerName},\n\nthank you for your continued business! At an annual volume of {quantity} units we can offer an 8% discount on list price plus free shipping. I've summarized the conditions in quote {orderNumber}, attached.\n\nKind regards,\n{agentFirstName}\nSales Team",
+                        "de_DE": "Sehr geehrte/r {customerName},\n\nvielen Dank für Ihre Treue! Bei einer Jahresmenge von {quantity} Stück können wir Ihnen 8% Rabatt auf den Listenpreis sowie kostenfreien Versand anbieten. Die Konditionen habe ich Ihnen im beigefügten Angebot {orderNumber} zusammengefasst.\n\nMit freundlichen Grüßen\n{agentFirstName}\nVertriebsteam"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear {agentFirstName},\n\nthat sounds fair. We accept the conditions in quote {orderNumber} — please set up the annual agreement accordingly.\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte/r {agentFirstName},\n\ndas klingt fair. Wir nehmen die Konditionen aus Angebot {orderNumber} an — bitte richten Sie die Jahresvereinbarung entsprechend ein.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Dear {customerName},\n\nexcellent! The agreement is set up and applies to all orders starting today. Your account manager will reach out once a year to review the volume.\n\nKind regards,\n{agentFirstName}\nSales Team",
+                        "de_DE": "Sehr geehrte/r {customerName},\n\nsehr gerne! Die Vereinbarung ist eingerichtet und gilt ab sofort für alle Bestellungen. Ihr Ansprechpartner meldet sich einmal jährlich zur Überprüfung der Abnahmemenge.\n\nMit freundlichen Grüßen\n{agentFirstName}\nVertriebsteam"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "open",
+            "subject": {
+                "en_US": "Request for framework agreement",
+                "de_DE": "Anfrage Rahmenvertrag"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear Sir or Madam,\n\nwe are consolidating our suppliers and would like to discuss a framework agreement covering the {product} and related items — estimated total volume of {quantity} units per year.\n\nWho would be the right contact for this?\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte Damen und Herren,\n\nwir konsolidieren derzeit unsere Lieferanten und möchten über einen Rahmenvertrag sprechen, der das {product} und verwandte Artikel umfasst — geschätztes Gesamtvolumen {quantity} Stück pro Jahr.\n\nWer wäre hierfür der richtige Ansprechpartner?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Dear {customerName},\n\nthank you for considering us. Framework agreements are handled by our key account team — I've passed your request on and copied you. Could you already share which items besides the {product} should be included? That speeds up the first draft.\n\nKind regards,\n{agentFirstName}\nSales Team",
+                        "de_DE": "Sehr geehrte/r {customerName},\n\nvielen Dank für Ihr Vertrauen. Rahmenverträge betreut unser Key-Account-Team — ich habe Ihre Anfrage weitergeleitet und Sie in Kopie gesetzt. Könnten Sie vorab mitteilen, welche Artikel neben dem {product} enthalten sein sollen? Das beschleunigt den ersten Entwurf.\n\nMit freundlichen Grüßen\n{agentFirstName}\nVertriebsteam"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Dear {agentFirstName},\n\nthanks for the quick reply. I'll put together the full item list with our purchasing department and send it over by the end of the week.\n\nBest regards,\n{customerName}",
+                        "de_DE": "Sehr geehrte/r {agentFirstName},\n\ndanke für die schnelle Rückmeldung. Ich stelle die vollständige Artikelliste mit unserem Einkauf zusammen und sende sie Ihnen bis Ende der Woche zu.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                }
+            ]
+        }
+    ]
+}

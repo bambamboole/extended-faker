@@ -1,0 +1,154 @@
+{
+    "scripts": [
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Help setting up {product}",
+                "de_DE": "Hilfe bei der Einrichtung von {product}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nI recently purchased the {product} and I'm having trouble setting it up. The quick start guide mentions an initial configuration step, but the device doesn't respond as described.\n\nCould you walk me through the correct procedure?\n\nBest regards,\n{customerName}",
+                        "de_DE": "Hallo,\n\nich habe kürzlich das Produkt {product} gekauft und habe Probleme bei der Einrichtung. Die Kurzanleitung erwähnt einen ersten Konfigurationsschritt, aber das Gerät reagiert nicht wie beschrieben.\n\nKönnten Sie mir das korrekte Vorgehen erklären?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nThank you for reaching out. This usually happens when the device hasn't been reset before the first configuration. Please hold the reset button for 10 seconds until the indicator blinks, then restart the setup.\n\nLet me know if that solves it.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\nvielen Dank für Ihre Nachricht. Das passiert meist, wenn das Gerät vor der ersten Konfiguration nicht zurückgesetzt wurde. Bitte halten Sie die Reset-Taste 10 Sekunden gedrückt, bis die Anzeige blinkt, und starten Sie die Einrichtung erneut.\n\nGeben Sie mir gerne Bescheid, ob das Problem damit gelöst ist.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hi {agentFirstName},\n\nthat did the trick — everything is working now. Thanks for the quick help!\n\nBest,\n{customerName}",
+                        "de_DE": "Hallo {agentFirstName},\n\ndas war die Lösung — jetzt funktioniert alles. Danke für die schnelle Hilfe!\n\nViele Grüße\n{customerName}"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "{product} stopped working",
+                "de_DE": "{product} funktioniert nicht mehr"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nmy {product} worked fine for a few weeks, but since yesterday it won't turn on at all. I already checked the power connection and tried a different outlet.\n\nWhat else can I try?\n\nRegards,\n{customerName}",
+                        "de_DE": "Hallo,\n\nmein {product} hat einige Wochen einwandfrei funktioniert, aber seit gestern lässt es sich gar nicht mehr einschalten. Den Stromanschluss habe ich bereits geprüft und eine andere Steckdose ausprobiert.\n\nWas kann ich noch versuchen?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nsorry to hear that. Could you please tell me whether any indicator lights come on when you connect the device, and send me the serial number from the label on the back? That helps us narrow down the cause.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\ndas tut mir leid. Könnten Sie mir bitte mitteilen, ob beim Anschließen irgendwelche Kontrollleuchten angehen, und mir die Seriennummer vom Etikett auf der Rückseite schicken? Das hilft uns, die Ursache einzugrenzen.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hi {agentFirstName},\n\nno lights at all. The serial number is on order {orderNumber}, I attached a photo of the label.\n\nBest,\n{customerName}",
+                        "de_DE": "Hallo {agentFirstName},\n\nes leuchtet gar nichts. Die Seriennummer finden Sie zur Bestellung {orderNumber}, ein Foto vom Etikett habe ich angehängt.\n\nViele Grüße\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nthank you. Based on the symptoms this is a known power-supply defect, which is covered by warranty. We will ship a replacement unit for your order {orderNumber} today — you should receive it within 2-3 business days, together with a return label for the defective device.\n\nApologies for the inconvenience!\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\nvielen Dank. Nach den Symptomen handelt es sich um einen bekannten Netzteildefekt, der von der Garantie abgedeckt ist. Wir versenden noch heute ein Ersatzgerät zu Ihrer Bestellung {orderNumber} — es sollte innerhalb von 2-3 Werktagen bei Ihnen sein, zusammen mit einem Rücksendeetikett für das defekte Gerät.\n\nEntschuldigen Sie die Unannehmlichkeiten!\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "open",
+            "subject": {
+                "en_US": "Compatibility question about {product}",
+                "de_DE": "Kompatibilitätsfrage zu {product}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nbefore I place an order: is the {product} compatible with the accessories from your previous product line? I still have several attachments I'd like to keep using.\n\nThanks in advance,\n{customerName}",
+                        "de_DE": "Hallo,\n\nbevor ich bestelle: Ist das {product} mit dem Zubehör Ihrer vorherigen Produktlinie kompatibel? Ich habe noch mehrere Aufsätze, die ich gerne weiterverwenden würde.\n\nVielen Dank im Voraus\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nthanks for asking! That depends on which accessories you have. Could you send me the model numbers? Most attachments from the last two generations fit, but there are a few exceptions I'd like to rule out.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\ndanke für Ihre Anfrage! Das hängt davon ab, welches Zubehör Sie besitzen. Könnten Sie mir die Modellnummern schicken? Die meisten Aufsätze der letzten beiden Generationen passen, aber es gibt ein paar Ausnahmen, die ich gerne ausschließen möchte.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Missing item in order {orderNumber}",
+                "de_DE": "Fehlender Artikel in Bestellung {orderNumber}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nmy order {orderNumber} arrived today, but the {product} listed on the packing slip was not in the box. Everything else was included.\n\nCan you check what happened?\n\nRegards,\n{customerName}",
+                        "de_DE": "Hallo,\n\nmeine Bestellung {orderNumber} ist heute angekommen, aber das auf dem Lieferschein aufgeführte {product} war nicht im Paket. Alles andere war enthalten.\n\nKönnen Sie prüfen, was passiert ist?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nI'm sorry about that! I checked with our warehouse — the item was accidentally left out during packing. We are shipping the missing {product} today at no extra cost.\n\nYou'll receive a tracking number shortly.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\ndas tut mir leid! Ich habe mit unserem Lager Rücksprache gehalten — der Artikel wurde beim Packen versehentlich vergessen. Wir versenden das fehlende {product} noch heute ohne zusätzliche Kosten.\n\nSie erhalten in Kürze eine Sendungsverfolgungsnummer.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hi {agentFirstName},\n\nthe missing item arrived today. Thanks for sorting it out so quickly!\n\nBest,\n{customerName}",
+                        "de_DE": "Hallo {agentFirstName},\n\nder fehlende Artikel ist heute angekommen. Danke, dass Sie das so schnell geklärt haben!\n\nViele Grüße\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nglad to hear it! If there's anything else, just reply to this message.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\ndas freut mich! Falls es noch etwas gibt, antworten Sie einfach auf diese Nachricht.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "open",
+            "subject": {
+                "en_US": "Invoice copy for order {orderNumber}",
+                "de_DE": "Rechnungskopie zu Bestellung {orderNumber}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\ncould you send me a copy of the invoice for order {orderNumber}? I can't find the original email and need it for my records.\n\nThank you,\n{customerName}",
+                        "de_DE": "Hallo,\n\nkönnten Sie mir eine Kopie der Rechnung zur Bestellung {orderNumber} zusenden? Ich finde die ursprüngliche E-Mail nicht mehr und benötige sie für meine Unterlagen.\n\nVielen Dank\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nof course. I've forwarded your request to our billing team — they will send the invoice copy to this email address within one business day.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\nselbstverständlich. Ich habe Ihre Anfrage an unsere Buchhaltung weitergeleitet — Sie erhalten die Rechnungskopie innerhalb eines Werktags an diese E-Mail-Adresse.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                }
+            ]
+        }
+    ]
+}

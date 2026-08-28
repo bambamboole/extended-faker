@@ -19,6 +19,7 @@ class ExtendedFaker
             $faker->addProvider(new Providers\de_DE\PrivateCustomer($faker));
             $faker->addProvider(new Providers\de_DE\CompanyCustomer($faker));
             $faker->addProvider(new Providers\de_DE\Supplier($faker));
+            $faker->addProvider(new Providers\de_DE\Conversation($faker));
         } else {
             $faker->addProvider(new Providers\en_US\Product($faker));
             $faker->addProvider(new Providers\en_US\Category($faker));
@@ -27,6 +28,7 @@ class ExtendedFaker
             $faker->addProvider(new Providers\en_US\PrivateCustomer($faker));
             $faker->addProvider(new Providers\en_US\CompanyCustomer($faker));
             $faker->addProvider(new Providers\en_US\Supplier($faker));
+            $faker->addProvider(new Providers\en_US\Conversation($faker));
         }
     }
 }

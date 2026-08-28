@@ -1,0 +1,131 @@
+{
+    "scripts": [
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Damaged delivery — order {orderNumber}",
+                "de_DE": "Beschädigte Lieferung — Bestellung {orderNumber}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nthe {product} from order {orderNumber} arrived today with visible damage — the packaging was crushed and the housing is cracked. I've attached photos.\n\nI'd like a replacement as soon as possible.\n\nRegards,\n{customerName}",
+                        "de_DE": "Hallo,\n\ndas {product} aus Bestellung {orderNumber} ist heute mit sichtbaren Schäden angekommen — die Verpackung war eingedrückt und das Gehäuse ist gerissen. Fotos habe ich angehängt.\n\nIch bitte um schnellstmöglichen Ersatz.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nI'm very sorry about the damaged delivery. The photos are sufficient — no need to return the damaged unit. We are shipping a replacement {product} today with priority delivery.\n\nApologies again for the trouble.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\ndie beschädigte Lieferung tut mir sehr leid. Die Fotos genügen — Sie müssen das beschädigte Gerät nicht zurücksenden. Wir versenden heute ein Ersatzgerät ({product}) per Expresslieferung.\n\nNochmals Entschuldigung für die Umstände.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hi {agentFirstName},\n\nthe replacement arrived undamaged and works perfectly. Thank you for the uncomplicated handling.\n\nBest,\n{customerName}",
+                        "de_DE": "Hallo {agentFirstName},\n\nder Ersatz ist unbeschädigt angekommen und funktioniert einwandfrei. Danke für die unkomplizierte Abwicklung.\n\nViele Grüße\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nthat's great to hear. Thanks for your patience — we've closed the case.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\ndas freut mich zu hören. Danke für Ihre Geduld — wir haben den Vorgang abgeschlossen.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Wrong item delivered — order {orderNumber}",
+                "de_DE": "Falscher Artikel geliefert — Bestellung {orderNumber}"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nI ordered the {product} (order {orderNumber}), but received a completely different item. Please arrange for the correct product to be sent and let me know how to return the wrong one.\n\nRegards,\n{customerName}",
+                        "de_DE": "Hallo,\n\nich habe das {product} bestellt (Bestellung {orderNumber}), aber einen völlig anderen Artikel erhalten. Bitte veranlassen Sie den Versand des richtigen Produkts und teilen Sie mir mit, wie ich den falschen Artikel zurücksenden kann.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nI apologize for the mix-up in our warehouse. The correct {product} ships today, and I've attached a prepaid return label for the wrong item — just drop it off at any parcel shop.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\nich entschuldige mich für die Verwechslung in unserem Lager. Das richtige {product} geht heute in den Versand, und ich habe ein vorfrankiertes Rücksendeetikett für den falschen Artikel angehängt — geben Sie ihn einfach in einem Paketshop ab.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hi {agentFirstName},\n\nthe correct item has arrived and the wrong one is on its way back. Thanks for resolving this quickly.\n\nBest,\n{customerName}",
+                        "de_DE": "Hallo {agentFirstName},\n\nder richtige Artikel ist angekommen und der falsche ist auf dem Rückweg. Danke für die schnelle Klärung.\n\nViele Grüße\n{customerName}"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "open",
+            "subject": {
+                "en_US": "Quality issue with {product} — requesting refund",
+                "de_DE": "Qualitätsmangel bei {product} — Bitte um Erstattung"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\nI'm disappointed with the {product} from order {orderNumber}. After only two weeks of normal use the finish is peeling and one of the fasteners broke. This doesn't match the quality advertised.\n\nI'd like to return the item for a full refund.\n\nRegards,\n{customerName}",
+                        "de_DE": "Hallo,\n\nich bin vom {product} aus Bestellung {orderNumber} enttäuscht. Nach nur zwei Wochen normaler Nutzung löst sich die Beschichtung und eine der Befestigungen ist gebrochen. Das entspricht nicht der beworbenen Qualität.\n\nIch möchte den Artikel zurückgeben und bitte um vollständige Erstattung.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nthank you for the detailed description, and I'm sorry the product didn't meet your expectations. I've escalated the case to our quality team for review. Could you send two or three photos of the affected areas? We'll get back to you with a decision within two business days.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\nvielen Dank für die ausführliche Beschreibung, und es tut mir leid, dass das Produkt Ihre Erwartungen nicht erfüllt hat. Ich habe den Fall zur Prüfung an unser Qualitätsteam weitergegeben. Könnten Sie zwei bis drei Fotos der betroffenen Stellen senden? Wir melden uns innerhalb von zwei Werktagen mit einer Entscheidung.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hi {agentFirstName},\n\nphotos are attached. I'd appreciate a quick decision.\n\nRegards,\n{customerName}",
+                        "de_DE": "Hallo {agentFirstName},\n\ndie Fotos sind angehängt. Über eine schnelle Entscheidung würde ich mich freuen.\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                }
+            ]
+        },
+        {
+            "status": "resolved",
+            "subject": {
+                "en_US": "Order {orderNumber} still not delivered",
+                "de_DE": "Bestellung {orderNumber} immer noch nicht geliefert"
+            },
+            "messages": [
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hello,\n\norder {orderNumber} was supposed to arrive over a week ago, but the tracking hasn't updated in days. I needed the {product} for a specific date, which has now passed.\n\nWhat happened, and what do you propose?\n\nRegards,\n{customerName}",
+                        "de_DE": "Hallo,\n\nBestellung {orderNumber} sollte vor über einer Woche ankommen, aber die Sendungsverfolgung wurde seit Tagen nicht aktualisiert. Ich habe das {product} für einen festen Termin gebraucht, der inzwischen verstrichen ist.\n\nWas ist passiert, und was schlagen Sie vor?\n\nMit freundlichen Grüßen\n{customerName}"
+                    }
+                },
+                {
+                    "role": "agent",
+                    "body": {
+                        "en_US": "Hello {customerName},\n\nI'm sorry for the delay — the parcel was misrouted by the carrier and is now confirmed lost. We are shipping a new {product} today with express delivery, and as an apology we've added a 15% voucher for your next order to your account.\n\nKind regards,\n{agentFirstName}\nCustomer Support",
+                        "de_DE": "Hallo {customerName},\n\nentschuldigen Sie die Verzögerung — das Paket wurde vom Versanddienstleister fehlgeleitet und gilt inzwischen als verloren. Wir versenden heute ein neues {product} per Express, und als Entschuldigung haben wir Ihrem Konto einen 15%-Gutschein für die nächste Bestellung gutgeschrieben.\n\nViele Grüße\n{agentFirstName}\nKundensupport"
+                    }
+                },
+                {
+                    "role": "customer",
+                    "body": {
+                        "en_US": "Hi {agentFirstName},\n\nthe express delivery arrived the next day — thank you for the quick solution and the voucher.\n\nBest,\n{customerName}",
+                        "de_DE": "Hallo {agentFirstName},\n\ndie Expresslieferung kam schon am nächsten Tag an — danke für die schnelle Lösung und den Gutschein.\n\nViele Grüße\n{customerName}"
+                    }
+                }
+            ]
+        }
+    ]
+}
