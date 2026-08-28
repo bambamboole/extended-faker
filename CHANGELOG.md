@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.12.0](https://github.com/bambamboole/extended-faker/compare/0.11.0...0.12.0) (2026-08-28)
+
+
+### Features
+
+* add conversation dummy data with scripted message threads ([0837792](https://github.com/bambamboole/extended-faker/commit/083779233b4be12d1555ae8fed9f7e73e435bf06))
+* add conversation dummy data with scripted message threads ([8038838](https://github.com/bambamboole/extended-faker/commit/8038838ce39c877636d5c48961822ef4ba6e5660))
+
 ## [0.11.0](https://github.com/bambamboole/extended-faker/compare/0.10.0...0.11.0) (2026-08-01)
 
 
